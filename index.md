@@ -8,49 +8,50 @@ classes: wide
 ---
 
 <style>
-/* Terminal Hero */
-.terminal-hero {
+/* Terminal Hero - Horizontal Layout */
+.terminal-hero-horizontal {
   background: #000000;
   border: 2px solid #ff66c4;
   border-radius: 12px;
   padding: 3rem;
-  margin: 2rem auto;
-  max-width: 1200px; /* WIDER */
+  margin: 2rem auto 3rem auto;
+  max-width: 1200px;
   font-family: 'Courier New', 'Fira Code', monospace;
   box-shadow: 0 0 30px rgba(255, 102, 196, 0.5);
   color: #00ff88;
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 3rem;
+  align-items: center;
 }
 
-.terminal-avatar {
-  text-align: center;
-  margin-bottom: 2rem;
-}
-
-.terminal-avatar img {
-  width: 280px; /* BIGGER */
-  height: 280px;
+.terminal-left img {
+  width: 100%;
+  height: auto;
   border-radius: 50%;
   border: 4px solid #ff66c4;
   box-shadow: 0 0 30px rgba(255, 102, 196, 0.7);
 }
 
+.terminal-right {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
 .terminal-prompt {
   color: #00ff88;
   font-weight: bold;
+  margin-right: 0.5rem;
 }
 
 .terminal-output {
   color: #ff9ce4;
-  margin-left: 1rem;
-  line-height: 1.6; /* TIGHTER LINE HEIGHT */
 }
 
 .terminal-line {
-  margin-bottom: 0.5rem; /* COMPACT SPACING */
-}
-
-.terminal-section {
-  margin-bottom: 1.5rem; /* SPACE BETWEEN SECTIONS */
+  margin: 0;
+  line-height: 1.6;
 }
 
 .terminal-link {
@@ -64,6 +65,19 @@ classes: wide
   border-bottom-color: #ffb3ff;
 }
 
+@media (max-width: 768px) {
+  .terminal-hero-horizontal {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding: 2rem;
+  }
+  
+  .terminal-left img {
+    max-width: 200px;
+    margin: 0 auto;
+    display: block;
+  }
+}
 /* Portfolio Cards */
 .portfolio-cards {
   display: grid;
