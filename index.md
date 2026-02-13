@@ -1,6 +1,5 @@
 ---
 layout: splash
-title: "Tate Pannam - SOC Analyst"
 header:
   overlay_color: "#000000"
   overlay_filter: "0.5"
