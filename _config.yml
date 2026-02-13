@@ -2,8 +2,9 @@
 title: "Tate Pannam - SOC Analyst"
 name: "Tate Pannam"
 description: "Blue Team Operations & Security Analysis"
-url: "https://yourusername.github.io"
-baseurl: "/portfolio-test"
+# CRITICAL: Set these for custom domain subdirectory
+url: "https://inksec.io"
+baseurl: "/portfolio-v2"
 
 # Remote theme (no forking needed)
 remote_theme: "mmistakes/minimal-mistakes@4.26.2"
