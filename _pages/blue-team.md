@@ -6,7 +6,7 @@ classes: wide
 header:
   overlay_color: "#000000"
   overlay_filter: "0.5"
-------
+---
 <!-- Hero Section -->
 <div class="blue-team-hero">
   <div class="hero-icon">🛡️</div>
