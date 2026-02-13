@@ -1,5 +1,4 @@
 ---
----
 layout: splash
 title: " "  # Blank title
 permalink: /blue-team/
@@ -8,41 +7,6 @@ header:
   overlay_color: "#000000"
   overlay_filter: "0.5"
 ------
-<style>
-.page__title {
-  display: none !important;
-}
-
-.btl1-labs-grid {
-  display: grid !important;
-  grid-template-columns: repeat(3, 1fr) !important;
-  gap: 2rem !important;
-  max-width: 1400px !important;
-  margin: 2rem auto !important;
-  padding: 0 1rem !important;
-}
-
-.btl1-thumbnail {
-  width: 100% !important;
-  height: auto !important;
-  max-height: 200px !important;
-  border-radius: 8px !important;
-  overflow: hidden !important;
-  margin-bottom: 1rem !important;
-  border: 2px solid #ff66c4 !important;
-  background: #000 !important;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-}
-
-.btl1-thumbnail img {
-  width: 100% !important;
-  height: auto !important;
-  max-height: 200px !important;
-  object-fit: contain !important;
-}
-</style>
 <!-- Hero Section -->
 <div class="blue-team-hero">
   <div class="hero-icon">🛡️</div>
