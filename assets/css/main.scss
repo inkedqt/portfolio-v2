@@ -1099,20 +1099,21 @@ pre code {
     color: #888;
   }
   
-  .btl1-thumbnail {
+.btl1-thumbnail {
+  width: 100%;
+  height: 200px;              /* ADD THIS */
+  /* Remove or comment out: aspect-ratio: 16/9; */
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 1rem;
+  border: 2px solid #ff66c4;
+  
+  img {
     width: 100%;
-    aspect-ratio: 16/9;
-    border-radius: 8px;
-    overflow: hidden;
-    margin-bottom: 1rem;
-    border: 2px solid #ff66c4;
-    
-    img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-    
+    height: 100%;
+    object-fit: cover;         /* MAKE SURE THIS IS HERE */
+  }
+}    
     .placeholder-thumb {
       width: 100%;
       height: 100%;
