@@ -1,6 +1,6 @@
 ---
 layout: splash
-title: "Blue Team Operations"
+title: ""
 permalink: /blue-team/
 header:
   overlay_color: "#000000"
