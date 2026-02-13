@@ -195,34 +195,24 @@ classes: wide
   }
 }
 </style>
-
 <!-- Terminal Hero -->
-<!-- Terminal Hero -->
-<div class="terminal-hero">
-  <div class="terminal-avatar">
+<div class="terminal-hero-horizontal">
+  <div class="terminal-left">
     <img src="https://raw.githubusercontent.com/inkedqt/ctf-writeups/main/assets/tate-banner.png" alt="Tate Pannam Avatar">
   </div>
   
-  <div class="terminal-content">
-    <div class="terminal-section">
-      <p class="terminal-line"><span class="terminal-prompt">$</span> <span class="terminal-output">whoami</span></p>
-      <p class="terminal-line terminal-output">Tate Pannam</p>
-    </div>
+  <div class="terminal-right">
+    <p class="terminal-line"><span class="terminal-prompt">$</span> <span class="terminal-output">whoami</span></p>
+    <p class="terminal-line terminal-output">Tate Pannam</p>
     
-    <div class="terminal-section">
-      <p class="terminal-line"><span class="terminal-prompt">$</span> <span class="terminal-output">cat ~/role.txt</span></p>
-      <p class="terminal-line terminal-output">SOC Analyst | Blue Team Operations | Melbourne, Australia</p>
-    </div>
+    <p class="terminal-line"><span class="terminal-prompt">$</span> <span class="terminal-output">cat ~/role.txt</span></p>
+    <p class="terminal-line terminal-output">SOC Analyst | Blue Team Operations | Melbourne, Australia</p>
     
-    <div class="terminal-section">
-      <p class="terminal-line"><span class="terminal-prompt">$</span> <span class="terminal-output">ls ~/portfolio</span></p>
-      <p class="terminal-line terminal-output">🛡️ blue-team/  ⚔️ red-team/  📜 certifications/</p>
-    </div>
+    <p class="terminal-line"><span class="terminal-prompt">$</span> <span class="terminal-output">ls ~/portfolio</span></p>
+    <p class="terminal-line terminal-output">🛡️ blue-team/  ⚔️ red-team/  📜 certifications/</p>
     
-    <div class="terminal-section">
-      <p class="terminal-line"><span class="terminal-prompt">$</span> <span class="terminal-output">cat ~/experience.txt</span></p>
-      <p class="terminal-line terminal-output">80+ documented investigations  |  <a href="https://app.letsdefend.io/user/inkedqt" target="_blank" class="terminal-link">LetsDefend Profile →</a></p>
-    </div>
+    <p class="terminal-line"><span class="terminal-prompt">$</span> <span class="terminal-output">cat ~/experience.txt</span></p>
+    <p class="terminal-line terminal-output">80+ documented investigations  |  <a href="https://app.letsdefend.io/user/inkedqt" target="_blank" class="terminal-link">LetsDefend Profile →</a></p>
   </div>
 </div>
 <!-- Portfolio Cards -->
