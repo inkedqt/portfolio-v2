@@ -1193,7 +1193,7 @@ pre code {
 .table-wrapper {
   overflow-x: auto;
   margin: 2rem auto;
-  max-width: 1400px;
+  max-width: 1200px;
   padding: 0; /* ← CHANGED: Removed padding to prevent overflow */
   border-radius: 8px;
 }
@@ -1201,6 +1201,8 @@ pre code {
 /* HTB Table Styles */
 .htb-table {
   width: 100%;
+  max-width: 1200px;     /* ← ADD THIS - table itself has max-width */
+  margin: 0 auto; 
   border-collapse: collapse;
   background: #1a1a1a;
   border-radius: 8px;
@@ -1227,7 +1229,7 @@ pre code {
       &:nth-child(3) { width: 7%; text-align: center; } /* Status */
       &:nth-child(4) { width: 8%; text-align: center; } /* Proof */
       &:nth-child(5) { width: 7%; text-align: center; } /* Writeup */
-      &:nth-child(6) { width: 58%; } /* Summary - MOST SPACE */
+      &:nth-child(6) { width: 40%; } /* Summary - MOST SPACE */
       &:nth-child(7) { width: 3%; } /* Tags */
     }
   }
@@ -1279,8 +1281,12 @@ pre code {
       }
       
       &:nth-child(6) { 
-        width: 58%; 
-        white-space: normal; 
+        width: 40%;
+  	min-width: 250px;            /* ← ADD FROM OLD SITE */
+  	max-width: 600px; 
+        text-align: left;
+  	vertical-align: top;
+	white-space: normal; 
         word-wrap: break-word;
         overflow-wrap: break-word;
         line-height: 1.65;
