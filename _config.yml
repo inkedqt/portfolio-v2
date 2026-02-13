@@ -1,6 +1,9 @@
 # Site settings
-title: "Tate Pannam - SOC Analyst"
-name: "Tate Pannam"
+#title: "Tate Pannam - SOC Analyst"
+#name: "Tate Pannam"
+# Disable auto title generation
+title: ""
+masthead_title: ""
 description: "Blue Team Operations & Security Analysis"
 # CRITICAL: Set these for custom domain subdirectory
 url: "https://inksec.io"

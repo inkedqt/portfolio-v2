@@ -3,80 +3,32 @@ layout: splash
 header:
   overlay_color: "#000000"
   overlay_filter: "0.5"
+title: " " # Empty title to suppress header
 classes: wide
 ---
 
 <style>
-/* Terminal Hero - Horizontal Layout */
-.terminal-hero-horizontal {
-  background: #000000;
-  border: 2px solid #ff66c4;
-  border-radius: 12px;
-  padding: 3rem;
-  margin: 2rem auto 3rem auto;
-  max-width: 1200px;
-  font-family: 'Courier New', 'Fira Code', monospace;
-  box-shadow: 0 0 30px rgba(255, 102, 196, 0.5);
-  color: #00ff88;
-  display: grid;
-  grid-template-columns: 320px 1fr;
-  gap: 3rem;
-  align-items: center;
-}
+<!-- Hero Banner -->
+<div class="hero-banner-full">
+  <img src="https://raw.githubusercontent.com/inkedqt/ctf-writeups/main/assets/tate-banner.png" alt="Tate Pannam - SOC Analyst">
+  <div class="hero-overlay">
+    <h1>Tate Pannam</h1>
+    <p class="hero-subtitle">SOC Analyst | Blue Team Operations | Melbourne, Australia</p>
+    <div class="hero-stats">
+      <span>🛡️ 80+ Documented Investigations</span>
+      <span>📜 10+ Security Certifications</span>
+      <span>🔬 Splunk SIEM Lab</span>
+    </div>
+    <a href="https://app.letsdefend.io/user/inkedqt" target="_blank" class="btn-hero">View LetsDefend Profile →</a>
+  </div>
+</div>
 
-.terminal-left img {
-  width: 100%;
-  height: auto;
-  border-radius: 50%;
-  border: 4px solid #ff66c4;
-  box-shadow: 0 0 30px rgba(255, 102, 196, 0.7);
-}
+<!-- Terminal Quick Nav (Optional - Smaller) -->
+<div class="terminal-quicknav">
+  <p><span class="terminal-prompt">$</span> <span class="terminal-output">ls ~/portfolio</span></p>
+  <p class="terminal-output">🛡️ <a href="/portfolio-v2/blue-team/">blue-team/</a>  ⚔️ <a href="/portfolio-v2/red-team/">red-team/</a>  📜 certifications/</p>
+</div>
 
-.terminal-right {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-
-.terminal-prompt {
-  color: #00ff88;
-  font-weight: bold;
-  margin-right: 0.5rem;
-}
-
-.terminal-output {
-  color: #ff9ce4;
-}
-
-.terminal-line {
-  margin: 0;
-  line-height: 1.6;
-}
-
-.terminal-link {
-  color: #00d9ff;
-  text-decoration: none;
-  border-bottom: 1px dotted #00d9ff;
-}
-
-.terminal-link:hover {
-  color: #ffb3ff;
-  border-bottom-color: #ffb3ff;
-}
-
-@media (max-width: 768px) {
-  .terminal-hero-horizontal {
-    grid-template-columns: 1fr;
-    gap: 2rem;
-    padding: 2rem;
-  }
-  
-  .terminal-left img {
-    max-width: 200px;
-    margin: 0 auto;
-    display: block;
-  }
-}
 /* Portfolio Cards */
 .portfolio-cards {
   display: grid;
