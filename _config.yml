@@ -19,7 +19,8 @@ plugins:
   - jekyll-paginate
   - jekyll-sitemap
   - jekyll-feed
-
+include:
+  - _pages  
 # Collections
 collections:
   investigations:
