@@ -92,6 +92,59 @@ classes: wide
     <a href="https://www.youtube.com/playlist?list=PL4gQknB3vSQ5G7likpYieGzLbhVcCO4hN" target="_blank" class="btn-youtube">Watch Playlist →</a>
   </div>
 </div>
+<!-- BTL1 Certification Labs -->
+<h2 class="section-heading">🎓 BTL1 Certification Labs</h2>
+
+<p class="section-intro">Hands-on labs from Security Blue Team's Blue Team Level 1 certification path. Each lab covers real-world defensive security scenarios with practical analysis and reporting.</p>
+
+<div class="btl1-labs-grid">
+  <!-- Lab 1: Piggy -->
+  <div class="btl1-lab-card completed">
+    <a href="{{ site.baseurl }}/blue-team/piggy/" class="lab-card-link">
+      <div class="btl1-badge">✓ COMPLETED</div>
+      <div class="btl1-thumbnail">
+        <img src="{{ site.baseurl }}/assets/images/labs/btl1/piggy-hero.png" alt="Piggy - PCAP Analysis Lab">
+      </div>
+      <h3>Piggy</h3>
+      <p class="lab-category">PCAP Analysis • Wireshark • Network Forensics</p>
+      <p class="lab-description">Multi-PCAP investigation covering SSH data exfiltration, malware infrastructure identification, and MITRE ATT&CK mapping.</p>
+      <div class="lab-tags">
+        <span class="tag">Wireshark</span>
+        <span class="tag">OSINT</span>
+        <span class="tag">BTL1</span>
+      </div>
+      <div class="lab-cta">View Investigation →</div>
+    </a>
+  </div>
+
+  <!-- Lab 2-9: Locked/Upcoming -->
+  <div class="btl1-lab-card locked">
+    <div class="btl1-badge">🔒 UPCOMING</div>
+    <div class="btl1-thumbnail">
+      <div class="placeholder-thumb">Lab 2</div>
+    </div>
+    <h3>Upcoming Lab</h3>
+    <p class="lab-category">TBD</p>
+    <p class="lab-description">Additional BTL1 labs will be documented here as they are completed.</p>
+  </div>
+
+  <div class="btl1-lab-card locked">
+    <div class="btl1-badge">🔒 UPCOMING</div>
+    <div class="btl1-thumbnail">
+      <div class="placeholder-thumb">Lab 3</div>
+    </div>
+    <h3>Upcoming Lab</h3>
+    <p class="lab-category">TBD</p>
+    <p class="lab-description">Additional BTL1 labs will be documented here as they are completed.</p>
+  </div>
+</div>
+
+<div class="btl1-progress">
+  <div class="progress-bar">
+    <div class="progress-fill" style="width: 11%;"></div>
+  </div>
+  <p class="progress-text">1 of 9 BTL1 labs completed (11%)</p>
+</div>
 
 <!-- Investigation Documentation -->
 <h2 class="section-heading">📊 Investigation Documentation</h2>
