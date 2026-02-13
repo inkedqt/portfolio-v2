@@ -39,7 +39,7 @@ classes: wide
       <li>Incident response workflows</li>
       <li>MITRE ATT&CK mapping</li>
     </ul>
-    <a href="/portfolio-v2/blue-team/" class="btn-portfolio">View Portfolio →</a>
+    <a href="/portfolio-v2/_pages/blue-team.md" class="btn-portfolio">View Portfolio →</a>
   </div>
   
   <!-- Red Team Card -->
@@ -53,7 +53,7 @@ classes: wide
       <li>50+ retired boxes solved</li>
       <li>Web & network exploitation</li>
     </ul>
-    <a href="/portfolio-v2/red-team/" class="btn-portfolio">View Work →</a>
+    <a href="/portfolio-v2/_pages/red-team.md" class="btn-portfolio">View Work →</a>
   </div>
 </div>
 
