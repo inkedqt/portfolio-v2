@@ -209,49 +209,8 @@ pre code {
   border: 2px solid #ff66c4 !important;
 }
 
-/* === CUSTOM CLASSES === */
-.terminal-hero {
-  background: #000000;
-  border: 2px solid #ff66c4;
-  border-radius: 12px;
-  padding: 2rem;
-  margin: 2rem auto;
-  max-width: 800px;
-  font-family: 'Courier New', monospace;
-  box-shadow: 0 0 20px rgba(255, 102, 196, 0.4);
-}
-
-.cert-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 1rem;
-  margin: 2rem auto;
-  width: 100%;
-}
-
-.cert-card {
-  background-color: #1a1a1a;
-  border: 2px solid #ff66c4;
-  border-radius: 1rem;
-  padding: 1rem;
-  text-align: center;
-  box-shadow: 0 0 16px #ff66c4;
-  transition: transform .3s ease;
-  
-  &:hover {
-    transform: scale(1.05);
-  }
-}
-
-.cert-img {
-  width: 100%;
-  max-height: 180px;
-  object-fit: contain;
-  margin-bottom: 1rem;
-  border-radius: 0.5rem;
-}
 /* ============================================
-   PORTFOLIO V2 CUSTOM STYLES
+   PORTFOLIO V2 - LANDING PAGE
    ============================================ */
 
 /* Hero Banner - Full Width Impact */
@@ -511,33 +470,8 @@ pre code {
   }
 }
 
-/* Mobile Responsive */
-@media (max-width: 900px) {
-  .portfolio-cards {
-    grid-template-columns: 1fr;
-  }
-  
-  .hero-overlay h1 {
-    font-size: 2rem;
-  }
-  
-  .hero-subtitle {
-    font-size: 1rem;
-  }
-  
-  .hero-stats {
-    flex-direction: column;
-    gap: 0.75rem;
-  }
-}
-
-@media (max-width: 768px) {
-  .cert-grid {
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  }
-}
 /* ============================================
-   BLUE TEAM PAGE STYLES
+   BLUE TEAM PAGE
    ============================================ */
 
 /* Blue Team Hero */
@@ -588,6 +522,15 @@ pre code {
   max-width: 600px;
   margin-left: auto;
   margin-right: auto;
+}
+
+.section-intro {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 2rem auto;
+  color: #f4c4eb;
+  font-size: 1.1rem;
+  line-height: 1.6;
 }
 
 /* Achievement Cards */
@@ -692,91 +635,6 @@ pre code {
   border-radius: 12px;
   padding: 1.5rem;
   box-shadow: 0 0 20px rgba(255, 102, 196, 0.3);
-  transition: transform 0.3s ease;
-  
-  &:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 0 30px rgba(255, 102, 196, 0.5);
-  }
-  
-  .youtube-thumbnail {
-    position: relative;
-    border-radius: 8px;
-    overflow: hidden;
-    margin-bottom: 1rem;
-    background: #000;
-    aspect-ratio: 16/9;
-    
-    img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-    
-    .play-overlay {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      font-size: 4rem;
-      color: rgba(255, 255, 255, 0.9);
-      text-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
-    }
-  }
-  
-  h3 {
-    color: #ff90d6;
-    margin-bottom: 0.75rem;
-  }
-  
-  p {
-    color: #f4c4eb;
-    line-height: 1.6;
-    margin-bottom: 1rem;
-  }
-  
-  .playlist-stats {
-    display: flex;
-    gap: 1.5rem;
-    margin-bottom: 1rem;
-    font-size: 0.9rem;
-    color: #00d9ff;
-  }
-}
-
-.btn-youtube {
-  display: inline-block;
-  background: linear-gradient(135deg, #ff66c4, #ff90d6);
-  color: #121212 !important;
-  padding: 0.75rem 1.5rem;
-  border-radius: 999px;
-  font-weight: 700;
-  text-decoration: none;
-  transition: all 0.3s ease;
-  
-  &:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 0 20px rgba(255, 102, 196, 0.6);
-    text-decoration: none;
-  }
-}
-
-/* YouTube Cards */
-.youtube-cards {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2rem;
-  margin: 2rem auto;
-  max-width: 1200px;
-  padding: 0 1rem;
-}
-
-.youtube-card {
-  background: #1a1a1a;
-  border: 2px solid #ff66c4;
-  border-radius: 12px;
-  padding: 1.5rem;
-  box-shadow: 0 0 20px rgba(255, 102, 196, 0.3);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   
   &:hover {
@@ -840,6 +698,192 @@ pre code {
     color: #00d9ff;
   }
 }
+
+/* BTL1 Certification Labs */
+.btl1-labs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+  margin: 2rem auto;
+  max-width: 1400px;
+  padding: 0 1rem;
+}
+
+.btl1-lab-card {
+  background: #1a1a1a;
+  border: 2px solid #444;
+  border-radius: 12px;
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+  
+  &.completed {
+    border-color: #00ff88;
+    box-shadow: 0 0 20px rgba(0, 255, 136, 0.3);
+    
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 30px rgba(0, 255, 136, 0.5);
+    }
+  }
+  
+  &.in-progress {
+    border-color: #ffd479;
+    box-shadow: 0 0 15px rgba(255, 212, 121, 0.2);
+  }
+  
+  &.locked {
+    opacity: 0.6;
+    
+    .btl1-thumbnail {
+      filter: grayscale(100%);
+    }
+  }
+  
+  .lab-card-link {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    
+    &:hover {
+      text-decoration: none;
+    }
+  }
+  
+  .btl1-thumbnail {
+    width: 100%;
+    height: 200px;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 1rem;
+    border: 2px solid #ff66c4;
+    
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    
+    .placeholder-thumb {
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      color: #666;
+      font-weight: 700;
+    }
+  }
+  
+  .btl1-badge {
+    display: inline-block;
+    padding: 0.4rem 0.8rem;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+  }
+  
+  &.completed .btl1-badge {
+    background: #00ff88;
+    color: #000;
+  }
+  
+  &.in-progress .btl1-badge {
+    background: #ffd479;
+    color: #000;
+  }
+  
+  &.locked .btl1-badge {
+    background: #444;
+    color: #888;
+  }
+  
+  h3 {
+    color: #ff90d6;
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .lab-category {
+    color: #00d9ff;
+    font-size: 0.85rem;
+    margin-bottom: 0.75rem;
+    font-weight: 600;
+  }
+  
+  .lab-description {
+    color: #f4c4eb;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+  }
+  
+  .lab-tags {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    margin-bottom: 1rem;
+    
+    .tag {
+      background: rgba(255, 102, 196, 0.2);
+      color: #ff9ce4;
+      padding: 0.25rem 0.75rem;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      border: 1px solid #ff66c4;
+      font-weight: 600;
+    }
+  }
+  
+  .lab-cta {
+    margin-top: 1rem;
+    padding: 0.75rem;
+    background: linear-gradient(135deg, #ff66c4, #ff90d6);
+    color: #121212;
+    text-align: center;
+    border-radius: 8px;
+    font-weight: 700;
+    transition: all 0.3s ease;
+  }
+  
+  &.completed:hover .lab-cta {
+    background: linear-gradient(135deg, #00ff88, #00cc6f);
+    box-shadow: 0 0 15px rgba(0, 255, 136, 0.5);
+  }
+}
+
+/* BTL1 Progress Bar */
+.btl1-progress {
+  max-width: 600px;
+  margin: 3rem auto 0 auto;
+  text-align: center;
+  
+  .progress-bar {
+    width: 100%;
+    height: 12px;
+    background: #1a1a1a;
+    border: 2px solid #ff66c4;
+    border-radius: 999px;
+    overflow: hidden;
+    margin-bottom: 0.75rem;
+  }
+  
+  .progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #00ff88, #00cc6f);
+    transition: width 0.5s ease;
+    box-shadow: 0 0 10px rgba(0, 255, 136, 0.5);
+  }
+  
+  .progress-text {
+    color: #f4c4eb;
+    font-size: 0.9rem;
+    font-weight: 600;
+  }
+}
+
 /* Documentation Cards */
 .documentation-cards {
   display: grid;
@@ -1007,222 +1051,35 @@ pre code {
 }
 
 /* ============================================
-   BTL1 CERTIFICATION LABS
+   RESPONSIVE DESIGN
    ============================================ */
 
-/* Section Intro */
-.section-intro {
-  text-align: center;
-  max-width: 800px;
-  margin: 0 auto 2rem auto;
-  color: #f4c4eb;
-  font-size: 1.1rem;
-  line-height: 1.6;
-}
-
-/* BTL1 Labs Grid */
-.btl1-labs-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 2rem;
-  margin: 2rem auto;
-  max-width: 1400px;
-  padding: 0 1rem;
-}
-
-/* Individual Lab Card */
-.btl1-lab-card {
-  background: #1a1a1a;
-  border: 2px solid #444;
-  border-radius: 12px;
-  padding: 1.5rem;
-  position: relative;
-  transition: all 0.3s ease;
-  
-  &.completed {
-    border-color: #00ff88;
-    box-shadow: 0 0 20px rgba(0, 255, 136, 0.3);
-    
-    &:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 0 30px rgba(0, 255, 136, 0.5);
-    }
-  }
-  
-  &.in-progress {
-    border-color: #ffd479;
-    box-shadow: 0 0 15px rgba(255, 212, 121, 0.2);
-  }
-  
-  &.locked {
-    opacity: 0.6;
-    
-    .btl1-thumbnail {
-      filter: grayscale(100%);
-    }
-  }
-  
-  .lab-card-link {
-    display: block;
-    text-decoration: none;
-    color: inherit;
-    
-    &:hover {
-      text-decoration: none;
-    }
-  }
-  
-  .btl1-badge {
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
-    background: rgba(0, 0, 0, 0.8);
-    padding: 0.4rem 0.8rem;
-    border-radius: 999px;
-    font-size: 0.75rem;
-    font-weight: 700;
-    z-index: 10;
-  }
-  
-  &.completed .btl1-badge {
-    background: #00ff88;
-    color: #000;
-  }
-  
-  &.in-progress .btl1-badge {
-    background: #ffd479;
-    color: #000;
-  }
-  
-  &.locked .btl1-badge {
-    background: #444;
-    color: #888;
-  }
-  
-.btl1-thumbnail {
-  width: 100%;
-  height: 200px;              /* ADD THIS */
-  /* Remove or comment out: aspect-ratio: 16/9; */
-  border-radius: 8px;
-  overflow: hidden;
-  margin-bottom: 1rem;
-  border: 2px solid #ff66c4;
-  
-  img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;         /* MAKE SURE THIS IS HERE */
-  }
-}    
-    .placeholder-thumb {
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 2rem;
-      color: #666;
-      font-weight: 700;
-    }
-  }
-  
-  h3 {
-    color: #ff90d6;
-    font-size: 1.3rem;
-    margin-bottom: 0.5rem;
-  }
-  
-  .lab-category {
-    color: #00d9ff;
-    font-size: 0.85rem;
-    margin-bottom: 0.75rem;
-    font-weight: 600;
-  }
-  
-  .lab-description {
-    color: #f4c4eb;
-    line-height: 1.6;
-    margin-bottom: 1rem;
-    font-size: 0.95rem;
-  }
-  
-  .lab-tags {
-    display: flex;
-    gap: 0.5rem;
-    flex-wrap: wrap;
-    margin-bottom: 1rem;
-    
-    .tag {
-      background: rgba(255, 102, 196, 0.2);
-      color: #ff9ce4;
-      padding: 0.25rem 0.75rem;
-      border-radius: 999px;
-      font-size: 0.75rem;
-      border: 1px solid #ff66c4;
-      font-weight: 600;
-    }
-  }
-  
-  .lab-cta {
-    margin-top: 1rem;
-    padding: 0.75rem;
-    background: linear-gradient(135deg, #ff66c4, #ff90d6);
-    color: #121212;
-    text-align: center;
-    border-radius: 8px;
-    font-weight: 700;
-    transition: all 0.3s ease;
-  }
-  
-  &.completed:hover .lab-cta {
-    background: linear-gradient(135deg, #00ff88, #00cc6f);
-    box-shadow: 0 0 15px rgba(0, 255, 136, 0.5);
-  }
-}
-
-/* BTL1 Progress Bar */
-.btl1-progress {
-  max-width: 600px;
-  margin: 3rem auto 0 auto;
-  text-align: center;
-  
-  .progress-bar {
-    width: 100%;
-    height: 12px;
-    background: #1a1a1a;
-    border: 2px solid #ff66c4;
-    border-radius: 999px;
-    overflow: hidden;
-    margin-bottom: 0.75rem;
-  }
-  
-  .progress-fill {
-    height: 100%;
-    background: linear-gradient(90deg, #00ff88, #00cc6f);
-    transition: width 0.5s ease;
-    box-shadow: 0 0 10px rgba(0, 255, 136, 0.5);
-  }
-  
-  .progress-text {
-    color: #f4c4eb;
-    font-size: 0.9rem;
-    font-weight: 600;
-  }
-}
-
-/* Mobile Responsive */
 @media (max-width: 900px) {
-  .btl1-labs-grid {
-    grid-template-columns: 1fr;
-  }
-}
-/* Mobile Responsive */
-@media (max-width: 900px) {
+  .portfolio-cards,
   .achievement-cards,
   .youtube-cards,
   .documentation-cards,
-  .lab-cards {
+  .lab-cards,
+  .btl1-labs-grid {
     grid-template-columns: 1fr;
+  }
+  
+  .hero-overlay h1 {
+    font-size: 2rem;
+  }
+  
+  .hero-subtitle {
+    font-size: 1rem;
+  }
+  
+  .hero-stats {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .cert-grid {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   }
 }
