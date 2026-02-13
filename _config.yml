@@ -1,0 +1,49 @@
+# Site settings
+title: "Tate Pannam - SOC Analyst"
+name: "Tate Pannam"
+description: "Blue Team Operations & Security Analysis"
+url: "https://yourusername.github.io"
+baseurl: "/portfolio-test"
+
+# Remote theme (no forking needed)
+remote_theme: "mmistakes/minimal-mistakes@4.26.2"
+minimal_mistakes_skin: "dark"
+
+# Plugins
+plugins:
+  - jekyll-include-cache
+  - jekyll-paginate
+  - jekyll-sitemap
+  - jekyll-feed
+
+# Collections
+collections:
+  investigations:
+    output: true
+    permalink: /:collection/:path/
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+      type: investigations
+    values:
+      layout: single
+      author_profile: false
+      share: false
+
+# Author
+author:
+  name: "Tate Pannam"
+  bio: "SOC Analyst | Blue Team Operations"
+  location: "Melbourne, Australia"
+  links:
+    - label: "LinkedIn"
+      icon: "fab fa-fw fa-linkedin"
+      url: "https://linkedin.com/in/yourprofile"
+    - label: "GitHub"
+      icon: "fab fa-fw fa-github"
+      url: "https://github.com/yourusername"
+    - label: "YouTube"
+      icon: "fab fa-fw fa-youtube"
+      url: "https://youtube.com/@inksec"
