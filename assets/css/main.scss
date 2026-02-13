@@ -536,3 +536,403 @@ pre code {
     grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   }
 }
+/* ============================================
+   BLUE TEAM PAGE STYLES
+   ============================================ */
+
+/* Blue Team Hero */
+.blue-team-hero {
+  text-align: center;
+  padding: 3rem 2rem;
+  margin: 2rem auto;
+  max-width: 900px;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  border: 3px solid #ff66c4;
+  border-radius: 16px;
+  box-shadow: 0 0 30px rgba(255, 102, 196, 0.5);
+  
+  .hero-icon {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+  }
+  
+  h1 {
+    color: #ff90d6;
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .hero-subtitle {
+    color: #00d9ff;
+    font-size: 1.3rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .hero-description {
+    color: #f4c4eb;
+    font-size: 1.1rem;
+    line-height: 1.7;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+}
+
+/* Section Headings */
+.section-heading {
+  text-align: center;
+  color: #ff90d6;
+  font-size: 2rem;
+  margin: 4rem 0 2rem 0;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #ff66c4;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Achievement Cards */
+.achievement-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin: 2rem auto;
+  max-width: 1200px;
+  padding: 0 1rem;
+}
+
+.achievement-card {
+  background: linear-gradient(135deg, #1e3a5f 0%, #2d1b4e 100%);
+  border: 2px solid #00ff88;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 8px 24px rgba(0, 255, 136, 0.15);
+  transition: transform 0.3s ease;
+  
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(0, 255, 136, 0.25);
+  }
+  
+  .achievement-badge {
+    margin-bottom: 1.5rem;
+    
+    img {
+      width: 100%;
+      border-radius: 8px;
+      border: 2px solid #00ff88;
+      box-shadow: 0 4px 12px rgba(0, 255, 136, 0.3);
+    }
+  }
+  
+  h3 {
+    color: #00ff88;
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .achievement-meta {
+    color: #b8e6d5;
+    font-size: 0.9rem;
+    font-style: italic;
+    margin-bottom: 1rem;
+  }
+  
+  .achievement-highlights {
+    list-style: none;
+    padding: 0;
+    margin: 1.5rem 0;
+    
+    li {
+      padding: 0.5rem 0 0.5rem 1.5rem;
+      position: relative;
+      color: #f4c4eb;
+      
+      &::before {
+        content: "✓";
+        position: absolute;
+        left: 0;
+        color: #00ff88;
+        font-weight: bold;
+      }
+    }
+  }
+}
+
+.btn-achievement {
+  display: inline-block;
+  background: linear-gradient(135deg, #00ff88, #00cc6f);
+  color: #121212 !important;
+  padding: 0.75rem 1.5rem;
+  border-radius: 999px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 15px rgba(0, 255, 136, 0.5);
+  
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 25px rgba(0, 255, 136, 0.7);
+    text-decoration: none;
+  }
+}
+
+/* YouTube Cards */
+.youtube-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin: 2rem auto;
+  max-width: 1200px;
+  padding: 0 1rem;
+}
+
+.youtube-card {
+  background: #1a1a1a;
+  border: 2px solid #ff66c4;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 0 20px rgba(255, 102, 196, 0.3);
+  transition: transform 0.3s ease;
+  
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 30px rgba(255, 102, 196, 0.5);
+  }
+  
+  .youtube-thumbnail {
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 1rem;
+    background: #000;
+    aspect-ratio: 16/9;
+    
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    
+    .play-overlay {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 4rem;
+      color: rgba(255, 255, 255, 0.9);
+      text-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+    }
+  }
+  
+  h3 {
+    color: #ff90d6;
+    margin-bottom: 0.75rem;
+  }
+  
+  p {
+    color: #f4c4eb;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+  }
+  
+  .playlist-stats {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+    color: #00d9ff;
+  }
+}
+
+.btn-youtube {
+  display: inline-block;
+  background: linear-gradient(135deg, #ff66c4, #ff90d6);
+  color: #121212 !important;
+  padding: 0.75rem 1.5rem;
+  border-radius: 999px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 20px rgba(255, 102, 196, 0.6);
+    text-decoration: none;
+  }
+}
+
+/* Documentation Cards */
+.documentation-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin: 2rem auto;
+  max-width: 1200px;
+  padding: 0 1rem;
+}
+
+.doc-card {
+  background: #1a1a1a;
+  border: 2px solid #ff66c4;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 0 20px rgba(255, 102, 196, 0.3);
+  
+  .doc-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
+  
+  h3 {
+    color: #ff90d6;
+    margin-bottom: 1rem;
+  }
+  
+  p {
+    color: #f4c4eb;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+  }
+  
+  ul {
+    list-style: none;
+    padding: 0;
+    
+    li {
+      padding: 0.5rem 0 0.5rem 1.5rem;
+      position: relative;
+      color: #f4c4eb;
+      
+      &::before {
+        content: "▸";
+        position: absolute;
+        left: 0;
+        color: #00ff88;
+      }
+      
+      a {
+        color: #00d9ff;
+        text-decoration: none;
+        border-bottom: 1px dotted #00d9ff;
+        
+        &:hover {
+          color: #ffb3ff;
+          border-bottom-color: #ffb3ff;
+        }
+      }
+    }
+  }
+  
+  .doc-note {
+    font-style: italic;
+    color: #b0b0b0;
+    font-size: 0.9rem;
+    margin-top: 1rem;
+  }
+}
+
+/* Lab Cards */
+.lab-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin: 2rem auto;
+  max-width: 1200px;
+  padding: 0 1rem;
+}
+
+.lab-card {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  border: 2px solid #ff66c4;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 0 20px rgba(255, 102, 196, 0.3);
+  
+  .lab-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
+  
+  h3 {
+    color: #ff90d6;
+    margin-bottom: 1rem;
+  }
+  
+  p {
+    color: #f4c4eb;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+  }
+  
+  .lab-specs {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  
+  .lab-spec {
+    background: rgba(0, 0, 0, 0.3);
+    padding: 0.75rem;
+    border-radius: 6px;
+    border-left: 3px solid #00ff88;
+    color: #f4c4eb;
+    font-size: 0.9rem;
+    
+    strong {
+      color: #00d9ff;
+      margin-right: 0.5rem;
+    }
+  }
+}
+
+/* Blue Team CTA */
+.blue-team-cta {
+  text-align: center;
+  padding: 3rem 2rem;
+  margin: 4rem auto 2rem auto;
+  max-width: 800px;
+  background: #1a1a1a;
+  border: 2px solid #ff66c4;
+  border-radius: 16px;
+  box-shadow: 0 0 30px rgba(255, 102, 196, 0.4);
+  
+  h2 {
+    color: #ff90d6;
+    margin-bottom: 1rem;
+  }
+  
+  p {
+    color: #f4c4eb;
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+  }
+}
+
+.btn-cta {
+  display: inline-block;
+  background: linear-gradient(135deg, #ff66c4, #ff90d6);
+  color: #121212 !important;
+  padding: 1rem 2.5rem;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 1.1rem;
+  text-decoration: none;
+  box-shadow: 0 0 20px rgba(255, 102, 196, 0.6);
+  transition: all 0.3s ease;
+  
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0 30px rgba(255, 102, 196, 0.8);
+    text-decoration: none;
+  }
+}
+
+/* Mobile Responsive */
+@media (max-width: 900px) {
+  .achievement-cards,
+  .youtube-cards,
+  .documentation-cards,
+  .lab-cards {
+    grid-template-columns: 1fr;
+  }
+}
