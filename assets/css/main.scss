@@ -1360,3 +1360,265 @@ pre code {
     }
   }
 }
+/* Case Study Highlight */
+.case-study-highlight {
+  background: linear-gradient(135deg, #1a1a2e 0%, #2e1a1a 100%);
+  border: 2px solid #ff66c4;
+  border-radius: 12px;
+  padding: 2rem;
+  margin: 2rem auto;
+  max-width: 1200px;
+  
+  h3 {
+    color: #ff90d6;
+    margin-bottom: 1rem;
+  }
+  
+  .case-study-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin: 2rem 0;
+  }
+  
+  .attack-chain, .defensive-value {
+    h4 {
+      color: #00d9ff;
+      margin-bottom: 1rem;
+    }
+    
+    ol, ul {
+      color: #f4c4eb;
+      line-height: 1.8;
+      
+      li {
+        margin-bottom: 0.5rem;
+        
+        strong {
+          color: #ff9ce4;
+        }
+      }
+    }
+  }
+  
+  .case-study-cta {
+    text-align: center;
+    margin-top: 2rem;
+  }
+}
+
+.btn-case-study {
+  display: inline-block;
+  background: linear-gradient(135deg, #ff66c4, #ff90d6);
+  color: #121212 !important;
+  padding: 0.75rem 2rem;
+  border-radius: 999px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 20px rgba(255, 102, 196, 0.6);
+    text-decoration: none;
+  }
+}
+
+/* Philosophy Section */
+.red-team-philosophy {
+  background: #1a1a1a;
+  border: 2px solid #ff66c4;
+  border-radius: 12px;
+  padding: 2.5rem;
+  margin: 3rem auto;
+  max-width: 1200px;
+  
+  h3 {
+    color: #ff90d6;
+    text-align: center;
+    margin-bottom: 1.5rem;
+  }
+  
+  > p {
+    text-align: center;
+    color: #f4c4eb;
+    margin-bottom: 2rem;
+  }
+}
+
+.philosophy-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  margin: 2rem 0;
+}
+
+.philosophy-point {
+  background: rgba(255, 102, 196, 0.05);
+  border: 1px solid #333;
+  border-radius: 8px;
+  padding: 1.5rem;
+  
+  .point-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  h4 {
+    color: #00d9ff;
+    margin-bottom: 0.75rem;
+  }
+  
+  p {
+    color: #f4c4eb;
+    line-height: 1.6;
+    font-size: 0.95rem;
+  }
+}
+
+.philosophy-summary {
+  background: rgba(0, 217, 255, 0.1);
+  border-left: 3px solid #00d9ff;
+  padding: 1.5rem;
+  margin-top: 2rem;
+  border-radius: 4px;
+  color: #f4c4eb;
+  line-height: 1.7;
+  
+  strong {
+    color: #00d9ff;
+  }
+}
+
+/* Table Intro */
+.table-intro {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 2rem auto;
+  color: #f4c4eb;
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+
+.private-note {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 2rem auto;
+  color: #ffd479;
+  font-size: 0.95rem;
+  font-style: italic;
+  background: rgba(255, 212, 121, 0.1);
+  padding: 1rem;
+  border-radius: 6px;
+  border: 1px solid rgba(255, 212, 121, 0.3);
+}
+
+/* Cert Link */
+.cert-link {
+  display: inline-block;
+  color: #00d9ff !important;
+  text-decoration: none;
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  
+  &:hover {
+    color: #ffb3ff !important;
+    text-decoration: underline;
+  }
+}
+
+/* Featured Achievement (reuse blue team style) */
+.featured-achievement {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 2rem;
+  background: linear-gradient(135deg, #2e1a1a 0%, #1a1a2e 100%);
+  border: 2px solid #ff66c4;
+  border-radius: 12px;
+  padding: 2rem;
+  margin: 2rem auto;
+  max-width: 1200px;
+  box-shadow: 0 0 30px rgba(255, 102, 196, 0.3);
+  
+  .achievement-badge {
+    img {
+      width: 100%;
+      border-radius: 8px;
+      border: 2px solid #ff66c4;
+      box-shadow: 0 0 20px rgba(255, 102, 196, 0.4);
+    }
+  }
+  
+  .achievement-details {
+    h3 {
+      color: #ff90d6;
+      margin-bottom: 0.75rem;
+    }
+    
+    p {
+      color: #f4c4eb;
+      line-height: 1.7;
+      margin-bottom: 1rem;
+    }
+    
+    .achievement-summary {
+      font-size: 1.05rem;
+      background: rgba(255, 102, 196, 0.1);
+      padding: 1rem;
+      border-left: 3px solid #ff66c4;
+      border-radius: 4px;
+    }
+    
+    .achievement-meta {
+      background: rgba(0, 217, 255, 0.1);
+      padding: 1rem;
+      border-left: 3px solid #00d9ff;
+      border-radius: 4px;
+      font-style: italic;
+      
+      strong {
+        color: #00d9ff;
+      }
+    }
+  }
+  
+  .achievement-highlights {
+    list-style: none;
+    padding: 0;
+    margin: 1.5rem 0;
+    
+    li {
+      padding: 0.5rem 0 0.5rem 1.5rem;
+      position: relative;
+      color: #f4c4eb;
+      line-height: 1.6;
+      
+      &::before {
+        content: "▸";
+        position: absolute;
+        left: 0;
+        color: #ff66c4;
+        font-weight: bold;
+      }
+      
+      strong {
+        color: #ff9ce4;
+      }
+    }
+  }
+}
+
+/* Mobile Responsive */
+@media (max-width: 900px) {
+  .philosophy-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .case-study-content {
+    grid-template-columns: 1fr !important;
+  }
+  
+  .featured-achievement {
+    grid-template-columns: 1fr;
+  }
+}
