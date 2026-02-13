@@ -135,25 +135,82 @@ header:
 
 <p class="section-intro">Hands-on labs from Security Blue Team's Blue Team Level 1 certification path. Each lab covers real-world defensive security scenarios with practical analysis and reporting.</p>
 
-<!-- Lab 1: Piggy -->
-<div class="btl1-lab-card completed">
-  <a href="{{ site.baseurl }}/blue-team/piggy/" class="lab-card-link">
-    <div class="btl1-thumbnail">
-      <img src="{{ site.baseurl }}/assets/images/labs/btl1/piggy-hero.png" alt="Piggy - PCAP Analysis Lab">
-    </div>
-    <div class="btl1-badge">✓ COMPLETED</div>
-    <h3>Piggy</h3>
-    <p class="lab-category">PCAP Analysis • Wireshark • Network Forensics</p>
-    <p class="lab-description">Multi-PCAP investigation covering SSH data exfiltration, malware infrastructure identification, and MITRE ATT&CK mapping.</p>
-    <div class="lab-tags">
-      <span class="tag">Wireshark</span>
-      <span class="tag">OSINT</span>
-      <span class="tag">BTL1</span>
-    </div>
-    <div class="lab-cta">View Investigation →</div>
-  </a>
-</div>
-  <!-- Lab 2-9: Locked/Upcoming -->
+<style>
+.btl1-labs-grid {
+  display: grid !important;
+  grid-template-columns: repeat(3, 1fr) !important;
+  gap: 2rem !important;
+  max-width: 1400px !important;
+  margin: 2rem auto !important;
+  padding: 0 1rem !important;
+}
+
+.btl1-lab-card {
+  background: #1a1a1a !important;
+  border: 2px solid #444 !important;
+  border-radius: 12px !important;
+  padding: 1.5rem !important;
+  transition: all 0.3s ease !important;
+}
+
+.btl1-lab-card.completed {
+  border-color: #00ff88 !important;
+  box-shadow: 0 0 20px rgba(0, 255, 136, 0.3) !important;
+}
+
+.btl1-lab-card.locked {
+  opacity: 0.6 !important;
+}
+
+.btl1-thumbnail {
+  width: 100% !important;
+  height: auto !important;
+  max-height: 200px !important;
+  border-radius: 8px !important;
+  overflow: hidden !important;
+  margin-bottom: 1rem !important;
+  border: 2px solid #ff66c4 !important;
+  background: #000 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.btl1-thumbnail img {
+  width: 100% !important;
+  height: auto !important;
+  max-height: 200px !important;
+  object-fit: contain !important;
+}
+
+@media (max-width: 900px) {
+  .btl1-labs-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+</style>
+
+<div class="btl1-labs-grid">
+  <!-- Lab 1: Piggy -->
+  <div class="btl1-lab-card completed">
+    <a href="{{ site.baseurl }}/blue-team/piggy/" class="lab-card-link">
+      <div class="btl1-thumbnail">
+        <img src="{{ site.baseurl }}/assets/images/labs/btl1/piggy-hero.png" alt="Piggy - PCAP Analysis Lab">
+      </div>
+      <div class="btl1-badge">✓ COMPLETED</div>
+      <h3>Piggy</h3>
+      <p class="lab-category">PCAP Analysis • Wireshark • Network Forensics</p>
+      <p class="lab-description">Multi-PCAP investigation covering SSH data exfiltration, malware infrastructure identification, and MITRE ATT&CK mapping.</p>
+      <div class="lab-tags">
+        <span class="tag">Wireshark</span>
+        <span class="tag">OSINT</span>
+        <span class="tag">BTL1</span>
+      </div>
+      <div class="lab-cta">View Investigation →</div>
+    </a>
+  </div>
+
+  <!-- Lab 2: Locked -->
   <div class="btl1-lab-card locked">
     <div class="btl1-badge">🔒 UPCOMING</div>
     <div class="btl1-thumbnail">
@@ -164,6 +221,7 @@ header:
     <p class="lab-description">Additional BTL1 labs will be documented here as they are completed.</p>
   </div>
 
+  <!-- Lab 3: Locked -->
   <div class="btl1-lab-card locked">
     <div class="btl1-badge">🔒 UPCOMING</div>
     <div class="btl1-thumbnail">
@@ -181,7 +239,6 @@ header:
   </div>
   <p class="progress-text">1 of 9 BTL1 labs completed (11%)</p>
 </div>
-
 <!-- Investigation Documentation -->
 <h2 class="section-heading">📊 Investigation Documentation</h2>
 
