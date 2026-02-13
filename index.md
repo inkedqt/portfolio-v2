@@ -13,9 +13,9 @@ classes: wide
   background: #000000;
   border: 2px solid #ff66c4;
   border-radius: 12px;
-  padding: 2.5rem;
+  padding: 3rem;
   margin: 2rem auto;
-  max-width: 1000px; /* Wider */
+  max-width: 1200px; /* WIDER */
   font-family: 'Courier New', 'Fira Code', monospace;
   box-shadow: 0 0 30px rgba(255, 102, 196, 0.5);
   color: #00ff88;
@@ -27,11 +27,11 @@ classes: wide
 }
 
 .terminal-avatar img {
-  width: 200px;
-  height: 200px;
+  width: 280px; /* BIGGER */
+  height: 280px;
   border-radius: 50%;
-  border: 3px solid #ff66c4;
-  box-shadow: 0 0 20px rgba(255, 102, 196, 0.6);
+  border: 4px solid #ff66c4;
+  box-shadow: 0 0 30px rgba(255, 102, 196, 0.7);
 }
 
 .terminal-prompt {
@@ -42,7 +42,15 @@ classes: wide
 .terminal-output {
   color: #ff9ce4;
   margin-left: 1rem;
-  line-height: 1.8;
+  line-height: 1.6; /* TIGHTER LINE HEIGHT */
+}
+
+.terminal-line {
+  margin-bottom: 0.5rem; /* COMPACT SPACING */
+}
+
+.terminal-section {
+  margin-bottom: 1.5rem; /* SPACE BETWEEN SECTIONS */
 }
 
 .terminal-link {
@@ -62,7 +70,7 @@ classes: wide
   grid-template-columns: 1fr 1fr;
   gap: 2rem;
   margin: 3rem auto;
-  max-width: 1200px;
+  max-width: 1400px; /* WIDER FOR 1440p */
 }
 
 .portfolio-card {
@@ -135,7 +143,7 @@ classes: wide
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 1.5rem;
   margin: 3rem auto;
-  max-width: 1200px;
+  max-width: 1400px; /* WIDER FOR 1440p */
 }
 
 .cert-card {
@@ -180,9 +188,15 @@ classes: wide
   .terminal-hero {
     padding: 1.5rem;
   }
+  
+  .terminal-avatar img {
+    width: 180px;
+    height: 180px;
+  }
 }
 </style>
 
+<!-- Terminal Hero -->
 <!-- Terminal Hero -->
 <div class="terminal-hero">
   <div class="terminal-avatar">
@@ -190,27 +204,27 @@ classes: wide
   </div>
   
   <div class="terminal-content">
-    <p><span class="terminal-prompt">$</span> <span class="terminal-output">whoami</span></p>
-    <p class="terminal-output">Tate Pannam</p>
-    <br>
+    <div class="terminal-section">
+      <p class="terminal-line"><span class="terminal-prompt">$</span> <span class="terminal-output">whoami</span></p>
+      <p class="terminal-line terminal-output">Tate Pannam</p>
+    </div>
     
-    <p><span class="terminal-prompt">$</span> <span class="terminal-output">cat ~/role.txt</span></p>
-    <p class="terminal-output">SOC Analyst | Blue Team Operations</p>
-    <p class="terminal-output">Melbourne, Australia</p>
-    <br>
+    <div class="terminal-section">
+      <p class="terminal-line"><span class="terminal-prompt">$</span> <span class="terminal-output">cat ~/role.txt</span></p>
+      <p class="terminal-line terminal-output">SOC Analyst | Blue Team Operations | Melbourne, Australia</p>
+    </div>
     
-    <p><span class="terminal-prompt">$</span> <span class="terminal-output">ls ~/portfolio</span></p>
-    <p class="terminal-output">🛡️ blue-team/</p>
-    <p class="terminal-output">⚔️ red-team/</p>
-    <p class="terminal-output">📜 certifications/</p>
-    <br>
+    <div class="terminal-section">
+      <p class="terminal-line"><span class="terminal-prompt">$</span> <span class="terminal-output">ls ~/portfolio</span></p>
+      <p class="terminal-line terminal-output">🛡️ blue-team/  ⚔️ red-team/  📜 certifications/</p>
+    </div>
     
-    <p><span class="terminal-prompt">$</span> <span class="terminal-output">ls ~/experience</span></p>
-    <p class="terminal-output">80+ documented investigations</p>
-    <p class="terminal-output"><a href="https://app.letsdefend.io/user/inkedqt" target="_blank" class="terminal-link">→ LetsDefend Profile</a></p>
+    <div class="terminal-section">
+      <p class="terminal-line"><span class="terminal-prompt">$</span> <span class="terminal-output">cat ~/experience.txt</span></p>
+      <p class="terminal-line terminal-output">80+ documented investigations  |  <a href="https://app.letsdefend.io/user/inkedqt" target="_blank" class="terminal-link">LetsDefend Profile →</a></p>
+    </div>
   </div>
 </div>
-
 <!-- Portfolio Cards -->
 <div class="portfolio-cards">
   <!-- Blue Team Card -->
