@@ -57,39 +57,40 @@ classes: wide
     <a href="https://app.letsdefend.io/user/inkedqt" target="_blank" class="btn-achievement">View Profile →</a>
   </div>
 </div>
-
 <!-- YouTube Investigation Walkthroughs -->
 <h2 class="section-heading">📺 Investigation Walkthroughs</h2>
 
 <div class="youtube-cards">
   <!-- LetsDefend Playlist -->
   <div class="youtube-card">
-    <div class="youtube-thumbnail">
-      <img src="https://img.youtube.com/vi/PLACEHOLDER/maxresdefault.jpg" alt="LetsDefend SOC Investigations">
-      <div class="play-overlay">▶</div>
-    </div>
-    <h3>LetsDefend SOC Investigations</h3>
-    <p>Real-world SIEM alert investigations with full analysis, log correlation, and incident response workflows.</p>
-    <div class="playlist-stats">
-      <span>📹 15+ Videos</span>
-      <span>⏱️ ~4 hours</span>
-    </div>
-    <a href="https://www.youtube.com/playlist?list=PL4gQknB3vSQ4gVy09mt2oMwl0hjL5aCor" target="_blank" class="btn-youtube">Watch Playlist →</a>
+    <a href="https://www.youtube.com/playlist?list=PL4gQknB3vSQ4gVy09mt2oMwl0hjL5aCor" target="_blank" class="youtube-link">
+      <div class="youtube-thumbnail">
+        <img src="https://img.youtube.com/vi/TCJv1ndeOiU/hqdefault.jpg" alt="LetsDefend SOC Investigations">
+        <div class="play-overlay">▶</div>
+      </div>
+      <h3>LetsDefend SOC Investigations</h3>
+      <p>Real-world SIEM alert investigations with full analysis, log correlation, and incident response workflows.</p>
+      <div class="playlist-stats">
+        <span>📹 15+ Videos</span>
+        <span>⏱️ ~4 hours</span>
+      </div>
+    </a>
   </div>
 
   <!-- TryHackMe Playlist -->
   <div class="youtube-card">
-    <div class="youtube-thumbnail">
-      <img src="https://img.youtube.com/vi/PLACEHOLDER/maxresdefault.jpg" alt="TryHackMe Blue Team">
-      <div class="play-overlay">▶</div>
-    </div>
-    <h3>TryHackMe Blue Team Operations</h3>
-    <p>SOC Level 1 learning path walkthroughs covering network security, PCAP analysis, and defensive operations.</p>
-    <div class="playlist-stats">
-      <span>📹 12+ Videos</span>
-      <span>⏱️ ~3 hours</span>
-    </div>
-    <a href="https://www.youtube.com/playlist?list=PL4gQknB3vSQ5G7likpYieGzLbhVcCO4hN" target="_blank" class="btn-youtube">Watch Playlist →</a>
+    <a href="https://www.youtube.com/playlist?list=PL4gQknB3vSQ5G7likpYieGzLbhVcCO4hN" target="_blank" class="youtube-link">
+      <div class="youtube-thumbnail">
+        <img src="https://img.youtube.com/vi/q6VErK_2PLA/hqdefault.jpg" alt="TryHackMe Blue Team">
+        <div class="play-overlay">▶</div>
+      </div>
+      <h3>TryHackMe Blue Team Operations</h3>
+      <p>SOC Level 1 learning path walkthroughs covering network security, PCAP analysis, and defensive operations.</p>
+      <div class="playlist-stats">
+        <span>📹 12+ Videos</span>
+        <span>⏱️ ~3 hours</span>
+      </div>
+    </a>
   </div>
 </div>
 <!-- BTL1 Certification Labs -->
@@ -97,26 +98,24 @@ classes: wide
 
 <p class="section-intro">Hands-on labs from Security Blue Team's Blue Team Level 1 certification path. Each lab covers real-world defensive security scenarios with practical analysis and reporting.</p>
 
-<div class="btl1-labs-grid">
-  <!-- Lab 1: Piggy -->
-  <div class="btl1-lab-card completed">
-    <a href="{{ site.baseurl }}/blue-team/piggy/" class="lab-card-link">
-      <div class="btl1-badge">✓ COMPLETED</div>
-      <div class="btl1-thumbnail">
-        <img src="{{ site.baseurl }}/assets/images/labs/btl1/piggy-hero.png" alt="Piggy - PCAP Analysis Lab">
-      </div>
-      <h3>Piggy</h3>
-      <p class="lab-category">PCAP Analysis • Wireshark • Network Forensics</p>
-      <p class="lab-description">Multi-PCAP investigation covering SSH data exfiltration, malware infrastructure identification, and MITRE ATT&CK mapping.</p>
-      <div class="lab-tags">
-        <span class="tag">Wireshark</span>
-        <span class="tag">OSINT</span>
-        <span class="tag">BTL1</span>
-      </div>
-      <div class="lab-cta">View Investigation →</div>
-    </a>
-  </div>
-
+<!-- Lab 1: Piggy -->
+<div class="btl1-lab-card completed">
+  <a href="{{ site.baseurl }}/blue-team/piggy/" class="lab-card-link">
+    <div class="btl1-thumbnail">
+      <img src="{{ site.baseurl }}/assets/images/labs/btl1/piggy-hero.png" alt="Piggy - PCAP Analysis Lab">
+    </div>
+    <div class="btl1-badge">✓ COMPLETED</div>
+    <h3>Piggy</h3>
+    <p class="lab-category">PCAP Analysis • Wireshark • Network Forensics</p>
+    <p class="lab-description">Multi-PCAP investigation covering SSH data exfiltration, malware infrastructure identification, and MITRE ATT&CK mapping.</p>
+    <div class="lab-tags">
+      <span class="tag">Wireshark</span>
+      <span class="tag">OSINT</span>
+      <span class="tag">BTL1</span>
+    </div>
+    <div class="lab-cta">View Investigation →</div>
+  </a>
+</div>
   <!-- Lab 2-9: Locked/Upcoming -->
   <div class="btl1-lab-card locked">
     <div class="btl1-badge">🔒 UPCOMING</div>
