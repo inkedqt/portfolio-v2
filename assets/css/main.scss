@@ -1204,7 +1204,7 @@ pre code {
   border-radius: 8px;
   overflow: hidden;
   box-shadow: 0 0 20px rgba(255, 102, 196, 0.2);
-  table-layout: auto; /* ← ADDED: Allows custom column widths */
+  table-layout: fixed; /* ← CHANGED: Fixed layout forces exact percentages, no overflow */
   
   thead {
     background: linear-gradient(135deg, #2a003f 0%, #1a1a2e 100%);
@@ -1219,7 +1219,7 @@ pre code {
       text-transform: uppercase;
       letter-spacing: 0.5px;
       
-      /* ← ADDED: Column width distribution */
+      /* Column width distribution - no min-widths to prevent overflow */
       &:nth-child(1) { width: 10%; } /* Machine */
       &:nth-child(2) { width: 7%; text-align: center; } /* Difficulty */
       &:nth-child(3) { width: 7%; text-align: center; } /* Status */
@@ -1248,20 +1248,46 @@ pre code {
         color: #ff9ce4;
       }
       
-      /* ← ADDED: Column widths + text wrapping behavior */
-      &:nth-child(1) { width: 10%; white-space: normal; } /* Machine */
-      &:nth-child(2) { width: 7%; text-align: center; white-space: nowrap; } /* Difficulty */
-      &:nth-child(3) { width: 7%; text-align: center; white-space: nowrap; } /* Status */
-      &:nth-child(4) { width: 8%; text-align: center; white-space: nowrap; } /* Proof */
-      &:nth-child(5) { width: 7%; text-align: center; white-space: nowrap; } /* Writeup */
+      /* Column widths + text wrapping - matching thead */
+      &:nth-child(1) { 
+        width: 10%; 
+        white-space: normal; 
+        word-wrap: break-word;
+        overflow-wrap: break-word; /* Force long words to break */
+      } /* Machine */
+      
+      &:nth-child(2) { 
+        width: 7%; 
+        text-align: center; 
+      } /* Difficulty */
+      
+      &:nth-child(3) { 
+        width: 7%; 
+        text-align: center; 
+      } /* Status */
+      
+      &:nth-child(4) { 
+        width: 8%; 
+        text-align: center; 
+      } /* Proof */
+      
+      &:nth-child(5) { 
+        width: 7%; 
+        text-align: center; 
+      } /* Writeup */
+      
       &:nth-child(6) { 
         width: 58%; 
         white-space: normal; 
         word-wrap: break-word;
+        overflow-wrap: break-word; /* Force long words to break */
         line-height: 1.65;
         font-size: 0.95rem;
-      } /* Summary */
-      &:nth-child(7) { width: 3%; white-space: nowrap; } /* Tags */
+      } /* Summary - wraps naturally, no overflow */
+      
+      &:nth-child(7) { 
+        width: 3%; 
+      } /* Tags */
     }
   }
   
@@ -1274,6 +1300,7 @@ pre code {
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.5px;
+    white-space: nowrap; /* Keep badge text on one line */
     
     &.easy {
       background: rgba(0, 255, 136, 0.2);
@@ -1343,10 +1370,8 @@ pre code {
   .summary-cell {
     font-size: 0.9rem;
     line-height: 1.6;
-    max-width: 600px;
   }
-}
-/* Red Team Note */
+}/* Red Team Note */
 .red-team-note {
   text-align: center;
   padding: 1.5rem;
