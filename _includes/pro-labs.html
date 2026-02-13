@@ -1,0 +1,30 @@
+<table class="ink-table">
+  <thead>
+    <tr>
+      <th>Lab</th>
+      <th>Tier</th>
+      <th>Status</th>
+      <th>Proof</th>
+      <th>Link</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% assign rows = include.items | default: site.data.prolabs | default: site.prolabs %}
+    {% for lab in rows %}
+    <tr>
+      <td>{{ lab.name }}</td>
+      <td>{{ lab.tier }}</td>
+      <td><span class="status {{ lab.status | downcase | replace: ' ', '-' }}">{{ lab.status }}</span></td>
+      <td>
+        {% if lab.proof_img %}
+          <img src="{{ lab.proof_img }}" style="max-width:80px;border-radius:6px;box-shadow:0 0 6px #ff66c4;">
+        {% endif %}
+      </td>
+      <td>{% if lab.url %}<a href="{{ lab.url }}">View</a>{% else %}-{% endif %}</td>
+      <td>{{ lab.blurb }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% include table-tally.html items=site.data.prolabs title="ProLabs tally" %}

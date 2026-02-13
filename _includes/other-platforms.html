@@ -1,0 +1,9 @@
+{% include platform-table.html title="🧪 Proving Grounds (PG) Boxes" items=site.data.pg %}
+{% include platform-table.html title="🧪 TryHackMe (THM) Boxes" items=site.data.thm %}
+
+{%- comment -%}
+Optional: add more platforms later just by dropping a YAML file in _data and calling the same include
+{%- endcomment -%}
+{% if site.data.hacksmarter %}
+  {% include platform-table.html title="🧪 HackSmarter Labs" items=site.data.hacksmarter %}
+{% endif %}

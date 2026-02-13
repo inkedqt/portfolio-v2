@@ -1,0 +1,37 @@
+{% comment %}
+Inputs:
+  - items: array of rows (e.g., site.data.retired)
+  - title (optional): label shown before the counts
+{% endcomment %}
+{% assign items = include.items %}
+{% assign title = include.title | default: "Totals" %}
+
+{% assign total = items | size %}
+{% assign done = 0 %}
+{% assign easy = 0 %}
+{% assign medium = 0 %}
+{% assign hard = 0 %}
+{% assign insane = 0 %}
+{% assign varied = 0 %}
+
+{% for m in items %}
+  {% assign d = m.difficulty | downcase %}
+  {% if d contains "easy"   %}{% assign easy   = easy   | plus: 1 %}{% endif %}
+  {% if d contains "medium" %}{% assign medium = medium | plus: 1 %}{% endif %}
+  {% if d contains "hard"   %}{% assign hard   = hard   | plus: 1 %}{% endif %}
+  {% if d contains "insane" %}{% assign insane = insane | plus: 1 %}{% endif %}
+  {% if d contains "varied" %}{% assign varied = varied | plus: 1 %}{% endif %}
+
+  {% assign s = m.status | downcase %}
+  {% if s contains "done" or s contains "completed" or s contains "pwned" %}
+    {% assign done = done | plus: 1 %}
+  {% endif %}
+{% endfor %}
+
+<p style="margin-top:.5rem;opacity:.9">
+  <strong>{{ title }}:</strong>
+  {{ total }} boxes — ✅ {{ done }} completed ·
+  🟩 {{ easy }} easy · 🟨 {{ medium }} medium · 🟥 {{ hard }} hard
+  {% if insane > 0 %} · 🟪 {{ insane }} insane{% endif %}
+  {% if varied > 0 %} · 🎛️ {{ varied }} varied{% endif %}
+</p>

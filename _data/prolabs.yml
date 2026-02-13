@@ -1,0 +1,66 @@
+- name: Zephyr
+  tier: Pro Lab
+  status: Completed
+  proof_img: https://raw.githubusercontent.com/inkedqt/ctf-writeups/main/assets/certs/zephyr_cert.png
+  url: https://github.com/inkedqt/ctf-writeups/tree/main/HTB/ProLabs/Zephyr
+  blurb: "Perimeter foothold → multi-segment pivots → internal tooling abuse → AD enumeration → domain takeover."
+- name: Offshore
+  tier: Pro Lab
+  status: Completed
+  proof_img: https://raw.githubusercontent.com/inkedqt/ctf-writeups/main/assets/certs/offshore_cert.png
+  url: https://github.com/inkedqt/ctf-writeups/tree/main/HTB/ProLabs/Offshore
+  blurb: "Perimeter recon → chained web footholds → pivots across segmented networks → AD enumeration/abuse → domain takeover."
+- name: FullHouse
+  tier: Mini Pro Lab
+  status: Completed
+  proof_img: https://raw.githubusercontent.com/inkedqt/ctf-writeups/main/assets/certs/fullhouse_cert.png
+  url: https://github.com/inkedqt/ctf-writeups/tree/main/HTB/ProLabs/FullHouse
+  blurb: Source review → web → AD → reversing → AI/chain — fun glue lab.
+- name: Solar
+  tier: Mini Pro Lab
+  status: Completed
+  proof_img: https://raw.githubusercontent.com/inkedqt/ctf-writeups/main/assets/certs/solar_cert.png
+  url: https://github.com/inkedqt/ctf-writeups/tree/main/HTB/ProLabs/Solar
+  blurb: Enumeration → situational awareness → FreeBSD exploitation → out-of-band data exfiltration → source code review — tight, chain-heavy lab.
+- name: APTLabs
+  tier: Pro Lab
+  status: Completed
+  proof_img: https://raw.githubusercontent.com/inkedqt/ctf-writeups/main/assets/certs/aptlabs_cert.png
+  url: https://github.com/inkedqt/ctf-writeups/tree/main/HTB/ProLabs/APTLabs
+  blurb: External foothold → web → AD pivot → ACL abuse → DCSync → domain takeover.
+- name: Cybernetics
+  tier: Pro Lab
+  status: Completed
+  proof_img: https://raw.githubusercontent.com/inkedqt/ctf-writeups/main/assets/certs/cybernetics_cert.png
+  url: https://github.com/inkedqt/ctf-writeups/tree/main/HTB/ProLabs/Cybernetics
+  blurb: Web foothold → Kerberoast/AS-REP → constrained delegation → lateral movement → DA.
+- name: Dante
+  tier: Pro Lab
+  status: Completed
+  proof_img: https://raw.githubusercontent.com/inkedqt/ctf-writeups/main/assets/certs/dante.png
+  url: https://github.com/inkedqt/ctf-writeups/tree/main/HTB/ProLabs/Dante
+  blurb: Perimeter → Linux/Windows mixed estate → credential reuse → AD escalation → DA.
+- name: Fortress AWS
+  tier: Pro Lab
+  status: Completed
+  proof_img: https://raw.githubusercontent.com/inkedqt/ctf-writeups/main/assets/certs/fortress_aws.png
+  url: https://github.com/inkedqt/ctf-writeups/tree/main/HTB/ProLabs/FortressAWS
+  blurb: IAM misconfigs → privilege escalation → S3/SSM pivoting → data exfil → persistence.
+- name: P.O.O
+  tier: Pro Lab
+  status: Completed
+  proof_img: https://raw.githubusercontent.com/inkedqt/ctf-writeups/main/assets/certs/poo_cert.png
+  url: https://github.com/inkedqt/ctf-writeups/tree/main/HTB/ProLabs/POO
+  blurb: SMB/SQL exposure → xp_cmdshell → potato to SYSTEM → AD pathing → DA.
+- name: RastaLabs
+  tier: Pro Lab
+  status: Completed
+  proof_img: https://raw.githubusercontent.com/inkedqt/ctf-writeups/main/assets/certs/rastalabs_cert.png
+  url: https://github.com/inkedqt/ctf-writeups/tree/main/HTB/ProLabs/RastaLabs
+  blurb: "Classic AD: password spray → AS-REP/Kerberoast → BloodHound path → DCSync."
+- name: Wanderer
+  tier: Pro Lab
+  status: Completed
+  proof_img: https://raw.githubusercontent.com/inkedqt/ctf-writeups/main/assets/certs/wanderer_cert.png
+  url: https://github.com/inkedqt/ctf-writeups/tree/main/HTB/ProLabs/Wanderer
+  blurb: Web foothold → container/segmentation escape → AD pivot → privesc chain → DA.

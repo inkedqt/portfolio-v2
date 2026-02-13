@@ -1,0 +1,246 @@
+- name: Lock
+  difficulty: Easy
+  status: ✅ Done
+  proof_img: https://raw.githubusercontent.com/inkedqt/ctf-writeups/main/HTB/proofs/lock.png
+  summary: Gitea CI/CD abuse → ASPX webshell → RDP creds via mRemoteNG config → PDF24 CVE‑2023‑49147 oplock → SYSTEM shell
+    → Root flag
+  link: https://github.com/inkedqt/ctf-writeups/tree/main/HTB/Retired/Lock
+- name: Code
+  difficulty: Easy
+  status: ✅ Done
+  proof_img: https://raw.githubusercontent.com/inkedqt/ctf-writeups/main/HTB/proofs/code.png
+  summary: SQLi → MD5 crack → path traversal → SSH → root
+  link: https://github.com/inkedqt/ctf-writeups/tree/main/HTB/Retired/Code
+- name: Sauna
+  difficulty: Easy
+  status: ✅ Done
+  proof_img: https://raw.githubusercontent.com/inkedqt/ctf-writeups/main/HTB/proofs/sauna.png
+  summary: ASREPRoast → WinRM → winPEAS → autologon creds → DCSync via BloodHound → psexec w/ Admin hash → root.txt
+  link: https://github.com/inkedqt/ctf-writeups/tree/main/HTB/Retired/Sauna
+- name: Kryptos Support
+  difficulty: Medium
+  status: ✅ Done
+  proof_img: https://raw.githubusercontent.com/inkedqt/ctf-writeups/main/HTB/proofs/kryptos_support.png
+  summary: OAuth token leak → IDOR → XSS → JWT tamper → GPG decrypt → flag
+  link: https://github.com/inkedqt/ctf-writeups/tree/main/HTB/Challenges/Kryptos_Support
+  tags:
+  - 🧠
+  - CBBH
+- name: Unicode
+  difficulty: Medium
+  status: ✅ Done
+  proof_img: https://raw.githubusercontent.com/inkedqt/ctf-writeups/main/HTB/proofs/unicode.png
+  summary: JWT forgery → Host-split Unicode LFI → SSH as `code` → Python bin reverse via `pyinstxtractor` → root.txt
+  link: https://github.com/inkedqt/ctf-writeups/tree/main/HTB/Retired/Unicode
+  tags:
+  - 🧠
+  - CBBH
+- name: Sau
+  difficulty: Easy
+  status: ✅ Done
+  proof_img: https://raw.githubusercontent.com/inkedqt/ctf-writeups/main/HTB/proofs/sau.png
+  summary: SSRF (CVE-2023-27163) → Maltrail unauth RCE → Shell as `puma` → `sudo systemctl` → root.txt
+  link: https://github.com/inkedqt/ctf-writeups/tree/main/HTB/Retired/Sau
+  tags:
+  - 🧠
+  - CBBH
+- name: Support
+  difficulty: Medium
+  status: ✅ Done
+  proof_img: https://raw.githubusercontent.com/inkedqt/ctf-writeups/main/HTB/proofs/support.png
+  summary: Kerberoast → AS-REP → impersonate S4U2Self → Rubeus abuse → Administrator shell
+  link: https://github.com/inkedqt/ctf-writeups/tree/main/HTB/Retired/Support
+  tags:
+  - 🛡️
+- name: VulnEscape
+  difficulty: Easy
+  status: ✅ Done
+  proof_img: https://raw.githubusercontent.com/inkedqt/ctf-writeups/main/HTB/proofs/vulnescape.png
+  summary: RDP login (KioskUser0:blank) → Edge `file://` escape → CMD rename bypass → RD+ creds → BulletPassView → `runas`
+    → root.txt
+  link: https://github.com/inkedqt/ctf-writeups/tree/main/HTB/Retired/Vulnescape
+  tags:
+  - 🛡️
+- name: Reset
+  difficulty: Easy
+  status: ✅ Done
+  proof_img: https://raw.githubusercontent.com/inkedqt/ctf-writeups/main/HTB/proofs/reset.png
+  summary: Password reset bypass → log poisoning RCE → rlogin + tmux hijack → sudo nano escape → root.txt
+  link: https://github.com/inkedqt/ctf-writeups/tree/main/HTB/Retired/Reset
+- name: Ten
+  difficulty: Hard
+  status: ✅ Done
+  proof_img: https://raw.githubusercontent.com/inkedqt/ctf-writeups/main/HTB/proofs/ten.png
+  summary: Web host creation → FTP traversal via DB edit → SSH key planting → Apache log pipe → root
+  link: https://github.com/inkedqt/ctf-writeups/tree/main/HTB/Retired/Ten
+  tags:
+  - 🛡️
+- name: Data
+  difficulty: Easy
+  status: ✅ Done
+  proof_img: https://raw.githubusercontent.com/inkedqt/ctf-writeups/main/HTB/proofs/data.png
+  summary: Grafana LFI → DB dump → SHA-256 password crack → Docker escape → root
+  link: https://github.com/inkedqt/ctf-writeups/tree/main/HTB/Retired/Data
+- name: Dog
+  difficulty: Easy
+  status: ✅ Done
+  proof_img: https://raw.githubusercontent.com/inkedqt/ctf-writeups/main/HTB/proofs/dog.png
+  summary: Git repo dump → CMS RCE → PHP utility privilege escalation
+  link: https://github.com/inkedqt/ctf-writeups/tree/main/HTB/Retired/Dog
+- name: Cat
+  difficulty: Medium
+  status: ✅ Done
+  proof_img: https://raw.githubusercontent.com/inkedqt/ctf-writeups/main/HTB/proofs/cat.png
+  summary: Git repo leak → Stored XSS cookie theft → SQLite SQLi → Apache logs → Gitea XSS for privesc
+  link: https://github.com/inkedqt/ctf-writeups/tree/main/HTB/Retired/Cat
+  tags:
+  - 🛡️
+- name: Titanic
+  difficulty: Easy
+  status: ✅ Done
+  proof_img: https://raw.githubusercontent.com/inkedqt/ctf-writeups/main/HTB/proofs/titanic.png
+  summary: LFI → SQLite → Gitea → ImageMagick identify RCE → root
+  link: https://github.com/inkedqt/ctf-writeups/tree/main/HTB/Retired/Titanic
+  tags:
+  - 🛡️
+- name: Administrator
+  difficulty: Medium
+  status: ✅ Done
+  proof_img: https://raw.githubusercontent.com/inkedqt/ctf-writeups/main/HTB/proofs/administrator.png
+  summary: AD domain takeover → Kerberoast → DCSync → Admin hash
+  link: https://github.com/inkedqt/ctf-writeups/tree/main/HTB/Retired/Administrator
+  tags:
+  - 🧠
+  - 🛡️
+  - 🎯
+- name: Beep
+  difficulty: Medium
+  status: ✅ Done
+  proof_img: https://raw.githubusercontent.com/inkedqt/ctf-writeups/main/HTB/proofs/beep.png
+  summary: vtigerCRM LFI → legacy creds reuse → root via SSH
+  link: https://github.com/inkedqt/ctf-writeups/tree/main/HTB/Retired/Beep
+- name: Trick
+  difficulty: Medium
+  status: ✅ Done
+  proof_img: https://raw.githubusercontent.com/inkedqt/ctf-writeups/main/HTB/proofs/trick.png
+  summary: DNS & SQLi → email RCE → fail2ban privesc
+  link: https://github.com/inkedqt/ctf-writeups/tree/main/HTB/Retired/Trick
+  tags:
+  - 🧠
+  - 🛡️
+- name: Waldo
+  difficulty: Medium
+  status: ✅ Done
+  proof_img: https://raw.githubusercontent.com/inkedqt/ctf-writeups/main/HTB/proofs/waldo.png
+  summary: LFI → SSH key → restricted shell escape → cap_dac_read
+  link: https://github.com/inkedqt/ctf-writeups/tree/main/HTB/Retired/Waldo
+  tags:
+  - 🛡️
+- name: Retro
+  difficulty: Medium
+  status: ✅ Done
+  proof_img: https://raw.githubusercontent.com/inkedqt/ctf-writeups/main/HTB/proofs/retro.png
+  summary: Certipy ESC1 abuse → machine account cert → auth + hashdump
+  link: https://github.com/inkedqt/ctf-writeups/tree/main/HTB/Retired/Retro
+  tags:
+  - 🛡️
+- name: Down
+  difficulty: Easy
+  status: ✅ Done
+  proof_img: https://raw.githubusercontent.com/inkedqt/ctf-writeups/main/HTB/proofs/down.png
+  summary: LFI → command injection → pswm decrypt → sudo full root
+  link: https://github.com/inkedqt/ctf-writeups/tree/main/HTB/Retired/Down
+  tags:
+  - 🛡️
+- name: Lame
+  difficulty: Easy
+  status: ✅ Done
+  proof_img: https://raw.githubusercontent.com/inkedqt/ctf-writeups/main/HTB/proofs/lame.png
+  summary: Samba usermap exploit → SYSTEM shell
+  link: https://github.com/inkedqt/ctf-writeups/tree/main/HTB/Retired/Lame
+  tags:
+  - 🛡️
+  - 🎯
+- name: Blue
+  difficulty: Easy
+  status: ✅ Done
+  proof_img: https://raw.githubusercontent.com/inkedqt/ctf-writeups/main/HTB/proofs/blue.png
+  summary: EternalBlue MS17-010 → SYSTEM shell
+  link: https://github.com/inkedqt/ctf-writeups/tree/main/HTB/Retired/Blue
+  tags:
+  - 🛡️
+  - 🎯
+- name: Optimum
+  difficulty: Easy
+  status: ✅ Done
+  proof_img: https://raw.githubusercontent.com/inkedqt/ctf-writeups/main/HTB/proofs/optimum.png
+  summary: Rejetto HFS RCE → SYSTEM with local tools
+  link: https://github.com/inkedqt/ctf-writeups/tree/main/HTB/Retired/optimum
+  tags:
+  - 🛡️
+  - 🎯
+- name: Bashed
+  difficulty: Easy
+  status: ✅ Done
+  proof_img: https://raw.githubusercontent.com/inkedqt/ctf-writeups/main/HTB/proofs/bashed.png
+  summary: Web fuzzing → PHP webshell → privesc via script abuse
+  link: https://github.com/inkedqt/ctf-writeups/tree/main/HTB/Retired/Bashed
+  tags:
+  - 🛡️
+  - 🎯
+- name: Chemistry
+  difficulty: Easy
+  status: ✅ Done
+  proof_img: https://raw.githubusercontent.com/inkedqt/ctf-writeups/main/HTB/proofs/chemistry.png
+  summary: File parser RCE → LFI → SSH key reuse
+  link: https://github.com/inkedqt/ctf-writeups/tree/main/HTB/Retired/Chemistry
+  tags:
+  - 🛡️
+- name: Headless
+  difficulty: Easy
+  status: ✅ Done
+  proof_img: https://raw.githubusercontent.com/inkedqt/ctf-writeups/main/HTB/proofs/headless.png
+  summary: Blind XSS → cookie theft → command injection → root
+  link: https://github.com/inkedqt/ctf-writeups/tree/main/HTB/Retired/Headless
+  tags:
+  - 🧠
+  - 🛡️
+- name: Alert
+  difficulty: Easy
+  status: ✅ Done
+  proof_img: https://raw.githubusercontent.com/inkedqt/ctf-writeups/main/HTB/proofs/alert.png
+  summary: Markdown XSS → LFI → group permission privesc
+  link: https://github.com/inkedqt/ctf-writeups/tree/main/HTB/Retired/Alert
+  tags:
+  - 🧠
+  - 🛡️
+- name: Writeup
+  difficulty: Easy
+  status: ✅ Done
+  proof_img: https://raw.githubusercontent.com/inkedqt/ctf-writeups/main/HTB/proofs/writeup.png
+  summary: CMS Made Simple SQLi → creds for jkr → PATH hijack via fake run-parts → root user injection → root.txt
+  link: https://github.com/inkedqt/ctf-writeups/tree/main/HTB/Retired/Writeup
+  tags:
+  - 🛡️
+- name: Bastion
+  difficulty: Easy
+  status: ✅ Done
+  proof_img: https://raw.githubusercontent.com/inkedqt/ctf-writeups/main/HTB/proofs/bastion.png
+  summary: SMB VHD → extract SAM+SYSTEM → crack creds → SSH as l4mpje → mRemoteNG config decrypt → Admin creds → root.txt
+  link: https://github.com/inkedqt/ctf-writeups/tree/main/HTB/Retired/Bastion
+  tags:
+  - 🎯
+- name: Starting Point (Tier 0–2)
+  difficulty: Varied
+  status: ✅ Done
+  proof_img: https://raw.githubusercontent.com/inkedqt/ctf-writeups/main/HTB/proofs/startingpoint.png
+  summary: Fundamental HTB boxes covering web, SMB, SSH, JWT, privesc, and enumeration techniques — perfect for new pentesters
+  links:
+  - title: Tier 0
+    url: https://github.com/inkedqt/ctf-writeups/tree/main/HTB/StartingPoint/Tier0
+  - title: Tier 1
+    url: https://github.com/inkedqt/ctf-writeups/tree/main/HTB/StartingPoint/Tier1
+  - title: Tier 2
+    url: https://github.com/inkedqt/ctf-writeups/tree/main/HTB/StartingPoint/Tier2
+  tags:
+  - 🎯

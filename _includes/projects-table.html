@@ -1,0 +1,45 @@
+<table class="inksec-table">
+  <thead>
+    <tr>
+      <th>Project</th>
+      <th>Category</th>
+      <th>Status</th>
+      <th>Proof</th>
+      <th>Link</th>
+      <th>Skills</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% assign rows = site.data[include.data] %}
+    {% for project in rows %}
+      <tr>
+        <td>{{ project.name }}</td>
+        <td>{{ project.category }}</td>
+        <td>
+          <span class="status-pill status-{{ project.status | downcase | replace: ' ', '-' }}">
+            {{ project.status }}
+          </span>
+        </td>
+        <td>
+        {% if project.proof_img %}
+            <a href="{{ project.proof_img }}" target="_blank" rel="noopener">
+            <img src="{{ project.proof_img }}"
+                alt="{{ project.name }} proof"
+                style="max-width:80px;border-radius:6px;box-shadow:0 0 6px #ff66c4;">
+            </a>
+        {% else %}
+            –
+        {% endif %}
+        </td>
+        <td>
+          {% if project.link %}
+            <a href="{{ project.link }}" target="_blank" rel="noopener">Repo</a>
+          {% else %}
+            –
+          {% endif %}
+        </td>
+        <td>{{ project.skills }}</td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>

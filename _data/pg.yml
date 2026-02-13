@@ -1,0 +1,18 @@
+- name: Twiggy
+  difficulty: Easy
+  status: ✅ Done
+  proof_img: https://raw.githubusercontent.com/inkedqt/ctf-writeups/main/HTB/proofs/pg_twiggy.png
+  notes: SaltStack CVE-2020-11652 RCE → Root Shell
+  link: https://github.com/inkedqt/ctf-writeups/tree/main/Other/PG/Twiggy
+- name: ClamAV
+  difficulty: Easy
+  status: ✅ Done
+  proof_img: https://raw.githubusercontent.com/inkedqt/ctf-writeups/main/HTB/proofs/pg_clamav.png
+  notes: SNMP leaks clamav-milter → CVE-2007-4560 Sendmail RCE → inetd shell → Root
+  link: https://github.com/inkedqt/ctf-writeups/tree/main/Other/PG/ClamAV
+- name: Mice
+  difficulty: Easy
+  status: ✅ Done
+  proof_img: https://raw.githubusercontent.com/inkedqt/ctf-writeups/main/HTB/proofs/pg_mice_root.png
+  notes: RemoteMouse 3.008 RCE → FileZilla creds → GUI LPE to SYSTEM
+  link: https://github.com/inkedqt/ctf-writeups/tree/main/Other/PG/Mice

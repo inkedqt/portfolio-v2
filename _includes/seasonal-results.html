@@ -1,0 +1,38 @@
+{% assign items = site.data.seasonal_results %}
+
+<table>
+  <thead>
+    <tr>
+      <th>Season</th>
+      <th>Tier</th>
+      <th>Proof</th>
+      <th>Achievement</th>
+      <th>Link</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for m in items %}
+    <tr>
+      <td>{{ m.name }}</td>
+      <td>{{ m.status }}</td>
+      <td>
+        {% if m.proof_img %}
+          <img
+            src="{{ m.proof_img }}"
+            alt="{{ m.name }} proof"
+            style="max-width:120px;border-radius:6px;box-shadow:0 0 6px #ff66c4;"
+          />
+        {% endif %}
+      </td>
+      <td>{{ m.summary }}</td>
+      <td>
+        {% if m.writeup_url and m.writeup_url != "" %}
+          <a href="{{ m.writeup_url }}" target="_blank" rel="noopener">View</a>
+        {% else %}
+          —
+        {% endif %}
+      </td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>

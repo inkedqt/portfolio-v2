@@ -1,0 +1,182 @@
+- name: Facts
+  difficulty: Easy
+  status: ✅ Done
+  proof_img: https://raw.githubusercontent.com/inkedqt/ctf-writeups/main/HTB/proofs/facts.png
+  writeup_url: https://github.com/inkedqt/ctf-writeups/tree/main/HTB/Seasonal/Facts
+  summary: "Camaleon CMS IDOR vulnerability in user profile management → privilege escalation to administrator role → S3-compatible MinIO credentials exposed in CMS configuration → AWS CLI enumeration of internal buckets → SSH private key extraction from object storage → passphrase cracking with John the Ripper → SSH access as trivia user → sudo permissions on facter utility → arbitrary code execution via custom Ruby facts → root shell."
+- name: HTB Season 9 – Season of the Gacha
+  difficulty: Season
+  status: 🏆 Holo
+  proof_img: https://raw.githubusercontent.com/inkedqt/ctf-writeups/main/HTB/proofs/htb_season9.png
+  writeup_url: https://labs.hackthebox.com/achievement/season/2216056/9
+  summary: 'Rank: 95 / 9850 Players • Roots: 13 / 13 • Users: 13 / 13 (Top ~1%)'
+- name: Eloquia
+  difficulty: Insane
+  status: ✅ Done
+  proof_img: https://raw.githubusercontent.com/inkedqt/ctf-writeups/main/HTB/proofs/eloquia.png
+  writeup_url: https://github.com/inkedqt/ctf-writeups/tree/main/HTB/Seasonal/Eloquia
+  summary: "Multi-layer enterprise compromise: web logic flaws → containerised service abuse → trust boundary violations → host-level escalation through operational tooling → persistence via insecure custom services, resulting in complete SYSTEM control."
+- name: MonitorsFour
+  difficulty: Easy
+  status: ✅ Done
+  proof_img: https://raw.githubusercontent.com/inkedqt/ctf-writeups/main/HTB/proofs/monitorsfour.png
+  writeup_url: https://github.com/inkedqt/ctf-writeups/tree/main/HTB/Seasonal/Monitorsfour
+  summary: "Configuration leak leads to authentication bypass → admin access in a monitoring platform → remote code execution inside a container → abuse of exposed container management interfaces to escape isolation and gain full control of the Windows host."
+- name: Gavel
+  difficulty: Medium
+  status: ✅ Done
+  proof_img: https://raw.githubusercontent.com/inkedqt/ctf-writeups/main/HTB/proofs/gavel.png
+  writeup_url: https://github.com/inkedqt/ctf-writeups/tree/main/HTB/Seasonal/Gavel
+  summary: "Leaked application source → logic-level SQL injection → credential recovery → administrative feature abuse → arbitrary rule execution → privilege escalation via a misdesigned setuid client communicating with a root-owned daemon."
+- name: Fries
+  difficulty: Hard
+  status: ✅ Done
+  proof_img: https://raw.githubusercontent.com/inkedqt/ctf-writeups/main/HTB/proofs/fries.png
+  writeup_url: https://github.com/inkedqt/ctf-writeups/tree/main/HTB/Seasonal/Fries
+  summary: "Hybrid Linux/Windows environment compromise: source-code disclosure → container service abuse → credential harvesting via internal tooling → Active Directory escalation using identity misconfiguration and certificate trust abuse to reach domain admin."
+- name: Eighteen
+  difficulty: Easy
+  status: ✅ Done
+  proof_img: https://raw.githubusercontent.com/inkedqt/ctf-writeups/main/HTB/proofs/eighteen.png
+  writeup_url: https://github.com/inkedqt/ctf-writeups/tree/main/HTB/Seasonal/Eighteen
+  summary: "Valid low-priv access → MSSQL data exposure → application credential recovery → lateral movement via remote management → modern AD abuse to escalate from user to full domain compromise."
+- name: NanoCorp
+  difficulty: Hard
+  status: ✅ Done
+  proof_img: https://raw.githubusercontent.com/inkedqt/ctf-writeups/main/HTB/proofs/nanocorp.png
+  writeup_url: https://github.com/inkedqt/ctf-writeups/tree/main/HTB/Seasonal/Nanocorp
+  summary: "Corporate Windows AD attack chain: external web service abuse → credential exposure and reuse → AD enumeration with delegated rights → controlled account manipulation → SYSTEM-level escalation through insecure monitoring infrastructure."
+- name: Giveback
+  difficulty: Medium
+  status: ✅ Done
+  proof_img: https://raw.githubusercontent.com/inkedqt/ctf-writeups/main/HTB/proofs/giveback.png
+  writeup_url: https://github.com/inkedqt/ctf-writeups/tree/main/HTB/Seasonal/Giveback
+  summary: "Web application foothold via third-party plugin abuse → containerised environment enumeration → credential leakage through service configuration → pivot across internal services and escape container boundaries → leverage privileged runtime components to gain root on the host."
+- name: Conversor
+  difficulty: Medium-Hard
+  status: ✅ Done
+  proof_img: https://raw.githubusercontent.com/inkedqt/ctf-writeups/main/HTB/proofs/conversor.png
+  writeup_url: https://github.com/inkedqt/ctf-writeups/tree/main/HTB/Seasonal/Conversor
+  summary: "Web file-transform parser abuse: exploit server-side upload/processing to gain a foothold, recover forgotten local DB/config secrets and reused credentials, then leverage sudo/service misconfigurations for a clean privilege escalation to root."
+- name: Hercules
+  difficulty: Insane
+  status: ✅ Done
+  proof_img: https://raw.githubusercontent.com/inkedqt/ctf-writeups/main/HTB/proofs/hercules.png
+  writeup_url: https://github.com/inkedqt/ctf-writeups/tree/main/HTB/Seasonal/Hercules
+  summary: "Identity-first AD / PKI chain: initial foothold → enumerate AD ACLs and certificate templates → abuse delegated rights to enable/reset accounts and modify OU ACLs → request certificates (on-behalf-of flows) and export PFXs → convert PFX → PEM → PKINIT to get ccaches/TGTs → use tickets or client-cert auth to get WinRM shells → reset service account passwords, harvest machine/service keys and use Impacket (changepasswd/getST) and S4U/S4U2Proxy to impersonate Administrator and own the domain."
+- name: Signed
+  difficulty: Medium
+  status: ✅ Done
+  proof_img: https://raw.githubusercontent.com/inkedqt/ctf-writeups/main/HTB/proofs/signed.png
+  writeup_url: https://github.com/inkedqt/ctf-writeups/tree/main/HTB/Seasonal/Signed
+  summary: "MSSQL extended-proc enumeration → trigger SMB callback to capture service NTLMv2 → crack service hash → convert hex SIDs & craft Kerberos silver ticket for MSSQL SPN → use forged ticket to gain dbo/sysadmin → xp_cmdshell / OPENROWSET to read flags and pivot to domain."
+- name: DarkZero
+  difficulty: Hard
+  status: ✅ Done
+  proof_img: https://raw.githubusercontent.com/inkedqt/ctf-writeups/main/HTB/proofs/darkzero.png
+  writeup_url: https://github.com/inkedqt/ctf-writeups/tree/main/HTB/Seasonal/DarkZero
+  summary: "Split-horizon DNS + linked MSSQL servers → xp_cmdshell foothold → Meterpreter → flaky kernel exploit (CVE-2024-30088) or hash-dump fallback → Rubeus ticket capture (xp_dirtree) + pivots → Domain Admin."
+- name: Imagery
+  difficulty: Medium
+  status: ✅ Done
+  proof_img: https://raw.githubusercontent.com/inkedqt/ctf-writeups/main/HTB/proofs/imagery.png
+  writeup_url: https://github.com/inkedqt/ctf-writeups/tree/main/HTB/Seasonal/Imagery
+  summary: "Image transform RCE → shell as web user → decrypt readable backup to recover creds → sudo /usr/local/bin/charcol scheduling abuse → root."
+- name: Expressway
+  difficulty: Easy
+  status: ✅ Done
+  proof_img: https://raw.githubusercontent.com/inkedqt/ctf-writeups/main/HTB/proofs/expressway.png
+  writeup_url: https://github.com/inkedqt/ctf-writeups/tree/main/HTB/Seasonal/Expressway
+  summary: "IKE Aggressive Mode PSK crack → SSH as ike → sudo -h offramp.expressway.htb → root."
+- name: HTB Season 8 – Depths
+  difficulty: Season
+  status: 🏆 Platinum
+  proof_img: https://raw.githubusercontent.com/inkedqt/ctf-writeups/main/HTB/proofs/htb_season8.png
+  writeup_url: https://labs.hackthebox.com/achievement/season/2216056/8
+  summary: 'Rank: 739 / 8036 (Top ~9%) • Roots: 10 / 13 • Users: 10 / 13'
+- name: Cobblestone
+  difficulty: Hard
+  status: ✅ Done
+  proof_img: https://raw.githubusercontent.com/inkedqt/ctf-writeups/main/HTB/proofs/cobblestone.png
+  writeup_url: https://github.com/inkedqt/ctf-writeups/tree/main/HTB/Seasonal/Cobblestone
+  summary: Web foothold → DB creds → SSH tunnel to XML-RPC service → Arbitrary file
+    leak → Root
+- name: Editor
+  difficulty: Easy
+  status: ✅ Done
+  proof_img: https://raw.githubusercontent.com/inkedqt/ctf-writeups/main/HTB/proofs/editor.png
+  writeup_url: https://github.com/inkedqt/ctf-writeups/tree/main/HTB/Seasonal/Editor
+  summary: nvme compile bug → binary patch → buffer overflow → ROP → reverse shell
+    → proof
+- name: Era
+  difficulty: Medium
+  status: ✅ Done
+  proof_img: https://raw.githubusercontent.com/inkedqt/ctf-writeups/main/HTB/proofs/era.png
+  writeup_url: https://github.com/inkedqt/ctf-writeups/tree/main/HTB/Seasonal/Era
+  summary: Subdomain fuzz → SSRF via download preview → DB leak → web RCE → SUID bash
+    → ASN1 signature bypass → root.txt
+- name: Mirage
+  difficulty: Hard
+  status: ✅ Done
+  proof_img: https://raw.githubusercontent.com/inkedqt/ctf-writeups/main/HTB/proofs/mirage.png
+  writeup_url: https://github.com/inkedqt/ctf-writeups/tree/main/HTB/Seasonal/Mirage
+  summary: GetNPUsers → Kerberos ticket crack → shadow credentials → ESC1 abuse via
+    Certipy → DA hash → root.txt
+- name: Outbound
+  difficulty: Easy
+  status: ✅ Done
+  proof_img: https://raw.githubusercontent.com/inkedqt/ctf-writeups/main/HTB/proofs/outbound.png
+  writeup_url: https://github.com/inkedqt/ctf-writeups/tree/main/HTB/Seasonal/Outbound
+  summary: Web creds reuse → Roundcube RCE → container escape → MySQL plaintext leak
+    → symlink overwrite to /etc/passwd → root
+- name: Voleur
+  difficulty: Medium
+  status: ✅ Done
+  proof_img: https://raw.githubusercontent.com/inkedqt/ctf-writeups/main/HTB/proofs/voleur.png
+  writeup_url: https://github.com/inkedqt/ctf-writeups/tree/main/HTB/Seasonal/Voleur
+  summary: Kerberos TGT → SMB creds → DPAPI masterkey + creds → BloodHound path →
+    SSH via id_rsa → Registry + NTDS.dit → secretsdump → getTGT → Domain Admin
+- name: RustyKey
+  difficulty: Hard
+  status: ✅ Done
+  proof_img: https://raw.githubusercontent.com/inkedqt/ctf-writeups/main/HTB/proofs/rustykey.png
+  writeup_url: https://github.com/inkedqt/ctf-writeups/tree/main/HTB/Seasonal/Rustykey
+  summary: WinRM creds → BloodHound edge → GenericWrite → password reset → ProtectedUsers
+    removal → S4U2Proxy → Domain Admin
+- name: Artificial
+  difficulty: Easy
+  status: ✅ Done
+  proof_img: https://raw.githubusercontent.com/inkedqt/ctf-writeups/main/HTB/proofs/artificial.png
+  writeup_url: https://github.com/inkedqt/ctf-writeups/tree/main/HTB/Seasonal/Artificial
+  summary: TensorFlow RCE via model → SQLite loot → MD5 crack → RESTIC trick → SUID
+    bash root
+- name: Sorcery
+  difficulty: Insane
+  status: ✅ Done
+  proof_img: https://raw.githubusercontent.com/inkedqt/ctf-writeups/main/HTB/proofs/sorcery.png
+  writeup_url: https://github.com/inkedqt/ctf-writeups/tree/main/HTB/Seasonal/Sorcery
+  summary: Git leak → passkey bypass → Kafka RCE → Docker registry → IPA privesc
+- name: TombWatcher
+  difficulty: Hard
+  status: ✅ Done
+  proof_img: https://raw.githubusercontent.com/inkedqt/ctf-writeups/main/HTB/proofs/tombwatcher.png
+  writeup_url: https://github.com/inkedqt/ctf-writeups/tree/main/HTB/Seasonal/Tombwatcher
+  summary: gMSA abuse → ACL pivot → deleted obj restore → CVE → Domain Admin
+- name: Fluffy
+  difficulty: Hard
+  status: ✅ Done
+  proof_img: https://raw.githubusercontent.com/inkedqt/ctf-writeups/main/HTB/proofs/fluffy.png
+  writeup_url: https://github.com/inkedqt/ctf-writeups/tree/main/HTB/Seasonal/Fluffy
+  summary: NTLMv2 → shadow creds → ADCS ESC1 → Pass-the-Cert → Domain Admin
+- name: Puppy
+  difficulty: Medium
+  status: ✅ Done
+  proof_img: https://raw.githubusercontent.com/inkedqt/ctf-writeups/main/HTB/proofs/puppy.png
+  writeup_url: https://github.com/inkedqt/ctf-writeups/tree/main/HTB/Seasonal/Puppy
+  summary: LDAP → KeePass → password reset → DPAPI secrets → NTDS.dit dump
+- name: Certificate
+  difficulty: Medium
+  status: ✅ Done
+  proof_img: https://raw.githubusercontent.com/inkedqt/ctf-writeups/main/HTB/proofs/certificate.png
+  writeup_url: https://github.com/inkedqt/ctf-writeups/tree/main/HTB/Seasonal/Certificate
+  summary: Cert template abuse → Certipy → Evil-WinRM → Administrator shell

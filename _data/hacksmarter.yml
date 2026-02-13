@@ -1,0 +1,22 @@
+# /_data/hacksmarter.yml
+- name: BuildingMagic
+  difficulty: Medium
+  status: ✅ Done
+  proof_img: https://raw.githubusercontent.com/inkedqt/ctf-writeups/main/HTB/proofs/buildingmagic.png
+  writeup_url: https://github.com/inkedqt/ctf-writeups/tree/main/Other/HackSmarter/BuildingMagic
+  notes: AS-REP/Kerberoast → foothold → BloodHound path → DA
+  tags: [AD]   # optional
+- name: ShareThePain
+  difficulty: Medium
+  status: ✅ Done
+  proof_img: https://raw.githubusercontent.com/inkedqt/ctf-writeups/main/HTB/proofs/sharethepain.png
+  writeup_url: https://github.com/inkedqt/ctf-writeups/tree/main/Other/HackSmarter/ShareThePain
+  notes: MSSQL exec → SYSTEM (potato) → copy root.txt; optional ligolo-ng pivot
+  tags: [AD, MSSQL]
+- name: PivotSmarter
+  difficulty: Basic
+  status: ✅ Done
+  proof_img: https://raw.githubusercontent.com/inkedqt/ctf-writeups/main/HTB/proofs/pivotsmarter.png
+  writeup_url: https://github.com/inkedqt/ctf-writeups/tree/main/Other/HackSmarter/PivotSmarter
+  notes: SOCKS/TUN pivots (ligolo-ng/chisel) → internal subnet enum → multi-hop routes → AD reachability & lateral movement
+  tags: [Pivoting, AD]

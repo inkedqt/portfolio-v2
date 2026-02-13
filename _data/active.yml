@@ -1,0 +1,82 @@
+
+- name: AirTouch
+  difficulty: Medium
+  status: ✅ Done
+  proof_img: https://raw.githubusercontent.com/inkedqt/ctf-writeups/main/HTB/proofs/airtouch.png
+  writeup_url: https://github.com/inkedqt/ctf-writeups/tree/main/HTB/Active/AirTouch
+  summary: "SNMP credential disclosure → SSH access to consultant VLAN → WPA2-PSK handshake capture and crack → pivot to tablet management VLAN → web application file upload to RCE → credential harvesting from configuration files → evil twin attack against WPA2-Enterprise network → MSCHAPv2 hash capture and crack → access to corporate VLAN → plaintext credential extraction from hostapd authentication database → privilege escalation to root."
+- name: Browsed
+  difficulty: Medium
+  status: ✅ Done
+  proof_img: https://raw.githubusercontent.com/inkedqt/ctf-writeups/main/HTB/proofs/browsed.png
+  writeup_url: https://github.com/inkedqt/ctf-writeups/tree/main/HTB/Active/Browsed
+  summary: "Browser extension upload mechanism → client-side code execution in developer context → SSRF to localhost-only services → command injection via arithmetic evaluation in shell conditionals → Python bytecode cache poisoning to achieve root privilege escalation."
+- name: Overwatch
+  difficulty: Medium
+  status: ✅ Done
+  proof_img: https://raw.githubusercontent.com/inkedqt/ctf-writeups/main/HTB/proofs/overwatch.png
+  writeup_url: https://github.com/inkedqt/ctf-writeups/tree/main/HTB/Active/Overwatch
+  summary: "Guest SMB access reveals .NET monitoring application → hardcoded MSSQL credentials in configuration → linked server enumeration discovers unreachable SQL07 → Active Directory DNS write permissions enable DNS poisoning → MITM attack captures cleartext credentials via Responder → WinRM access to domain → localhost WCF service discovery → reverse engineer SOAP contract from decompiled binary → PowerShell command injection in KillProcess method → SYSTEM shell."
+- name: HackNet
+  difficulty: Hard
+  status: ✅ Done
+  proof_img: https://raw.githubusercontent.com/inkedqt/ctf-writeups/main/HTB/proofs/hacknet.png
+  writeup_url: https://github.com/inkedqt/ctf-writeups/tree/main/HTB/Active/HackNet
+  summary: "SSTI + IDOR foothold → world-writable Django cache → pickle RCE → GPG-encrypted DB backup → root."
+- name: Soulmate
+  difficulty: Easy
+  status: ✅ Done
+  proof_img: https://raw.githubusercontent.com/inkedqt/ctf-writeups/main/HTB/proofs/soulmate.png
+  writeup_url: https://github.com/inkedqt/ctf-writeups/tree/main/HTB/Active/Soulmate
+  summary: Subdomain discovery → CrushFTP CVE-2025-31161 → admin access → PHP webshell → SSH creds → Erlang shell → root
+- name: WhiteRabbit
+  difficulty: Insane
+  status: ✅ Done
+  proof_img: https://raw.githubusercontent.com/inkedqt/ctf-writeups/main/HTB/proofs/whiterabbit.png
+  writeup_url: https://github.com/inkedqt/ctf-writeups/tree/main/HTB/Active/WhiteRabbit
+  summary: Subdomain/service breadcrumbing → signed-webhook foothold → automation assist → backup workflow pivot → time-seeded randomness insight → final
+- name: DarkCorp
+  difficulty: Insane
+  status: "⏳ Active"
+  proof_img: https://raw.githubusercontent.com/inkedqt/ctf-writeups/main/HTB/proofs/darkcorp.png
+  writeup_url: https://github.com/inkedqt/ctf-writeups/tree/main/HTB/Active/DarkCorp
+  summary: Teaser only — enterprise-style chain with careful web recon, internal pivoting, and identity-centric steps (no spoilers).
+- name: Guardian
+  difficulty: Hard
+  status: ✅ Done
+  proof_img: https://raw.githubusercontent.com/inkedqt/ctf-writeups/main/HTB/proofs/guardian.png
+  writeup_url: https://github.com/inkedqt/ctf-writeups/tree/main/HTB/Active/Guardian
+  summary: Portal creds → SSH jamil → confs abuse → sudo safeapache2ctl → rootbash
+    → root
+- name: Previous
+  difficulty: Medium
+  status: ⏳ Active
+  proof_img: https://raw.githubusercontent.com/inkedqt/ctf-writeups/main/HTB/proofs/previous.png
+  writeup_url: https://github.com/inkedqt/ctf-writeups/tree/main/HTB/Active/Previous
+  summary: Teaser — modern web/API challenge; careful boundary checks and clean Linux
+    escalation habits. Full write-up unlocks on retirement.
+- name: CodeTwo
+  difficulty: Easy
+  status: ⏳ Active
+  proof_img: https://raw.githubusercontent.com/inkedqt/ctf-writeups/main/HTB/proofs/codeparttwo.png
+  writeup_url: https://github.com/inkedqt/ctf-writeups/tree/main/HTB/Active/CodePartTwo
+  summary: Teaser — modern web app; targeted enum, boundary reading, and Linux privesc
+    mindset. Full write-up unlocks on retirement.
+- name: Planning
+  difficulty: Easy
+  status: ✅ Done
+  proof_img: https://raw.githubusercontent.com/inkedqt/ctf-writeups/main/HTB/proofs/planning.png
+  writeup_url: https://github.com/inkedqt/ctf-writeups/tree/main/HTB/Active/Planning
+  summary: Subdomain → Grafana RCE → docker escape → SUID privesc
+- name: Nocturnal
+  difficulty: Easy
+  status: ✅ Done
+  proof_img: https://raw.githubusercontent.com/inkedqt/ctf-writeups/main/HTB/proofs/nocturnal.png
+  writeup_url: https://github.com/inkedqt/ctf-writeups/tree/main/HTB/Active/Nocturnal
+  summary: File leak → admin panel RCE → DB hash → SSH → CVE → root
+- name: Environment
+  difficulty: Medium
+  status: ✅ Done
+  proof_img: https://raw.githubusercontent.com/inkedqt/ctf-writeups/main/HTB/proofs/environment.png
+  writeup_url: https://github.com/inkedqt/ctf-writeups/tree/main/HTB/Active/Environment
+  summary: Laravel env bypass → avatar RCE → vault → sudo abuse

@@ -1104,3 +1104,259 @@ pre code {
     grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   }
 }
+/* ============================================
+   RED TEAM PAGE
+   ============================================ */
+
+/* Red Team Hero */
+.red-team-hero {
+  text-align: center;
+  padding: 3rem 2rem;
+  margin: 2rem auto;
+  max-width: 900px;
+  background: linear-gradient(135deg, #2e1a1a 0%, #1a1a2e 100%);
+  border: 3px solid #ff66c4;
+  border-radius: 16px;
+  box-shadow: 0 0 30px rgba(255, 102, 196, 0.5);
+  
+  .hero-icon {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+  }
+  
+  h1 {
+    color: #ff90d6;
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .hero-subtitle {
+    color: #ff6b6b;
+    font-size: 1.3rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .hero-description {
+    color: #f4c4eb;
+    font-size: 1.1rem;
+    line-height: 1.7;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+}
+
+/* Red Team Stats */
+.red-team-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  max-width: 1000px;
+  margin: 3rem auto;
+  padding: 0 1rem;
+}
+
+.stat-box {
+  background: linear-gradient(135deg, #1a1a2e 0%, #2e1a1a 100%);
+  border: 2px solid #ff66c4;
+  border-radius: 12px;
+  padding: 2rem;
+  text-align: center;
+  box-shadow: 0 0 20px rgba(255, 102, 196, 0.3);
+  
+  .stat-number {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #ff6b6b;
+    margin-bottom: 0.5rem;
+  }
+  
+  .stat-label {
+    color: #f4c4eb;
+    font-size: 0.95rem;
+  }
+}
+
+/* Mini Cert Grid */
+.cert-grid-mini {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+/* HTB Table Wrapper */
+.table-wrapper {
+  overflow-x: auto;
+  margin: 2rem auto;
+  max-width: 1400px;
+  padding: 0 1rem;
+  border-radius: 8px;
+}
+
+/* HTB Table Styles */
+.htb-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #1a1a1a;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(255, 102, 196, 0.2);
+  
+  thead {
+    background: linear-gradient(135deg, #2a003f 0%, #1a1a2e 100%);
+    
+    th {
+      padding: 1rem;
+      text-align: left;
+      color: #ff90d6;
+      font-weight: 600;
+      border-bottom: 2px solid #ff66c4;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+  }
+  
+  tbody tr {
+    border-bottom: 1px solid #333;
+    transition: background 0.2s ease;
+    
+    &:hover {
+      background: rgba(255, 102, 196, 0.1);
+    }
+    
+    td {
+      padding: 1rem;
+      color: #f4c4eb;
+      vertical-align: top;
+      
+      &:first-child {
+        font-weight: 600;
+        color: #ff9ce4;
+      }
+    }
+  }
+  
+  /* Difficulty Badges */
+  .difficulty-badge {
+    display: inline-block;
+    padding: 0.35rem 0.75rem;
+    border-radius: 999px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    
+    &.easy {
+      background: rgba(0, 255, 136, 0.2);
+      color: #00ff88;
+      border: 1px solid #00ff88;
+    }
+    
+    &.medium, &.medium-hard {
+      background: rgba(255, 212, 121, 0.2);
+      color: #ffd479;
+      border: 1px solid #ffd479;
+    }
+    
+    &.hard {
+      background: rgba(255, 107, 107, 0.2);
+      color: #ff6b6b;
+      border: 1px solid #ff6b6b;
+    }
+    
+    &.insane {
+      background: rgba(138, 43, 226, 0.2);
+      color: #b57edc;
+      border: 1px solid #b57edc;
+    }
+    
+    &.season {
+      background: rgba(255, 215, 0, 0.2);
+      color: #ffd700;
+      border: 1px solid #ffd700;
+    }
+  }
+  
+  /* Proof Images */
+  .proof-img {
+    max-width: 80px;
+    border-radius: 6px;
+    border: 2px solid #ff66c4;
+    box-shadow: 0 0 10px rgba(255, 102, 196, 0.3);
+    transition: transform 0.2s ease;
+    
+    &:hover {
+      transform: scale(1.5);
+      z-index: 100;
+      position: relative;
+    }
+  }
+  
+  /* Writeup Links */
+  .writeup-link {
+    color: #00d9ff !important;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 0.25rem 0.75rem;
+    border: 1px solid #00d9ff;
+    border-radius: 999px;
+    display: inline-block;
+    transition: all 0.2s ease;
+    
+    &:hover {
+      background: #00d9ff;
+      color: #121212 !important;
+      text-decoration: none;
+    }
+  }
+  
+  /* Summary Cell */
+  .summary-cell {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    max-width: 600px;
+  }
+}
+
+/* Red Team Note */
+.red-team-note {
+  text-align: center;
+  padding: 1.5rem;
+  margin: 3rem auto;
+  max-width: 800px;
+  background: rgba(255, 102, 196, 0.1);
+  border: 1px solid #ff66c4;
+  border-radius: 8px;
+  color: #f4c4eb;
+  font-size: 0.95rem;
+  
+  strong {
+    color: #ff90d6;
+  }
+}
+
+/* Mobile Responsive */
+@media (max-width: 900px) {
+  .red-team-stats {
+    grid-template-columns: 1fr;
+  }
+  
+  .cert-grid-mini {
+    grid-template-columns: 1fr;
+  }
+  
+  .htb-table {
+    font-size: 0.85rem;
+    
+    th, td {
+      padding: 0.75rem 0.5rem;
+    }
+    
+    .proof-img {
+      max-width: 60px;
+    }
+  }
+}

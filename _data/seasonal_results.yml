@@ -1,0 +1,13 @@
+- name: HTB Season 9 – Season of the Gacha
+  difficulty: Season
+  status: 🏆 Holo (Top ~1%)
+  proof_img: https://raw.githubusercontent.com/inkedqt/ctf-writeups/main/HTB/proofs/htb_season9.png
+  writeup_url: https://labs.hackthebox.com/achievement/season/2216056/9
+  summary: "Rank: 95 / 9850 (Top ~0.96%) • Users: 13 / 13 • Systems: 13 / 13"
+- name: HTB Season 8 – Depths
+  difficulty: Season
+  status: 🏆 Platinum (Top ~9%)
+  proof_img: https://raw.githubusercontent.com/inkedqt/ctf-writeups/main/HTB/proofs/htb_season8.png
+  writeup_url: https://labs.hackthebox.com/achievement/season/2216056/8
+  summary: "Rank: 739 / 8036 (Top ~9.19%) • Users: 10 / 13 • Roots: 10 / 13"
+

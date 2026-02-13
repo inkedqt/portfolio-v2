@@ -1,0 +1,47 @@
+{% assign items = include.items %}
+{% assign title = include.title %}
+
+<h2 class="text-xl font-bold mt-8 mb-4">{{ title }}</h2>
+<table class="w-full text-left table-auto border-collapse mb-6">
+  <thead>
+    <tr class="bg-pink-600 text-white">
+      <th class="p-2">Box</th>
+      <th class="p-2">Difficulty</th>
+      <th class="p-2">Status</th>
+      <th class="p-2">Proof</th>
+      <th class="p-2">Writeup</th>
+      <th class="p-2">Notes</th>
+    </tr>
+  </thead>
+  <tbody class="bg-black text-white">
+    {% for m in items %}
+      {% assign name = m.name | default: m.box | default: m.machine %}
+      {% assign diff = m.difficulty %}
+      {% assign status = m.status | default: "✅ Done" %}
+      {% assign proof_src = m.proof | default: m.proof_img | default: m.proof_url | default: m.image %}
+      {% assign wu = m.writeup_html | default: m.writeup | default: m.link | default: m.url | default: m.writeup_url %}
+      <tr>
+        <td class="p-2">{{ name }}</td>
+        <td class="p-2">{{ diff }}</td>
+        <td class="p-2">{{ status }}</td>
+        <td class="p-2">
+          {% if proof_src %}
+            <img src="{{ proof_src }}" class="w-20 rounded-xl shadow-md" />
+          {% endif %}
+        </td>
+        <td class="p-2">
+          {% if wu %}
+            {% if wu contains '<a ' %}
+              {{ wu }}
+            {% else %}
+              <a href="{{ wu }}" class="text-pink-400 underline">View</a>
+            {% endif %}
+          {% endif %}
+        </td>
+        <td class="p-2">{{ m.notes | default: m.summary }}</td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+{% include table-tally.html items=items title=title %}

@@ -1,0 +1,52 @@
+- name: FusionCorp
+  difficulty: Hard
+  status: ✅ Done
+  proof_img: https://raw.githubusercontent.com/inkedqt/ctf-writeups/main/HTB/proofs/thm_fusioncorp.png
+  notes: /backup leak → AS-REP roast (lparker) → crack → LDAP desc creds (jmurphy) → Evil-WinRM → SeBackupPrivilege (Backup
+    Operators) → Diskshadow VSS → NTDS dump → Administrator hash → wmiexec → root
+  link: https://github.com/inkedqt/ctf-writeups/tree/main/Other/THM/FusionCorp
+- name: Ledger
+  difficulty: Hard
+  status: ✅ Done
+  proof_img: https://raw.githubusercontent.com/inkedqt/ctf-writeups/main/HTB/proofs/thm_ledger.png
+  notes: LDAP creds in description → Password spray (CHANGEME2023!) → RDP foothold → ADCS ESC1 abuse via Certipy → Pivot to
+    BRADLEY_ORTIZ → PsExec → DA shell
+  link: https://github.com/inkedqt/ctf-writeups/tree/main/Other/THM/Ledger
+- name: Services
+  difficulty: Medium
+  status: ✅ Done
+  proof_img: https://raw.githubusercontent.com/inkedqt/ctf-writeups/main/HTB/proofs/thm_services.png
+  notes: User enum from website → Kerbrute → AS-REP roast (j.rock) → WinRM → Server Operators service abuse → SYSTEM
+  link: https://github.com/inkedqt/ctf-writeups/tree/main/Other/THM/Services
+- name: LazyAdmin
+  difficulty: Easy
+  status: ✅ Done
+  proof_img: https://raw.githubusercontent.com/inkedqt/ctf-writeups/main/HTB/proofs/thm_lazyadmin.png
+  notes: /SweetRice /content/inc backup leak → MD5 crack (manager) → /content/as admin → PHP upload → webshell → sudo perl
+    backup.pl → overwrite /etc/copy.sh → root
+  link: https://github.com/inkedqt/ctf-writeups/tree/main/Other/THM/LazyAdmin
+- name: ArchAngel
+  difficulty: Easy
+  status: ✅ Done
+  proof_img: https://raw.githubusercontent.com/inkedqt/ctf-writeups/main/HTB/proofs/thm_archangel.png
+  notes: /LFI on /test.php?view= → Apache log poisoning via User-Agent → RCE (www-data) → cron overwrite /opt/helloworld.sh
+    → SUID PATH hijack ( ~/secret/backup calls cp ) → root
+  link: https://github.com/inkedqt/ctf-writeups/tree/main/Other/THM/ArchAngel
+- name: Attacktive Directory
+  difficulty: Easy
+  status: ✅ Done
+  proof_img: https://raw.githubusercontent.com/inkedqt/ctf-writeups/main/HTB/proofs/attacktivedirectory.png
+  notes: Kerbrute userenum → AS-REP roast → SMB loot → backup creds → RDP → secretsdump → psexec → root.txt
+  link: https://github.com/inkedqt/ctf-writeups/tree/main/Other/THM/AttacktiveDirectory
+- name: 'VulnNet: Roasted'
+  difficulty: Easy
+  status: ✅ Done
+  proof_img: https://raw.githubusercontent.com/inkedqt/ctf-writeups/main/HTB/proofs/thm_roasted.png
+  notes: SMB enum → AS-REP roast → user shell via WinRM → SYSVOL creds → DA hash dump → root.txt
+  link: https://github.com/inkedqt/ctf-writeups/tree/main/Other/THM/VulnNet-Roasted
+- name: Corp
+  difficulty: Easy
+  status: ✅ Done
+  proof_img: https://raw.githubusercontent.com/inkedqt/ctf-writeups/main/HTB/proofs/thm_corp.png
+  notes: AppLocker bypass → Kerberoast → crack hash → find creds in unattended.xml → psexec as Administrator
+  link: https://github.com/inkedqt/ctf-writeups/tree/main/Other/THM/Corp

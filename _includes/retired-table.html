@@ -1,0 +1,62 @@
+<table>
+  <thead>
+    <tr>
+      <th>Machine</th>
+      <th>Difficulty</th>
+      <th>Status</th>
+      <th>Proof</th>
+      <th>Writeup</th>
+      <th>Summary</th>
+      <th>Tags</th>
+    </tr>
+  </thead>
+  <tbody>
+    {%- for m in site.data.retired -%}
+    <tr>
+      <td>{{ m.name | default: m.machine }}</td>
+      <td>{{ m.difficulty }}</td>
+      <td>{{ m.status | default: "✅ Done" }}</td>
+
+      {%- assign proof_src = m.proof
+         | default: m.proof_img
+         | default: m.proof_url
+         | default: m.image
+         | default: m.proofsrc -%}
+      <td>
+        {%- if proof_src -%}
+          <img src="{{ proof_src }}" style="max-width: 80px; border-radius: 6px; box-shadow: 0 0 6px #ff66c4;" />
+        {%- endif -%}
+      </td>
+
+      {%- assign wu = m.writeup_html
+         | default: m.writeup
+         | default: m.link
+         | default: m.url
+         | default: m.writeup_url -%}
+      <td>
+        {%- if wu -%}
+          {%- if wu contains '<a ' -%}
+            {{ wu }}
+          {%- else -%}
+            <a href="{{ wu }}">View</a>
+          {%- endif -%}
+        {%- endif -%}
+      </td>
+
+      <td>{{ m.summary }}</td>
+      <td>
+        {%- if m.tags -%}
+          {%- for t in m.tags -%}
+            {%- assign t_up = t | upcase -%}
+            {%- if t_up contains 'CBBH' -%}<span title="Certified Bug Bounty Hunter">🧠</span>{%- endif -%}
+            {%- if t_up contains 'AD' or t_up contains 'WINDOWS' or t_up contains 'DEFENSE' -%}<span title="Windows/AD">🛡️</span>{%- endif -%}
+            {%- if t_up contains 'EASY' or t_up contains 'FAVORITE' or t_up contains 'ESSENTIAL' -%}<span title="Favorite/Essential">🎯</span>{%- endif -%}
+            {{ t }}
+          {%- endfor -%}
+        {%- endif -%}
+      </td>
+    </tr>
+    {%- endfor -%}
+  </tbody>
+</table>
+{% include table-tally.html items=site.data.retired title="Retired tally" %}

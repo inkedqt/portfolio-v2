@@ -1,0 +1,29 @@
+# _data/projects.yml
+
+- name: Wazuh SIEM + Sysmon Endpoint Monitoring
+  category: SOC / Detection Engineering
+  status: Completed
+  proof_img: https://raw.githubusercontent.com/inkedqt/ctf-writeups/main/Other/wazuh/img/screenshot2.png
+  link: https://github.com/inkedqt/ctf-writeups/tree/main/Other/wazuh
+  skills: Windows logging, Sysmon telemetry, Wazuh rules, endpoint monitoring
+
+- name: Home Lab – pfSense + Security Onion + Splunk + AD
+  category: Lab Architecture
+  status: Completed
+  proof_img: https://raw.githubusercontent.com/inkedqt/ctf-writeups/main/HTB/proofs/homelab.png
+  link: https://github.com/inkedqt/ctf-writeups/tree/main/Other/HomeLab
+  skills: Network segmentation, SPAN mirroring, Zeek/Suricata, Splunk dashboards, AD lab
+
+- name: CachyOS + Virtualization Workstation
+  category: Systems / Platform
+  status: Ongoing
+  proof_img: https://raw.githubusercontent.com/inkedqt/ctf-writeups/main/HTB/proofs/arch.png
+  link: https://github.com/inkedqt/ctf-writeups/tree/main/Other/Arch
+  skills: Arch Linux, daily driver, Linux Gaming, virtualization, Linux desktop hardening, VM tooling
+
+- name: Future AD Attack & Detection Lab
+  category: Red / Blue Team
+  status: Planned
+  proof_img:
+  link:
+  skills: Kerberoasting, lateral movement, Sysmon / Wazuh detection mapping
