@@ -7,15 +7,6 @@ header:
   overlay_filter: "0.5"
 classes: wide
 ---
-<style>
-.btl1-thumbnail img {
-  object-fit: contain !important;
-}
-.btl1-thumbnail {
-  background: #000 !important;
-}
-</style>
-
 <!-- Hero Section -->
 <div class="blue-team-hero">
   <div class="hero-icon">🛡️</div>
