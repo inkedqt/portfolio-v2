@@ -16,22 +16,21 @@ header:
     80+ documented investigations across multiple platforms demonstrating SIEM analysis, 
     alert triage, incident response workflows, and threat detection capabilities.
   </p>
-  
 <!-- Platform Badges -->
-<div style="margin-top: 2rem; display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; align-items: center;">
+<div style="margin-top: 2rem; display: flex; justify-content: center; align-items: center; gap: 2rem; flex-wrap: wrap;">
   <!-- HTB Badge (Primary) -->
-  <a href="https://app.hackthebox.com/users/2216056" target="_blank" style="display: block;">
+  <a href="https://app.hackthebox.com/users/2216056" target="_blank">
     <img src="https://www.hackthebox.eu/badge/image/2216056" 
          alt="HackTheBox Profile" 
-         style="border-radius: 8px; width: 350px; height: 120px; object-fit: contain; background: #1a1a1a; padding: 0.5rem;">
+         style="border-radius: 8px; height: 120px; width: auto; display: block;">
   </a>
   
   <!-- THM Badge (Secondary) -->
   <iframe src="https://tryhackme.com/api/v2/badges/public-profile?userPublicId=4106179" 
-          style="border:none; width: 350px; height: 120px; border-radius: 8px;" 
+          style="border:none; width: 350px; height: 120px; border-radius: 8px; display: block;" 
           title="TryHackMe Stats">
   </iframe>
-</div>
+</div>  
 </div>
 <!-- INLINE STYLE FIX - ADD THIS HERE -->
 <style>
