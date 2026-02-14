@@ -1873,3 +1873,72 @@ pre code {
 .htb-table th {
   overflow: visible;
 }
+/* Make ink-table behave like htb-table for proof + hover */
+.ink-table img.proof-img {
+  max-width: 80px;
+  height: auto;
+  border-radius: 0.5rem;
+  display: block;
+  margin: auto;
+  border: 2px solid #ff66c4;
+  box-shadow: 0 0 6px #e754d2;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  cursor: zoom-in;
+  position: relative;
+  z-index: 1;
+}
+
+.ink-table img.proof-img:hover {
+  transform: scale(4);
+  z-index: 9999;
+  box-shadow: 0 0 18px #ff66c4;
+}
+
+/* Prevent clipping in ProLabs */
+.htb-table-wrapper { overflow-x: auto; overflow-y: visible; }
+.ink-table, .ink-table td, .ink-table th { overflow: visible; }
+/* Stop header words splitting like PROO / F */
+.htb-table th {
+  white-space: nowrap;
+  word-break: keep-all;
+}
+
+/* Keep short columns from wrapping weirdly */
+.htb-table th:nth-child(1),
+.htb-table td:nth-child(1),
+.htb-table th:nth-child(2),
+.htb-table td:nth-child(2),
+.htb-table th:nth-child(3),
+.htb-table td:nth-child(3),
+.htb-table th:nth-child(4),
+.htb-table td:nth-child(4),
+.htb-table th:nth-child(5),
+.htb-table td:nth-child(5) {
+  white-space: nowrap;
+}
+
+/* Let Notes/Summary wrap normally */
+.htb-table th:nth-child(6),
+.htb-table td:nth-child(6) {
+  white-space: normal;
+  overflow-wrap: break-word;
+}
+.ink-table img.proof-img {
+  max-width: 80px;
+  height: auto;
+  border-radius: 0.5rem;
+  display: block;
+  margin: auto;
+  border: 2px solid #ff66c4;
+  box-shadow: 0 0 6px #e754d2;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  cursor: zoom-in;
+  position: relative;
+  z-index: 1;
+}
+.ink-table img.proof-img:hover {
+  transform: scale(4);
+  z-index: 9999;
+  box-shadow: 0 0 18px #ff66c4;
+}
+.ink-table, .ink-table td, .ink-table th { overflow: visible; }
