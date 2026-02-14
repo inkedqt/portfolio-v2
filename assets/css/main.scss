@@ -1728,3 +1728,19 @@ pre code {
   overflow-wrap: normal;
 }
 */
+/* Force HTB tables to use the full 960px area */
+.htb-table-wrapper {
+  width: min(960px, 100%) !important;
+  margin: 2rem auto !important;
+  overflow-x: auto;
+}
+/* Only on wide layouts: let content expand */
+.layout--single.wide .page__content,
+.layout--splash.wide .page__content,
+.layout--single.wide .page__inner-wrap,
+.layout--splash.wide .page__inner-wrap {
+  max-width: none !important;
+}
+.htb-table {
+  width: 100% !important;
+}
