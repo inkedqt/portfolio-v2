@@ -30,7 +30,7 @@ classes: wide
   <a href="https://app.hackthebox.com/users/2216056" target="_blank">
     <img src="https://www.hackthebox.eu/badge/image/2216056" 
          alt="HackTheBox Profile" 
-         style="border-radius: 8px; width: 450px; height: auto;">
+         style="border-radius: 8px; width: 400px; height: auto;">
   </a>
   
   <!-- THM Badge -->
