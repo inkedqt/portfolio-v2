@@ -7,7 +7,7 @@ masthead_title: ""
 description: "Blue Team Operations & Security Analysis"
 # CRITICAL: Set these for custom domain subdirectory
 url: "https://inksec.io"
-baseurl: "/portfolio-v2"
+baseurl: ""
 
 # Remote theme (no forking needed)
 remote_theme: "mmistakes/minimal-mistakes@4.26.2"
