@@ -17,7 +17,7 @@ header:
     alert triage, incident response workflows, and threat detection capabilities.
   </p>
 <!-- Platform Badges -->
-<div style="margin-top: 2rem; display: flex; justify-content: center; align-items: center; gap: 2rem; flex-wrap: wrap;">
+<div style="margin-top: 2rem; display: flex; justify-content: center; align-items: center; gap: 2rem; flex-wrap: nowrap;">
   <!-- HTB Badge (Primary) -->
   <a href="https://app.hackthebox.com/users/2216056" target="_blank">
     <img src="https://www.hackthebox.eu/badge/image/2216056" 
@@ -30,7 +30,7 @@ header:
           style="border:none; width: 350px; height: 120px; border-radius: 8px; display: block;" 
           title="TryHackMe Stats">
   </iframe>
-</div>  
+</div>
 </div>
 <!-- INLINE STYLE FIX - ADD THIS HERE -->
 <style>
