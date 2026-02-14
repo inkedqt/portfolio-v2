@@ -93,6 +93,27 @@ header:
     </ul>
     <a href="https://app.letsdefend.io/user/inkedqt" target="_blank" class="btn-achievement">View Profile →</a>
   </div>
+<!-- TryHackMe Advent of Cyber 2025 -->
+  <div class="achievement-card">
+    <div class="achievement-badge">
+      <img src="https://raw.githubusercontent.com/inkedqt/ctf-writeups/main/assets/certs/thm-aoc-2025.png" alt="TryHackMe Advent of Cyber 2025">
+    </div>
+    <h3>🎄 TryHackMe – Advent of Cyber 2025 (SOC-mas)</h3>
+    <p class="achievement-meta">Completed: December 2025 | 24 Daily Labs</p>
+    <ul class="achievement-highlights">
+      <li><strong>Phishing:</strong> Email analysis, IOC extraction, investigation workflow</li>
+      <li><strong>Splunk:</strong> Basic searches, detections, triage context, alert review</li>
+      <li><strong>SOC alert triage:</strong> Signal vs noise, next steps, evidence collection</li>
+      <li><strong>Host-based forensics:</strong> Registry/system artefacts, timeline-style thinking</li>
+      <li><strong>Network discovery/traffic:</strong> Scanning concepts + reading results</li>
+      <li><strong>Malware analysis:</strong> Basic static/dynamic concepts (entry-level but practical)</li>
+      <li><strong>ICS/Modbus awareness:</strong> Intro industrial protocol scenarios</li>
+      <li><strong>Detection concepts:</strong> C2 indicators, command & control patterns</li>
+    </ul>
+    <p class="achievement-meta"><em>Complements CDSA and strengthens "detect + respond" skills alongside offensive work.</em></p>
+    <a href="https://tryhackme-certificates.s3-eu-west-1.amazonaws.com/THM-2H6JFCWHKX.pdf" target="_blank" class="btn-achievement">View Certificate →</a>
+  </div>
+</div>
 </div>
 <!-- YouTube Investigation Walkthroughs -->
 <h2 class="section-heading">📺 Investigation Walkthroughs</h2>
