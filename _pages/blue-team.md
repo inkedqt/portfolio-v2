@@ -1,11 +1,8 @@
 ---
 layout: splash
-title: " "  # Blank title
+title: ""  # Blank title
 permalink: /blue-team/
 classes: wide
-header:
-  overlay_color: "#000000"
-  overlay_filter: "0.5"
 ---
 <!-- Hero Section -->
 <div class="blue-team-hero">

@@ -1,9 +1,6 @@
 ---
 layout: splash
-header:
-  overlay_color: "#000000"
-  overlay_filter: "0.5"
-title: " " # Empty title to suppress header
+title: "" # Empty title to suppress header
 classes: wide
 ---
 <!-- Terminal Hero -->

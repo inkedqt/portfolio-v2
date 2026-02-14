@@ -1,6 +1,6 @@
 ---
 layout: splash
-title: " "
+title: ""
 permalink: /red-team/
 classes: wide
 ---

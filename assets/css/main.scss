@@ -1942,3 +1942,8 @@ pre code {
   box-shadow: 0 0 18px #ff66c4;
 }
 .ink-table, .ink-table td, .ink-table th { overflow: visible; }
+/* Remove empty theme masthead bar */
+.masthead,
+.page__hero {
+  display: none !important;
+}
