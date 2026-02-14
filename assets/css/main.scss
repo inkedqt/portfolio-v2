@@ -1782,3 +1782,8 @@ pre code {
   line-height: 1.6;
   color: #f4c4eb;
 }
+.htb-table th:nth-child(6),
+.htb-table td:nth-child(6) {
+  width: 14%;
+  white-space: nowrap;
+}
