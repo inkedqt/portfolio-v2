@@ -1660,3 +1660,22 @@ pre code {
   overflow-wrap: break-word;  /* wrap long strings safely */
   word-break: normal;         /* prevents single-word-per-line */
 }
+.htb-table {
+  table-layout: auto;            /* keep */
+  width: 100%;
+}
+
+.htb-table .col-machine   { width: 16%; }
+.htb-table .col-difficulty{ width: 10%; }
+.htb-table .col-status    { width: 10%; }
+.htb-table .col-proof     { width: 12%; }
+.htb-table .col-writeup   { width: 10%; }
+.htb-table .col-summary   { width: 42%; }  /* give it room */
+.htb-table td:nth-child(6) {
+  line-height: 1.6;
+  max-height: 7.2em;          /* ~4-5 lines */
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+}

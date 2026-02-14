@@ -1,37 +1,49 @@
 {% assign items = site.data.seasonal %}
 <div class="table-wrapper">
   <table class="htb-table">
-  <thead>
-    <tr>
-      <th>Machine</th>
-      <th>Difficulty</th>
-      <th>Status</th>
-      <th>Proof</th>
-      <th>Writeup</th>
-      <th>Summary</th>
-    </tr>
-  </thead>
-  <tbody>
-  {% for m in items %}
-    <tr>
-      <td>{{ m.name }}</td>
-      <td>{{ m.difficulty }}</td>
-      <td>{{ m.status }}</td>
-      <td>
-        {% if m.proof_img %}
-          <img src="{{ m.proof_img }}" style="max-width:80px;border-radius:6px;box-shadow:0 0 6px #ff66c4;" />
-        {% endif %}
-      </td>
-      <td>
-        {% if m.writeup_url and m.writeup_url != "" %}
-          <a href="{{ m.writeup_url }}">View</a>
-        {% else %}
-          —
-        {% endif %}
-      </td>
-      <td>{{ m.summary }}</td>
-    </tr>
-  {% endfor %}
-  </tbody>
-</table>
+    <colgroup>
+      <col class="col-machine">
+      <col class="col-difficulty">
+      <col class="col-status">
+      <col class="col-proof">
+      <col class="col-writeup">
+      <col class="col-summary">
+    </colgroup>
+
+    <thead>
+      <tr>
+        <th>Machine</th>
+        <th>Difficulty</th>
+        <th>Status</th>
+        <th>Proof</th>
+        <th>Writeup</th>
+        <th>Summary</th>
+      </tr>
+    </thead>
+
+    <tbody>
+    {% for m in items %}
+      <tr>
+        <td>{{ m.name }}</td>
+        <td>{{ m.difficulty }}</td>
+        <td>{{ m.status }}</td>
+        <td>
+          {% if m.proof_img %}
+            <img src="{{ m.proof_img }}" class="proof-img" alt="Proof for {{ m.name }}">
+          {% endif %}
+        </td>
+        <td>
+          {% if m.writeup_url and m.writeup_url != "" %}
+            <a class="writeup-link" href="{{ m.writeup_url }}">View</a>
+          {% else %}
+            —
+          {% endif %}
+        </td>
+        <td class="summary-cell">{{ m.summary }}</td>
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+</div>
+
 {% include table-tally.html items=site.data.seasonal title="Seasonal tally" %}
