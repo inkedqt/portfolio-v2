@@ -33,7 +33,6 @@ header:
     </iframe>
   </div>
 </div>
-</div>
 <!-- INLINE STYLE FIX - ADD THIS HERE -->
 <style>
 .btl1-labs-grid {
