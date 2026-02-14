@@ -9,7 +9,7 @@ description: "Blue Team Operations & Security Analysis"
 url: "https://inksec.io"
 baseurl: ""
 
-# Remote theme (no forking needed)
+# Remote theme 
 remote_theme: "mmistakes/minimal-mistakes@4.26.2"
 minimal_mistakes_skin: "dark"
 
@@ -21,6 +21,7 @@ plugins:
   - jekyll-feed
 include:
   - _pages  
+
 # Collections
 collections:
   investigations:
