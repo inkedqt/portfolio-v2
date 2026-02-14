@@ -1649,3 +1649,14 @@ pre code {
     grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   }
 }
+.htb-table td, .htb-table th {
+  word-break: normal !important;
+  overflow-wrap: normal !important;
+}
+.htb-table td:nth-child(6),
+.htb-table th:nth-child(6) {
+  min-width: 420px;   /* adjust 380–520 to taste */
+  white-space: normal;
+  overflow-wrap: break-word;  /* wrap long strings safely */
+  word-break: normal;         /* prevents single-word-per-line */
+}
