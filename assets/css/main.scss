@@ -1189,26 +1189,26 @@ pre code {
    HTB TABLE - COMPLETE FIX (No Scroll)
    ============================================ */
 
-/* HTB Table Wrapper - REMOVE PADDING */
+* HTB Table Wrapper */
 .table-wrapper {
   overflow-x: auto;
   margin: 2rem auto;
-  max-width: 1200px;
-  padding: 0; /* ← CHANGED: Removed padding to prevent overflow */
+  max-width: 960px;  /* OLD SITE VALUE */
+  padding: 0;
   border-radius: 8px;
 }
 
-/* HTB Table Styles */
+/* HTB Table - EXACT OLD SITE FORMULA */
 .htb-table {
   width: 100%;
-  max-width: 1200px;
-  margin: 0 auto; 
+  max-width: 960px;  /* OLD SITE VALUE */
+  margin: 0 auto;
   border-collapse: collapse;
   background: #1a1a1a;
   border-radius: 8px;
   overflow: hidden;
   box-shadow: 0 0 20px rgba(255, 102, 196, 0.2);
-  table-layout: fixed; /* ← Forces exact percentages, no overflow */
+  table-layout: fixed;
   
   thead {
     background: linear-gradient(135deg, #2a003f 0%, #1a1a2e 100%);
@@ -1223,14 +1223,14 @@ pre code {
       text-transform: uppercase;
       letter-spacing: 0.5px;
       
-      /* Column width distribution */
-      &:nth-child(1) { width: 12%; } /* Machine */
-      &:nth-child(2) { width: 8%; text-align: center; } /* Difficulty */
-      &:nth-child(3) { width: 8%; text-align: center; } /* Status */
-      &:nth-child(4) { width: 10%; text-align: center; } /* Proof */
-      &:nth-child(5) { width: 8%; text-align: center; } /* Writeup */
-      &:nth-child(6) { width: 50%; } /* Summary - MOST SPACE */
-      &:nth-child(7) { width: 4%; } /* Tags */
+      /* OLD SITE EXACT COLUMN WIDTHS */
+      &:nth-child(1) { width: 14%; min-width: 120px; } /* Machine */
+      &:nth-child(2) { width: 10%; min-width: 100px; text-align: center; } /* Difficulty */
+      &:nth-child(3) { width: 10%; min-width: 100px; text-align: center; } /* Status */
+      &:nth-child(4) { width: 14%; min-width: 120px; text-align: center; } /* Proof */
+      &:nth-child(5) { width: 12%; min-width: 100px; text-align: center; } /* Writeup */
+      &:nth-child(6) { width: 40%; min-width: 250px; max-width: 600px; } /* Summary */
+      /* No 7th column in old site - remove if you have Tags */
     }
   }
   
@@ -1252,48 +1252,21 @@ pre code {
         color: #ff9ce4;
       }
       
-      /* Column widths + text wrapping */
-      &:nth-child(1) { 
-        width: 12%; 
-        white-space: normal; 
-        word-wrap: break-word;
-        overflow-wrap: break-word;
-      }
-      
-      &:nth-child(2) { 
-        width: 8%; 
-        text-align: center; 
-      }
-      
-      &:nth-child(3) { 
-        width: 8%; 
-        text-align: center; 
-      }
-      
-      &:nth-child(4) { 
-        width: 10%; 
-        text-align: center; 
-      }
-      
-      &:nth-child(5) { 
-        width: 8%; 
-        text-align: center; 
-      }
-      
+      /* OLD SITE EXACT COLUMN WIDTHS */
+      &:nth-child(1) { width: 14%; min-width: 120px; white-space: normal; }
+      &:nth-child(2) { width: 10%; min-width: 100px; text-align: center; }
+      &:nth-child(3) { width: 10%; min-width: 100px; text-align: center; }
+      &:nth-child(4) { width: 14%; min-width: 120px; text-align: center; }
+      &:nth-child(5) { width: 12%; min-width: 100px; text-align: center; white-space: nowrap; }
       &:nth-child(6) { 
-        width: 50%;
+        width: 40%;
         min-width: 250px;
-        max-width: 600px; 
+        max-width: 600px;
         text-align: left;
         vertical-align: top;
-        white-space: normal; 
-        word-wrap: break-word;
-        overflow-wrap: break-word;
+        word-break: break-word;  /* OLD SITE METHOD */
+        white-space: normal;
         line-height: 1.65;
-        font-size: 0.95rem;
-      }      
-      &:nth-child(7) { 
-        width: 4%; 
       }
     }
   }
@@ -1340,18 +1313,24 @@ pre code {
     }
   }
   
-  /* Proof Images */
+  /* Proof Images - OLD SITE STYLE */
   .proof-img {
     max-width: 80px;
-    border-radius: 6px;
+    height: auto;
+    border-radius: 0.5rem;
+    display: block;
+    margin: auto;
     border: 2px solid #ff66c4;
-    box-shadow: 0 0 10px rgba(255, 102, 196, 0.3);
-    transition: transform 0.2s ease;
+    box-shadow: 0 0 6px #e754d2;
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    cursor: zoom-in;
+    z-index: 1;
     
     &:hover {
-      transform: scale(1.5);
+      transform: scale(4);
       z-index: 100;
       position: relative;
+      box-shadow: 0 0 18px #ff66c4;
     }
   }
   
@@ -1379,7 +1358,6 @@ pre code {
     line-height: 1.6;
   }
 }
-
 /* Red Team Note */
 .red-team-note {
   text-align: center;
