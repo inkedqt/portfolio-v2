@@ -1692,3 +1692,20 @@ pre code {
   margin: 2rem auto;
   overflow-x: auto;
 }
+.htb-results-wrapper {
+  max-width: 960px;
+  margin: 2rem auto;
+  overflow-x: auto;
+}
+
+.htb-results-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.htb-results-table th,
+.htb-results-table td {
+  padding: 1rem;
+  border: 1px solid #444;
+  text-align: center;
+}
