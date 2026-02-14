@@ -96,7 +96,7 @@ header:
 <!-- TryHackMe Advent of Cyber 2025 -->
   <div class="achievement-card">
     <div class="achievement-badge">
-      <img src="https://tryhackme-certificates.s3-eu-west-1.amazonaws.com/THM-2H6JFCWHKX.pdf" alt="THM SOCmas">
+      <img src="https://raw.githubusercontent.com/inkedqt/ctf-writeups/main/HTB/proofs/thm_advent2025.png" alt="THM SOCmas">
     </div>
     <h3>🎄 TryHackMe – Advent of Cyber 2025 (SOC-mas)</h3>
     <p class="achievement-meta">Completed: December 2025 | 24 Daily Labs</p>
