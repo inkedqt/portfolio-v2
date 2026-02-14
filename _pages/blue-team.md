@@ -113,6 +113,23 @@ header:
     <p class="achievement-meta"><em>Complements CDSA and strengthens "detect + respond" skills alongside offensive work.</em></p>
     <a href="https://tryhackme-certificates.s3-eu-west-1.amazonaws.com/THM-2H6JFCWHKX.pdf" target="_blank" class="btn-achievement">View Certificate →</a>
   </div>
+  <!-- HTB CDSA -->
+  <div class="achievement-card">
+    <div class="achievement-badge">
+      <img src="https://raw.githubusercontent.com/inkedqt/ctf-writeups/main/assets/certs/cdsa.png" alt="HTB Certified Defensive Security Analyst">
+    </div>
+    <h3>HTB Certified Defensive Security Analyst (CDSA)</h3>
+    <p class="achievement-meta">Completed: [Month Year] | Certification Exam</p>
+    <ul class="achievement-highlights">
+      <li>SOC fundamentals & alert triage workflows</li>
+      <li>SIEM analysis with Splunk & Elastic</li>
+      <li>Threat intelligence & IOC correlation</li>
+      <li>Digital forensics & incident response</li>
+      <li>Phishing analysis & malware detection</li>
+      <li>Network traffic analysis & PCAP investigation</li>
+    </ul>
+    <a href="https://www.credly.com/badges/80ca0800-f89e-4be7-86c1-4e104d776233/public_url" target="_blank" class="btn-achievement">View Certificate →</a>
+  </div>
 </div>
 </div>
 <!-- YouTube Investigation Walkthroughs -->
