@@ -93,42 +93,6 @@ header:
     </ul>
     <a href="https://app.letsdefend.io/user/inkedqt" target="_blank" class="btn-achievement">View Profile →</a>
   </div>
-<!-- TryHackMe Advent of Cyber 2025 -->
-  <div class="achievement-card">
-    <div class="achievement-badge">
-      <img src="https://raw.githubusercontent.com/inkedqt/ctf-writeups/main/HTB/proofs/thm_advent2025.png" alt="THM SOCmas">
-    </div>
-    <h3>🎄 TryHackMe – Advent of Cyber 2025 (SOC-mas)</h3>
-    <p class="achievement-meta">Completed: December 2025 | 24 Daily Labs</p>
-    <ul class="achievement-highlights">
-      <li><strong>Phishing:</strong> Email analysis, IOC extraction, investigation workflow</li>
-      <li><strong>Splunk:</strong> Basic searches, detections, triage context, alert review</li>
-      <li><strong>SOC alert triage:</strong> Signal vs noise, next steps, evidence collection</li>
-      <li><strong>Host-based forensics:</strong> Registry/system artefacts, timeline-style thinking</li>
-      <li><strong>Network discovery/traffic:</strong> Scanning concepts + reading results</li>
-      <li><strong>Malware analysis:</strong> Basic static/dynamic concepts (entry-level but practical)</li>
-      <li><strong>ICS/Modbus awareness:</strong> Intro industrial protocol scenarios</li>
-      <li><strong>Detection concepts:</strong> C2 indicators, command & control patterns</li>
-    </ul>
-    <p class="achievement-meta"><em>Complements CDSA and strengthens "detect + respond" skills alongside offensive work.</em></p>
-    <a href="https://tryhackme-certificates.s3-eu-west-1.amazonaws.com/THM-2H6JFCWHKX.pdf" target="_blank" class="btn-achievement">View Certificate →</a>
-  </div>
-  <!-- TryHackMe Night Shift -->
-  <div class="achievement-card">
-    <div class="achievement-badge">
-      <img src="https://raw.githubusercontent.com/inkedqt/ctf-writeups/main/HTB/proofs/THM_first_shift.png" alt="TryHackMe Night Shift Completion">
-    </div>
-    <h3>TryHackMe Night Shift CTF</h3>
-    <p class="achievement-meta">Completed: February 2026 | Difficulty: Medium | 2,214 Points</p>
-    <ul class="achievement-highlights">
-      <li>Week-long SOC analyst simulation</li>
-      <li>Alert triage & severity assessment</li>
-      <li>Multi-source log correlation</li>
-      <li>Incident response playbooks</li>
-      <li>9 realistic enterprise scenarios</li>
-    </ul>
-    <a href="https://tryhackme.com/inkedqt" target="_blank" class="btn-achievement">View Profile →</a>
-  </div>
 </div>
 
 <!-- YouTube Investigation Walkthroughs -->
@@ -300,7 +264,43 @@ header:
       <div class="lab-cta">View Challenge →</div>
     </a>
   </div>
+  <!-- TryHackMe Advent of Cyber -->
+  <div class="btl1-lab-card completed">
+    <a href="https://tryhackme-certificates.s3-eu-west-1.amazonaws.com/THM-2H6JFCWHKX.pdf" target="_blank" class="lab-card-link">
+      <div class="btl1-thumbnail">
+        <img src="https://raw.githubusercontent.com/inkedqt/ctf-writeups/main/HTB/proofs/thm_advent2025.png" alt="SOCmas 2025">
+      </div>
+      <div class="btl1-badge">✓ COMPLETED</div>
+      <h3>🎄 Advent of Cyber 2025 (SOC-mas)</h3>
+      <p class="lab-category">SOC Training • TryHackMe • 24 Daily Labs</p>
+      <p class="lab-description">24 days of hands-on blue team challenges covering phishing analysis, Splunk detections, alert triage, host forensics, network traffic analysis, and malware basics.</p>
+      <div class="lab-tags">
+        <span class="tag">Splunk</span>
+        <span class="tag">SOC</span>
+        <span class="tag">DFIR</span>
+      </div>
+      <div class="lab-cta">View Certificate →</div>
+    </a>
+  </div>
 
+  <!-- TryHackMe Night Shift -->
+  <div class="btl1-lab-card completed">
+    <a href="https://tryhackme.com/inkedqt" target="_blank" class="lab-card-link">
+      <div class="btl1-thumbnail">
+        <img src="https://raw.githubusercontent.com/inkedqt/ctf-writeups/main/HTB/proofs/THM_first_shift.png" alt="Night Shift CTF">
+      </div>
+      <div class="btl1-badge">✓ COMPLETED</div>
+      <h3>Night Shift CTF</h3>
+      <p class="lab-category">SOC Simulation • TryHackMe • Medium Difficulty</p>
+      <p class="lab-description">Week-long SOC analyst simulation with 9 realistic enterprise scenarios covering alert triage, severity assessment, multi-source log correlation, and incident response.</p>
+      <div class="lab-tags">
+        <span class="tag">SOC</span>
+        <span class="tag">IR</span>
+        <span class="tag">Logs</span>
+      </div>
+      <div class="lab-cta">View Profile →</div>
+    </a>
+  </div>
   <!-- Placeholder 1 -->
   <div class="btl1-lab-card locked">
     <div class="btl1-badge">🔄 IN PROGRESS</div>
