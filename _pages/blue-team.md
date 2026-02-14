@@ -16,18 +16,27 @@ header:
     80+ documented investigations across multiple platforms demonstrating SIEM analysis, 
     alert triage, incident response workflows, and threat detection capabilities.
   </p>
+<p class="hero-description">
+  80+ documented investigations across multiple platforms demonstrating SIEM analysis,
+  alert triage, incident response workflows, and threat detection capabilities.
+</p>
+
+<p style="text-align: center; color: #b8b8b8; font-size: 0.95rem; margin-top: 1.5rem; margin-bottom: 0.5rem;">
+  Active hands-on training across industry-leading cybersecurity platforms
+</p>
+
 <!-- Platform Badges -->
-<div style="margin-top: 2rem; display: flex; justify-content: center; align-items: center; gap: 2rem; flex-wrap: nowrap;">
-  <!-- HTB Badge (Primary) -->
+<div style="margin-top: 1rem; display: flex; flex-direction: column; align-items: center; gap: 1.5rem;">
+  <!-- HTB Badge -->
   <a href="https://app.hackthebox.com/users/2216056" target="_blank">
     <img src="https://www.hackthebox.eu/badge/image/2216056" 
          alt="HackTheBox Profile" 
-         style="border-radius: 8px; height: 120px; width: auto; display: block;">
+         style="border-radius: 8px; max-width: 500px; width: 100%; height: auto;">
   </a>
   
-  <!-- THM Badge (Secondary) -->
+  <!-- THM Badge -->
   <iframe src="https://tryhackme.com/api/v2/badges/public-profile?userPublicId=4106179" 
-          style="border:none; width: 350px; height: 120px; border-radius: 8px; display: block;" 
+          style="border:none; width: 100%; max-width: 400px; height: 120px; border-radius: 8px;" 
           title="TryHackMe Stats">
   </iframe>
 </div>
