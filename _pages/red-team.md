@@ -134,11 +134,18 @@ classes: wide
 {% include pro-labs.html %}
 
 <!-- Other Platforms -->
+<!-- Other Platforms -->
 <h2 class="section-heading">🌐 Other Platforms</h2>
 <p class="table-intro">
   Penetration testing practice across TryHackMe, ProvingGrounds, and other offensive security platforms.
 </p>
-{% include other-platforms.html %}
+
+{% include other-platforms.html title="🧪 Proving Grounds (PG) Boxes" items=site.data.pg %}
+{% include other-platforms.html title="🧪 TryHackMe (THM) Boxes" items=site.data.thm %}
+
+{% if site.data.hacksmarter %}
+  {% include other-platforms.html title="🧪 HackSmarter Labs" items=site.data.hacksmarter %}
+{% endif %}
 
 <!-- Featured Case Study -->
 <h2 class="section-heading">📋 Featured Case Study</h2>

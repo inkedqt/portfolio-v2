@@ -1,6 +1,10 @@
-{%- assign rows = include.items -%}
+{%- assign rows = include.items | default: include.rows -%}
+{%- if rows == nil or rows == empty -%}
+  {%- assign rows = site.data.pg | default: site.data.thm | default: site.data.proving_grounds -%}
+{%- endif -%}
 
 <h2 class="section-heading">{{ include.title }}</h2>
+<p class="private-note">Loaded rows: {{ rows | size }}</p>
 
 <div class="htb-table-wrapper">
   <table class="htb-table">
