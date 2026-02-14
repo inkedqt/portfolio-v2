@@ -80,7 +80,7 @@ header:
   <!-- LetsDefend SOC Analyst -->
   <div class="achievement-card">
     <div class="achievement-badge">
-      <img src="https://raw.githubusercontent.com/inkedqt/ctf-writeups/main/assets/certs/letsdefend-soc.png" alt="LetsDefend SOC Analyst Path">
+      <img src="{{ site.baseurl }}/assets/images/certs/letsdefend.png" alt="LetsDefend">
     </div>
     <h3>LetsDefend SOC Analyst Path</h3>
     <p class="achievement-meta">Completed: February 2026 | 34 Investigations | 97% Success Rate</p>
@@ -96,7 +96,7 @@ header:
 <!-- TryHackMe Advent of Cyber 2025 -->
   <div class="achievement-card">
     <div class="achievement-badge">
-      <img src="{{ site.baseurl }}/assets/images/certs/letsdefend.png" alt="LetsDefend">
+      <img src="https://tryhackme-certificates.s3-eu-west-1.amazonaws.com/THM-2H6JFCWHKX.pdf" alt="THM SOCmas">
     </div>
     <h3>🎄 TryHackMe – Advent of Cyber 2025 (SOC-mas)</h3>
     <p class="achievement-meta">Completed: December 2025 | 24 Daily Labs</p>
