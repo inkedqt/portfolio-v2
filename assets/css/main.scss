@@ -1787,3 +1787,25 @@ pre code {
   width: 14%;
   white-space: nowrap;
 }
+/* Fix machine column wrapping */
+.htb-table td:nth-child(1),
+.htb-table th:nth-child(1) {
+  white-space: normal;
+  word-break: normal;
+  overflow-wrap: normal;
+}
+.summary-toggle summary {
+  color: #00e5ff;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-block;
+  padding: 0.35rem 0.9rem;
+  border: 1px solid #00e5ff;
+  border-radius: 999px;
+  transition: all 0.2s ease;
+}
+
+.summary-toggle summary:hover {
+  background: #00e5ff;
+  color: #121212;
+}
