@@ -26,14 +26,16 @@ classes: wide
 
 <!-- Platform Badges -->
 <div style="margin-top: 1rem; display: flex; flex-direction: column; align-items: center; gap: 1.5rem;">
+  <!-- HTB Badge -->
   <a href="https://app.hackthebox.com/users/2216056" target="_blank">
     <img src="https://www.hackthebox.eu/badge/image/2216056" 
          alt="HackTheBox Profile" 
-         style="border-radius: 8px; max-width: 500px; width: 100%; height: auto;">
+         style="border-radius: 8px; width: 450px; height: auto;">
   </a>
   
+  <!-- THM Badge -->
   <iframe src="https://tryhackme.com/api/v2/badges/public-profile?userPublicId=4106179" 
-          style="border:none; width: 100%; max-width: 400px; height: 120px; border-radius: 8px;" 
+          style="border:none; width: 400px; height: 120px; border-radius: 8px;" 
           title="TryHackMe Stats">
   </iframe>
 </div>

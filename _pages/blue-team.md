@@ -12,10 +12,6 @@ header:
   <div class="hero-icon">🛡️</div>
   <h1>Blue Team Operations</h1>
   <p class="hero-subtitle">SOC Analysis & Defensive Security</p>
-  <p class="hero-description">
-    80+ documented investigations across multiple platforms demonstrating SIEM analysis, 
-    alert triage, incident response workflows, and threat detection capabilities.
-  </p>
 <p class="hero-description">
   80+ documented investigations across multiple platforms demonstrating SIEM analysis,
   alert triage, incident response workflows, and threat detection capabilities.
@@ -31,12 +27,12 @@ header:
   <a href="https://app.hackthebox.com/users/2216056" target="_blank">
     <img src="https://www.hackthebox.eu/badge/image/2216056" 
          alt="HackTheBox Profile" 
-         style="border-radius: 8px; max-width: 500px; width: 100%; height: auto;">
+         style="border-radius: 8px; width: 450px; height: auto;">
   </a>
   
   <!-- THM Badge -->
   <iframe src="https://tryhackme.com/api/v2/badges/public-profile?userPublicId=4106179" 
-          style="border:none; width: 100%; max-width: 400px; height: 120px; border-radius: 8px;" 
+          style="border:none; width: 400px; height: 120px; border-radius: 8px;" 
           title="TryHackMe Stats">
   </iframe>
 </div>
