@@ -1649,38 +1649,46 @@ pre code {
     grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   }
 }
-.htb-table td, .htb-table th {
-  word-break: normal !important;
-  overflow-wrap: normal !important;
+
+/* ===== HTB TABLE: FINAL (stable) ===== */
+
+/* Keep wrapping sane */
+.htb-table td,
+.htb-table th {
+  word-break: normal;
+  overflow-wrap: anywhere; /* nicer wrapping without single-word-per-line */
 }
+
+/* Table layout: use fixed so col widths actually stick */
+.htb-table {
+  width: 100%;
+  table-layout: fixed;
+}
+
+/* If using <colgroup> classes */
+.htb-table .col-machine   { width: 14%; }
+.htb-table .col-difficulty{ width: 9%;  }
+.htb-table .col-status    { width: 9%;  }
+.htb-table .col-proof     { width: 10%; }
+.htb-table .col-writeup   { width: 8%;  }
+.htb-table .col-summary   { width: 50%; }
+
+/* Summary cell: show full text (NO clamp) */
 .htb-table td:nth-child(6),
 .htb-table th:nth-child(6) {
   white-space: normal;
-  overflow-wrap: break-word;  /* wrap long strings safely */
-  word-break: normal;         /* prevents single-word-per-line */
-}
-.htb-table {
-  table-layout: auto;            /* keep */
-  width: 100%;
+  line-height: 1.6;
 }
 
-.htb-table .col-machine   { width: 16%; }
-.htb-table .col-difficulty{ width: 10%; }
-.htb-table .col-status    { width: 10%; }
-.htb-table .col-proof     { width: 12%; }
-.htb-table .col-writeup   { width: 10%; }
-.htb-table .col-summary   { width: 42%; }  /* give it room */
-.htb-table td:nth-child(6) {
-  line-height: 1.6;
-  overflow: hidden;
-  display: -webkit-box;
-  -webkit-line-clamp: 5;
-  -webkit-box-orient: vertical;
+/* Machine name: don’t split words */
+.htb-table td:nth-child(1),
+.htb-table th:nth-child(1) {
+  overflow-wrap: normal;
+  word-break: normal;
 }
-.htb-table .col-machine   { width: 14%; }
-.htb-table .col-difficulty{ width: 9%; }
-.htb-table .col-status    { width: 9%; }
-.htb-table .col-proof     { width: 10%; }
-.htb-table .col-writeup   { width: 8%; }
-.htb-table .col-summary   { width: 50%; }
 	
+.htb-table-wrapper {
+  max-width: 960px;
+  margin: 2rem auto;
+  overflow-x: auto;
+}
