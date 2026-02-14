@@ -1709,3 +1709,22 @@ pre code {
   border: 1px solid #444;
   text-align: center;
 }
+/* Keep short columns from wrapping weirdly */
+.htb-table th:nth-child(1),
+.htb-table td:nth-child(1),
+.htb-table th:nth-child(2),
+.htb-table td:nth-child(2),
+.htb-table th:nth-child(3),
+.htb-table td:nth-child(3),
+.htb-table th:nth-child(5),
+.htb-table td:nth-child(5) {
+  white-space: nowrap;
+}
+
+/* Machine name can wrap at spaces if needed (optional) */
+/*
+.htb-table td:nth-child(1) {
+  white-space: normal;
+  overflow-wrap: normal;
+}
+*/
