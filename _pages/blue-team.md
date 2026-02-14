@@ -96,7 +96,7 @@ header:
 <!-- TryHackMe Advent of Cyber 2025 -->
   <div class="achievement-card">
     <div class="achievement-badge">
-      <img src="https://raw.githubusercontent.com/inkedqt/ctf-writeups/main/assets/certs/thm-aoc-2025.png" alt="TryHackMe Advent of Cyber 2025">
+      <img src="{{ site.baseurl }}/assets/images/certs/letsdefend.png" alt="LetsDefend">
     </div>
     <h3>🎄 TryHackMe – Advent of Cyber 2025 (SOC-mas)</h3>
     <p class="achievement-meta">Completed: December 2025 | 24 Daily Labs</p>
