@@ -1224,13 +1224,13 @@ pre code {
       letter-spacing: 0.5px;
       
       /* Column width distribution */
-      &:nth-child(1) { width: 10%; } /* Machine */
-      &:nth-child(2) { width: 7%; text-align: center; } /* Difficulty */
-      &:nth-child(3) { width: 7%; text-align: center; } /* Status */
-      &:nth-child(4) { width: 8%; text-align: center; } /* Proof */
-      &:nth-child(5) { width: 7%; text-align: center; } /* Writeup */
-      &:nth-child(6) { width: 40%; } /* Summary - MOST SPACE */
-      &:nth-child(7) { width: 3%; } /* Tags */
+      &:nth-child(1) { width: 12%; } /* Machine */
+      &:nth-child(2) { width: 8%; text-align: center; } /* Difficulty */
+      &:nth-child(3) { width: 8%; text-align: center; } /* Status */
+      &:nth-child(4) { width: 10%; text-align: center; } /* Proof */
+      &:nth-child(5) { width: 8%; text-align: center; } /* Writeup */
+      &:nth-child(6) { width: 50%; } /* Summary - MOST SPACE */
+      &:nth-child(7) { width: 4%; } /* Tags */
     }
   }
   
