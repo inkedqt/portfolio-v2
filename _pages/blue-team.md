@@ -277,6 +277,54 @@ header:
   </div>
   <p class="progress-text">1 of 9 BTL1 labs completed (11%)</p>
 </div>
+<!-- Hands-On Practice Labs -->
+<h2 class="section-heading">🔬 Hands-On Practice Labs</h2>
+
+<p class="section-intro">Ongoing blue team challenge labs and investigations across multiple platforms, demonstrating continuous skill development and practical application.</p>
+
+<div class="btl1-labs-grid">
+  <!-- HackSmarter Source Leak -->
+  <div class="btl1-lab-card completed">
+    <a href="https://www.hacksmarter.org/courses/b0ecedbe-d142-48bf-9b6d-f58ccdbd4b44" target="_blank" class="lab-card-link">
+      <div class="btl1-thumbnail">
+        <img src="{{ site.baseurl }}/assets/images/labs/hacksmarter-source-leak.png" alt="Source Leak Investigation">
+      </div>
+      <div class="btl1-badge">✓ COMPLETED</div>
+      <h3>Source Leak Investigation</h3>
+      <p class="lab-category">Incident Response • Digital Forensics • HackSmarter</p>
+      <p class="lab-description">First incident response investigation: source code breach at indie game studio. Evidence collection, timeline analysis, and root cause identification.</p>
+      <div class="lab-tags">
+        <span class="tag">IR</span>
+        <span class="tag">Forensics</span>
+        <span class="tag">DFIR</span>
+      </div>
+      <div class="lab-cta">View Challenge →</div>
+    </a>
+  </div>
+
+  <!-- Placeholder 1 -->
+  <div class="btl1-lab-card locked">
+    <div class="btl1-badge">🔄 IN PROGRESS</div>
+    <div class="btl1-thumbnail">
+      <div class="placeholder-thumb">Next Lab</div>
+    </div>
+    <h3>More Labs Coming</h3>
+    <p class="lab-category">Various Platforms</p>
+    <p class="lab-description">Additional hands-on labs from HackSmarter, BTLO, and other platforms will be documented here.</p>
+  </div>
+
+  <!-- Placeholder 2 -->
+  <div class="btl1-lab-card locked">
+    <div class="btl1-badge">🔒 UPCOMING</div>
+    <div class="btl1-thumbnail">
+      <div class="placeholder-thumb">Lab 3</div>
+    </div>
+    <h3>More Labs Coming</h3>
+    <p class="lab-category">TBD</p>
+    <p class="lab-description">Continuous learning across multiple blue team platforms.</p>
+  </div>
+</div>
+
 <!-- Investigation Documentation -->
 <h2 class="section-heading">📊 Investigation Documentation</h2>
 
