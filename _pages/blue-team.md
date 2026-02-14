@@ -75,7 +75,7 @@ header:
       <li>Phishing analysis & malware detection</li>
       <li>Network traffic analysis & PCAP investigation</li>
     </ul>
-    <a href="https://www.credly.com/badges/80ca0800-f89e-4be7-86c1-4e104d776233/public_url" target="_blank" class="btn-achievement">View Certificate →</>
+    <a href="https://www.credly.com/badges/80ca0800-f89e-4be7-86c1-4e104d776233/public_url" target="_blank" class="btn-achievement">View Certificate →</a>
   </div>
   <!-- LetsDefend SOC Analyst -->
   <div class="achievement-card">
@@ -130,7 +130,7 @@ header:
     <a href="https://tryhackme.com/inkedqt" target="_blank" class="btn-achievement">View Profile →</a>
   </div>
 </div>
-</div>
+
 <!-- YouTube Investigation Walkthroughs -->
 <h2 class="section-heading">📺 Investigation Walkthroughs</h2>
 
