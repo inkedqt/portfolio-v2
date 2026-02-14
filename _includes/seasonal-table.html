@@ -39,7 +39,14 @@
             —
           {% endif %}
         </td>
-        <td class="summary-cell">{{ m.summary }}</td>
+        <td class="summary-cell">
+	  <details class="summary-toggle">
+	    <summary>View chain</summary>
+	    <div class="summary-content">
+	      {{ m.summary }}
+	    </div>
+	  </details>
+	</td>
       </tr>
     {% endfor %}
     </tbody>

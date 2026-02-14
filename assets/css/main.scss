@@ -1756,3 +1756,29 @@ pre code {
 .htb-table .col-writeup   { width: 8%;  }
 .htb-table .col-summary   { width: 54%; }
 .htb-table { table-layout: fixed; width: 100%; }
+/* Collapsible summary styling */
+.summary-toggle summary {
+  cursor: pointer;
+  color: #00e5ff;
+  font-weight: 600;
+  list-style: none;
+}
+
+.summary-toggle summary::-webkit-details-marker {
+  display: none;
+}
+
+.summary-toggle summary::after {
+  content: " ▸";
+  transition: transform 0.2s ease;
+}
+
+.summary-toggle[open] summary::after {
+  content: " ▾";
+}
+
+.summary-content {
+  margin-top: 0.75rem;
+  line-height: 1.6;
+  color: #f4c4eb;
+}
