@@ -49,7 +49,7 @@ a {
 }
 
 /* === TABLES === */
-table {
+table:not(.htb-table) {
   width: 100%;
   border-collapse: collapse;
   background-color: #1e1e1e !important;
