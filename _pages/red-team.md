@@ -15,6 +15,28 @@ classes: wide
     web applications, container escapes, and privilege escalation chains. Demonstrating attacker TTPs 
     to strengthen defensive capabilities.
   </p>
+<p class="hero-description">
+  HTB Season 9 ranked, Active Directory specialist, and offensive security researcher 
+  focused on realistic attack simulations and security assessments.
+</p>
+
+<p style="text-align: center; color: #b8b8b8; font-size: 0.95rem; margin-top: 1.5rem; margin-bottom: 0.5rem;">
+  Active hands-on training across industry-leading cybersecurity platforms
+</p>
+
+<!-- Platform Badges -->
+<div style="margin-top: 1rem; display: flex; flex-direction: column; align-items: center; gap: 1.5rem;">
+  <a href="https://app.hackthebox.com/users/2216056" target="_blank">
+    <img src="https://www.hackthebox.eu/badge/image/2216056" 
+         alt="HackTheBox Profile" 
+         style="border-radius: 8px; max-width: 500px; width: 100%; height: auto;">
+  </a>
+  
+  <iframe src="https://tryhackme.com/api/v2/badges/public-profile?userPublicId=4106179" 
+          style="border:none; width: 100%; max-width: 400px; height: 120px; border-radius: 8px;" 
+          title="TryHackMe Stats">
+  </iframe>
+</div>
 </div>
 
 <!-- Quick Stats -->
