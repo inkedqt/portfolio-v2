@@ -1744,3 +1744,15 @@ pre code {
 .htb-table {
   width: 100% !important;
 }
+.htb-table-wrapper {
+  width: min(1200px, 100%);
+  margin: 2rem auto;
+  overflow-x: auto;
+}
+.htb-table .col-machine   { width: 12%; }
+.htb-table .col-difficulty{ width: 8%;  }
+.htb-table .col-status    { width: 8%;  }
+.htb-table .col-proof     { width: 10%; }
+.htb-table .col-writeup   { width: 8%;  }
+.htb-table .col-summary   { width: 54%; }
+.htb-table { table-layout: fixed; width: 100%; }
