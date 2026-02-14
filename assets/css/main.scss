@@ -1842,3 +1842,34 @@ pre code {
   color: #f4c4eb;
   vertical-align: top;
 }
+/* PROLABS: allow proof zoom to escape the table cell */
+.htb-table-wrapper {
+  overflow-x: auto;
+  overflow-y: visible;  /* key */
+}
+
+.ink-table,
+.ink-table td,
+.ink-table th {
+  overflow: visible;    /* prevent clipping */
+}
+
+.proof-img {
+  position: relative;
+  z-index: 2;
+}
+
+.proof-img:hover {
+  z-index: 9999;
+}
+/* Allow proof zoom to escape scroll containers */
+.htb-table-wrapper {
+  overflow-x: auto;
+  overflow-y: visible;
+}
+
+.htb-table,
+.htb-table td,
+.htb-table th {
+  overflow: visible;
+}
