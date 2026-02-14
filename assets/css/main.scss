@@ -1655,7 +1655,6 @@ pre code {
 }
 .htb-table td:nth-child(6),
 .htb-table th:nth-child(6) {
-  min-width: 420px;   /* adjust 380–520 to taste */
   white-space: normal;
   overflow-wrap: break-word;  /* wrap long strings safely */
   word-break: normal;         /* prevents single-word-per-line */
@@ -1673,9 +1672,15 @@ pre code {
 .htb-table .col-summary   { width: 42%; }  /* give it room */
 .htb-table td:nth-child(6) {
   line-height: 1.6;
-  max-height: 7.2em;          /* ~4-5 lines */
   overflow: hidden;
   display: -webkit-box;
   -webkit-line-clamp: 5;
   -webkit-box-orient: vertical;
 }
+.htb-table .col-machine   { width: 14%; }
+.htb-table .col-difficulty{ width: 9%; }
+.htb-table .col-status    { width: 9%; }
+.htb-table .col-proof     { width: 10%; }
+.htb-table .col-writeup   { width: 8%; }
+.htb-table .col-summary   { width: 50%; }
+	
