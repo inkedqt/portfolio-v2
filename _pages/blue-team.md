@@ -16,6 +16,23 @@ header:
     80+ documented investigations across multiple platforms demonstrating SIEM analysis, 
     alert triage, incident response workflows, and threat detection capabilities.
   </p>
+  
+  <!-- Platform Badges -->
+  <div style="margin-top: 2rem; display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap;">
+    <!-- HTB Badge (Primary) -->
+    <a href="https://app.hackthebox.com/users/2216056" target="_blank">
+      <img src="https://www.hackthebox.eu/badge/image/2216056" 
+           alt="HackTheBox Profile" 
+           style="border-radius: 8px; max-width: 350px;">
+    </a>
+    
+    <!-- THM Badge (Secondary) -->
+    <iframe src="https://tryhackme.com/api/v2/badges/public-profile?userPublicId=4106179" 
+            style="border:none; width: 350px; height: 120px;" 
+            title="TryHackMe Stats">
+    </iframe>
+  </div>
+</div>
 </div>
 <!-- INLINE STYLE FIX - ADD THIS HERE -->
 <style>
