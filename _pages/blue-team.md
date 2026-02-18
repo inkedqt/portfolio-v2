@@ -124,9 +124,9 @@ classes: wide
         <div class="play-overlay">▶</div>
       </div>
       <h3>LetsDefend SOC Investigations</h3>
-      <p>Real-world SIEM alert investigations with full analysis, log correlation, and incident response workflows.</p>
+      <p>Ongoing real-world SIEM alert investigations documenting structured triage, log correlation, containment decisions, and defensive workflow development.</p>
       <div class="playlist-stats">
-        <span>📹 15+ Videos</span>
+        <span>📹 40+ Videos</span>
         <span>⏱️ ~4 hours</span>
       </div>
     </a>
@@ -140,7 +140,7 @@ classes: wide
         <div class="play-overlay">▶</div>
       </div>
       <h3>TryHackMe Blue Team Operations</h3>
-      <p>SOC Level 1 learning path walkthroughs covering network security, PCAP analysis, and defensive operations.</p>
+      <p>Structured SOC Analyst Level 1 (SAL1) walkthroughs focused on alert triage, log analysis, PCAP investigation, and defensive reasoning. Each lab is approached using real-world analyst workflow and escalation methodology.</p>
       <div class="playlist-stats">
         <span>📹 12+ Videos</span>
         <span>⏱️ ~3 hours</span>
