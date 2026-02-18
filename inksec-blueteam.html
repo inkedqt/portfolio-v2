@@ -1,0 +1,980 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>inksec.io // blue team</title>
+<link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Syne+Mono&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --black:      #050508;
+  --deep:       #08080f;
+  --panel:      #0c0c18;
+  --pink:       #ff66c4;
+  --pink-bright:#ff90d6;
+  --pink-dim:   rgba(255,102,196,0.4);
+  --pink-faint: rgba(255,102,196,0.07);
+  --cyan:       #00f5d4;
+  --cyan-dim:   rgba(0,245,212,0.4);
+  --cyan-faint: rgba(0,245,212,0.07);
+  --gold:       #ffd166;
+  --gold-dim:   rgba(255,209,102,0.35);
+  --muted:      #2a2a45;
+  --subtle:     #4a4a6a;
+  --text:       #c8c8e8;
+  --text-dim:   #7a7a9a;
+  --green:      #00ff88;
+  --green-dim:  rgba(0,255,136,0.3);
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--black);
+  color: var(--text);
+  font-family: 'Share Tech Mono', monospace;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background:
+    linear-gradient(#1a1a2e 1px, transparent 1px),
+    linear-gradient(90deg, #1a1a2e 1px, transparent 1px);
+  background-size: 36px 36px;
+  opacity: 0.1;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.scanline {
+  position: fixed; top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--pink-dim), transparent);
+  animation: scan 7s linear infinite;
+  opacity: 0.25; z-index: 999; pointer-events: none;
+}
+@keyframes scan { 0%{top:-1px} 100%{top:100%} }
+
+/* ── NAV ── */
+nav {
+  position: sticky; top: 0; z-index: 100;
+  background: rgba(5,5,8,0.94);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--muted);
+  padding: 0 clamp(16px, 5vw, 80px);
+  display: flex; align-items: center;
+  justify-content: space-between; height: 52px;
+}
+.nav-brand { font-family:'Syne Mono',monospace; font-size:15px; color:var(--text); text-decoration:none; }
+.nav-brand .pk { color:var(--pink); text-shadow:0 0 20px var(--pink-dim); }
+.nav-brand .cx { color:var(--cyan); }
+.nav-links { display:flex; gap:clamp(14px,3vw,32px); list-style:none; align-items:center; }
+.nav-links a { font-size:10px; letter-spacing:0.2em; text-transform:uppercase; color:var(--subtle); text-decoration:none; transition:color 0.2s; }
+.nav-links a:hover { color:var(--pink); }
+.nav-back { font-size:10px; letter-spacing:0.15em; color:var(--subtle); text-decoration:none; border:1px solid var(--muted); padding:4px 10px; transition:all 0.2s; }
+.nav-back:hover { color:var(--cyan); border-color:var(--cyan-dim); }
+
+/* ── WRAP ── */
+.wrap { position:relative; z-index:1; max-width:1200px; margin:0 auto; padding:0 clamp(16px,5vw,80px); }
+
+/* ── HERO ── */
+.hero {
+  padding: 64px 0 52px;
+  border-bottom: 1px solid var(--muted);
+}
+.hero-eyebrow { font-size:9px; letter-spacing:0.35em; text-transform:uppercase; color:var(--subtle); margin-bottom:16px; }
+.hero-title {
+  font-family:'Syne Mono',monospace;
+  font-size:clamp(24px,4vw,44px);
+  line-height:1.05; margin-bottom:16px;
+}
+.hero-title .pk { color:var(--pink); text-shadow:0 0 40px var(--pink-dim); }
+.hero-title .cx { color:var(--cyan); text-shadow:0 0 40px var(--cyan-dim); }
+.hero-sub {
+  font-family:'DM Mono',monospace; font-weight:300;
+  font-size:clamp(11px,1.5vw,13px); color:var(--text-dim);
+  line-height:1.8; max-width:600px; margin-bottom:40px; letter-spacing:0.04em;
+}
+.hero-sub em { font-style:normal; color:var(--text); }
+
+/* stat bar */
+.hero-stats { display:flex; gap:1px; background:var(--muted); border:1px solid var(--muted); width:fit-content; }
+.hstat { background:var(--deep); padding:14px 22px; text-align:center; min-width:110px; }
+.hstat-val { font-family:'Syne Mono',monospace; font-size:clamp(16px,2.5vw,22px); margin-bottom:4px; }
+.hstat-val.pk { color:var(--pink); text-shadow:0 0 16px var(--pink-dim); }
+.hstat-val.cx { color:var(--cyan); text-shadow:0 0 16px var(--cyan-dim); }
+.hstat-val.go { color:var(--gold); }
+.hstat-label { font-size:8px; letter-spacing:0.22em; text-transform:uppercase; color:var(--subtle); }
+
+/* platform counter row */
+.platform-counts {
+  display:flex; gap:10px; flex-wrap:wrap; margin-top:20px;
+}
+.pcount {
+  border:1px solid var(--muted);
+  padding:4px 12px;
+  font-size:9px; letter-spacing:0.15em; text-transform:uppercase;
+  color:var(--subtle); display:flex; align-items:center; gap:6px;
+}
+.pcount-num { color:var(--pink); font-family:'Syne Mono',monospace; font-size:12px; }
+
+/* ── SECTION ── */
+section { padding:52px 0; border-bottom:1px solid var(--muted); }
+section:last-child { border-bottom:none; }
+.sec-eyebrow { font-size:9px; letter-spacing:0.35em; text-transform:uppercase; color:var(--subtle); margin-bottom:20px; }
+.sec-title { font-family:'Syne Mono',monospace; font-size:clamp(15px,2.2vw,20px); color:var(--text); margin-bottom:8px; }
+.sec-title .pk { color:var(--pink); }
+.sec-title .cx { color:var(--cyan); }
+.sec-desc { font-size:11px; color:var(--text-dim); line-height:1.7; letter-spacing:0.04em; margin-bottom:28px; max-width:640px; }
+
+/* ── ACHIEVEMENTS ── */
+.achievement-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:14px; }
+.ach-card {
+  background:var(--panel); border:1px solid var(--muted);
+  padding:24px; position:relative; overflow:hidden;
+  transition:border-color 0.2s, box-shadow 0.2s;
+}
+.ach-card::before { content:''; position:absolute; top:0; left:0; right:0; height:2px; background:linear-gradient(90deg,var(--pink),var(--cyan)); opacity:0.6; }
+.ach-card:hover { border-color:var(--pink-dim); box-shadow:0 0 30px var(--pink-faint); }
+.ach-tag { font-size:8px; letter-spacing:0.25em; text-transform:uppercase; color:var(--pink); margin-bottom:10px; }
+.ach-title { font-family:'Syne Mono',monospace; font-size:15px; color:var(--text); margin-bottom:6px; }
+.ach-meta { font-size:9px; letter-spacing:0.1em; color:var(--subtle); margin-bottom:14px; }
+.ach-bullets { list-style:none; margin-bottom:16px; }
+.ach-bullets li { font-size:10px; color:var(--text-dim); padding:2px 0 2px 12px; position:relative; letter-spacing:0.04em; line-height:1.6; }
+.ach-bullets li::before { content:'›'; position:absolute; left:0; color:var(--cyan); }
+.ach-link { font-size:9px; letter-spacing:0.2em; text-transform:uppercase; color:var(--cyan); text-decoration:none; border:1px solid var(--cyan-dim); padding:5px 12px; display:inline-block; transition:all 0.2s; }
+.ach-link:hover { background:var(--cyan-faint); color:var(--pink); border-color:var(--pink-dim); }
+
+/* ── DAY X ── */
+.dayx-wrap { display:grid; grid-template-columns:1fr auto; gap:24px; align-items:start; }
+.dayx-info { }
+.dayx-playlists { display:flex; flex-direction:column; gap:10px; flex-shrink:0; }
+.yt-thumb {
+  position:relative; width:clamp(160px,22vw,220px);
+  aspect-ratio:16/9; overflow:hidden; background:#000;
+  border:1px solid var(--muted); transition:border-color 0.2s;
+  text-decoration:none; display:block;
+}
+.yt-thumb:hover { border-color:var(--pink-dim); }
+.yt-thumb img { width:100%; height:100%; object-fit:cover; opacity:0.75; }
+.yt-play {
+  position:absolute; inset:0; display:flex; align-items:center; justify-content:center;
+  font-size:22px; color:rgba(255,255,255,0.85);
+  background:rgba(0,0,0,0.25); transition:background 0.2s;
+}
+.yt-thumb:hover .yt-play { background:rgba(255,102,196,0.2); }
+.yt-label { font-size:9px; letter-spacing:0.15em; text-transform:uppercase; color:var(--subtle); padding:4px 0 2px; }
+.yt-meta { font-size:8px; color:var(--text-dim); letter-spacing:0.08em; }
+
+/* ── FILTER BAR ── */
+.filter-bar {
+  display:flex; gap:8px; flex-wrap:wrap; align-items:center;
+  margin-bottom:24px; padding-bottom:16px;
+  border-bottom:1px solid var(--muted);
+}
+.filter-search {
+  background:var(--panel); border:1px solid var(--muted);
+  color:var(--text); font-family:'Share Tech Mono',monospace;
+  font-size:12px; padding:8px 12px; outline:none;
+  flex:1; min-width:180px; transition:border-color 0.2s; letter-spacing:0.06em;
+}
+.filter-search:focus { border-color:var(--pink-dim); }
+.filter-search::placeholder { color:var(--subtle); }
+
+.filter-group { display:flex; gap:6px; flex-wrap:wrap; }
+.filter-label { font-size:8px; letter-spacing:0.2em; text-transform:uppercase; color:var(--muted); align-self:center; }
+
+.fbtn {
+  background:var(--panel); border:1px solid var(--muted);
+  color:var(--subtle); font-family:'Share Tech Mono',monospace;
+  font-size:8px; letter-spacing:0.18em; text-transform:uppercase;
+  padding:5px 10px; cursor:pointer; transition:all 0.2s;
+}
+.fbtn:hover { color:var(--text); border-color:var(--subtle); }
+.fbtn.active { border-color:var(--pink-dim); color:var(--pink); background:var(--pink-faint); }
+
+/* platform filter colours */
+.fbtn[data-platform="BTL1"].active       { border-color:rgba(0,245,212,0.4); color:var(--cyan); background:var(--cyan-faint); }
+.fbtn[data-platform="BTLO"].active       { border-color:rgba(255,209,102,0.4); color:var(--gold); background:rgba(255,209,102,0.07); }
+.fbtn[data-platform="LetsDefend"].active { border-color:var(--pink-dim); color:var(--pink); background:var(--pink-faint); }
+.fbtn[data-platform="TryHackMe"].active  { border-color:rgba(0,255,136,0.3); color:var(--green); background:rgba(0,255,136,0.05); }
+.fbtn[data-platform="Splunk"].active     { border-color:rgba(255,140,0,0.4); color:#ff8c00; background:rgba(255,140,0,0.07); }
+.fbtn[data-platform="HackSmarter"].active{ border-color:rgba(180,130,255,0.4); color:#b482ff; background:rgba(180,130,255,0.07); }
+
+/* diff colours */
+.fbtn[data-diff="Easy"].active   { border-color:var(--cyan-dim); color:var(--cyan); background:var(--cyan-faint); }
+.fbtn[data-diff="Medium"].active { border-color:var(--gold-dim); color:var(--gold); background:rgba(255,209,102,0.07); }
+.fbtn[data-diff="Hard"].active   { border-color:rgba(255,140,0,0.4); color:#ff8c00; background:rgba(255,140,0,0.07); }
+
+/* result count */
+.result-count { font-size:9px; letter-spacing:0.18em; color:var(--subtle); margin-bottom:16px; }
+.result-count span { color:var(--pink); }
+
+/* ── LAB GRID ── */
+.lab-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(280px,1fr)); gap:12px; }
+
+/* ── LAB CARD ── */
+.lab-card {
+  background:var(--panel);
+  border:1px solid var(--muted);
+  display:flex; flex-direction:column;
+  overflow:hidden;
+  transition:border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+  cursor:default;
+}
+.lab-card:hover {
+  border-color:var(--pink-dim);
+  box-shadow:0 0 24px var(--pink-faint);
+  transform:translateY(-2px);
+}
+
+/* artwork */
+.lab-art {
+  position:relative;
+  aspect-ratio:16/9;
+  overflow:hidden;
+  background:var(--deep);
+  flex-shrink:0;
+}
+.lab-art img {
+  width:100%; height:100%; object-fit:cover;
+  transition:transform 0.4s ease, filter 0.3s;
+  filter:brightness(0.85) saturate(1.1);
+}
+.lab-card:hover .lab-art img { transform:scale(1.04); filter:brightness(0.95) saturate(1.2); }
+
+/* platform badge on art */
+.lab-platform-badge {
+  position:absolute; top:8px; left:8px;
+  font-size:7px; letter-spacing:0.2em; text-transform:uppercase;
+  padding:3px 8px; border:1px solid; backdrop-filter:blur(4px);
+  font-family:'Share Tech Mono',monospace;
+}
+.badge-BTL1       { background:rgba(0,245,212,0.15); border-color:var(--cyan-dim); color:var(--cyan); }
+.badge-BTLO       { background:rgba(255,209,102,0.15); border-color:var(--gold-dim); color:var(--gold); }
+.badge-LetsDefend { background:rgba(255,102,196,0.15); border-color:var(--pink-dim); color:var(--pink); }
+.badge-TryHackMe  { background:rgba(0,255,136,0.12); border-color:var(--green-dim); color:var(--green); }
+.badge-Splunk     { background:rgba(255,140,0,0.12); border-color:rgba(255,140,0,0.4); color:#ff8c00; }
+.badge-HackSmarter{ background:rgba(180,130,255,0.12); border-color:rgba(180,130,255,0.4); color:#b482ff; }
+
+/* diff badge on art */
+.lab-diff-badge {
+  position:absolute; top:8px; right:8px;
+  font-size:7px; letter-spacing:0.18em; text-transform:uppercase;
+  padding:3px 8px; backdrop-filter:blur(4px);
+  border:1px solid; font-family:'Share Tech Mono',monospace;
+}
+.diff-Easy   { background:rgba(0,245,212,0.12); border-color:var(--cyan-dim); color:var(--cyan); }
+.diff-Medium { background:rgba(255,209,102,0.12); border-color:var(--gold-dim); color:var(--gold); }
+.diff-Hard   { background:rgba(255,140,0,0.12); border-color:rgba(255,140,0,0.4); color:#ff8c00; }
+
+/* status bar on art */
+.lab-status-bar {
+  position:absolute; bottom:0; left:0; right:0;
+  height:3px;
+}
+.lab-status-bar.done { background:linear-gradient(90deg,var(--cyan),var(--pink)); }
+.lab-status-bar.wip  { background:linear-gradient(90deg,var(--gold),transparent); }
+
+/* card body */
+.lab-body { padding:14px 16px; display:flex; flex-direction:column; gap:8px; flex:1; }
+
+.lab-name {
+  font-family:'Syne Mono',monospace; font-size:14px; color:var(--text);
+  letter-spacing:0.02em; line-height:1.2;
+}
+
+.lab-cats { display:flex; gap:4px; flex-wrap:wrap; }
+.lab-cat {
+  font-size:7px; letter-spacing:0.15em; text-transform:uppercase;
+  border:1px solid var(--muted); color:var(--subtle); padding:2px 6px;
+}
+
+.lab-summary {
+  font-size:10.5px; color:var(--text-dim); line-height:1.6;
+  letter-spacing:0.03em;
+  display:-webkit-box; -webkit-line-clamp:3; -webkit-box-orient:vertical; overflow:hidden;
+  flex:1;
+}
+
+.lab-footer {
+  display:flex; justify-content:space-between; align-items:center;
+  padding-top:8px; border-top:1px solid rgba(255,255,255,0.04);
+  margin-top:auto;
+}
+.lab-score { font-size:9px; color:var(--subtle); letter-spacing:0.1em; }
+.lab-score span { color:var(--cyan); font-family:'Syne Mono',monospace; }
+
+.lab-links { display:flex; gap:6px; }
+.lab-link {
+  font-size:8px; letter-spacing:0.15em; text-transform:uppercase;
+  color:var(--subtle); text-decoration:none;
+  border:1px solid var(--muted); padding:3px 8px; transition:all 0.15s;
+}
+.lab-link:hover { color:var(--cyan); border-color:var(--cyan-dim); }
+.lab-link.featured { color:var(--pink); border-color:var(--pink-dim); }
+.lab-link.featured:hover { background:var(--pink-faint); }
+
+/* ── FEATURED LAB (full width) ── */
+.featured-lab {
+  display:grid; grid-template-columns:300px 1fr; gap:0;
+  background:var(--panel); border:1px solid var(--pink-dim);
+  overflow:hidden; margin-bottom:28px;
+  box-shadow:0 0 40px var(--pink-faint);
+  position:relative;
+}
+.featured-lab::before {
+  content:'featured writeup';
+  position:absolute; top:12px; right:12px;
+  font-size:7px; letter-spacing:0.25em; text-transform:uppercase;
+  color:var(--pink); border:1px solid var(--pink-dim);
+  padding:3px 8px; background:rgba(5,5,8,0.8); z-index:2;
+}
+.featured-art {
+  position:relative; overflow:hidden;
+}
+.featured-art img { width:100%; height:100%; object-fit:cover; filter:brightness(0.8) saturate(1.2); }
+.featured-body {
+  padding:28px; display:flex; flex-direction:column; gap:12px;
+  border-left:1px solid var(--muted);
+}
+.featured-tag { font-size:8px; letter-spacing:0.3em; text-transform:uppercase; color:var(--pink); }
+.featured-title { font-family:'Syne Mono',monospace; font-size:clamp(16px,2.5vw,22px); color:var(--text); }
+.featured-meta { font-size:9px; letter-spacing:0.1em; color:var(--subtle); }
+.featured-cats { display:flex; gap:6px; flex-wrap:wrap; }
+.featured-cat { font-size:8px; letter-spacing:0.15em; text-transform:uppercase; border:1px solid var(--cyan-dim); color:var(--cyan); padding:2px 8px; }
+.featured-summary { font-size:11px; color:var(--text-dim); line-height:1.7; letter-spacing:0.03em; flex:1; }
+.featured-cta {
+  display:inline-block; font-size:9px; letter-spacing:0.2em; text-transform:uppercase;
+  color:var(--black); background:var(--pink);
+  padding:7px 16px; text-decoration:none;
+  transition:all 0.2s; align-self:flex-start;
+  font-family:'Share Tech Mono',monospace;
+  box-shadow:0 0 16px var(--pink-dim);
+}
+.featured-cta:hover { background:var(--cyan); }
+
+/* ── BTL1 PROGRESS ── */
+.btl1-progress { margin-bottom:28px; }
+.progress-track {
+  height:3px; background:var(--muted);
+  border-radius:0; overflow:hidden; margin-bottom:6px;
+}
+.progress-fill {
+  height:100%;
+  background:linear-gradient(90deg,var(--cyan),var(--pink));
+  transition:width 0.5s ease;
+}
+.progress-text { font-size:9px; letter-spacing:0.18em; color:var(--subtle); }
+.progress-text span { color:var(--cyan); }
+
+/* ── LAB ENVIRONMENTS ── */
+.env-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(280px,1fr)); gap:14px; }
+.env-card {
+  background:var(--panel); border:1px solid var(--muted);
+  padding:22px; transition:border-color 0.2s;
+}
+.env-card:hover { border-color:var(--cyan-dim); }
+.env-icon { font-size:24px; margin-bottom:10px; }
+.env-title { font-family:'Syne Mono',monospace; font-size:15px; color:var(--text); margin-bottom:8px; }
+.env-desc { font-size:11px; color:var(--text-dim); line-height:1.65; margin-bottom:14px; }
+.env-specs { display:flex; flex-direction:column; gap:6px; }
+.env-spec {
+  font-size:10px; color:var(--text-dim); letter-spacing:0.04em;
+  padding:6px 10px; background:rgba(255,255,255,0.02); border-left:2px solid var(--muted);
+}
+.env-spec strong { color:var(--cyan); margin-right:4px; }
+
+/* ── DOCUMENTATION ── */
+.doc-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(280px,1fr)); gap:14px; }
+.doc-card {
+  background:var(--panel); border:1px solid var(--muted);
+  padding:22px; position:relative; overflow:hidden;
+  transition:border-color 0.2s;
+}
+.doc-card::before { content:''; position:absolute; left:0; top:0; bottom:0; width:2px; background:linear-gradient(180deg,var(--pink),var(--cyan)); }
+.doc-card:hover { border-color:var(--pink-dim); }
+.doc-icon { font-size:22px; margin-bottom:10px; }
+.doc-title { font-family:'Syne Mono',monospace; font-size:15px; color:var(--text); margin-bottom:8px; }
+.doc-desc { font-size:11px; color:var(--text-dim); line-height:1.65; margin-bottom:12px; }
+.doc-bullets { list-style:none; }
+.doc-bullets li { font-size:10px; color:var(--text-dim); padding:2px 0 2px 12px; position:relative; }
+.doc-bullets li::before { content:'›'; position:absolute; left:0; color:var(--pink); }
+.doc-bullets li a { color:var(--cyan); text-decoration:none; }
+.doc-note { font-size:9px; color:var(--subtle); margin-top:10px; font-style:italic; letter-spacing:0.06em; }
+
+/* ── NO RESULTS ── */
+.no-results { text-align:center; padding:60px 20px; font-size:12px; color:var(--subtle); letter-spacing:0.12em; display:none; }
+
+/* ── RESPONSIVE ── */
+@media(max-width:700px){
+  .featured-lab { grid-template-columns:1fr; }
+  .featured-art { aspect-ratio:16/9; }
+  .dayx-wrap { grid-template-columns:1fr; }
+  .dayx-playlists { flex-direction:row; }
+  .hero-stats { flex-wrap:wrap; }
+  nav .nav-links { display:none; }
+}
+</style>
+</head>
+<body>
+<div class="scanline"></div>
+
+<nav>
+  <a class="nav-brand" href="/"><span class="pk">ink</span>sec<span class="cx">.io</span></a>
+  <ul class="nav-links">
+    <li><a href="#investigations">Investigations</a></li>
+    <li><a href="#btl1">BTL1</a></li>
+    <li><a href="#labs">Labs</a></li>
+    <li><a href="#environments">Lab Envs</a></li>
+  </ul>
+  <a class="nav-back" href="/">← home</a>
+</nav>
+
+<div class="wrap">
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-eyebrow">// defensive security operations</div>
+    <h1 class="hero-title">
+      blue team <span class="pk">operations</span><br>
+      & <span class="cx">SOC analysis</span>
+    </h1>
+    <p class="hero-sub">
+      Documented investigations across SIEM platforms, BTL1 labs, and real-world alert triage.
+      Every lab completed, documented, and linked —
+      <em>proof of active daily grind toward SOC operations.</em>
+    </p>
+    <div class="hero-stats" id="hero-stats-bar">
+      <div class="hstat"><div class="hstat-val pk" id="stat-total">0</div><div class="hstat-label">Total Labs</div></div>
+      <div class="hstat"><div class="hstat-val cx">97%</div><div class="hstat-label">LetsDefend</div></div>
+      <div class="hstat"><div class="hstat-val pk">80+</div><div class="hstat-label">Investigations</div></div>
+      <div class="hstat"><div class="hstat-val cx">CDSA</div><div class="hstat-label">Certified</div></div>
+      <div class="hstat"><div class="hstat-val go">BTL1</div><div class="hstat-label">In Progress</div></div>
+    </div>
+    <div class="platform-counts" id="platform-counts"></div>
+  </div>
+
+  <!-- ACHIEVEMENTS -->
+  <section>
+    <div class="sec-eyebrow">// featured achievements</div>
+    <div class="achievement-grid">
+      <div class="ach-card">
+        <div class="ach-tag">HTB Certification</div>
+        <div class="ach-title">Certified Defensive Security Analyst (CDSA)</div>
+        <div class="ach-meta">Certification Exam · Credly Verified</div>
+        <ul class="ach-bullets">
+          <li>SOC fundamentals & alert triage workflows</li>
+          <li>SIEM analysis with Splunk & Elastic</li>
+          <li>Threat intelligence & IOC correlation</li>
+          <li>Digital forensics & incident response</li>
+          <li>Phishing analysis & malware detection</li>
+          <li>Network traffic analysis & PCAP investigation</li>
+        </ul>
+        <a class="ach-link" href="https://www.credly.com/badges/80ca0800-f89e-4be7-86c1-4e104d776233/public_url" target="_blank">verify certificate →</a>
+      </div>
+      <div class="ach-card">
+        <div class="ach-tag">LetsDefend · SOC Analyst Path</div>
+        <div class="ach-title">34 Investigations · 97% Success Rate</div>
+        <div class="ach-meta">Completed February 2026 · All publicly verifiable</div>
+        <ul class="ach-bullets">
+          <li>Real-world SIEM alert triage</li>
+          <li>Log analysis & correlation</li>
+          <li>Malware investigation & IOC identification</li>
+          <li>Incident documentation & reporting</li>
+          <li>Threat intelligence integration</li>
+        </ul>
+        <a class="ach-link" href="https://app.letsdefend.io/user/inkedqt" target="_blank">view profile →</a>
+      </div>
+      <div class="ach-card">
+        <div class="ach-tag">TryHackMe · SAL1 Path</div>
+        <div class="ach-title">46 Cases · 100% Detection Rate</div>
+        <div class="ach-meta">SOC Analyst Level 1 · All publicly verifiable</div>
+        <ul class="ach-bullets">
+          <li>Alert triage & log analysis</li>
+          <li>PCAP investigation & network forensics</li>
+          <li>Defensive reasoning & escalation methodology</li>
+          <li>Advent of Cyber 2025 — completed & certified</li>
+          <li>Night Shift CTF — medium difficulty simulation</li>
+        </ul>
+        <a class="ach-link" href="https://tryhackme.com/p/inkedqt" target="_blank">view profile →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- DAY X -->
+  <section id="investigations">
+    <div class="sec-eyebrow">// youtube · daily grind</div>
+    <div class="sec-title">Day X: <span class="pk">becoming a SOC analyst</span></div>
+    <p class="sec-desc">One real LetsDefend alert per day, triaged out loud on camera. Structured workflow, log correlation, containment decisions — real analyst thinking documented publicly.</p>
+    <div class="dayx-wrap">
+      <div class="dayx-info">
+        <div style="display:flex;flex-direction:column;gap:10px;max-width:480px;">
+          <div style="background:var(--panel);border:1px solid var(--muted);padding:16px;border-left:2px solid var(--pink);">
+            <div style="font-size:8px;letter-spacing:0.25em;text-transform:uppercase;color:var(--pink);margin-bottom:6px;">Format</div>
+            <div style="font-size:11px;color:var(--text-dim);line-height:1.7;letter-spacing:0.04em;">
+              Real alert → triage → log analysis → IOC correlation → containment decision → escalation or close.
+              Every step narrated, every tool explained.
+            </div>
+          </div>
+          <div style="background:var(--panel);border:1px solid var(--muted);padding:16px;border-left:2px solid var(--cyan);">
+            <div style="font-size:8px;letter-spacing:0.25em;text-transform:uppercase;color:var(--cyan);margin-bottom:6px;">Also on YouTube</div>
+            <div style="font-size:11px;color:var(--text-dim);line-height:1.7;letter-spacing:0.04em;">
+              TryHackMe SAL1 walkthroughs · BTL1 lab investigations · 
+              platform-agnostic SOC methodology.
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="dayx-playlists">
+        <div>
+          <a class="yt-thumb" href="https://www.youtube.com/playlist?list=PL4gQknB3vSQ4gVy09mt2oMwl0hjL5aCor" target="_blank">
+            <img src="https://img.youtube.com/vi/TCJv1ndeOiU/hqdefault.jpg" alt="LetsDefend SOC Investigations">
+            <span class="yt-play">▶</span>
+          </a>
+          <div class="yt-label">LetsDefend SOC Investigations</div>
+          <div class="yt-meta">40+ videos · ~4 hours</div>
+        </div>
+        <div>
+          <a class="yt-thumb" href="https://www.youtube.com/playlist?list=PL4gQknB3vSQ5G7likpYieGzLbhVcCO4hN" target="_blank">
+            <img src="https://img.youtube.com/vi/q6VErK_2PLA/hqdefault.jpg" alt="TryHackMe Blue Team">
+            <span class="yt-play">▶</span>
+          </a>
+          <div class="yt-label">TryHackMe Blue Team Ops</div>
+          <div class="yt-meta">12+ videos · ~3 hours</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BTL1 LABS -->
+  <section id="btl1">
+    <div class="sec-eyebrow">// security blue team · certification path</div>
+    <div class="sec-title">BTL1 <span class="cx">Certification Labs</span></div>
+    <p class="sec-desc">Hands-on labs from the Blue Team Level 1 certification path. Real-world defensive scenarios with full investigation documentation and MITRE ATT&CK mapping.</p>
+    <div class="btl1-progress">
+      <div class="progress-track"><div class="progress-fill" id="btl1-fill" style="width:11%"></div></div>
+      <div class="progress-text"><span id="btl1-done">1</span> of 9 BTL1 labs completed (<span id="btl1-pct">11%</span>)</div>
+    </div>
+    <!-- Featured BTL1 writeup -->
+    <div class="featured-lab">
+      <div class="featured-art">
+        <img src="https://raw.githubusercontent.com/inkedqt/ctf-writeups/main/assets/images/labs/btl1/piggy-hero.png"
+             onerror="this.style.background='#1a1a2e';this.style.display='block'"
+             alt="Piggy BTL1 Lab">
+      </div>
+      <div class="featured-body">
+        <div class="featured-tag">BTL1 · Lab 1 · Featured Writeup</div>
+        <div class="featured-title">Piggy</div>
+        <div class="featured-meta">Completed · 27/27 · February 13, 2026</div>
+        <div class="featured-cats">
+          <span class="featured-cat">PCAP Analysis</span>
+          <span class="featured-cat">Wireshark</span>
+          <span class="featured-cat">OSINT</span>
+          <span class="featured-cat">MITRE ATT&CK</span>
+        </div>
+        <p class="featured-summary">Multi-PCAP investigation across four capture files — identifying SSH data exfiltration, malware infrastructure, ASN attribution via WHOIS, and full MITRE ATT&CK technique mapping. Tools: Wireshark, VirusTotal, WHOIS/ASN lookups, MITRE ATT&CK Navigator.</p>
+        <a class="featured-cta" href="/blue-team/piggy/">read full writeup →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ALL LABS -->
+  <section id="labs">
+    <div class="sec-eyebrow">// all completed labs</div>
+    <div class="sec-title">lab <span class="pk">grid</span></div>
+    <p class="sec-desc">All platforms, all labs. Filter by platform, difficulty, or category. Adding new labs weekly.</p>
+
+    <div class="filter-bar">
+      <input class="filter-search" type="text" placeholder="> search labs, tools, techniques..." id="lab-search">
+      <div class="filter-group">
+        <span class="filter-label">platform</span>
+        <button class="fbtn active" data-platform="all">All</button>
+        <button class="fbtn" data-platform="BTL1">BTL1</button>
+        <button class="fbtn" data-platform="BTLO">BTLO</button>
+        <button class="fbtn" data-platform="LetsDefend">LetsDefend</button>
+        <button class="fbtn" data-platform="TryHackMe">TryHackMe</button>
+        <button class="fbtn" data-platform="HackSmarter">HackSmarter</button>
+      </div>
+      <div class="filter-group">
+        <span class="filter-label">diff</span>
+        <button class="fbtn" data-diff="Easy">Easy</button>
+        <button class="fbtn" data-diff="Medium">Medium</button>
+        <button class="fbtn" data-diff="Hard">Hard</button>
+      </div>
+    </div>
+
+    <div class="result-count" id="result-count">showing <span id="result-num">0</span> labs</div>
+    <div class="lab-grid" id="lab-grid"></div>
+    <div class="no-results" id="no-results">no labs match that filter.</div>
+  </section>
+
+  <!-- LAB ENVIRONMENTS -->
+  <section id="environments">
+    <div class="sec-eyebrow">// home lab infrastructure</div>
+    <div class="sec-title">lab <span class="cx">environments</span></div>
+    <div class="env-grid">
+      <div class="env-card">
+        <div class="env-icon">📡</div>
+        <div class="env-title">Splunk Enterprise SIEM</div>
+        <div class="env-desc">Production-style SIEM for alert detection, log analysis, and threat hunting.</div>
+        <div class="env-specs">
+          <div class="env-spec"><strong>Host:</strong>Ubuntu 24.04 · Splunk Enterprise</div>
+          <div class="env-spec"><strong>Agent:</strong>Windows 11 · Universal Forwarder</div>
+          <div class="env-spec"><strong>Telemetry:</strong>Sysmon event collection & parsing</div>
+          <div class="env-spec"><strong>Use Cases:</strong>Detection rules · SPL queries · dashboards</div>
+        </div>
+      </div>
+      <div class="env-card">
+        <div class="env-icon">🦠</div>
+        <div class="env-title">Malware Analysis Sandbox</div>
+        <div class="env-desc">Isolated environment for safe detonation, static analysis, and reverse engineering.</div>
+        <div class="env-specs">
+          <div class="env-spec"><strong>Platform:</strong>FlareVM · isolated virtual network</div>
+          <div class="env-spec"><strong>Tools:</strong>IDA · Ghidra · PE analysis · debuggers</div>
+          <div class="env-spec"><strong>Analysis:</strong>Static & dynamic examination</div>
+          <div class="env-spec"><strong>Use Cases:</strong>IOC extraction · behaviour analysis</div>
+        </div>
+      </div>
+      <div class="env-card">
+        <div class="env-icon">🏠</div>
+        <div class="env-title">Home Lab — Full Stack</div>
+        <div class="env-desc">pfSense + Security Onion + Splunk + Active Directory environment for realistic detection practice.</div>
+        <div class="env-specs">
+          <div class="env-spec"><strong>Network:</strong>SPAN mirroring · network segmentation</div>
+          <div class="env-spec"><strong>Detection:</strong>Zeek · Suricata · Splunk dashboards</div>
+          <div class="env-spec"><strong>AD Lab:</strong>Windows domain · attack simulation</div>
+          <div class="env-spec"><strong>Platform:</strong>CachyOS · virtualisation workstation</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DOCUMENTATION -->
+  <section>
+    <div class="sec-eyebrow">// investigation documentation</div>
+    <div class="sec-title">documentation <span class="pk">&</span> profiles</div>
+    <div class="doc-grid">
+      <div class="doc-card">
+        <div class="doc-icon">📓</div>
+        <div class="doc-title">Obsidian Investigation Vault</div>
+        <div class="doc-desc">Comprehensive case documentation with MITRE ATT&CK mapping, IOC tracking, and investigation timelines.</div>
+        <ul class="doc-bullets">
+          <li>80+ documented investigations</li>
+          <li>MITRE ATT&CK technique mapping</li>
+          <li>Reusable investigation templates</li>
+          <li>IOC database & metrics dashboard</li>
+        </ul>
+        <div class="doc-note">Private repository · screenshot available on request</div>
+      </div>
+      <div class="doc-card">
+        <div class="doc-icon">🔗</div>
+        <div class="doc-title">Public Platform Profiles</div>
+        <div class="doc-desc">Verified investigation work across multiple SOC training platforms — all publicly verifiable.</div>
+        <ul class="doc-bullets">
+          <li><a href="https://app.letsdefend.io/user/inkedqt" target="_blank">LetsDefend</a> — 34 cases, 97% success</li>
+          <li><a href="https://tryhackme.com/p/inkedqt" target="_blank">TryHackMe</a> — 46 cases, 100% detection</li>
+          <li><a href="https://github.com/inkedqt/ctf-writeups" target="_blank">GitHub</a> — full writeup repository</li>
+          <li>Real-time metrics & platform rankings</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+</div><!-- /wrap -->
+
+<footer style="border-top:1px solid var(--muted);padding:24px 0;">
+  <div class="wrap" style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;">
+    <div style="font-family:'Syne Mono',monospace;font-size:13px;">
+      <span style="color:var(--pink);text-shadow:0 0 14px var(--pink-dim);">ink</span><span style="color:var(--text);">sec</span><span style="color:var(--cyan);">.io</span>
+      <span style="color:var(--subtle);font-size:10px;margin-left:12px;letter-spacing:0.12em;">blue team · Tate Pannam</span>
+    </div>
+    <a href="https://0x74617465.sh/red-team/" target="_blank"
+       style="font-size:10px;letter-spacing:0.15em;color:var(--subtle);text-decoration:none;transition:color 0.2s;">
+      offensive side → <span style="color:var(--pink);font-family:'Syne Mono',monospace;">0x</span>74617465<span style="color:var(--cyan);">.sh</span>
+    </a>
+  </div>
+</footer>
+
+<script>
+// ── COLOUR MAPS ──────────────────────────────────────────────────────
+const PLATFORM_COLOURS = {
+  BTL1:        '#00f5d4',
+  BTLO:        '#ffd166',
+  LetsDefend:  '#ff66c4',
+  TryHackMe:   '#00ff88',
+  Splunk:      '#ff8c00',
+  HackSmarter: '#b482ff',
+};
+
+// ── LAB DATA ─────────────────────────────────────────────────────────
+// To add a new lab: copy one entry and fill in the fields.
+// art: use the lab's official artwork URL or a local asset path.
+// writeup: link to your writeup page / GitHub / YouTube timestamp.
+// proof: link to proof image on GitHub.
+
+const LABS = [
+
+  // ── BTL1 ──
+  {
+    name:     'Piggy',
+    platform: 'BTL1',
+    diff:     'Easy',
+    cats:     ['PCAP Analysis','Wireshark','OSINT','MITRE ATT&CK'],
+    status:   'done',
+    score:    '27/27',
+    summary:  'Multi-PCAP investigation — SSH data exfiltration identification, malware infrastructure discovery, ASN attribution, MITRE ATT&CK mapping across four capture files.',
+    art:      'https://raw.githubusercontent.com/inkedqt/ctf-writeups/main/assets/images/labs/btl1/piggy-hero.png',
+    writeup:  '/blue-team/piggy/',
+    proof:    null,
+    featured: true,
+  },
+
+  // ── BTLO (examples — add yours as you complete them) ──
+  {
+    name:     'Pathfinder\'s Mark',
+    platform: 'BTLO',
+    diff:     'Medium',
+    cats:     ['Incident Response','Log Analysis'],
+    status:   'done',
+    score:    null,
+    summary:  'Winter festival incident response — analysing unusual network activity and identifying threat actor TTPs through structured IR methodology.',
+    art:      'https://blueteamlabs.online/storage/challenges/2b0e0ae0d31ab1ee1d16.jpg',
+    writeup:  null,
+    proof:    null,
+  },
+  {
+    name:     'Shimmerward Eye',
+    platform: 'BTLO',
+    diff:     'Medium',
+    cats:     ['Digital Forensics','Memory Analysis'],
+    status:   'done',
+    score:    null,
+    summary:  'Digital forensics investigation — evidence collection and timeline reconstruction in a complex multi-stage compromise scenario.',
+    art:      'https://blueteamlabs.online/storage/challenges/b9e2ae0d31ab1ee1d167.jpg',
+    writeup:  null,
+    proof:    null,
+  },
+  {
+    name:     'Bec-Ky',
+    platform: 'BTLO',
+    diff:     'Easy',
+    cats:     ['Incident Response','BEC','Email Forensics'],
+    status:   'done',
+    score:    null,
+    summary:  'Business Email Compromise investigation — suspected cyber incident involving unauthorised bank transfers from company pension fund. Trace the attacker\'s methodology.',
+    art:      'https://blueteamlabs.online/storage/challenges/c3f2ae0d31ab1ee1d167.jpg',
+    writeup:  null,
+    proof:    null,
+  },
+  {
+    name:     'MiddleMayhem',
+    platform: 'BTLO',
+    diff:     'Easy',
+    cats:     ['Incident Response','SIEM','Log Analysis'],
+    status:   'done',
+    score:    null,
+    summary:  'MiddleMayhem Inc. unusual network traffic to admin portal — SIEM log analysis to determine attack pattern and scope of incident.',
+    art:      'https://blueteamlabs.online/storage/challenges/d4g2ae0d31ab1ee1d167.jpg',
+    writeup:  null,
+    proof:    null,
+  },
+
+  // ── LetsDefend ──
+  {
+    name:     'SOC Analyst Path',
+    platform: 'LetsDefend',
+    diff:     'Medium',
+    cats:     ['Alert Triage','SIEM','Malware','Phishing','Network'],
+    status:   'done',
+    score:    '97%',
+    summary:  '34 real-world SIEM alert investigations — phishing, malware beaconing, brute force, lateral movement, data exfiltration. Structured triage methodology documented across all cases.',
+    art:      'https://raw.githubusercontent.com/inkedqt/ctf-writeups/main/assets/images/labs/letsdefend-banner.png',
+    writeup:  'https://app.letsdefend.io/user/inkedqt',
+    proof:    null,
+  },
+
+  // ── TryHackMe ──
+  {
+    name:     'Advent of Cyber 2025 (SOC-mas)',
+    platform: 'TryHackMe',
+    diff:     'Easy',
+    cats:     ['SOC','Splunk','DFIR','Phishing','Network Forensics'],
+    status:   'done',
+    score:    null,
+    summary:  '24 daily blue team challenges — phishing analysis, Splunk detections, alert triage, host forensics, network traffic analysis, and malware basics. Certified completion.',
+    art:      'https://raw.githubusercontent.com/inkedqt/ctf-writeups/main/HTB/proofs/thm_advent2025.png',
+    writeup:  'https://tryhackme-certificates.s3-eu-west-1.amazonaws.com/THM-2H6JFCWHKX.pdf',
+    proof:    null,
+  },
+  {
+    name:     'Night Shift CTF',
+    platform: 'TryHackMe',
+    diff:     'Medium',
+    cats:     ['SOC Simulation','Alert Triage','Log Correlation','IR'],
+    status:   'done',
+    score:    null,
+    summary:  'Week-long SOC analyst simulation — 9 realistic enterprise scenarios covering alert triage, severity assessment, multi-source log correlation, and incident response.',
+    art:      'https://raw.githubusercontent.com/inkedqt/ctf-writeups/main/HTB/proofs/THM_first_shift.png',
+    writeup:  'https://tryhackme.com/inkedqt',
+    proof:    null,
+  },
+
+  // ── HackSmarter ──
+  {
+    name:     'Source Leak Investigation',
+    platform: 'HackSmarter',
+    diff:     'Easy',
+    cats:     ['Incident Response','DFIR','Digital Forensics'],
+    status:   'done',
+    score:    null,
+    summary:  'First IR investigation: source code breach at indie game studio. Evidence collection, timeline analysis, root cause identification, and report writing.',
+    art:      'https://raw.githubusercontent.com/inkedqt/ctf-writeups/main/assets/images/labs/hacksmarter-source-leak.png',
+    writeup:  'https://www.hacksmarter.org/courses/b0ecedbe-d142-48bf-9b6d-f58ccdbd4b44',
+    proof:    null,
+  },
+
+];
+
+// ── RENDER ─────────────────────────────────────────────────────────
+
+function platformBadgeClass(p) {
+  return 'badge-' + p.replace(/\s/g,'');
+}
+
+function diffClass(d) {
+  return 'diff-' + d;
+}
+
+function renderCard(lab) {
+  const artFallback = `background:linear-gradient(135deg,#0c0c18,#1a1a2e);display:flex;align-items:center;justify-content:center;`;
+  const artEl = lab.art
+    ? `<img src="${lab.art}" alt="${lab.name}" onerror="this.parentElement.style.cssText='${artFallback}';this.remove();">`
+    : `<div style="${artFallback}width:100%;height:100%;"></div>`;
+
+  const links = [];
+  if (lab.writeup) links.push(`<a class="lab-link${lab.featured?' featured':''}" href="${lab.writeup}" target="${lab.writeup.startsWith('http')?'_blank':'_self'}">${lab.featured?'writeup':'writeup'}</a>`);
+  if (lab.proof)   links.push(`<a class="lab-link" href="${lab.proof}" target="_blank">proof</a>`);
+
+  return `
+    <div class="lab-card"
+         data-platform="${lab.platform}"
+         data-diff="${lab.diff}"
+         data-name="${lab.name.toLowerCase()}"
+         data-cats="${lab.cats.join(' ').toLowerCase()}"
+         data-summary="${lab.summary.toLowerCase()}">
+      <div class="lab-art">
+        ${artEl}
+        <span class="lab-platform-badge ${platformBadgeClass(lab.platform)}">${lab.platform}</span>
+        <span class="lab-diff-badge ${diffClass(lab.diff)}">${lab.diff}</span>
+        <div class="lab-status-bar ${lab.status}"></div>
+      </div>
+      <div class="lab-body">
+        <div class="lab-name">${lab.name}</div>
+        <div class="lab-cats">${lab.cats.map(c=>`<span class="lab-cat">${c}</span>`).join('')}</div>
+        <div class="lab-summary">${lab.summary}</div>
+        <div class="lab-footer">
+          <div class="lab-score">${lab.score?`score: <span>${lab.score}</span>`:''}</div>
+          <div class="lab-links">${links.join('')}</div>
+        </div>
+      </div>
+    </div>
+  `;
+}
+
+function renderAll() {
+  // skip featured from grid (it's shown above)
+  const gridLabs = LABS.filter(l => !l.featured);
+  document.getElementById('lab-grid').innerHTML = gridLabs.map(renderCard).join('');
+  document.getElementById('stat-total').textContent = LABS.length;
+  updateResultCount();
+  renderPlatformCounts();
+  updateBTL1Progress();
+}
+
+function renderPlatformCounts() {
+  const counts = {};
+  LABS.forEach(l => { counts[l.platform] = (counts[l.platform]||0)+1; });
+  document.getElementById('platform-counts').innerHTML = Object.entries(counts).map(([p,n])=>`
+    <div class="pcount">
+      <span class="pcount-num">${n}</span>${p}
+    </div>
+  `).join('');
+}
+
+function updateBTL1Progress() {
+  const btl1 = LABS.filter(l=>l.platform==='BTL1' && l.status==='done').length;
+  const total = 9;
+  const pct = Math.round(btl1/total*100);
+  const fill = document.getElementById('btl1-fill');
+  const done = document.getElementById('btl1-done');
+  const pctEl = document.getElementById('btl1-pct');
+  if(fill) fill.style.width = pct+'%';
+  if(done) done.textContent = btl1;
+  if(pctEl) pctEl.textContent = pct+'%';
+}
+
+// ── FILTER ─────────────────────────────────────────────────────────
+
+let activePlatform = 'all';
+let activeDiff     = null;
+
+function applyFilter() {
+  const query = (document.getElementById('lab-search').value||'').toLowerCase().trim();
+  const cards = document.querySelectorAll('#lab-grid .lab-card');
+  let visible = 0;
+  cards.forEach(card => {
+    const pMatch = activePlatform === 'all' || card.dataset.platform === activePlatform;
+    const dMatch = !activeDiff || card.dataset.diff === activeDiff;
+    const qMatch = !query ||
+      card.dataset.name.includes(query) ||
+      card.dataset.cats.includes(query) ||
+      card.dataset.summary.includes(query);
+    const show = pMatch && dMatch && qMatch;
+    card.style.display = show ? '' : 'none';
+    if (show) visible++;
+  });
+  document.getElementById('result-num').textContent = visible;
+  document.getElementById('no-results').style.display = visible === 0 ? 'block' : 'none';
+}
+
+function updateResultCount() {
+  const all = document.querySelectorAll('#lab-grid .lab-card').length;
+  document.getElementById('result-num').textContent = all;
+}
+
+// platform buttons
+document.querySelectorAll('.fbtn[data-platform]').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.fbtn[data-platform]').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    activePlatform = btn.dataset.platform;
+    applyFilter();
+  });
+});
+
+// diff buttons
+document.querySelectorAll('.fbtn[data-diff]').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const wasActive = btn.classList.contains('active');
+    document.querySelectorAll('.fbtn[data-diff]').forEach(b=>b.classList.remove('active'));
+    if (!wasActive) { btn.classList.add('active'); activeDiff = btn.dataset.diff; }
+    else activeDiff = null;
+    applyFilter();
+  });
+});
+
+// search
+document.getElementById('lab-search').addEventListener('input', applyFilter);
+
+// ── INIT ────────────────────────────────────────────────────────────
+renderAll();
+</script>
+</body>
+</html>
