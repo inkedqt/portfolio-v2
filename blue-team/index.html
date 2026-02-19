@@ -999,21 +999,6 @@ document.getElementById('lab-search').addEventListener('input', applyFilter);
 renderAll();
 </script>
 
-<script src="/alerts-data.js"></script>
-<script>
-  if (typeof ALERTS !== "undefined") {
-    const tp     = ALERTS.filter(a => a.outcome?.includes("true")).length;
-    const fp     = ALERTS.filter(a => a.outcome?.includes("false")).length;
-    const mitre  = new Set(ALERTS.flatMap(a => a.mitre||[])).size;
-    const latest = ALERTS.slice().sort((a,b) => b.date.localeCompare(a.date))[0];
-    document.getElementById("card-total").textContent  = ALERTS.length;
-    document.getElementById("card-tp").textContent     = tp;
-    document.getElementById("card-fp").textContent     = fp;
-    document.getElementById("card-mitre").textContent  = mitre;
-    document.getElementById("card-latest").textContent = latest
-      ? `${latest.id} — ${latest.title.slice(0,35)}${latest.title.length>35?"…":""}`
-      : "—";
-  }
-</script>
+
 </body>
 </html>
