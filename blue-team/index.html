@@ -581,8 +581,8 @@ section:last-child { border-bottom:none; }
     <div class="sec-title">BTL1 <span class="cx">Certification Labs</span></div>
     <p class="sec-desc">Hands-on labs from the Blue Team Level 1 certification path. Real-world defensive scenarios with full investigation documentation and MITRE ATT&CK mapping.</p>
     <div class="btl1-progress">
-      <div class="progress-track"><div class="progress-fill" id="btl1-fill" style="width:11%"></div></div>
-      <div class="progress-text"><span id="btl1-done">1</span> of 9 BTL1 labs completed (<span id="btl1-pct">11%</span>)</div>
+      <div class="progress-track"><div class="progress-fill" id="btl1-fill" style="width:22%"></div></div>
+      <div class="progress-text"><span id="btl1-done">2</span> of 9 BTL1 labs completed (<span id="btl1-pct">22%</span>)</div>
     </div>
     <!-- Featured BTL1 writeup -->
     <div class="featured-lab">
@@ -603,6 +603,27 @@ section:last-child { border-bottom:none; }
         </div>
         <p class="featured-summary">Multi-PCAP investigation across four capture files — identifying SSH data exfiltration, malware infrastructure, ASN attribution via WHOIS, and full MITRE ATT&CK technique mapping. Tools: Wireshark, VirusTotal, WHOIS/ASN lookups, MITRE ATT&CK Navigator.</p>
         <a class="featured-cta" href="/blue-team/piggy/">read full writeup →</a>
+      </div>
+    </div>
+
+    <!-- Featured Bec-Ky -->
+    <div class="featured-lab" style="margin-top:14px;">
+      <div class="featured-art">
+        <img src="/assets/images/labs/btl1/bec-ky.png"
+             onerror="this.style.background='#1a1a2e';this.style.display='block'"
+             alt="Bec-Ky BTLO Lab">
+      </div>
+      <div class="featured-body">
+        <div class="featured-tag">BTLO · Lab 2 · BEC Investigation</div>
+        <div class="featured-title">Bec-Ky</div>
+        <div class="featured-meta">Completed · Easy · February 2026</div>
+        <div class="featured-cats">
+          <span class="featured-cat">Incident Response</span>
+          <span class="featured-cat">BEC</span>
+          <span class="featured-cat">Email Forensics</span>
+        </div>
+        <p class="featured-summary">Business Email Compromise investigation — unauthorised bank transfers from company pension fund to multiple external accounts. Trace the attacker's methodology and identify the full scope of compromise.</p>
+        <a class="featured-cta" href="/blue-team/bec-ky/">read full writeup →</a>
       </div>
     </div>
   </section>
@@ -770,6 +791,7 @@ const LABS = [
     art:      'https://blueteamlabs.online/storage/challenges/2b0e0ae0d31ab1ee1d16.jpg',
     writeup:  null,
     proof:    null,
+    featured: true,
   },
   {
     name:     'Shimmerward Eye',
@@ -791,7 +813,7 @@ const LABS = [
     status:   'done',
     score:    null,
     summary:  'Business Email Compromise investigation — suspected cyber incident involving unauthorised bank transfers from company pension fund. Trace the attacker\'s methodology.',
-    art:      '/assets/images/labs/btl1/becky.png',
+    art:      '/assets/images/labs/btl1/bec-ky.png',
     writeup:  '/blue-team/bec-ky/',
     proof:    null,
   },
