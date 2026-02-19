@@ -231,6 +231,16 @@ section:last-child { border-bottom:none; }
 .plat-thm        { color:var(--green); border-color:var(--green-dim); background:rgba(0,255,136,0.05); }
 .plat-other      { color:var(--subtle); border-color:var(--muted); }
 
+
+/* notes link */
+.alert-notes-link {
+  font-size:8px; letter-spacing:0.15em; text-transform:uppercase;
+  color:var(--pink); text-decoration:none;
+  border:1px solid var(--pink-dim); padding:2px 7px;
+  transition:all 0.15s; white-space:nowrap;
+}
+.alert-notes-link:hover { background:var(--pink-faint); color:var(--cyan); border-color:var(--cyan-dim); }
+
 /* no results */
 .no-results {
   display:none; text-align:center; padding:48px;
@@ -263,7 +273,8 @@ footer { border-top:1px solid var(--muted); padding:24px 0; }
 /* responsive */
 @media (max-width:700px) {
   .alert-table .col-mitre,
-  .alert-table .col-tags { display:none; }
+  .alert-table .col-tags,
+  .alert-table .col-notes { display:none; }
   .hstat { min-width:80px; padding:10px 14px; }
 }
 </style>
@@ -358,6 +369,7 @@ footer { border-top:1px solid var(--muted); padding:24px 0; }
             <th data-col="platform">Platform <span class="sort-arrow"></span></th>
             <th class="col-mitre">MITRE ATT&CK</th>
             <th class="col-tags">Tags</th>
+            <th class="col-notes">Notes</th>
           </tr>
         </thead>
         <tbody id="alert-tbody"></tbody>
@@ -590,6 +602,7 @@ function renderTable() {
       <td class="col-platform">${platBadge(a.platform)}</td>
       <td class="col-mitre">${mitreTags(a.mitre)}</td>
       <td class="col-tags">${catTags(a.tags)}</td>
+      <td class="col-notes">${a.url ? '<a class="alert-notes-link" href="' + a.url + '">notes →</a>' : '—'}</td>
     </tr>
   `).join('');
 
