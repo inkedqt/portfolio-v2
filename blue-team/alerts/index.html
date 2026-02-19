@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>inksec.io // alert log</title>
+<link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Syne+Mono&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --black:      #050508;
+  --deep:       #08080f;
+  --panel:      #0c0c18;
+  --pink:       #ff66c4;
+  --pink-bright:#ff90d6;
+  --pink-dim:   rgba(255,102,196,0.4);
+  --pink-faint: rgba(255,102,196,0.07);
+  --cyan:       #00f5d4;
+  --cyan-dim:   rgba(0,245,212,0.4);
+  --cyan-faint: rgba(0,245,212,0.07);
+  --gold:       #ffd166;
+  --gold-dim:   rgba(255,209,102,0.35);
+  --muted:      #2a2a45;
+  --subtle:     #4a4a6a;
+  --text:       #c8c8e8;
+  --text-dim:   #7a7a9a;
+  --green:      #00ff88;
+  --green-dim:  rgba(0,255,136,0.3);
+  --red:        #ff4466;
+  --red-dim:    rgba(255,68,102,0.35);
+  --red-faint:  rgba(255,68,102,0.07);
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--black);
+  color: var(--text);
+  font-family: 'Share Tech Mono', monospace;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: '';
+  position: fixed; inset: 0;
+  background:
+    linear-gradient(#1a1a2e 1px, transparent 1px),
+    linear-gradient(90deg, #1a1a2e 1px, transparent 1px);
+  background-size: 36px 36px;
+  opacity: 0.1;
+  pointer-events: none; z-index: 0;
+}
+
+.scanline {
+  position: fixed; top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--pink-dim), transparent);
+  animation: scan 7s linear infinite;
+  opacity: 0.25; z-index: 999; pointer-events: none;
+}
+@keyframes scan { 0%{top:-1px} 100%{top:100%} }
+
+/* ── NAV ── */
+nav {
+  position: sticky; top: 0; z-index: 100;
+  background: rgba(5,5,8,0.94);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--muted);
+  padding: 0 clamp(16px, 5vw, 80px);
+  display: flex; align-items: center;
+  justify-content: space-between; height: 52px;
+}
+.nav-brand { font-family:'Syne Mono',monospace; font-size:15px; color:var(--text); text-decoration:none; }
+.nav-brand .pk { color:var(--pink); text-shadow:0 0 20px var(--pink-dim); }
+.nav-brand .cx { color:var(--cyan); }
+.nav-links { display:flex; gap:clamp(14px,3vw,32px); list-style:none; align-items:center; }
+.nav-links a { font-size:10px; letter-spacing:0.2em; text-transform:uppercase; color:var(--subtle); text-decoration:none; transition:color 0.2s; }
+.nav-links a:hover { color:var(--pink); }
+.nav-back { font-size:10px; letter-spacing:0.15em; color:var(--subtle); text-decoration:none; border:1px solid var(--muted); padding:4px 10px; transition:all 0.2s; }
+.nav-back:hover { color:var(--cyan); border-color:var(--cyan-dim); }
+
+/* ── WRAP ── */
+.wrap { position:relative; z-index:1; max-width:1200px; margin:0 auto; padding:0 clamp(16px,5vw,80px); }
+
+/* ── HERO ── */
+.hero { padding:64px 0 52px; border-bottom:1px solid var(--muted); }
+.hero-eyebrow { font-size:9px; letter-spacing:0.35em; text-transform:uppercase; color:var(--subtle); margin-bottom:16px; }
+.hero-title { font-family:'Syne Mono',monospace; font-size:clamp(24px,4vw,44px); line-height:1.05; margin-bottom:16px; }
+.hero-title .pk { color:var(--pink); text-shadow:0 0 40px var(--pink-dim); }
+.hero-title .cx { color:var(--cyan); text-shadow:0 0 40px var(--cyan-dim); }
+.hero-sub { font-family:'DM Mono',monospace; font-weight:300; font-size:clamp(11px,1.5vw,13px); color:var(--text-dim); line-height:1.8; max-width:600px; margin-bottom:40px; letter-spacing:0.04em; }
+.hero-sub em { font-style:normal; color:var(--text); }
+
+/* stat bar */
+.hero-stats { display:flex; gap:1px; background:var(--muted); border:1px solid var(--muted); width:fit-content; flex-wrap:wrap; }
+.hstat { background:var(--deep); padding:14px 22px; text-align:center; min-width:110px; }
+.hstat-val { font-family:'Syne Mono',monospace; font-size:clamp(16px,2.5vw,22px); margin-bottom:4px; }
+.hstat-val.pk { color:var(--pink); text-shadow:0 0 16px var(--pink-dim); }
+.hstat-val.cx { color:var(--cyan); text-shadow:0 0 16px var(--cyan-dim); }
+.hstat-val.go { color:var(--gold); }
+.hstat-val.gn { color:var(--green); }
+.hstat-val.rd { color:var(--red); }
+.hstat-label { font-size:8px; letter-spacing:0.22em; text-transform:uppercase; color:var(--subtle); }
+
+/* ── SECTION ── */
+section { padding:52px 0; border-bottom:1px solid var(--muted); }
+section:last-child { border-bottom:none; }
+.sec-eyebrow { font-size:9px; letter-spacing:0.35em; text-transform:uppercase; color:var(--subtle); margin-bottom:20px; }
+.sec-title { font-family:'Syne Mono',monospace; font-size:clamp(15px,2.2vw,20px); color:var(--text); margin-bottom:8px; }
+.sec-title .pk { color:var(--pink); }
+.sec-title .cx { color:var(--cyan); }
+.sec-desc { font-size:11px; color:var(--text-dim); line-height:1.7; letter-spacing:0.04em; margin-bottom:28px; max-width:640px; }
+
+/* ── FILTER BAR ── */
+.filter-bar {
+  display:flex; gap:8px; flex-wrap:wrap; align-items:center;
+  margin-bottom:24px; padding-bottom:16px;
+  border-bottom:1px solid var(--muted);
+}
+.filter-search {
+  background:var(--panel); border:1px solid var(--muted);
+  color:var(--text); font-family:'Share Tech Mono',monospace;
+  font-size:12px; padding:8px 12px; outline:none;
+  flex:1; min-width:200px; transition:border-color 0.2s; letter-spacing:0.06em;
+}
+.filter-search:focus { border-color:var(--pink-dim); }
+.filter-search::placeholder { color:var(--subtle); }
+.filter-group { display:flex; gap:6px; flex-wrap:wrap; align-items:center; }
+.filter-label { font-size:8px; letter-spacing:0.2em; text-transform:uppercase; color:var(--muted); }
+
+.fbtn {
+  background:var(--panel); border:1px solid var(--muted);
+  color:var(--subtle); font-family:'Share Tech Mono',monospace;
+  font-size:8px; letter-spacing:0.18em; text-transform:uppercase;
+  padding:5px 10px; cursor:pointer; transition:all 0.2s;
+}
+.fbtn:hover { color:var(--text); border-color:var(--subtle); }
+.fbtn.active { border-color:var(--pink-dim); color:var(--pink); background:var(--pink-faint); }
+.fbtn[data-sev="critical"].active { border-color:var(--red-dim); color:var(--red); background:var(--red-faint); }
+.fbtn[data-sev="high"].active    { border-color:rgba(255,140,0,0.4); color:#ff8c00; background:rgba(255,140,0,0.07); }
+.fbtn[data-sev="medium"].active  { border-color:var(--gold-dim); color:var(--gold); background:rgba(255,209,102,0.07); }
+.fbtn[data-sev="low"].active     { border-color:var(--cyan-dim); color:var(--cyan); background:var(--cyan-faint); }
+.fbtn[data-out="true-positive"].active  { border-color:var(--green-dim); color:var(--green); background:rgba(0,255,136,0.05); }
+.fbtn[data-out="false-positive"].active { border-color:var(--cyan-dim); color:var(--cyan); background:var(--cyan-faint); }
+
+.result-count { font-size:9px; letter-spacing:0.18em; color:var(--subtle); margin-bottom:16px; }
+.result-count span { color:var(--pink); }
+
+/* ── ALERT TABLE ── */
+.alert-table-wrap { overflow-x:auto; }
+
+.alert-table {
+  width:100%; border-collapse:collapse;
+  font-size:11px;
+}
+
+.alert-table th {
+  font-size:8px; letter-spacing:0.22em; text-transform:uppercase;
+  color:var(--subtle); text-align:left;
+  padding:8px 12px; border-bottom:1px solid var(--muted);
+  white-space:nowrap; cursor:pointer; user-select:none;
+  transition:color 0.2s;
+}
+.alert-table th:hover { color:var(--pink); }
+.alert-table th.sorted { color:var(--pink); }
+.alert-table th .sort-arrow { margin-left:4px; opacity:0.5; font-size:9px; }
+.alert-table th.sorted .sort-arrow { opacity:1; }
+
+.alert-table td {
+  padding:10px 12px; border-bottom:1px solid rgba(42,42,69,0.5);
+  vertical-align:middle; color:var(--text-dim);
+  transition:background 0.15s;
+}
+.alert-table tr:hover td { background:rgba(255,102,196,0.03); }
+
+.alert-table .col-date   { color:var(--subtle); white-space:nowrap; font-size:10px; }
+.alert-table .col-id     { color:var(--cyan); font-family:'Syne Mono',monospace; font-size:10px; white-space:nowrap; }
+.alert-table .col-title  { color:var(--text); min-width:200px; }
+.alert-table .col-platform { white-space:nowrap; }
+
+/* severity badges */
+.sev {
+  display:inline-block; font-size:7px; letter-spacing:0.18em;
+  text-transform:uppercase; padding:2px 7px; border:1px solid;
+  white-space:nowrap;
+}
+.sev-critical { color:var(--red);   border-color:var(--red-dim);   background:var(--red-faint); }
+.sev-high     { color:#ff8c00;      border-color:rgba(255,140,0,0.4); background:rgba(255,140,0,0.07); }
+.sev-medium   { color:var(--gold);  border-color:var(--gold-dim);  background:rgba(255,209,102,0.07); }
+.sev-low      { color:var(--cyan);  border-color:var(--cyan-dim);  background:var(--cyan-faint); }
+
+/* outcome badges */
+.out {
+  display:inline-block; font-size:7px; letter-spacing:0.15em;
+  text-transform:uppercase; padding:2px 7px; border:1px solid;
+  white-space:nowrap;
+}
+.out-tp { color:var(--green); border-color:var(--green-dim); background:rgba(0,255,136,0.05); }
+.out-fp { color:var(--cyan);  border-color:var(--cyan-dim);  background:var(--cyan-faint); }
+.out-na { color:var(--subtle); border-color:var(--muted); }
+
+/* mitre tags */
+.mitre-list { display:flex; gap:3px; flex-wrap:wrap; }
+.mitre-tag {
+  font-size:7px; letter-spacing:0.1em; text-transform:uppercase;
+  border:1px solid var(--cyan-dim); color:var(--cyan);
+  background:var(--cyan-faint);
+  padding:1px 5px; white-space:nowrap;
+  transition:all 0.15s; cursor:default;
+}
+.mitre-tag:hover { color:var(--pink); border-color:var(--pink-dim); background:var(--pink-faint); }
+
+/* cat tags */
+.cat-list { display:flex; gap:3px; flex-wrap:wrap; }
+.cat-tag {
+  font-size:7px; letter-spacing:0.1em; text-transform:uppercase;
+  border:1px solid var(--gold-dim); color:var(--gold);
+  background:rgba(255,209,102,0.07);
+  padding:1px 5px; white-space:nowrap;
+}
+
+/* platform pill */
+.plat {
+  font-size:7px; letter-spacing:0.15em; text-transform:uppercase;
+  padding:2px 7px; border:1px solid;
+}
+.plat-letsdefend { color:var(--pink); border-color:var(--pink-dim); background:var(--pink-faint); }
+.plat-btlo       { color:var(--gold); border-color:var(--gold-dim); background:rgba(255,209,102,0.07); }
+.plat-thm        { color:var(--green); border-color:var(--green-dim); background:rgba(0,255,136,0.05); }
+.plat-other      { color:var(--subtle); border-color:var(--muted); }
+
+/* no results */
+.no-results {
+  display:none; text-align:center; padding:48px;
+  font-size:11px; color:var(--subtle); letter-spacing:0.1em;
+}
+
+/* ── MITRE HEATMAP ── */
+.heatmap-section { margin-top:28px; }
+.heatmap-grid {
+  display:flex; flex-wrap:wrap; gap:6px;
+}
+.hm-cell {
+  border:1px solid var(--muted); padding:6px 10px;
+  font-size:9px; letter-spacing:0.1em;
+  display:flex; flex-direction:column; gap:2px;
+  transition:all 0.2s; cursor:default; min-width:90px;
+}
+.hm-cell:hover { border-color:var(--pink-dim); background:var(--pink-faint); }
+.hm-id { font-family:'Syne Mono',monospace; color:var(--cyan); font-size:10px; }
+.hm-count {
+  color:var(--pink); font-family:'Syne Mono',monospace;
+  font-size:14px; line-height:1;
+}
+.hm-bar { height:2px; background:var(--muted); margin-top:4px; }
+.hm-bar-fill { height:100%; background:linear-gradient(90deg,var(--pink),var(--cyan)); transition:width 0.6s ease; }
+
+/* footer */
+footer { border-top:1px solid var(--muted); padding:24px 0; }
+
+/* responsive */
+@media (max-width:700px) {
+  .alert-table .col-mitre,
+  .alert-table .col-tags { display:none; }
+  .hstat { min-width:80px; padding:10px 14px; }
+}
+</style>
+</head>
+<body>
+<div class="scanline"></div>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-brand" href="/"><span class="pk">ink</span>sec<span class="cx">.io</span></a>
+  <ul class="nav-links">
+    <li><a href="/blue-team/">blue team</a></li>
+    <li><a href="/blue-team/alerts/" style="color:var(--pink)">alert log</a></li>
+  </ul>
+  <a class="nav-back" href="/blue-team/">← back</a>
+</nav>
+
+<div class="wrap">
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-eyebrow">// soc analyst · daily investigation log</div>
+    <h1 class="hero-title">alert <span class="pk">triage</span> <span class="cx">log</span></h1>
+    <p class="hero-sub">
+      Every alert investigated — dated, categorised, and mapped to <em>MITRE ATT&CK</em>.
+      Real-world SOC analyst training via LetsDefend and BTLO, documented daily.
+      Part of the <em>Day N of Becoming a SOC Analyst</em> series.
+    </p>
+
+    <!-- STATS — populated by JS -->
+    <div class="hero-stats">
+      <div class="hstat">
+        <div class="hstat-val pk" id="stat-total">—</div>
+        <div class="hstat-label">Investigations</div>
+      </div>
+      <div class="hstat">
+        <div class="hstat-val gn" id="stat-tp">—</div>
+        <div class="hstat-label">True Positives</div>
+      </div>
+      <div class="hstat">
+        <div class="hstat-val cx" id="stat-fp">—</div>
+        <div class="hstat-label">False Positives</div>
+      </div>
+      <div class="hstat">
+        <div class="hstat-val rd" id="stat-critical">—</div>
+        <div class="hstat-label">Critical</div>
+      </div>
+      <div class="hstat">
+        <div class="hstat-val go" id="stat-mitre">—</div>
+        <div class="hstat-label">MITRE Techniques</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ALERT LOG -->
+  <section id="alerts">
+    <div class="sec-eyebrow">// all investigations · sorted by date</div>
+    <div class="sec-title">investigation <span class="pk">log</span></div>
+    <p class="sec-desc">Filter by severity, outcome, or search by technique, tag, or alert ID. Click any column header to sort.</p>
+
+    <!-- FILTER BAR -->
+    <div class="filter-bar">
+      <input class="filter-search" type="text" id="alert-search" placeholder="> search ID, title, tag, MITRE technique...">
+      <div class="filter-group">
+        <span class="filter-label">severity</span>
+        <button class="fbtn" data-sev="critical">Critical</button>
+        <button class="fbtn" data-sev="high">High</button>
+        <button class="fbtn" data-sev="medium">Medium</button>
+        <button class="fbtn" data-sev="low">Low</button>
+      </div>
+      <div class="filter-group">
+        <span class="filter-label">outcome</span>
+        <button class="fbtn" data-out="true-positive">True Pos</button>
+        <button class="fbtn" data-out="false-positive">False Pos</button>
+      </div>
+      <div class="filter-group">
+        <button class="fbtn" id="clear-filters">Clear</button>
+      </div>
+    </div>
+
+    <div class="result-count">showing <span id="result-num">0</span> of <span id="result-total">0</span> investigations</div>
+
+    <div class="alert-table-wrap">
+      <table class="alert-table" id="alert-table">
+        <thead>
+          <tr>
+            <th data-col="date">Date <span class="sort-arrow">↓</span></th>
+            <th data-col="id">Alert ID <span class="sort-arrow"></span></th>
+            <th data-col="title">Title <span class="sort-arrow"></span></th>
+            <th data-col="severity">Severity <span class="sort-arrow"></span></th>
+            <th data-col="outcome">Outcome <span class="sort-arrow"></span></th>
+            <th data-col="platform">Platform <span class="sort-arrow"></span></th>
+            <th class="col-mitre">MITRE ATT&CK</th>
+            <th class="col-tags">Tags</th>
+          </tr>
+        </thead>
+        <tbody id="alert-tbody"></tbody>
+      </table>
+    </div>
+    <div class="no-results" id="no-results">no alerts match that filter.</div>
+  </section>
+
+  <!-- MITRE HEATMAP -->
+  <section id="mitre">
+    <div class="sec-eyebrow">// technique frequency</div>
+    <div class="sec-title">MITRE ATT&CK <span class="cx">heatmap</span></div>
+    <p class="sec-desc">Techniques seen across all investigations, ranked by frequency.</p>
+    <div class="heatmap-grid" id="heatmap-grid"></div>
+  </section>
+
+</div><!-- /wrap -->
+
+<footer>
+  <div class="wrap" style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;">
+    <div style="font-family:'Syne Mono',monospace;font-size:13px;">
+      <span style="color:var(--pink);text-shadow:0 0 14px var(--pink-dim);">ink</span><span style="color:var(--text);">sec</span><span style="color:var(--cyan);">.io</span>
+      <span style="color:var(--subtle);font-size:10px;margin-left:12px;letter-spacing:0.12em;">blue team · Tate Pannam</span>
+    </div>
+    <a href="https://0x74617465.sh/red-team/" target="_blank"
+       style="font-size:10px;letter-spacing:0.15em;color:var(--subtle);text-decoration:none;transition:color 0.2s;">
+      offensive side → <span style="color:var(--pink);font-family:'Syne Mono',monospace;">0x</span>74617465<span style="color:var(--cyan);">.sh</span>
+    </a>
+  </div>
+</footer>
+
+<!-- DATA — generated by build.py. Replace this block with: <script src="/alerts-data.js"></script> -->
+<script>
+// ── PASTE alerts-data.js CONTENT HERE, or load via <script src="/alerts-data.js"> ──
+// This is sample data so you can preview the page. Replace with your real data.
+const ALERTS = [
+  {
+    id: "SOC210", title: "Possible Brute Force Detected on VPN",
+    date: "2026-02-19", platform: "letsdefend", severity: "high",
+    status: "closed", outcome: "true-positive",
+    mitre: ["T1110","T1078"], tags: ["brute-force","vpn","credential-access"]
+  },
+  {
+    id: "SOC250", title: "APT35 HyperScrape Data Exfiltration Tool Detected",
+    date: "2026-02-18", platform: "letsdefend", severity: "critical",
+    status: "closed", outcome: "true-positive",
+    mitre: ["T1041","T1005"], tags: ["apt35","exfiltration","threat-intel"]
+  },
+  {
+    id: "SOC275", title: "Application Token Steal Attempt Detected",
+    date: "2026-02-18", platform: "letsdefend", severity: "high",
+    status: "closed", outcome: "true-positive",
+    mitre: ["T1528","T1550"], tags: ["token-theft","credential-access"]
+  },
+  {
+    id: "SOC336", title: "Windows OLE Zero-Click RCE Exploitation Detected (CVE-2025-21298)",
+    date: "2026-02-17", platform: "letsdefend", severity: "critical",
+    status: "closed", outcome: "true-positive",
+    mitre: ["T1203","T1190"], tags: ["rce","cve","zero-click","windows"]
+  },
+  {
+    id: "SOC251", title: "Quishing Detected (QR Code Phishing)",
+    date: "2026-02-13", platform: "letsdefend", severity: "medium",
+    status: "closed", outcome: "true-positive",
+    mitre: ["T1566","T1204"], tags: ["phishing","qr-code","quishing"]
+  },
+  {
+    id: "SOC145", title: "Ransomware Detected",
+    date: "2026-02-12", platform: "letsdefend", severity: "critical",
+    status: "closed", outcome: "true-positive",
+    mitre: ["T1486","T1490","T1021-002"], tags: ["ransomware","lateral-movement"]
+  },
+  {
+    id: "SOC342", title: "CVE-2025-53770 SharePoint ToolShell Auth Bypass and RCE",
+    date: "2026-02-12", platform: "letsdefend", severity: "critical",
+    status: "closed", outcome: "true-positive",
+    mitre: ["T1190","T1059"], tags: ["rce","sharepoint","cve","auth-bypass"]
+  },
+  {
+    id: "SOC338", title: "Lumma Stealer - DLL Side-Loading via Click Fix Phishing",
+    date: "2026-02-12", platform: "letsdefend", severity: "high",
+    status: "closed", outcome: "true-positive",
+    mitre: ["T1574","T1566","T1555"], tags: ["stealer","dll-sideload","phishing","malware"]
+  },
+  {
+    id: "SOC335", title: "CVE-2024-49138 Exploitation Detected",
+    date: "2026-02-12", platform: "letsdefend", severity: "high",
+    status: "closed", outcome: "true-positive",
+    mitre: ["T1068","T1190"], tags: ["cve","privilege-escalation","exploitation"]
+  },
+  {
+    id: "SOC326", title: "Impersonating Domain MX Record Change Detected",
+    date: "2026-02-12", platform: "letsdefend", severity: "high",
+    status: "closed", outcome: "true-positive",
+    mitre: ["T1566","T1584"], tags: ["phishing","dns","mx-record","impersonation"]
+  },
+  {
+    id: "SOC274", title: "Palo Alto Networks PAN-OS Command Injection (CVE-2024-3400)",
+    date: "2026-02-12", platform: "letsdefend", severity: "critical",
+    status: "closed", outcome: "true-positive",
+    mitre: ["T1190","T1059"], tags: ["cve","command-injection","palo-alto","firewall"]
+  },
+  {
+    id: "SOC257", title: "VPN Connection Detected from Unauthorized Country",
+    date: "2026-02-12", platform: "letsdefend", severity: "medium",
+    status: "closed", outcome: "true-positive",
+    mitre: ["T1078","T1133"], tags: ["vpn","geo-anomaly","unauthorized-access"]
+  },
+  {
+    id: "SOC170", title: "Passwd Found in Requested URL - Possible LFI Attack",
+    date: "2026-02-12", platform: "letsdefend", severity: "high",
+    status: "closed", outcome: "true-positive",
+    mitre: ["T1083","T1190"], tags: ["lfi","web-attack","credential-in-url"]
+  },
+  {
+    id: "SOC141", title: "Phishing URL Detected",
+    date: "2026-02-12", platform: "letsdefend", severity: "medium",
+    status: "closed", outcome: "true-positive",
+    mitre: ["T1566","T1204"], tags: ["phishing","url","email"]
+  },
+  {
+    id: "SOC138", title: "Detected Suspicious Xls File",
+    date: "2026-02-12", platform: "letsdefend", severity: "medium",
+    status: "closed", outcome: "true-positive",
+    mitre: ["T1566","T1204","T1059"], tags: ["phishing","excel","macro","malware"]
+  },
+  {
+    id: "SOC176", title: "RDP Brute Force Detected",
+    date: "2026-02-11", platform: "letsdefend", severity: "high",
+    status: "closed", outcome: "true-positive",
+    mitre: ["T1110","T1021-001"], tags: ["brute-force","rdp","lateral-movement"]
+  },
+  {
+    id: "SOC127", title: "SQL Injection Detected",
+    date: "2026-02-11", platform: "letsdefend", severity: "high",
+    status: "closed", outcome: "true-positive",
+    mitre: ["T1190","T1059"], tags: ["sqli","web-attack","injection"]
+  },
+  {
+    id: "SOC137", title: "Malicious File or Script Download Attempt",
+    date: "2026-02-08", platform: "letsdefend", severity: "high",
+    status: "closed", outcome: "true-positive",
+    mitre: ["T1105","T1059"], tags: ["malware","download","script"]
+  },
+];
+</script>
+
+<script>
+// ── RENDER HELPERS ────────────────────────────────────────────────────────────
+
+function sevBadge(s) {
+  const cls = { critical:'sev-critical', high:'sev-high', medium:'sev-medium', low:'sev-low' };
+  return `<span class="sev ${cls[s]||'sev-low'}">${s||'—'}</span>`;
+}
+
+function outBadge(o) {
+  if (!o) return `<span class="out out-na">—</span>`;
+  if (o.includes('true'))  return `<span class="out out-tp">TP</span>`;
+  if (o.includes('false')) return `<span class="out out-fp">FP</span>`;
+  return `<span class="out out-na">${o}</span>`;
+}
+
+function platBadge(p) {
+  const map = {
+    letsdefend: ['plat-letsdefend','LetsDefend'],
+    btlo:       ['plat-btlo','BTLO'],
+    tryhackme:  ['plat-thm','TryHackMe'],
+  };
+  const [cls, label] = map[p?.toLowerCase()] || ['plat-other', p||'—'];
+  return `<span class="plat ${cls}">${label}</span>`;
+}
+
+function mitreTags(arr) {
+  if (!arr?.length) return '—';
+  return `<div class="mitre-list">${arr.map(t=>`<span class="mitre-tag">${t}</span>`).join('')}</div>`;
+}
+
+function catTags(arr) {
+  if (!arr?.length) return '';
+  return `<div class="cat-list">${arr.map(t=>`<span class="cat-tag">${t}</span>`).join('')}</div>`;
+}
+
+function fmtDate(d) {
+  if (!d) return '—';
+  const [y,m,day] = d.split('-');
+  return `${day}/${m}/${y}`;
+}
+
+// ── SORT STATE ────────────────────────────────────────────────────────────────
+let sortCol = 'date';
+let sortDir = -1; // -1 = desc, 1 = asc
+
+// ── FILTER STATE ─────────────────────────────────────────────────────────────
+let activeSev = null;
+let activeOut = null;
+
+// ── RENDER TABLE ─────────────────────────────────────────────────────────────
+function renderTable() {
+  const query = (document.getElementById('alert-search').value || '').toLowerCase().trim();
+
+  let data = ALERTS.filter(a => {
+    if (activeSev && a.severity !== activeSev) return false;
+    if (activeOut && a.outcome !== activeOut)  return false;
+    if (query) {
+      const haystack = [
+        a.id, a.title, a.severity, a.outcome, a.platform,
+        ...(a.mitre||[]), ...(a.tags||[])
+      ].join(' ').toLowerCase();
+      if (!haystack.includes(query)) return false;
+    }
+    return true;
+  });
+
+  // sort
+  data.sort((a, b) => {
+    let av = a[sortCol] || '', bv = b[sortCol] || '';
+    if (sortCol === 'date') return av < bv ? sortDir : av > bv ? -sortDir : 0;
+    av = String(av).toLowerCase(); bv = String(bv).toLowerCase();
+    return av < bv ? sortDir : av > bv ? -sortDir : 0;
+  });
+
+  const tbody = document.getElementById('alert-tbody');
+  tbody.innerHTML = data.map(a => `
+    <tr data-sev="${a.severity}" data-out="${a.outcome}">
+      <td class="col-date">${fmtDate(a.date)}</td>
+      <td class="col-id">${a.id||'—'}</td>
+      <td class="col-title">${a.title||'—'}</td>
+      <td>${sevBadge(a.severity)}</td>
+      <td>${outBadge(a.outcome)}</td>
+      <td class="col-platform">${platBadge(a.platform)}</td>
+      <td class="col-mitre">${mitreTags(a.mitre)}</td>
+      <td class="col-tags">${catTags(a.tags)}</td>
+    </tr>
+  `).join('');
+
+  document.getElementById('result-num').textContent   = data.length;
+  document.getElementById('result-total').textContent = ALERTS.length;
+  document.getElementById('no-results').style.display = data.length === 0 ? 'block' : 'none';
+
+  // update sort arrows
+  document.querySelectorAll('.alert-table th[data-col]').forEach(th => {
+    const arrow = th.querySelector('.sort-arrow');
+    if (th.dataset.col === sortCol) {
+      th.classList.add('sorted');
+      arrow.textContent = sortDir === -1 ? '↓' : '↑';
+    } else {
+      th.classList.remove('sorted');
+      arrow.textContent = '';
+    }
+  });
+}
+
+// ── STATS ─────────────────────────────────────────────────────────────────────
+function renderStats() {
+  const tp       = ALERTS.filter(a => a.outcome?.includes('true')).length;
+  const fp       = ALERTS.filter(a => a.outcome?.includes('false')).length;
+  const crit     = ALERTS.filter(a => a.severity === 'critical').length;
+  const allMitre = new Set(ALERTS.flatMap(a => a.mitre||[]));
+
+  document.getElementById('stat-total').textContent   = ALERTS.length;
+  document.getElementById('stat-tp').textContent      = tp;
+  document.getElementById('stat-fp').textContent      = fp;
+  document.getElementById('stat-critical').textContent= crit;
+  document.getElementById('stat-mitre').textContent   = allMitre.size;
+}
+
+// ── MITRE HEATMAP ─────────────────────────────────────────────────────────────
+function renderHeatmap() {
+  const counts = {};
+  ALERTS.forEach(a => (a.mitre||[]).forEach(t => { counts[t] = (counts[t]||0) + 1; }));
+  const sorted = Object.entries(counts).sort((a,b) => b[1]-a[1]);
+  const max    = sorted[0]?.[1] || 1;
+
+  document.getElementById('heatmap-grid').innerHTML = sorted.map(([id, count]) => `
+    <div class="hm-cell" title="${id} — seen ${count}x">
+      <div class="hm-id">${id}</div>
+      <div class="hm-count">${count}</div>
+      <div class="hm-bar"><div class="hm-bar-fill" style="width:${Math.round(count/max*100)}%"></div></div>
+    </div>
+  `).join('');
+}
+
+// ── EVENTS ────────────────────────────────────────────────────────────────────
+
+// sort headers
+document.querySelectorAll('.alert-table th[data-col]').forEach(th => {
+  th.addEventListener('click', () => {
+    if (sortCol === th.dataset.col) sortDir *= -1;
+    else { sortCol = th.dataset.col; sortDir = -1; }
+    renderTable();
+  });
+});
+
+// severity filter
+document.querySelectorAll('.fbtn[data-sev]').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const wasActive = btn.classList.contains('active');
+    document.querySelectorAll('.fbtn[data-sev]').forEach(b => b.classList.remove('active'));
+    activeSev = wasActive ? null : btn.dataset.sev;
+    if (!wasActive) btn.classList.add('active');
+    renderTable();
+  });
+});
+
+// outcome filter
+document.querySelectorAll('.fbtn[data-out]').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const wasActive = btn.classList.contains('active');
+    document.querySelectorAll('.fbtn[data-out]').forEach(b => b.classList.remove('active'));
+    activeOut = wasActive ? null : btn.dataset.out;
+    if (!wasActive) btn.classList.add('active');
+    renderTable();
+  });
+});
+
+// clear
+document.getElementById('clear-filters').addEventListener('click', () => {
+  activeSev = null; activeOut = null;
+  document.querySelectorAll('.fbtn').forEach(b => b.classList.remove('active'));
+  document.getElementById('alert-search').value = '';
+  renderTable();
+});
+
+// search
+document.getElementById('alert-search').addEventListener('input', renderTable);
+
+// ── INIT ──────────────────────────────────────────────────────────────────────
+renderStats();
+renderTable();
+renderHeatmap();
+</script>
+</body>
+</html>
