@@ -679,22 +679,23 @@ section:last-child { border-bottom:none; }
   </section>
 
   <!-- DOCUMENTATION -->
-  <section>
-    <div class="sec-eyebrow">// investigation documentation</div>
-    <div class="sec-title">documentation <span class="pk">&</span> profiles</div>
-    <div class="doc-grid">
-      <div class="doc-card">
-        <div class="doc-icon">📓</div>
-        <div class="doc-title">Obsidian Investigation Vault</div>
-        <div class="doc-desc">Comprehensive case documentation with MITRE ATT&CK mapping, IOC tracking, and investigation timelines.</div>
-        <ul class="doc-bullets">
-          <li>80+ documented investigations</li>
-          <li>MITRE ATT&CK technique mapping</li>
-          <li>Reusable investigation templates</li>
-          <li>IOC database & metrics dashboard</li>
-        </ul>
-        <div class="doc-note">Private repository · screenshot available on request</div>
-      </div>
+<!-- DOCUMENTATION -->
+<section>
+  <div class="sec-eyebrow">// investigation documentation</div>
+  <div class="sec-title">documentation <span class="pk">&</span> profiles</div>
+  <div class="doc-grid">
+    <div class="doc-card">
+      <div class="doc-icon">🗂️</div>
+      <div class="doc-title">Alert Triage Log</div>
+      <div class="doc-desc">Every SOC investigation documented — dated, MITRE ATT&CK mapped, and publicly queryable. Updated daily.</div>
+      <ul class="doc-bullets">
+        <li><span id="card-total">—</span> investigations logged &amp; counting</li>
+        <li><span id="card-tp">—</span> true positives · <span id="card-fp">—</span> false positives</li>
+        <li><span id="card-mitre">—</span> unique MITRE ATT&CK techniques observed</li>
+        <li>Latest: <span id="card-latest" style="color:var(--cyan)">—</span></li>
+      </ul>
+      <a class="ach-link" href="/blue-team/alerts/">view full log →</a>
+    </div>
       <div class="doc-card">
         <div class="doc-icon">🔗</div>
         <div class="doc-title">Public Platform Profiles</div>
@@ -997,6 +998,23 @@ document.getElementById('lab-search').addEventListener('input', applyFilter);
 
 // ── INIT ────────────────────────────────────────────────────────────
 renderAll();
+</script>
+
+<script src="/alerts-data.js"></script>
+<script>
+  if (typeof ALERTS !== "undefined") {
+    const tp     = ALERTS.filter(a => a.outcome?.includes("true")).length;
+    const fp     = ALERTS.filter(a => a.outcome?.includes("false")).length;
+    const mitre  = new Set(ALERTS.flatMap(a => a.mitre||[])).size;
+    const latest = ALERTS.slice().sort((a,b) => b.date.localeCompare(a.date))[0];
+    document.getElementById("card-total").textContent  = ALERTS.length;
+    document.getElementById("card-tp").textContent     = tp;
+    document.getElementById("card-fp").textContent     = fp;
+    document.getElementById("card-mitre").textContent  = mitre;
+    document.getElementById("card-latest").textContent = latest
+      ? `${latest.id} — ${latest.title.slice(0,35)}${latest.title.length>35?"…":""}`
+      : "—";
+  }
 </script>
 </body>
 </html>
