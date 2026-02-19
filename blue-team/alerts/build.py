@@ -114,9 +114,10 @@ def split_tags(tags):
     return mitre, cats
 
 # ── JEKYLL FILE WRITER ────────────────────────────────────────────────────────
-def write_investigation(md_file, dest_dir, title):
+def write_investigation(md_file, dest_dir, title, slug):
     dest_dir.mkdir(parents=True, exist_ok=True)
-    dest_file = dest_dir / md_file.name
+    # use slug as filename — spaces in filenames break Jekyll silently
+    dest_file = dest_dir / (slug + '.md')
     original  = md_file.read_text(encoding='utf-8', errors='ignore')
 
     # inject title into frontmatter if not already there
@@ -131,7 +132,7 @@ def write_investigation(md_file, dest_dir, title):
         )
         dest_file.write_text(new_content, encoding='utf-8')
     else:
-        shutil.copy2(md_file, dest_file)
+        dest_file.write_text(original, encoding='utf-8')
 
 # ── MAIN ──────────────────────────────────────────────────────────────────────
 def main():
@@ -199,7 +200,7 @@ def main():
         print(f"  [OK] {date} · {alert_id} · {title[:50]}")
 
         if not args.no_copy:
-            write_investigation(md_file, invest_dir, title)
+            write_investigation(md_file, invest_dir, title, slug)
 
     if skipped:
         print("\nSkipped:")
