@@ -14,28 +14,28 @@ MITRE ATT&CK:
 outcome: true-positive
 alert_id: SOC275
 ---
-MITRE ATTACK  
+## 🎯 MITRE ATT&CK
 T1566.002 Phishing Link  
 T1056 Input Capture  
 T1078 Valid Accounts
 
-What  
+### 🔎 What
 User gloriana@letsdefend.io interacted with a phishing reset-password link hosted on homespottersf.com over port 8081. The user first issued a GET request resulting in a 302 redirect, followed by a POST request to /reset-password with a token parameter, receiving HTTP 200. This indicates form submission to a suspicious external domain.
 
-When  
+### 🕐 When
 19 Apr 2024 08:23 UTC
 
-Where  
+### 📍 Where
 Source IP 172.16.17.172  
 Destination IP 23.82.12.29  
 Destination Port 8081  
 Domain homespottersf.com
 
-Who  
+### 👤 Who
 User gloriana@letsdefend.io  
 Internal host 172.16.17.172
 
-Why  
+### 💡 Why
 The POST request confirms user interaction beyond simply clicking the phishing link. The reset-password endpoint and token parameter strongly indicate credential harvesting or account takeover attempt. The HTTP 200 response suggests the malicious server successfully received the submitted data.
 
 How  

@@ -15,7 +15,7 @@ alert_id: SOC138
 ---
 ALERT SUMMARY
 
-MITRE ATT&CK  
+## 🎯 MITRE ATT&CK
 T1566.001 – Spearphishing Attachment  
 T1105 – Ingress Tool Transfer
 

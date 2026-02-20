@@ -16,7 +16,7 @@ alert_id: SOC145
 ---
 
 
-MITRE ATTACK
+## 🎯 MITRE ATT&CK
 T1486 – Data Encrypted for Impact  
 T1490 – Inhibit System Recovery  
 T1021.002 – Remote Services: SMB/Windows Admin Shares

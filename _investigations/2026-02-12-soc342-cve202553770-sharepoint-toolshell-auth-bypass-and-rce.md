@@ -17,7 +17,7 @@ alert_id: SOC342
 ---
 ALERT SUMMARY
 
-MITRE ATT&CK  
+## 🎯 MITRE ATT&CK
 T1190 – Exploit Public-Facing Application  
 T1059.001 – Command and Scripting Interpreter: PowerShell  
 T1505.003 – Server Software Component: Web Shell

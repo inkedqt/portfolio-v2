@@ -13,7 +13,7 @@ MITRE ATT&CK:
 outcome: true-positive
 alert_id: SOC170
 ---
-MITRE ATT&CK  
+## 🎯 MITRE ATT&CK
 T1190 – Exploit Public-Facing Application  
 T1006 – Path Traversal
 

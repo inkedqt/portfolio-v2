@@ -15,7 +15,7 @@ alert_id: SOC141
 ---
 ALERT SUMMARY
 
-MITRE ATT&CK  
+## 🎯 MITRE ATT&CK
 T1566 – Phishing  
 T1204 – User Execution
 

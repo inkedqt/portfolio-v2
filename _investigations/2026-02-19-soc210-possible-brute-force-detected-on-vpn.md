@@ -14,27 +14,27 @@ outcome: true-positive
 alert_id: SOC210
 ---
 
-MITRE ATTACK  
+## 🎯 MITRE ATT&CK
 T1110 Brute Force  
 T1078 Valid Accounts
 
-Who  
+### 👤 Who
 An external IP address 37.19.221.229 attempted multiple VPN logins against user accounts including tane@letsdefend.io, sane@letsdefend.io, fane@letsdefend.io and mane@letsdefend.io
 
-What  
+### 🔎 What
 Multiple failed VPN authentication attempts were detected from the same source IP, followed by a successful login to mane@letsdefend.io. The activity indicates a brute force attempt that resulted in valid account access.
 
-When  
+### 🕐 When
 Jun 21, 2023, 01:51 PM
 
-Where  
+### 📍 Where
 Source IP: 37.19.221.229  
 Destination: vpn-letsdefend.io (Host: Mane)
 
-Why  
+### 💡 Why
 Authentication logs show repeated failed login attempts against multiple usernames from the same IP address, followed by a successful login shortly after. This pattern is consistent with brute force or credential stuffing activity leading to account compromise.
 
-Response  
+## 📋 Response
 The affected account and associated host were isolated and contained.
 
 
