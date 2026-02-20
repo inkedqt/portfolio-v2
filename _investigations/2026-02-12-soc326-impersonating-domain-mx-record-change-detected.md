@@ -15,6 +15,7 @@ date: 2026-02-12
 MITRE ATT&CK:
 outcome: true-positive
 alert_id: SOC326
+youtube: https://www.youtube.com/watch?v=Oinrp7zOSAg
 ---
 ALERT SUMMARY
 
