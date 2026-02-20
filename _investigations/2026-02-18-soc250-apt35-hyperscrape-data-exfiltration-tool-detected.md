@@ -13,6 +13,7 @@ date: 2026-02-08
 MITRE ATT&CK:
 outcome: true-positive
 alert_id: SOC250
+youtube: https://www.youtube.com/watch?v=SNroeSufrG0
 ---
 ## 🎯 MITRE ATT&CK
 T1567 Exfiltration Over Web Service  

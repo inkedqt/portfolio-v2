@@ -13,6 +13,7 @@ date: 2026-02-08
 MITRE ATT&CK:
 outcome: true-positive
 alert_id: SOC275
+youtube: https://www.youtube.com/watch?v=Sr_fc_LakM0
 ---
 ## 🎯 MITRE ATT&CK
 T1566.002 Phishing Link  

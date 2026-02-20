@@ -12,6 +12,7 @@ date: 2026-02-08
 MITRE ATT&CK:
 outcome: true-positive
 alert_id: SOC210
+youtube: https://www.youtube.com/watch?v=LwI0ZEuL6M4
 ---
 
 ## 🎯 MITRE ATT&CK

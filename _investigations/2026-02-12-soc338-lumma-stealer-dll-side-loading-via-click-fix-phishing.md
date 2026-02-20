@@ -15,6 +15,7 @@ date: 2026-02-12
 MITRE ATT&CK:
 outcome: true-positive
 alert_id: SOC338
+youtube: https://www.youtube.com/watch?v=9uLtQAU2Y84
 ---
 ALERT SUMMARY
 

@@ -184,6 +184,7 @@ def main():
         mitre, cats = split_tags(raw_tags)
         slug        = make_slug(stem)
         url         = f'/investigations/{slug}/'
+        youtube     = fm.get('youtube', '')
 
         alerts.append({
             'id':       alert_id,
@@ -196,6 +197,7 @@ def main():
             'mitre':    mitre,
             'tags':     cats,
             'url':      url,
+            'youtube':  youtube,
         })
         print(f"  [OK] {date} · {alert_id} · {title[:50]}")
 

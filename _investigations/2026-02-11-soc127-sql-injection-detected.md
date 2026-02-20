@@ -12,6 +12,7 @@ date: 2026-02-08
 MITRE ATT&CK:
 outcome: true-positive
 alert_id: SOC127
+youtube: https://www.youtube.com/watch?v=5tyD2HPAfDA
 ---
 ## 🧾 Alert Summary
 

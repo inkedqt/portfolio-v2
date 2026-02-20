@@ -9,10 +9,11 @@ tags:
   - mitre/T1486
   - mitre/T1490
   - mitre/T1021-002
-date: 2026-02-12
+date: 2026-01-26
 MITRE ATT&CK:
 outcome: true-positive
 alert_id: SOC145
+youtube: https://www.youtube.com/watch?v=aY5zmcRyrFw
 ---
 
 

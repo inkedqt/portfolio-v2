@@ -12,6 +12,7 @@ date: 2026-02-12
 MITRE ATT&CK:
 outcome: true-positive
 alert_id: SOC170
+youtube: https://www.youtube.com/watch?v=uW8-8uvZ9ws
 ---
 ## 🎯 MITRE ATT&CK
 T1190 – Exploit Public-Facing Application  

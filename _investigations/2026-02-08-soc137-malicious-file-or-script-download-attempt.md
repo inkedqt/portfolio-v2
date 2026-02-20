@@ -11,6 +11,7 @@ tags:
 date: 2026-02-08
 outcome: true-positive
 alert_id: SOC137
+youtube: https://www.youtube.com/watch?v=fQUIvukK9qU
 ---
 ## 🧾 Alert Summary
 SOC137 - Malicious File or Script Download Attempt

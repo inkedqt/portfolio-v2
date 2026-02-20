@@ -423,7 +423,7 @@ section:last-child { border-bottom:none; }
   <a class="nav-brand" href="/"><span class="pk">ink</span>sec<span class="cx">.io</span></a>
   <ul class="nav-links">
     <li><a href="#investigations">Investigations</a></li>
-    <li><a href="#investigations">Investigations</a></li>
+    <li><a href="#btl1">BTL1</a></li>
     <li><a href="#labs">Labs</a></li>
     <li><a href="#environments">Lab Envs</a></li>
   </ul>
@@ -575,28 +575,64 @@ section:last-child { border-bottom:none; }
     </div>
   </section>
 
-  <!-- DAILY INVESTIGATIONS -->
-  <section id="investigations">
-    <div class="sec-eyebrow">// daily soc practice · live investigation log</div>
-    <div class="sec-title">daily <span class="pk">investigations</span></div>
-    <p class="sec-desc">Every alert triaged, documented, and mapped to MITRE ATT&CK. Updated daily as part of the <em>Day N of Becoming a SOC Analyst</em> series.</p>
-    <div class="hero-stats" style="margin-bottom:24px;">
-      <div class="hstat"><div class="hstat-val pk" id="inv-total">—</div><div class="hstat-label">Investigations</div></div>
-      <div class="hstat"><div class="hstat-val cx" id="inv-tp">—</div><div class="hstat-label">True Positives</div></div>
-      <div class="hstat"><div class="hstat-val go" id="inv-mitre">—</div><div class="hstat-label">MITRE Techniques</div></div>
-      <div class="hstat"><div class="hstat-val pk" id="inv-critical">—</div><div class="hstat-label">Critical</div></div>
+  <!-- BTL1 LABS -->
+  <section id="btl1">
+    <div class="sec-eyebrow">// security blue team · certification path</div>
+    <div class="sec-title">BTL1 <span class="cx">Certification Labs</span></div>
+    <p class="sec-desc">Hands-on labs from the Blue Team Level 1 certification path. Real-world defensive scenarios with full investigation documentation and MITRE ATT&CK mapping.</p>
+    <div class="btl1-progress">
+      <div class="progress-track"><div class="progress-fill" id="btl1-fill" style="width:22%"></div></div>
+      <div class="progress-text"><span id="btl1-done">2</span> of 9 BTL1 labs completed (<span id="btl1-pct">22%</span>)</div>
     </div>
-    <div style="font-size:10px;letter-spacing:0.1em;color:var(--subtle);margin-bottom:16px;">
-      Latest: <span id="inv-latest" style="color:var(--cyan);">—</span>
+    <!-- Featured BTL1 writeup -->
+    <div class="featured-lab">
+      <div class="featured-art">
+        <img src="/assets/images/labs/btl1/piggy-hero.png"
+             onerror="this.style.background='#1a1a2e';this.style.display='block'"
+             alt="Piggy BTL1 Lab">
+      </div>
+      <div class="featured-body">
+        <div class="featured-tag">BTL1 · Lab 1 · Featured Writeup</div>
+        <div class="featured-title">Piggy</div>
+        <div class="featured-meta">Completed · 27/27 · February 13, 2026</div>
+        <div class="featured-cats">
+          <span class="featured-cat">PCAP Analysis</span>
+          <span class="featured-cat">Wireshark</span>
+          <span class="featured-cat">OSINT</span>
+          <span class="featured-cat">MITRE ATT&CK</span>
+        </div>
+        <p class="featured-summary">Multi-PCAP investigation across four capture files — identifying SSH data exfiltration, malware infrastructure, ASN attribution via WHOIS, and full MITRE ATT&CK technique mapping. Tools: Wireshark, VirusTotal, WHOIS/ASN lookups, MITRE ATT&CK Navigator.</p>
+        <a class="featured-cta" href="/blue-team/piggy/">read full writeup →</a>
+      </div>
     </div>
-    <a class="featured-cta" href="/blue-team/alerts/" style="display:inline-block;">view full investigation log →</a>
+
+    <!-- Featured Bec-Ky -->
+    <div class="featured-lab" style="margin-top:14px;">
+      <div class="featured-art">
+        <img src="/assets/images/labs/btl1/becky.png"
+             onerror="this.style.background='#1a1a2e';this.style.display='block'"
+             alt="Bec-Ky BTLO Lab">
+      </div>
+      <div class="featured-body">
+        <div class="featured-tag">BTLO · Lab 2 · BEC Investigation</div>
+        <div class="featured-title">Bec-Ky</div>
+        <div class="featured-meta">Completed · Easy · February 2026</div>
+        <div class="featured-cats">
+          <span class="featured-cat">Incident Response</span>
+          <span class="featured-cat">BEC</span>
+          <span class="featured-cat">Email Forensics</span>
+        </div>
+        <p class="featured-summary">Business Email Compromise investigation — unauthorised bank transfers from company pension fund to multiple external accounts. Trace the attacker's methodology and identify the full scope of compromise.</p>
+        <a class="featured-cta" href="/blue-team/bec-ky/">read full writeup →</a>
+      </div>
+    </div>
   </section>
 
   <!-- ALL LABS -->
   <section id="labs">
     <div class="sec-eyebrow">// all completed labs</div>
     <div class="sec-title">lab <span class="pk">grid</span></div>
-    <p class="sec-desc">All platforms, all labs. Filter by platform, difficulty, or category. Adding new labs weekly. BTL1: <span id="btl1-done">1</span> of 9 completed.</p>
+    <p class="sec-desc">All platforms, all labs. Filter by platform, difficulty, or category. Adding new labs weekly.</p>
 
     <div class="filter-bar">
       <input class="filter-search" type="text" placeholder="> search labs, tools, techniques..." id="lab-search">
@@ -988,23 +1024,6 @@ renderAll();
 <script src="/alerts-data.js"></script>
 <script>
   if (typeof ALERTS !== 'undefined') {
-    // populate blue-team page investigation stats
-    const invTp   = document.getElementById('inv-total');
-    const invTpEl = document.getElementById('inv-tp');
-    const invMit  = document.getElementById('inv-mitre');
-    const invCrit = document.getElementById('inv-critical');
-    const invLat  = document.getElementById('inv-latest');
-    if (invTp) {
-      const tp     = ALERTS.filter(a => a.outcome && a.outcome.includes('true')).length;
-      const mitre  = new Set(ALERTS.flatMap(a => a.mitre||[])).size;
-      const crit   = ALERTS.filter(a => a.severity === 'critical').length;
-      const latest = ALERTS.slice().sort((a,b) => b.date.localeCompare(a.date))[0];
-      invTp.textContent   = ALERTS.length;
-      invTpEl.textContent = tp;
-      invMit.textContent  = mitre;
-      invCrit.textContent = crit;
-      if (invLat && latest) invLat.textContent = latest.id + ' — ' + latest.title.slice(0,40) + (latest.title.length>40?'…':'');
-    }
     const tp     = ALERTS.filter(a => a.outcome?.includes('true')).length;
     const fp     = ALERTS.filter(a => a.outcome?.includes('false')).length;
     const mitre  = new Set(ALERTS.flatMap(a => a.mitre||[])).size;
