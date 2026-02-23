@@ -37,7 +37,7 @@ defaults:
       path: ""
       type: investigations
     values:
-      layout: single
+      layout: investigations
       author_profile: false
       share: false
   - scope:
