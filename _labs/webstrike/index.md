@@ -8,6 +8,7 @@ tools: [Wireshark, IP2Location]
 tactics: [Initial Access, Execution, Persistence, Command And Control, Exfiltration]
 proof: https://cyberdefenders.org/blueteam-ctf-challenges/achievements/inksec/webstrike/
 challenge_url: https://cyberdefenders.org/blueteam-ctf-challenges/webstrike/
+permalink: /blue-team/labs/webstrike/
 ---
 # WebStrike
 

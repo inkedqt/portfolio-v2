@@ -29,7 +29,7 @@ collections:
     permalink: /:collection/:path/
   labs:
     output: true
-    permalink: /blue-team/labs/:name/
+    permalink: /blue-team/labs/:path/
 
 # Defaults
 defaults:

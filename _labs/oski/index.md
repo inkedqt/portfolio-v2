@@ -8,6 +8,7 @@ tools: [VirusTotal, ANY.RUN]
 tactics: [Initial Access, Execution, Defense Evasion, Credential Access, Command And Control, Exfiltration]
 proof: https://cyberdefenders.org/blueteam-ctf-challenges/achievements/inksec/oski/
 challenge_url: https://cyberdefenders.org/blueteam-ctf-challenges/oski/
+permalink: /blue-team/labs/oski/
 ---
 
 # Oski Lab – Stealc Malware Sandbox Analysis
