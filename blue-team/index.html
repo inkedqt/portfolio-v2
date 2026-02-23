@@ -202,6 +202,7 @@ section:last-child { border-bottom:none; }
 /* platform filter colours */
 .fbtn[data-platform="BTL1"].active       { border-color:rgba(0,245,212,0.4); color:var(--cyan); background:var(--cyan-faint); }
 .fbtn[data-platform="BTLO"].active       { border-color:rgba(255,209,102,0.4); color:var(--gold); background:rgba(255,209,102,0.07); }
+.fbtn[data-platform="CyberDefenders"].active { border-color:rgba(0,180,255,0.4); color:#00b4ff; background:rgba(0,180,255,0.07); }
 .fbtn[data-platform="LetsDefend"].active { border-color:var(--pink-dim); color:var(--pink); background:var(--pink-faint); }
 .fbtn[data-platform="TryHackMe"].active  { border-color:rgba(0,255,136,0.3); color:var(--green); background:rgba(0,255,136,0.05); }
 .fbtn[data-platform="Splunk"].active     { border-color:rgba(255,140,0,0.4); color:#ff8c00; background:rgba(255,140,0,0.07); }
@@ -258,6 +259,7 @@ section:last-child { border-bottom:none; }
 }
 .badge-BTL1       { background:rgba(0,245,212,0.15); border-color:var(--cyan-dim); color:var(--cyan); }
 .badge-BTLO       { background:rgba(255,209,102,0.15); border-color:var(--gold-dim); color:var(--gold); }
+.badge-CyberDefenders { background:rgba(0,180,255,0.12); border-color:rgba(0,180,255,0.4); color:#00b4ff; }
 .badge-LetsDefend { background:rgba(255,102,196,0.15); border-color:var(--pink-dim); color:var(--pink); }
 .badge-TryHackMe  { background:rgba(0,255,136,0.12); border-color:var(--green-dim); color:var(--green); }
 .badge-Splunk     { background:rgba(255,140,0,0.12); border-color:rgba(255,140,0,0.4); color:#ff8c00; }
@@ -605,7 +607,8 @@ section:last-child { border-bottom:none; }
         <button class="fbtn active" data-platform="all">All</button>
         <button class="fbtn" data-platform="BTL1">BTL1</button>
         <button class="fbtn" data-platform="BTLO">BTLO</button>
-        <button class="fbtn" data-platform="LetsDefend">LetsDefend</button>
+        <button class="fbtn" data-platform="CyberDefenders">CyberDefenders</button>
+	<button class="fbtn" data-platform="LetsDefend">LetsDefend</button>
         <button class="fbtn" data-platform="TryHackMe">TryHackMe</button>
         <button class="fbtn" data-platform="HackSmarter">HackSmarter</button>
       </div>
@@ -790,6 +793,20 @@ const LABS = [
     art:      'https://blueteamlabs.online/storage/challenges/d4g2ae0d31ab1ee1d167.jpg',
     writeup:  null,
     proof:    null,
+  },
+
+  // ── CyberDefenders ──
+  {
+    name:     'WebStrike',
+    platform: 'CyberDefenders',
+    diff:     'Easy',
+    cats:     ['Network Forensics','PCAP Analysis','Wireshark','Web Shell'],
+    status:   'done',
+    score:    null,
+    summary:  'Suspicious file identified on a company web server. PCAP analysis revealed a double-extension bypass (image.jpg.php) used to upload a PHP webshell, reverse shell attempt via netcat on port 8080, and /etc/passwd exfiltration attempt. Attacker attributed to Tianjin, China via IP2Location.',
+    art:      'https://cyberdefenders.org/media/terraform/WebStrike/WebStrike.webp',
+    writeup:  '/blue-team/labs/webstrike/',
+    proof:    'https://cyberdefenders.org/blueteam-ctf-challenges/achievements/inksec/webstrike/',
   },
 
   // ── LetsDefend ──
