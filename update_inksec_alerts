@@ -1,0 +1,3 @@
+python retrofit_notes.py ;
+python build.py ;
+cd ~/portfolio-v2 && git add . && git commit -m "retrofit: markdown headers on investigation notes" && git push
