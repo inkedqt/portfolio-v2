@@ -1,3 +1,15 @@
+---
+layout: lab
+title: "Oski Lab — Stealc Malware Sandbox Analysis"
+platform: CyberDefenders
+difficulty: Easy
+category: Threat Intelligence
+tools: [VirusTotal, ANY.RUN]
+tactics: [Initial Access, Execution, Defense Evasion, Credential Access, Command And Control, Exfiltration]
+proof: https://cyberdefenders.org/blueteam-ctf-challenges/achievements/inksec/oski/
+challenge_url: https://cyberdefenders.org/blueteam-ctf-challenges/oski/
+---
+
 # Oski Lab – Stealc Malware Sandbox Analysis
 
 ## Overview
