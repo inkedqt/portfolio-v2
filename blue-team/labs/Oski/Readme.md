@@ -2,20 +2,16 @@
 
 ## Overview
 
-In this lab, I analysed a malicious PowerPoint-delivered payload using **Any.Run** and threat intelligence platforms to:
+> The accountant at the company received an email titled "Urgent New Order" from a client 
+> late in the afternoon. When he attempted to access the attached invoice, he discovered it 
+> contained false order information. Subsequently, the SIEM solution generated an alert 
+> regarding downloading a potentially malicious file. Upon initial investigation, it was found 
+> that the PPT file might be responsible for this download.
 
-- Identify Stealc malware behaviour
-    
-- Extract configuration details
-    
-- Identify command & control infrastructure
-    
-- Map activity to MITRE ATT&CK
-    
+**Category:** Threat Intelligence  
+**Tools Used:** VirusTotal, Any.Run
 
-Category: Threat Intelligence  
-Tools Used: VirusTotal, Any.Run
-
+...
 MD5 Hash:
 
 12c1842c3ccafe7408c23ebf292ee3d9
