@@ -10,20 +10,6 @@ proof: https://cyberdefenders.org/blueteam-ctf-challenges/achievements/inksec/we
 challenge_url: https://cyberdefenders.org/blueteam-ctf-challenges/webstrike/
 permalink: /blue-team/labs/webstrike/
 ---
-# WebStrike
-
-**Platform:** CyberDefenders  
-**Category:** Network Forensics  
-**Difficulty:** Easy  
-**Tools:** Wireshark · IP2Location  
-**Tactics:** Initial Access · Execution · Persistence · Command And Control · Exfiltration
-
-https://cyberdefenders.org/blueteam-ctf-challenges/achievements/inksec/webstrike/
-
-#CyberDefenders #CyberSecurity #BlueYard #BlueTeam #InfoSec #SOC #SOCAnalyst #DFIR #CCD #CyberDefender
-
----
-
 ## Overview
 
 A suspicious file was identified on a company web server, raising concerns of potential compromise. The network team captured traffic and provided a PCAP file (355 packets) for analysis.
