@@ -35,7 +35,7 @@ collections:
 defaults:
   - scope:
       path: ""
-      type: investigations
+      type: investigation
     values:
       layout: investigations
       author_profile: false
