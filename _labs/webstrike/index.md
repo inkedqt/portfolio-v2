@@ -1,3 +1,14 @@
+---
+layout: lab
+title: "WebStrike — PHP Webshell via Double Extension Bypass"
+platform: CyberDefenders
+difficulty: Easy
+category: Network Forensics
+tools: [Wireshark, IP2Location]
+tactics: [Initial Access, Execution, Persistence, Command And Control, Exfiltration]
+proof: https://cyberdefenders.org/blueteam-ctf-challenges/achievements/inksec/webstrike/
+challenge_url: https://cyberdefenders.org/blueteam-ctf-challenges/webstrike/
+---
 # WebStrike
 
 **Platform:** CyberDefenders  
