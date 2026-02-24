@@ -41,7 +41,7 @@ def main():
     tactics  = fm.get('tactics', [])
     proof    = fm.get('proof', None)
     writeup  = fm.get('permalink', '')
-    summary  = fm.get('summary', '')
+    summary  = fm.get('summary', '').strip('"').strip("'")
 
     # merge cats + tools + tactics into cats array for the filter
     all_cats = []
@@ -49,6 +49,7 @@ def main():
         if isinstance(v, list):
             all_cats += v
         elif isinstance(v, str):
+            v = v.strip().lstrip('[').rstrip(']')
             all_cats += [x.strip() for x in v.split(',')]
 
     proof_js = f"'{proof}'" if proof else 'null'
