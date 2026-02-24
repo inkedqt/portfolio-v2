@@ -1,11 +1,15 @@
 ---
-layout: single
+layout: lab
 title: "Piggy - BTL1 PCAP Analysis Lab"
-permalink: /blue-team/piggy/
-classes: wide
-toc: true
-toc_label: "Investigation Steps"
-toc_icon: "shield-alt"
+platform: BTLO
+difficulty: Easy        # or whatever they are
+category: [Network Security Monitoring]
+tools: [Wireshark]
+tactics: [Initial Access, Credential Access]
+proof: https://blueteamlabs.online/achievement/share/144656/66
+challenge_url: https://blueteamlabs.online/home/investigation/piggy-aij2bd8h2
+permalink: /blue-team/labs/piggy/
+summary: "Multi-PCAP investigation — SSH data exfiltration identification, malware infrastructure discovery, ASN attribution,"
 ---
 
 <div class="lab-writeup-header">

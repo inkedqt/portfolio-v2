@@ -1,3 +1,16 @@
+---
+layout: lab
+title: "BEC-KY Lab"
+platform: BTLO
+difficulty: Easy        # or whatever they are
+category: [Email Analysis, DFIR]
+tools: [Azure AD, Exchange]
+tactics: [Initial Access, Credential Access]
+proof: https://blueteamlabs.online/achievement/share/144656/267
+challenge_url: 'https://blueteamlabs.online/home/investigation/bec-ky-d75e02a0dd'
+permalink: /blue-team/labs/bec-ky/
+summary: "Business Email Compromise investigation — suspected cyber incident involving unauthorised bank transfers from company pension fund."
+---
 # BEC-KY BTLO Investigation Summary  
 
 ## Investigation Overview  
