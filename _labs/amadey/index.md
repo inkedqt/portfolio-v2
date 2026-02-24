@@ -146,18 +146,19 @@ This indicates:
 
 ![filescan_lssass.png](filescan_lssass.png)
 
-## Artifacts
+## IOCs
+
 
 | Type | Value |
 |------|-------|
-| Fake Process | lssass.exe |
+| Fake Process | `lssass.exe` |
 | Execution Path | `C:\Users\0XSH3R~1\AppData\Local\Temp\925e7e99c5\lssass.exe` |
 | C2 Server | `41.75.84.12` |
 | Downloaded Module | `clip64.dll` |
 | DLL Path | `C:\Users\0xSh3rl0ck\AppData\Roaming\116711e5a2ab05\clip64.dll` |
 | Execution Method | `RUNDLL32.EXE` |
 | Persistence | Scheduled Task |
-# Distinct Files Retrieved
+
 
 From analysis of network requests:
 
