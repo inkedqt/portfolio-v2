@@ -1,11 +1,11 @@
 ---
 layout: lab
-title: PoisonedCredentials Lab
+title: "PoisonedCredentials Lab"
 platform: CyberDefenders
 difficulty: Easy
-category: Network Forensics
-tools: Wireshark
-tactics: Credential Access, Collection
+category: [Network Forensics]
+tools: [Wireshark]
+tactics: [Credential Access, Collection]
 proof: https://cyberdefenders.org/blueteam-ctf-challenges/achievements/inksec/poisonedcredentials/
 challenge_url: https://cyberdefenders.org/blueteam-ctf-challenges/poisonedcredentials/
 permalink: /blue-team/labs/poisonedcredentials
