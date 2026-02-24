@@ -40,6 +40,7 @@ def main():
     tools    = fm.get('tools', [])
     tactics  = fm.get('tactics', [])
     proof    = fm.get('proof', None)
+    art      = fm.get('art', None)
     writeup  = fm.get('permalink', '')
     summary  = fm.get('summary', '').strip('"').strip("'")
 
@@ -53,6 +54,7 @@ def main():
             all_cats += [x.strip() for x in v.split(',')]
 
     proof_js = f"'{proof}'" if proof else 'null'
+    art_js   = f"'{art}'" if art else 'null'
 
     print(f"""  {{
     name:     '{name}',
@@ -62,6 +64,7 @@ def main():
     status:   'done',
     score:    null,
     summary:  '{summary}',
+    art:      {art_js},
     writeup:  '{writeup}',
     proof:    {proof_js},
   }},""")
