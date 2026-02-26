@@ -175,8 +175,8 @@ This sequence suggests financial distress leading to foreign travel and a prearr
 ## IOCs 
 
 
-| Type                | Value                                                            |
-| ------------------- | ---------------------------------------------------------------- |
+| Type | Value |
+| ---- | ----- |
 | OlympTrade SHA256   | 4f168a772350f283a1c49e78c1548d7c2c6c05106d8b9feb825fdc3466e9df3c |
 | Debt Contact        | Shady Wahab                                                      |
 | Phone Number        | +201172137258                                                    |
@@ -184,6 +184,8 @@ This sequence suggests financial distress leading to foreign travel and a prearr
 | infern0_o           | 1153857419345137687                                              |
 | discord channel     | 1153848030269804606                                              |
 | Airline Ticket Hash | 55187f283e17f99c1eacaeee950020761c04fa32579be38f1088cea7b3ebc7d6 |
+
+
 # Conclusion
 
 
