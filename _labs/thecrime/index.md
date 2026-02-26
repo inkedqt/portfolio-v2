@@ -204,7 +204,7 @@ Mobile forensic analysis confirmed:
 
 Correlating device artifacts with witness testimony allowed reconstruction of the victim’s final movements and associations.
 
-This case demonstrates the investigative power of:
+> This case demonstrates the investigative power of:
 
 - Mobile artifact correlation
     
