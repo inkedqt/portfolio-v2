@@ -152,7 +152,13 @@ The investigation confirms:
 - Geolocation artifacts confirmed both corporate and surveillance locations
     
 
-This case highlights the risks of credential leakage, insider threat behavior, and the power of OSINT correlation in digital investigations.
+> This case highlights the risks of credential leakage, insider threat behavior, and the power of OSINT correlation in digital investigations.
+
+
+
+
+
+---
 
 I successfully completed Lespion Blue Team Lab at @CyberDefenders!
 https://cyberdefenders.org/blueteam-ctf-challenges/achievements/inksec/lespion/
