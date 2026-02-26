@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='utf-8' standalone='yes' ?>
+<usagestats version="1" endTime="39855">
+    <interactive count="0" time="0" />
+    <non-interactive count="0" time="0" />
+    <keyguard-shown count="0" time="0" />
+    <keyguard-hidden count="0" time="0" />
+    <packages>
+        <package lastTimeActive="-1695253816016" package="com.google.android.googlequicksearchbox" timeActive="0" lastEvent="0" />
+        <package lastTimeActive="-1695253816016" package="com.android.providers.calendar" timeActive="0" lastEvent="0" />
+        <package lastTimeActive="9538" package="com.discord" timeActive="1035" lastEvent="2" appLaunchCount="1" />
+        <package lastTimeActive="34625" package="com.google.android.apps.maps" timeActive="21598" lastEvent="2" appLaunchCount="1" />
+        <package lastTimeActive="39431" package="com.android.chrome" timeActive="0" lastEvent="1" appLaunchCount="1" />
+        <package lastTimeActive="-1695253816016" package="com.google.android.gms" timeActive="0" lastEvent="0" />
+        <package lastTimeActive="-1695253816016" package="com.google.android.gsf" timeActive="0" lastEvent="0" />
+        <package lastTimeActive="39382" package="com.google.android.apps.nexuslauncher" timeActive="8203" lastEvent="2" appLaunchCount="2" />
+    </packages>
+    <configurations />
+    <event-log>
+        <event time="8445" package="com.google.android.apps.nexuslauncher" class="com.google.android.apps.nexuslauncher.NexusLauncherActivity" flags="0" type="2" />
+        <event time="8503" package="com.discord" class="com.discord.main.MainActivity" flags="0" type="1" />
+        <event time="9538" package="com.discord" class="com.discord.main.MainActivity" flags="0" type="2" />
+        <event time="9542" package="com.google.android.apps.nexuslauncher" class="com.google.android.apps.nexuslauncher.NexusLauncherActivity" flags="0" type="1" />
+        <event time="13005" package="com.google.android.apps.nexuslauncher" class="com.google.android.apps.nexuslauncher.NexusLauncherActivity" flags="0" type="2" />
+        <event time="13027" package="com.google.android.apps.maps" class="com.google.android.maps.MapsActivity" flags="0" type="1" />
+        <event time="34625" package="com.google.android.apps.maps" class="com.google.android.maps.MapsActivity" flags="0" type="2" />
+        <event time="34642" package="com.google.android.apps.nexuslauncher" class="com.google.android.apps.nexuslauncher.NexusLauncherActivity" flags="0" type="1" />
+        <event time="39382" package="com.google.android.apps.nexuslauncher" class="com.google.android.apps.nexuslauncher.NexusLauncherActivity" flags="0" type="2" />
+        <event time="39431" package="com.android.chrome" class="org.chromium.chrome.browser.ChromeTabbedActivity" flags="0" type="1" />
+    </event-log>
+</usagestats>

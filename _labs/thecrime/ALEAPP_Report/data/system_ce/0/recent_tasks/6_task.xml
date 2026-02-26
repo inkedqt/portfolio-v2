@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8' standalone='yes' ?>
+<task task_id="6" real_activity="com.google.android.apps.maps/com.google.android.maps.MapsActivity" real_activity_suspended="false" affinity="com.google.android.apps.maps" root_has_reset="true" auto_remove_recents="false" asked_compat_mode="false" user_id="0" user_setup_complete="true" effective_uid="10067" last_time_moved="1695253829020" never_relinquish_identity="true" task_description_color="ff4285f4" task_description_colorBackground="fffafafa" task_affiliation_color="-12417548" task_affiliation="6" prev_affiliation="-1" next_affiliation="-1" calling_uid="10023" calling_package="com.google.android.apps.nexuslauncher" resize_mode="2" supports_picture_in_picture="true" min_width="-1" min_height="-1" persist_task_version="1">
+<intent action="android.intent.action.MAIN" component="com.google.android.apps.maps/com.google.android.maps.MapsActivity" flags="10200000">
+<categories category="android.intent.category.LAUNCHER" />
+</intent>
+</task>
+

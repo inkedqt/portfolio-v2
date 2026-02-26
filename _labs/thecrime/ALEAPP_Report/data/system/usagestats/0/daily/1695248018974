@@ -1,0 +1,110 @@
+<?xml version='1.0' encoding='utf-8' standalone='yes' ?>
+<usagestats version="1" endTime="739974">
+    <interactive count="8" time="1695239122657" />
+    <non-interactive count="8" time="1695239122908" />
+    <keyguard-shown count="0" time="0" />
+    <keyguard-hidden count="0" time="0" />
+    <packages>
+        <package lastTimeActive="-1695238413010" package="com.google.android.googlequicksearchbox" timeActive="0" lastEvent="0" />
+        <package lastTimeActive="-1695238413010" package="com.android.providers.calendar" timeActive="0" lastEvent="0" />
+        <package lastTimeActive="-1695238413010" package="com.android.providers.media" timeActive="0" lastEvent="0" />
+        <package lastTimeActive="-1695238413010" package="com.android.providers.downloads" timeActive="0" lastEvent="0" />
+        <package lastTimeActive="-1695238413010" package="com.google.android.apps.messaging" timeActive="0" lastEvent="0" />
+        <package lastTimeActive="35473" package="com.android.contacts" timeActive="15684" lastEvent="2" appLaunchCount="1" />
+        <package lastTimeActive="738887" package="com.google.android.dialer" timeActive="171061" lastEvent="2" appLaunchCount="8" />
+        <package lastTimeActive="-1695238413010" package="com.google.android.gms" timeActive="0" lastEvent="0" />
+        <package lastTimeActive="-1695238413010" package="com.google.android.gsf" timeActive="0" lastEvent="0" />
+        <package lastTimeActive="738895" package="com.google.android.apps.nexuslauncher" timeActive="540088" lastEvent="1" appLaunchCount="8" />
+        <package lastTimeActive="-1695238413010" package="com.android.providers.blockednumber" timeActive="0" lastEvent="0" />
+        <package lastTimeActive="-1695238413010" package="com.android.providers.userdictionary" timeActive="0" lastEvent="0" />
+        <package lastTimeActive="-1695238413010" package="com.android.providers.contacts" timeActive="0" lastEvent="0" />
+    </packages>
+    <configurations />
+    <event-log>
+        <event time="182" package="android" flags="0" type="16" />
+        <event time="783" package="com.google.android.apps.nexuslauncher" class="com.google.android.apps.nexuslauncher.NexusLauncherActivity" flags="0" type="2" />
+        <event time="7065" package="android" flags="0" type="15" />
+        <event time="7074" package="com.google.android.apps.nexuslauncher" class="com.google.android.apps.nexuslauncher.NexusLauncherActivity" flags="0" type="1" />
+        <event time="8950" package="com.google.android.apps.nexuslauncher" class="com.google.android.apps.nexuslauncher.NexusLauncherActivity" flags="0" type="2" />
+        <event time="8958" package="com.google.android.dialer" class="com.google.android.apps.dialer.main.GoogleMainActivity" flags="0" type="1" />
+        <event time="19779" package="com.google.android.dialer" class="com.google.android.apps.dialer.main.GoogleMainActivity" flags="0" type="2" />
+        <event time="19789" package="com.android.contacts" class="com.android.contacts.quickcontact.QuickContactActivity" flags="0" type="1" />
+        <event time="35473" package="com.android.contacts" class="com.android.contacts.quickcontact.QuickContactActivity" flags="0" type="2" />
+        <event time="35476" package="com.google.android.apps.nexuslauncher" class="com.google.android.apps.nexuslauncher.NexusLauncherActivity" flags="0" type="1" />
+        <event time="36965" package="android" flags="0" type="16" />
+        <event time="37459" package="com.google.android.apps.nexuslauncher" class="com.google.android.apps.nexuslauncher.NexusLauncherActivity" flags="0" type="2" />
+        <event time="38747" package="com.google.android.dialer" flags="0" type="12" />
+        <event time="38763" package="com.google.android.dialer" class="com.android.incallui.InCallActivity" flags="0" type="1" />
+        <event time="38763" package="com.google.android.dialer" class="com.android.incallui.InCallActivity" flags="0" type="2" />
+        <event time="38911" package="android" flags="0" type="15" />
+        <event time="38930" package="com.google.android.dialer" class="com.android.incallui.InCallActivity" flags="0" type="1" />
+        <event time="70772" package="com.google.android.dialer" class="com.android.incallui.InCallActivity" flags="0" type="2" />
+        <event time="70787" package="com.google.android.apps.nexuslauncher" class="com.google.android.apps.nexuslauncher.NexusLauncherActivity" flags="0" type="1" />
+        <event time="71131" package="com.google.android.dialer" flags="0" type="12" />
+        <event time="72826" package="com.google.android.dialer" flags="0" type="10" />
+        <event time="89914" package="android" flags="0" type="16" />
+        <event time="90432" package="com.google.android.apps.nexuslauncher" class="com.google.android.apps.nexuslauncher.NexusLauncherActivity" flags="0" type="2" />
+        <event time="91616" package="com.google.android.dialer" flags="0" type="12" />
+        <event time="91629" package="com.google.android.dialer" class="com.android.incallui.InCallActivity" flags="0" type="1" />
+        <event time="91629" package="com.google.android.dialer" class="com.android.incallui.InCallActivity" flags="0" type="2" />
+        <event time="91764" package="android" flags="0" type="15" />
+        <event time="91777" package="com.google.android.dialer" class="com.android.incallui.InCallActivity" flags="0" type="1" />
+        <event time="126584" package="com.google.android.dialer" class="com.android.incallui.InCallActivity" flags="0" type="2" />
+        <event time="126595" package="com.google.android.apps.nexuslauncher" class="com.google.android.apps.nexuslauncher.NexusLauncherActivity" flags="0" type="1" />
+        <event time="126875" package="com.google.android.dialer" flags="0" type="12" />
+        <event time="141999" package="com.google.android.dialer" flags="0" type="12" />
+        <event time="142037" package="com.google.android.dialer" flags="0" type="10" />
+        <event time="184309" package="com.google.android.dialer" flags="0" type="7" />
+        <event time="187448" package="com.google.android.dialer" flags="0" type="10" />
+        <event time="187448" package="com.google.android.dialer" flags="0" type="10" />
+        <event time="197244" package="com.google.android.dialer" flags="0" type="12" />
+        <event time="197290" package="com.google.android.dialer" flags="0" type="10" />
+        <event time="205006" package="android" flags="0" type="16" />
+        <event time="205024" package="com.google.android.apps.nexuslauncher" class="com.google.android.apps.nexuslauncher.NexusLauncherActivity" flags="0" type="2" />
+        <event time="205029" package="com.google.android.dialer" class="com.android.incallui.InCallActivity" flags="0" type="1" />
+        <event time="205143" package="android" flags="0" type="15" />
+        <event time="205505" package="android" flags="0" type="16" />
+        <event time="206004" package="com.google.android.dialer" class="com.android.incallui.InCallActivity" flags="0" type="2" />
+        <event time="206189" package="android" flags="0" type="15" />
+        <event time="206196" package="com.google.android.dialer" class="com.android.incallui.InCallActivity" flags="0" type="1" />
+        <event time="222734" package="com.google.android.dialer" class="com.android.incallui.InCallActivity" flags="0" type="2" />
+        <event time="222753" package="com.google.android.apps.nexuslauncher" class="com.google.android.apps.nexuslauncher.NexusLauncherActivity" flags="0" type="1" />
+        <event time="223049" package="com.google.android.dialer" flags="0" type="12" />
+        <event time="246343" package="com.google.android.dialer" flags="0" type="12" />
+        <event time="246367" package="com.google.android.dialer" flags="0" type="10" />
+        <event time="249080" package="android" flags="0" type="16" />
+        <event time="249102" package="com.google.android.apps.nexuslauncher" class="com.google.android.apps.nexuslauncher.NexusLauncherActivity" flags="0" type="2" />
+        <event time="249107" package="com.google.android.dialer" class="com.android.incallui.InCallActivity" flags="0" type="1" />
+        <event time="249225" package="android" flags="0" type="15" />
+        <event time="249338" package="com.google.android.dialer" flags="0" type="10" />
+        <event time="280469" package="com.google.android.dialer" class="com.android.incallui.InCallActivity" flags="0" type="2" />
+        <event time="280482" package="com.google.android.apps.nexuslauncher" class="com.google.android.apps.nexuslauncher.NexusLauncherActivity" flags="0" type="1" />
+        <event time="280857" package="com.google.android.dialer" flags="0" type="12" />
+        <event time="649837" package="android" flags="0" type="16" />
+        <event time="650482" package="com.google.android.apps.nexuslauncher" class="com.google.android.apps.nexuslauncher.NexusLauncherActivity" flags="0" type="2" />
+        <event time="651923" package="com.google.android.dialer" flags="0" type="12" />
+        <event time="651942" package="com.google.android.dialer" class="com.android.incallui.InCallActivity" flags="0" type="1" />
+        <event time="651942" package="com.google.android.dialer" class="com.android.incallui.InCallActivity" flags="0" type="2" />
+        <event time="652024" package="android" flags="0" type="15" />
+        <event time="652030" package="com.google.android.dialer" class="com.android.incallui.InCallActivity" flags="0" type="1" />
+        <event time="677832" package="com.google.android.dialer" class="com.android.incallui.InCallActivity" flags="0" type="2" />
+        <event time="677845" package="com.google.android.apps.nexuslauncher" class="com.google.android.apps.nexuslauncher.NexusLauncherActivity" flags="0" type="1" />
+        <event time="678159" package="com.google.android.dialer" flags="0" type="12" />
+        <event time="679294" package="com.google.android.dialer" flags="0" type="10" />
+        <event time="679294" package="com.google.android.dialer" flags="0" type="10" />
+        <event time="679294" package="com.google.android.dialer" flags="0" type="10" />
+        <event time="679295" package="com.google.android.dialer" flags="0" type="10" />
+        <event time="687661" package="com.google.android.dialer" flags="0" type="12" />
+        <event time="687709" package="com.google.android.dialer" flags="0" type="10" />
+        <event time="709647" package="android" flags="0" type="16" />
+        <event time="709807" package="com.google.android.apps.nexuslauncher" class="com.google.android.apps.nexuslauncher.NexusLauncherActivity" flags="0" type="2" />
+        <event time="709813" package="com.google.android.dialer" class="com.android.incallui.InCallActivity" flags="0" type="1" />
+        <event time="709898" package="android" flags="0" type="15" />
+        <event time="723847" package="com.google.android.dialer" class="com.android.incallui.InCallActivity" flags="0" type="2" />
+        <event time="723920" package="com.google.android.apps.nexuslauncher" class="com.google.android.apps.nexuslauncher.NexusLauncherActivity" flags="0" type="1" />
+        <event time="733764" package="com.google.android.apps.nexuslauncher" class="com.google.android.apps.nexuslauncher.NexusLauncherActivity" flags="0" type="2" />
+        <event time="733776" package="com.google.android.dialer" class="com.google.android.apps.dialer.main.GoogleMainActivity" flags="0" type="1" />
+        <event time="738887" package="com.google.android.dialer" class="com.google.android.apps.dialer.main.GoogleMainActivity" flags="0" type="2" />
+        <event time="738895" package="com.google.android.apps.nexuslauncher" class="com.google.android.apps.nexuslauncher.NexusLauncherActivity" flags="0" type="1" />
+    </event-log>
+</usagestats>

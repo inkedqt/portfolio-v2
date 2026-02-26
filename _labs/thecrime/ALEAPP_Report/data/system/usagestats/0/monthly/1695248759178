@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='utf-8' standalone='yes' ?>
+<usagestats version="1" endTime="1840326">
+    <interactive count="1" time="0" />
+    <non-interactive count="1" time="1695240592779" />
+    <keyguard-shown count="0" time="0" />
+    <keyguard-hidden count="0" time="0" />
+    <packages>
+        <package lastTimeActive="-1695239158008" package="com.google.android.googlequicksearchbox" timeActive="0" lastEvent="0" />
+        <package lastTimeActive="-1695239158008" package="com.android.providers.calendar" timeActive="0" lastEvent="0" />
+        <package lastTimeActive="1483629" package="com.google.android.apps.messaging" timeActive="1307" lastEvent="2" appLaunchCount="1" />
+        <package lastTimeActive="1831613" package="com.android.chrome" timeActive="69544" lastEvent="2" appLaunchCount="1" />
+        <package lastTimeActive="-1695239158008" package="com.google.android.gms" timeActive="0" lastEvent="0" />
+        <package lastTimeActive="-1695239158008" package="com.google.android.gsf" timeActive="0" lastEvent="0" />
+        <package lastTimeActive="-1695239158008" package="com.google.android.ims" timeActive="0" lastEvent="0" />
+        <package lastTimeActive="1831630" package="com.google.android.apps.nexuslauncher" timeActive="129912" lastEvent="1" appLaunchCount="2" />
+        <package lastTimeActive="-1695239158008" package="com.android.providers.blockednumber" timeActive="0" lastEvent="0" />
+        <package lastTimeActive="-1695239158008" package="com.android.providers.userdictionary" timeActive="0" lastEvent="0" />
+        <package lastTimeActive="-1695239158008" package="com.android.providers.contacts" timeActive="0" lastEvent="0" />
+        <package lastTimeActive="-1695239158008" package="com.google.android.inputmethod.latin" timeActive="0" lastEvent="0" />
+    </packages>
+    <configurations />
+    <event-log />
+</usagestats>

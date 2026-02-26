@@ -1,0 +1,4 @@
+﻿ConfigKey	SSID	BSSID	PreSharedKey	WEPKeys	HiddenSSID	RandomizedMacAddress	CreatorName	CreationTime	ConnectChoice	ConnectChoiceTimeStamp	HasEverConnected	IpAssignment	ProxySettings
+"""AndroidWifi""NONE"	"""AndroidWifi"""	None	None	None	None	02:00:00:00:00:00	android.uid.system:1000	None	None	-1	true	DHCP	NONE - 
+"""Tessss""NONE"	"""Tessss"""	None	None	None	None	02:00:00:00:00:00	android.uid.system:1000	time=09-17 22:33:20.990	None	-1	true	DHCP	NONE - 
+"""Tessss""NONE"	"""Tessss"""	None	None	None	None	02:00:00:00:00:00	android.uid.system:1000	time=09-17 22:33:20.990	None	-1	true	DHCP	NONE - 

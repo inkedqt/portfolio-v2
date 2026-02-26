@@ -1,0 +1,58 @@
+<?xml version='1.0' encoding='utf-8' standalone='yes' ?>
+<usagestats version="1" endTime="463054">
+    <interactive count="1" time="0" />
+    <non-interactive count="0" time="0" />
+    <keyguard-shown count="0" time="0" />
+    <keyguard-hidden count="0" time="0" />
+    <packages>
+        <package lastTimeActive="-1694982026981" package="com.google.android.ext.services" timeActive="0" lastEvent="0" />
+        <package lastTimeActive="-1694982026981" package="com.android.providers.telephony" timeActive="0" lastEvent="0" />
+        <package lastTimeActive="-1694982022043" package="com.google.android.googlequicksearchbox" timeActive="0" lastEvent="0" />
+        <package lastTimeActive="-1694982022043" package="com.android.providers.calendar" timeActive="0" lastEvent="0" />
+        <package lastTimeActive="-1694982026981" package="com.android.providers.media" timeActive="0" lastEvent="0" />
+        <package lastTimeActive="-1694982026981" package="com.android.providers.downloads" timeActive="0" lastEvent="0" />
+        <package lastTimeActive="-1694982022043" package="com.google.android.configupdater" timeActive="0" lastEvent="0" />
+        <package lastTimeActive="-1694982026981" package="android" timeActive="0" lastEvent="0" />
+        <package lastTimeActive="214936" package="com.google.android.setupwizard" timeActive="0" lastEvent="0" />
+        <package lastTimeActive="-1694982026981" package="com.android.printspooler" timeActive="0" lastEvent="0" />
+        <package lastTimeActive="-1694982026981" package="com.android.se" timeActive="0" lastEvent="0" />
+        <package lastTimeActive="-1694982022043" package="com.google.android.dialer" timeActive="0" lastEvent="0" />
+        <package lastTimeActive="-1694982026981" package="com.google.android.syncadapters.contacts" timeActive="0" lastEvent="0" />
+        <package lastTimeActive="-1694982022043" package="com.android.keychain" timeActive="0" lastEvent="0" />
+        <package lastTimeActive="-1694982022043" package="com.google.android.gms" timeActive="0" lastEvent="0" />
+        <package lastTimeActive="-1694982022043" package="com.google.android.gsf" timeActive="0" lastEvent="0" />
+        <package lastTimeActive="-1694982026981" package="com.google.android.ims" timeActive="0" lastEvent="0" />
+        <package lastTimeActive="-1694982026981" package="com.google.android.partnersetup" timeActive="0" lastEvent="0" />
+        <package lastTimeActive="207513" package="com.google.android.apps.nexuslauncher" timeActive="0" lastEvent="1" appLaunchCount="1" />
+        <package lastTimeActive="-1694982026981" package="com.android.smspush" timeActive="0" lastEvent="0" />
+        <package lastTimeActive="207315" package="com.android.settings" timeActive="7548" lastEvent="2" appLaunchCount="2" />
+        <package lastTimeActive="-1694982026981" package="com.android.phone" timeActive="0" lastEvent="0" />
+        <package lastTimeActive="-1694982026981" package="com.android.providers.blockednumber" timeActive="0" lastEvent="0" />
+        <package lastTimeActive="-1694982026981" package="com.android.providers.userdictionary" timeActive="0" lastEvent="0" />
+        <package lastTimeActive="-1694982026981" package="com.android.systemui" timeActive="0" lastEvent="0" />
+        <package lastTimeActive="-1694982026981" package="com.android.providers.contacts" timeActive="0" lastEvent="0" />
+    </packages>
+    <configurations>
+        <config lastTimeActive="203301" timeActive="0" count="1" active="true" fs="1065353216" mcc="310" mnc="260" locales="en-US" touch="3" key="2" keyHid="1" hardKeyHid="1" nav="1" navHid="2" ori="1" scrLay="268435810" clrMod="5" ui="17" width="411" height="819" sw="411" density="560" />
+        <config lastTimeActive="203300" timeActive="1586" count="1" fs="1065353216" locales="en-US" touch="3" key="2" keyHid="1" hardKeyHid="1" nav="1" navHid="2" ori="1" scrLay="268435810" clrMod="5" ui="17" width="411" height="819" sw="411" density="560" />
+        <config lastTimeActive="201692" timeActive="13" count="1" fs="1065353216" locales="en-US" touch="1" key="1" keyHid="1" hardKeyHid="2" nav="1" navHid="2" ori="1" scrLay="268435810" clrMod="5" width="411" height="819" sw="411" density="560" />
+        <config lastTimeActive="201679" timeActive="3" count="1" fs="1065353216" locales="en-US" touch="1" key="1" keyHid="1" hardKeyHid="2" nav="1" navHid="2" ori="1" scrLay="268435810" clrMod="5" width="411" height="891" sw="411" density="560" />
+        <config lastTimeActive="201714" timeActive="22" count="1" fs="1065353216" locales="en-US" touch="1" key="1" keyHid="1" hardKeyHid="2" nav="1" navHid="2" ori="1" scrLay="268435810" clrMod="5" ui="17" width="411" height="819" sw="411" density="560" />
+    </configurations>
+    <event-log>
+        <event time="17444" package="com.google.android.apps.nexuslauncher" class="com.google.android.apps.nexuslauncher.NexusLauncherActivity" flags="0" type="2" />
+        <event time="17455" package="com.android.settings" class="com.android.settings.Settings$WifiSettingsActivity" flags="0" type="1" />
+        <event time="19232" package="com.android.settings" class="com.android.settings.Settings$WifiSettingsActivity" flags="0" type="2" />
+        <event time="19237" package="com.android.settings" class="com.android.settings.SubSettings" flags="0" type="1" />
+        <event time="201677" package="android" flags="0" type="5" fs="1065353216" locales="en-US" touch="1" key="1" keyHid="1" hardKeyHid="2" nav="1" navHid="2" ori="1" scrLay="268435810" clrMod="5" width="411" height="891" sw="411" density="560" />
+        <event time="201680" package="android" flags="0" type="5" fs="0" height="819" />
+        <event time="201693" package="android" flags="0" type="5" fs="0" ui="17" />
+        <event time="201715" package="android" flags="0" type="5" fs="0" touch="3" key="2" />
+        <event time="201975" package="android" flags="0" type="15" />
+        <event time="202326" package="com.android.settings" class="com.android.settings.FallbackHome" flags="0" type="1" />
+        <event time="203301" package="android" flags="0" type="5" fs="0" mcc="310" mnc="260" />
+        <event time="207315" package="com.android.settings" class="com.android.settings.FallbackHome" flags="0" type="2" />
+        <event time="207513" package="com.google.android.apps.nexuslauncher" class="com.google.android.apps.nexuslauncher.NexusLauncherActivity" flags="0" type="1" />
+        <event time="214936" package="com.google.android.setupwizard" flags="0" type="12" />
+    </event-log>
+</usagestats>

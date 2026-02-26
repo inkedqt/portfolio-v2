@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='utf-8' standalone='yes' ?>
+<usagestats version="1" endTime="739974">
+    <interactive count="8" time="1695239122657" />
+    <non-interactive count="8" time="1695239122908" />
+    <keyguard-shown count="0" time="0" />
+    <keyguard-hidden count="0" time="0" />
+    <packages>
+        <package lastTimeActive="-1695238413010" package="com.google.android.googlequicksearchbox" timeActive="0" lastEvent="0" />
+        <package lastTimeActive="-1695238413010" package="com.android.providers.calendar" timeActive="0" lastEvent="0" />
+        <package lastTimeActive="-1695238413010" package="com.android.providers.media" timeActive="0" lastEvent="0" />
+        <package lastTimeActive="-1695238413010" package="com.android.providers.downloads" timeActive="0" lastEvent="0" />
+        <package lastTimeActive="-1695238413010" package="com.google.android.apps.messaging" timeActive="0" lastEvent="0" />
+        <package lastTimeActive="35473" package="com.android.contacts" timeActive="15684" lastEvent="2" appLaunchCount="1" />
+        <package lastTimeActive="738887" package="com.google.android.dialer" timeActive="171061" lastEvent="2" appLaunchCount="8" />
+        <package lastTimeActive="-1695238413010" package="com.google.android.gms" timeActive="0" lastEvent="0" />
+        <package lastTimeActive="-1695238413010" package="com.google.android.gsf" timeActive="0" lastEvent="0" />
+        <package lastTimeActive="738895" package="com.google.android.apps.nexuslauncher" timeActive="540088" lastEvent="1" appLaunchCount="8" />
+        <package lastTimeActive="-1695238413010" package="com.android.providers.blockednumber" timeActive="0" lastEvent="0" />
+        <package lastTimeActive="-1695238413010" package="com.android.providers.userdictionary" timeActive="0" lastEvent="0" />
+        <package lastTimeActive="-1695238413010" package="com.android.providers.contacts" timeActive="0" lastEvent="0" />
+    </packages>
+    <configurations />
+    <event-log />
+</usagestats>

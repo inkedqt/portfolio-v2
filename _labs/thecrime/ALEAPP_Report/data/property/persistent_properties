@@ -1,0 +1,15 @@
+
+(
+persist.sys.dalvik.vm.lib.2	libart.so
+$
+persist.sys.timezoneAfrica/Cairo
+
+persist.sys.usb.configadb
+
+persist.traced.enable1
+'
+persist.sys.webview.vmsize	141300560
+
+persist.sys.gps.lpp0
+/
+persist.sys.boot.reasonreboot,userrequested

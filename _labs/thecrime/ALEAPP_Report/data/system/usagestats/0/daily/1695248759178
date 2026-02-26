@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='utf-8' standalone='yes' ?>
+<usagestats version="1" endTime="1840326">
+    <interactive count="1" time="0" />
+    <non-interactive count="1" time="1695240592779" />
+    <keyguard-shown count="0" time="0" />
+    <keyguard-hidden count="0" time="0" />
+    <packages>
+        <package lastTimeActive="-1695239158008" package="com.google.android.googlequicksearchbox" timeActive="0" lastEvent="0" />
+        <package lastTimeActive="-1695239158008" package="com.android.providers.calendar" timeActive="0" lastEvent="0" />
+        <package lastTimeActive="1483629" package="com.google.android.apps.messaging" timeActive="1307" lastEvent="2" appLaunchCount="1" />
+        <package lastTimeActive="1831613" package="com.android.chrome" timeActive="69544" lastEvent="2" appLaunchCount="1" />
+        <package lastTimeActive="-1695239158008" package="com.google.android.gms" timeActive="0" lastEvent="0" />
+        <package lastTimeActive="-1695239158008" package="com.google.android.gsf" timeActive="0" lastEvent="0" />
+        <package lastTimeActive="-1695239158008" package="com.google.android.ims" timeActive="0" lastEvent="0" />
+        <package lastTimeActive="1831630" package="com.google.android.apps.nexuslauncher" timeActive="129912" lastEvent="1" appLaunchCount="2" />
+        <package lastTimeActive="-1695239158008" package="com.android.providers.blockednumber" timeActive="0" lastEvent="0" />
+        <package lastTimeActive="-1695239158008" package="com.android.providers.userdictionary" timeActive="0" lastEvent="0" />
+        <package lastTimeActive="-1695239158008" package="com.android.providers.contacts" timeActive="0" lastEvent="0" />
+        <package lastTimeActive="-1695239158008" package="com.google.android.inputmethod.latin" timeActive="0" lastEvent="0" />
+    </packages>
+    <configurations />
+    <event-log>
+        <event time="18490" package="android" flags="0" type="16" />
+        <event time="19040" package="com.google.android.apps.nexuslauncher" class="com.google.android.apps.nexuslauncher.NexusLauncherActivity" flags="0" type="2" />
+        <event time="1432113" package="com.google.android.apps.messaging" flags="0" type="12" />
+        <event time="1434771" package="android" flags="0" type="15" />
+        <event time="1434793" package="com.google.android.apps.nexuslauncher" class="com.google.android.apps.nexuslauncher.NexusLauncherActivity" flags="0" type="1" />
+        <event time="1436151" package="com.google.android.apps.messaging" flags="0" type="10" />
+        <event time="1482301" package="com.google.android.apps.nexuslauncher" class="com.google.android.apps.nexuslauncher.NexusLauncherActivity" flags="0" type="2" />
+        <event time="1482322" package="com.google.android.apps.messaging" class="com.google.android.apps.messaging.ui.conversationlist.ConversationListActivity" flags="0" type="1" />
+        <event time="1483629" package="com.google.android.apps.messaging" class="com.google.android.apps.messaging.ui.conversationlist.ConversationListActivity" flags="0" type="2" />
+        <event time="1483631" package="com.google.android.apps.nexuslauncher" class="com.google.android.apps.nexuslauncher.NexusLauncherActivity" flags="0" type="1" />
+        <event time="1566035" package="com.google.android.apps.nexuslauncher" class="com.google.android.apps.nexuslauncher.NexusLauncherActivity" flags="0" type="2" />
+        <event time="1566083" package="com.android.chrome" class="org.chromium.chrome.browser.ChromeTabbedActivity" flags="0" type="1" />
+        <event time="1762069" package="com.android.chrome" flags="0" type="8" shortcutId="new-tab-shortcut" />
+        <event time="1831613" package="com.android.chrome" class="org.chromium.chrome.browser.ChromeTabbedActivity" flags="0" type="2" />
+        <event time="1831630" package="com.google.android.apps.nexuslauncher" class="com.google.android.apps.nexuslauncher.NexusLauncherActivity" flags="0" type="1" />
+    </event-log>
+</usagestats>

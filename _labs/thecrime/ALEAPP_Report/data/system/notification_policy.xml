@@ -1,0 +1,213 @@
+<?xml version='1.0' encoding='utf-8' standalone='yes' ?>
+<notification-policy version="1">
+<zen version="8" user="0">
+<allow calls="true" repeatCallers="true" messages="false" reminders="false" events="false" callsFrom="2" messagesFrom="1" alarms="true" media="true" system="false" />
+<disallow visualEffects="511" />
+<automatic ruleId="EVENTS_DEFAULT_RULE" enabled="false" snoozing="false" name="Event" zen="1" component="android/com.android.server.notification.EventConditionProvider" conditionId="condition://android/event?userId=-10000&amp;calendar=&amp;reply=1" creationTime="1694981996082" id="condition://android/event?userId=-10000&amp;calendar=&amp;reply=1" summary="..." line1="..." line2="..." icon="0" state="0" flags="2" />
+<automatic ruleId="EVERY_NIGHT_DEFAULT_RULE" enabled="false" snoozing="false" name="Sleeping" zen="1" component="android/com.android.server.notification.ScheduleConditionProvider" conditionId="condition://android/schedule?days=1.2.3.4.5.6.7&amp;start=22.0&amp;end=7.0&amp;exitAtAlarm=true" creationTime="1694981996082" id="condition://android/schedule?days=1.2.3.4.5.6.7&amp;start=22.0&amp;end=7.0&amp;exitAtAlarm=true" summary="..." line1="..." line2="..." icon="0" state="1" flags="2" />
+<state areChannelsBypassingDnd="false" />
+</zen>
+<ranking version="1">
+<package name="com.google.android.apps.docs" show_badge="true" app_user_locked_fields="0" uid="10046">
+<channel id="DEFAULT" name="Default" importance="3" sound="content://settings/system/notification_sound" usage="5" content_type="4" flags="0" show_badge="true" />
+<channel id="LOW_PRIORITY" name="Low priority" importance="2" sound="content://settings/system/notification_sound" usage="5" content_type="4" flags="0" />
+<channel id="HIGH_PRIORITY" name="High priority" importance="4" sound="content://settings/system/notification_sound" usage="5" content_type="4" flags="0" show_badge="true" />
+</package>
+<package name="com.ticno.olymptrade" show_badge="true" app_user_locked_fields="0" uid="10087">
+<channel id="Main" name="Main Notification" desc="Main Notification" importance="3" sound="content://settings/system/notification_sound" usage="5" content_type="4" flags="0" show_badge="true" />
+</package>
+<package name="com.discord" show_badge="true" app_user_locked_fields="0" uid="10085">
+<channelGroup id="222_social" name="Social" desc="Social" blocked="false" />
+<channelGroup id="444_other" name="Other" desc="Other" blocked="false" />
+<channelGroup id="111_realtime" name="Real-time" desc="Real-time" blocked="false" />
+<channelGroup id="333_server" name="Server" desc="Server" blocked="false" />
+<channel id="systemMessages" name="Discord system messages" desc="Discord system messages" importance="4" sound="content://settings/system/notification_sound" usage="5" content_type="4" flags="0" lights="true" light_color="-10983950" vibration_enabled="true" show_badge="true" group="444_other" />
+<channel id="guildEventLive" name="Event notifications" desc="Event notifications" importance="4" sound="content://settings/system/notification_sound" usage="5" content_type="4" flags="0" lights="true" light_color="-10983950" vibration_enabled="true" show_badge="true" group="333_server" />
+<channel id="directMessages" name="Direct messages" desc="Direct messages" importance="4" sound="content://settings/system/notification_sound" usage="5" content_type="4" flags="0" lights="true" light_color="-10983950" vibration_enabled="true" show_badge="true" group="222_social" />
+<channel id="social" name="Social" desc="Social" importance="2" sound="content://settings/system/notification_sound" usage="5" content_type="4" flags="0" lights="true" light_color="-10983950" vibration_enabled="true" show_badge="true" group="222_social" />
+<channel id="messages" name="Messages" desc="Messages" importance="4" sound="content://settings/system/notification_sound" usage="5" content_type="4" flags="0" lights="true" light_color="-10983950" vibration_enabled="true" show_badge="true" group="333_server" />
+<channel id="friendRequests" name="Friend requests" desc="Friend requests" importance="4" sound="content://settings/system/notification_sound" usage="5" content_type="4" flags="0" lights="true" light_color="-10983950" vibration_enabled="true" show_badge="true" group="222_social" />
+<channel id="calls" name="Incoming calls" desc="Incoming calls" importance="4" sound="android.resource://com.discord/2131820549" usage="5" content_type="2" flags="0" lights="true" light_color="-10983950" vibration_enabled="true" vibration="100,200,300,400,500,400,300,200,400" group="111_realtime" />
+<channel id="other" name="Other server notifications" desc="Other server notifications" importance="2" sound="content://settings/system/notification_sound" usage="5" content_type="4" flags="0" lights="true" light_color="-10983950" vibration_enabled="true" show_badge="true" group="333_server" />
+<channel id="mediaConnections" name="Voice connected" desc="Voice connected" importance="3" sound="content://settings/system/notification_sound" usage="5" content_type="4" flags="0" light_color="-10983950" group="111_realtime" />
+<channel id="default" name="Other" desc="Other" importance="1" sound="content://settings/system/notification_sound" usage="5" content_type="4" flags="0" lights="true" light_color="-10983950" vibration_enabled="true" show_badge="true" group="444_other" />
+<channel id="stageLive" name="Stage notifications" desc="Stage notifications" importance="4" sound="content://settings/system/notification_sound" usage="5" content_type="4" flags="0" lights="true" light_color="-10983950" vibration_enabled="true" show_badge="true" group="333_server" />
+<channel id="forumThreadCreated" name="Forum notifications" desc="Forum notifications" importance="4" sound="content://settings/system/notification_sound" usage="5" content_type="4" flags="0" lights="true" light_color="-10983950" vibration_enabled="true" show_badge="true" group="333_server" />
+</package>
+<package name="com.google.android.dialer" show_badge="true" app_user_locked_fields="0" uid="10013">
+<channel id="phone_ongoing_call" name="Ongoing calls" importance="3" usage="5" content_type="0" flags="0" fgservice="true" />
+<channel id="phone_incoming_call" name="Incoming calls" importance="5" usage="5" content_type="0" flags="0" lights="true" fgservice="true" />
+<channel id="phone_voicemail" name="Voicemails" importance="3" sound="content://settings/system/notification_sound" usage="5" content_type="0" flags="0" lights="true" show_badge="true" />
+<channel id="phone_missed_call" name="Missed calls" importance="3" usage="5" content_type="0" flags="0" lights="true" vibration_enabled="true" show_badge="true" />
+<channel id="phone_default" name="Default" importance="3" sound="content://settings/system/notification_sound" usage="5" content_type="4" flags="0" lights="true" vibration_enabled="true" />
+</package>
+<package name="com.google.android.apps.messaging" show_badge="true" app_user_locked_fields="0" uid="10082">
+<channelGroup id="bugle_web_group" name="Messages for web" blocked="false" />
+<channelGroup id="bugle_conversations_group" name="Conversations" blocked="false" />
+<channel id="bugle_default_channel" name="Other notifications" importance="4" sound="content://settings/system/notification_sound" usage="5" content_type="4" flags="0" lights="true" vibration_enabled="true" show_badge="true" />
+</package>
+<package name="com.google.android.packageinstaller" show_badge="true" app_user_locked_fields="0" uid="10029">
+<channel id="uninstalling" name="Running uninstalls" importance="1" sound="content://settings/system/notification_sound" usage="5" content_type="4" flags="0" show_badge="true" />
+<channel id="uninstall failure" name="Failed uninstalls" importance="3" sound="content://settings/system/notification_sound" usage="5" content_type="4" flags="0" show_badge="true" />
+</package>
+<package name="android" show_badge="true" app_user_locked_fields="0" uid="1000">
+<channel id="DEVICE_ADMIN" name="Device administration" importance="2" sound="content://settings/system/notification_sound" usage="5" content_type="4" flags="0" show_badge="true" />
+<channel id="NETWORK_ALERTS" name="Network alerts" importance="4" sound="content://settings/system/notification_sound" usage="5" content_type="4" flags="0" show_badge="true" blockable_system="true" />
+<channel id="DEVELOPER" name="Developer messages" importance="2" sound="content://settings/system/notification_sound" usage="5" content_type="4" flags="0" show_badge="true" blockable_system="true" />
+<channel id="NETWORK_STATUS" name="Network status" importance="2" sound="content://settings/system/notification_sound" usage="5" content_type="4" flags="0" show_badge="true" />
+<channel id="PHYSICAL_KEYBOARD" name="Physical keyboard" importance="3" sound="content://settings/system/notification_sound" usage="5" content_type="4" flags="0" show_badge="true" blockable_system="true" />
+<channel id="SYSTEM_CHANGES" name="System changes" importance="2" sound="content://settings/system/notification_sound" usage="5" content_type="4" flags="0" show_badge="true" />
+<channel id="HEAVY_WEIGHT_APP" name="App running" importance="3" usage="10" content_type="4" flags="0" />
+<channel id="ACCOUNT" name="Account status" importance="2" sound="content://settings/system/notification_sound" usage="5" content_type="4" flags="0" show_badge="true" />
+<channel id="FOREGROUND_SERVICE" name="Apps consuming battery" importance="2" sound="content://settings/system/notification_sound" usage="5" content_type="4" flags="0" show_badge="true" blockable_system="true" />
+<channel id="DO_NOT_DISTURB" name="Do Not Disturb" importance="2" sound="content://settings/system/notification_sound" usage="5" content_type="4" flags="0" show_badge="true" />
+<channel id="USB" name="USB connection" importance="1" sound="content://settings/system/notification_sound" usage="5" content_type="4" flags="0" show_badge="true" />
+<channel id="VPN" name="VPN status" importance="2" sound="content://settings/system/notification_sound" usage="5" content_type="4" flags="0" show_badge="true" />
+<channel id="UPDATES" name="Updates" importance="2" sound="content://settings/system/notification_sound" usage="5" content_type="4" flags="0" show_badge="true" />
+<channel id="RETAIL_MODE" name="Retail demo" importance="2" sound="content://settings/system/notification_sound" usage="5" content_type="4" flags="0" show_badge="true" />
+<channel id="CAR_MODE" name="Car mode" importance="2" sound="content://settings/system/notification_sound" usage="5" content_type="4" flags="0" show_badge="true" blockable_system="true" />
+<channel id="VIRTUAL_KEYBOARD" name="Virtual keyboard" importance="2" sound="content://settings/system/notification_sound" usage="5" content_type="4" flags="0" show_badge="true" blockable_system="true" />
+<channel id="SECURITY" name="Security" importance="2" sound="content://settings/system/notification_sound" usage="5" content_type="4" flags="0" show_badge="true" />
+<channel id="NETWORK_AVAILABLE" name="Network available" importance="2" sound="content://settings/system/notification_sound" usage="5" content_type="4" flags="0" show_badge="true" blockable_system="true" />
+<channel id="ALERTS" name="Alerts" importance="3" sound="content://settings/system/notification_sound" usage="5" content_type="4" flags="0" show_badge="true" />
+</package>
+<package name="com.android.contacts" show_badge="true" app_user_locked_fields="0" uid="10035">
+<channel id="DEFAULT_CHANNEL" name="Notifications" importance="2" sound="content://settings/system/notification_sound" usage="5" content_type="4" flags="0" show_badge="true" />
+</package>
+<package name="com.android.server.telecom" show_badge="true" app_user_locked_fields="0" uid="1000">
+<channel id="TelecomMissedCalls" name="Missed calls" importance="3" sound="" usage="5" content_type="0" flags="0" lights="true" vibration_enabled="true" show_badge="true" />
+<channel id="TelecomCallBlocking" name="Call Blocking" importance="2" sound="content://settings/system/notification_sound" usage="5" content_type="4" flags="0" />
+<channel id="TelecomIncomingCalls" name="Incoming calls" importance="5" sound="" usage="5" content_type="0" flags="0" lights="true" />
+</package>
+<package name="com.google.android.gms" show_badge="true" app_user_locked_fields="0" uid="10012">
+<channelGroup id="com.google.android.gms.mobiledataplan.NOTIFICATION" name="Mobile Data Plan" blocked="false" />
+<channel id="com.google.android.gms.mobiledataplan.NOTIFICATION.LOW_BALANCE" name="Data balance updates" importance="3" sound="content://settings/system/notification_sound" usage="5" content_type="4" flags="0" show_badge="true" group="com.google.android.gms.mobiledataplan.NOTIFICATION" />
+<channel id="com.google.android.gms.mobiledataplan.NOTIFICATION.ACCOUNT_ALERT" name="Account alerts" importance="3" sound="content://settings/system/notification_sound" usage="5" content_type="4" flags="0" show_badge="true" group="com.google.android.gms.mobiledataplan.NOTIFICATION" />
+<channel id="matchstick_notification_channel_new" name="App preview messages" importance="4" sound="content://settings/system/notification_sound" usage="5" content_type="4" flags="0" show_badge="true" />
+<channel id="matchstick_notification_channel" name="App preview messages" importance="2" sound="content://settings/system/notification_sound" usage="5" content_type="4" flags="0" show_badge="true" />
+<channel id="com.google.android.gms.mobiledataplan.NOTIFICATION.UPSELL_OFFER" name="Data offers" importance="3" sound="content://settings/system/notification_sound" usage="5" content_type="4" flags="0" show_badge="true" group="com.google.android.gms.mobiledataplan.NOTIFICATION" />
+</package>
+<package name="com.android.mtp" show_badge="true" app_user_locked_fields="0" uid="10005">
+<channel id="device_notification_channel" name="Uncategorized" importance="2" sound="content://settings/system/notification_sound" usage="5" content_type="4" flags="0" show_badge="true" />
+</package>
+<package name="com.google.android.videos" show_badge="true" app_user_locked_fields="0" uid="10069">
+<channel id="TEMPORARY007" name="Miscellaneous" importance="2" sound="content://settings/system/notification_sound" usage="5" content_type="4" flags="0" />
+</package>
+<package name="com.android.chrome" show_badge="true" app_user_locked_fields="0" uid="10062">
+<channelGroup id="general" name="General" blocked="false" />
+<channelGroup id="sites" name="Sites" blocked="false" />
+<channel id="incognito" name="Incognito" importance="2" sound="content://settings/system/notification_sound" usage="5" content_type="4" flags="0" group="general" />
+<channel id="web:https://www.google.com;13339620076153032" name="www.google.com" importance="3" sound="content://settings/system/notification_sound" usage="5" content_type="4" flags="0" group="sites" />
+<channel id="media" name="Media" importance="2" sound="content://settings/system/notification_sound" usage="5" content_type="4" flags="0" fgservice="true" group="general" />
+<channel id="browser" name="Browser" importance="2" sound="content://settings/system/notification_sound" usage="5" content_type="4" flags="0" group="general" />
+<channel id="downloads" name="Downloads" importance="2" sound="content://settings/system/notification_sound" usage="5" content_type="4" flags="0" group="general" />
+</package>
+<package name="com.android.printspooler" show_badge="true" app_user_locked_fields="0" uid="10057">
+<channel id="PRINT_PROGRESS" name="Running print jobs" importance="2" sound="content://settings/system/notification_sound" usage="5" content_type="4" flags="0" show_badge="true" />
+<channel id="PRINT_FAILURES" name="Failed print jobs" importance="3" sound="content://settings/system/notification_sound" usage="5" content_type="4" flags="0" show_badge="true" />
+</package>
+<package name="com.android.traceur" show_badge="true" app_user_locked_fields="0" uid="10064">
+<channel id="system-tracing" name="System Tracing" importance="4" usage="5" content_type="4" flags="0" vibration_enabled="true" show_badge="true" />
+</package>
+<package name="com.google.android.apps.maps" show_badge="true" app_user_locked_fields="0" uid="10067">
+<channelGroup id="TRAFFIC" name="Traffic" blocked="false" />
+<channelGroup id="YOUR_CONTRIBUTIONS" name="Your contributions" blocked="false" />
+<channelGroup id="TRANSIT" name="Transit" blocked="false" />
+<channelGroup id="PEOPLE_AND_PLACES" name="People &amp; places" blocked="false" />
+<channelGroup id="NEW_ON_MAPS" name="New on Maps" blocked="false" />
+<channelGroup id="COMMUTE" name="Commute" blocked="false" />
+<channelGroup id="NAVIGATION" name="Navigation" blocked="false" />
+<channelGroup id="OFFLINE" name="Offline maps" blocked="false" />
+<channel id="160216752" name="Offline maps expiration" importance="2" usage="5" content_type="4" flags="0" group="OFFLINE" />
+<channel id="181422295" name="Metro and train maps" importance="2" usage="5" content_type="4" flags="0" group="TRANSIT" />
+<channel id="152763358" name="Transit guidance notification" importance="5" sound="content://settings/system/notification_sound" usage="5" content_type="0" flags="0" vibration_enabled="true" group="TRANSIT" />
+<channel id="157672924" name="Location sharing requests" importance="4" sound="content://settings/system/notification_sound" usage="5" content_type="0" flags="0" vibration_enabled="true" group="PEOPLE_AND_PLACES" />
+<channel id="145029960" name="Rate and review places" importance="3" usage="5" content_type="4" flags="0" group="YOUR_CONTRIBUTIONS" />
+<channel id="1_foreground_1" name="Navigation steps when app is visible" desc="Used by navigation notifications while Google Maps is open and visible." importance="3" usage="5" content_type="4" flags="0" group="NAVIGATION" />
+<channel id="174000404" name="Your popular contributions" importance="2" usage="5" content_type="4" flags="0" group="YOUR_CONTRIBUTIONS" />
+<channel id="116409198" name="New on Maps" importance="3" usage="5" content_type="4" flags="0" group="NEW_ON_MAPS" />
+<channel id="116741324" name="Photo uploads" importance="2" usage="5" content_type="4" flags="0" group="YOUR_CONTRIBUTIONS" />
+<channel id="129447030" name="Business listings" importance="3" usage="5" content_type="4" flags="0" group="PEOPLE_AND_PLACES" />
+<channel id="129494381" name="Bookings" importance="3" usage="5" content_type="4" flags="0" group="PEOPLE_AND_PLACES" />
+<channel id="133338996" name="Station information" importance="2" usage="5" content_type="4" flags="0" group="TRANSIT" />
+<channel id="154123948" name="Community questions and answers" importance="3" usage="5" content_type="4" flags="0" group="YOUR_CONTRIBUTIONS" />
+<channel id="125759054" name="Show photos publishing notifications" importance="3" usage="5" content_type="4" flags="0" group="YOUR_CONTRIBUTIONS" />
+<channel id="6" name="Offline maps download" importance="2" usage="5" content_type="4" flags="0" group="OFFLINE" />
+<channel id="1_2" name="Navigation steps when app isn't visible" desc="Used by navigation notifications while Google Maps is running in the background." importance="4" usage="5" content_type="4" flags="0" group="NAVIGATION" />
+<channel id="1537" name="Location sharing" importance="4" sound="content://settings/system/notification_sound" usage="5" content_type="0" flags="0" vibration_enabled="true" group="PEOPLE_AND_PLACES" />
+<channel id="1548" name="Show edit notifications" importance="3" usage="5" content_type="4" flags="0" group="YOUR_CONTRIBUTIONS" />
+<channel id="1550" name="Timeline notifications" importance="3" usage="5" content_type="4" flags="0" group="PEOPLE_AND_PLACES" />
+<channel id="1551" name="Driving notifications" importance="3" usage="5" content_type="4" flags="0" group="NAVIGATION" />
+<channel id="1552" name="Traffic from nearby events" importance="2" usage="5" content_type="4" flags="0" group="TRAFFIC" />
+<channel id="1558" name="Places &amp; directions from desktop" importance="4" sound="content://settings/system/notification_sound" usage="5" content_type="0" flags="0" vibration_enabled="true" group="PEOPLE_AND_PLACES" />
+<channel id="1561" name="New and popular places" importance="3" usage="5" content_type="4" flags="0" group="PEOPLE_AND_PLACES" />
+<channel id="1564" name="Questions about places" importance="2" usage="5" content_type="4" flags="0" group="YOUR_CONTRIBUTIONS" />
+<channel id="154770466" name="Trips" importance="2" usage="5" content_type="4" flags="0" group="OFFLINE" />
+<channel id="159764301" name="Questions about your recent journeys" importance="2" usage="5" content_type="4" flags="0" group="YOUR_CONTRIBUTIONS" />
+<channel id="142039439" name="Saved Parking Updates" importance="2" usage="5" content_type="4" flags="0" group="PEOPLE_AND_PLACES" />
+<channel id="150227180" name="Personal places" importance="3" usage="5" content_type="4" flags="0" group="PEOPLE_AND_PLACES" />
+<channel id="155505721" name="Keep your business up-to-date" importance="3" usage="5" content_type="4" flags="0" group="PEOPLE_AND_PLACES" />
+<channel id="155595117" name="Updates about your badges" importance="2" usage="5" content_type="4" flags="0" group="YOUR_CONTRIBUTIONS" />
+<channel id="176369356" name="Mode of transport" importance="2" usage="5" content_type="4" flags="0" group="COMMUTE" />
+<channel id="127237364:2" name="Travel times for delays" importance="2" usage="5" content_type="4" flags="0" group="COMMUTE" />
+<channel id="127237364:3" name="Travel times for major delays" importance="3" usage="5" content_type="4" flags="0" group="COMMUTE" />
+<channel id="127237364:4" name="Travel times for major delays" importance="4" sound="content://settings/system/notification_sound" usage="5" content_type="0" flags="0" vibration_enabled="true" group="COMMUTE" />
+<channel id="143448413" name="Saved Parking Expiration Alerts" importance="4" sound="content://settings/system/notification_sound" usage="5" content_type="0" flags="0" vibration_enabled="true" group="PEOPLE_AND_PLACES" />
+<channel id="127237364" name="Usual travel times" importance="1" usage="5" content_type="4" flags="0" group="COMMUTE" />
+<channel id="OtherChannel" name="Other notifications" importance="2" usage="5" content_type="4" flags="0" />
+<channel id="151966456" name="Reroute" importance="3" usage="5" content_type="4" flags="0" group="TRANSIT" />
+<channel id="119604319" name="Contribution ideas" importance="3" usage="5" content_type="4" flags="0" group="YOUR_CONTRIBUTIONS" />
+<channel id="127850489" name="Share what you know about places" importance="3" usage="5" content_type="4" flags="0" group="YOUR_CONTRIBUTIONS" />
+</package>
+<package name="com.android.systemui" show_badge="true" app_user_locked_fields="0" uid="10037">
+<channel id="ALR" name="Alerts" importance="4" sound="content://settings/system/notification_sound" usage="5" content_type="4" flags="0" show_badge="true" />
+<channel id="BAT" name="Battery" importance="5" sound="file:///system/media/audio/ui/LowBattery.ogg" usage="10" content_type="4" flags="0" show_badge="true" blockable_system="true" />
+<channel id="DSK" name="Storage" importance="2" sound="content://settings/system/notification_sound" usage="5" content_type="4" flags="0" show_badge="true" />
+<channel id="GEN" name="General Messages" importance="1" sound="content://settings/system/notification_sound" usage="5" content_type="4" flags="0" show_badge="true" />
+<channel id="HNT" name="Hints" importance="3" sound="content://settings/system/notification_sound" usage="5" content_type="4" flags="0" show_badge="true" />
+<channel id="SCN_HEADSUP" name="Screenshots" importance="4" sound="" usage="5" content_type="0" flags="0" show_badge="true" blockable_system="true" />
+</package>
+<package name="com.google.android.gm" show_badge="true" app_user_locked_fields="0" uid="10045">
+<channelGroup id="^ncg_~_misc" name="Miscellaneous" blocked="false" />
+<channel id="^nc_~_misc" name="Miscellaneous" importance="3" sound="content://settings/system/notification_sound" usage="5" content_type="4" flags="0" lights="true" show_badge="true" group="^ncg_~_misc" />
+<channel id="^nc_~_z_attachments" name="Attachments" importance="1" sound="content://settings/system/notification_sound" usage="5" content_type="4" flags="0" show_badge="true" group="^ncg_~_misc" />
+</package>
+<package name="com.google.android.youtube" show_badge="true" app_user_locked_fields="0" uid="10075">
+<channel id="generic_notifications" name="General notifications" importance="2" sound="content://settings/system/notification_sound" usage="5" content_type="4" flags="0" />
+<channel id="1" name="Subscriptions" importance="4" usage="5" content_type="4" flags="0" show_badge="true" />
+<channel id="2" name="Livestreams" importance="4" sound="content://settings/system/notification_sound" usage="5" content_type="4" flags="0" show_badge="true" />
+<channel id="3" name="Comments and replies" importance="3" usage="5" content_type="4" flags="0" show_badge="true" />
+<channel id="4" name="Messages" importance="4" sound="content://settings/system/notification_sound" usage="5" content_type="4" flags="0" show_badge="true" />
+<channel id="5" name="Recommended videos" importance="2" usage="5" content_type="4" flags="0" show_badge="true" />
+<channel id="6" name="Product updates" importance="2" usage="5" content_type="4" flags="0" show_badge="true" />
+<channel id="7" name="Lock screen media controls" importance="2" usage="5" content_type="4" flags="0" />
+</package>
+<package name="com.google.android.setupwizard" show_badge="true" app_user_locked_fields="0" uid="10031">
+<channel id="predeferred" name="Additional setup" importance="2" sound="content://settings/system/notification_sound" usage="5" content_type="4" flags="0" fgservice="true" show_badge="true" />
+</package>
+<package name="com.android.phone" show_badge="true" app_user_locked_fields="0" uid="1001">
+<channel id="callForward" name="Call forwarding" importance="2" sound="content://settings/system/notification_sound" usage="5" content_type="4" flags="0" show_badge="true" />
+<channel id="voiceMail" name="Voicemail messages" importance="3" sound="content://settings/system/notification_sound" usage="5" content_type="0" flags="0" show_badge="true" />
+<channel id="mobileDataAlertNew" name="Mobile data status" importance="2" sound="content://settings/system/notification_sound" usage="5" content_type="4" flags="0" show_badge="true" blockable_system="true" />
+<channel id="sim" name="SIM status" importance="2" usage="5" content_type="4" flags="0" show_badge="true" />
+<channel id="sms" name="SMS messages" importance="4" sound="content://settings/system/notification_sound" usage="5" content_type="4" flags="0" show_badge="true" />
+<channel id="wfc" name="Wi-Fi calling" importance="2" sound="content://settings/system/notification_sound" usage="5" content_type="4" flags="0" show_badge="true" />
+<channel id="alert" name="Alerts" importance="3" sound="content://settings/system/notification_sound" usage="5" content_type="0" flags="0" show_badge="true" blockable_system="true" />
+</package>
+<package name="com.android.providers.downloads" show_badge="true" app_user_locked_fields="0" uid="10005">
+<channel id="active" name="In progress" importance="1" sound="content://settings/system/notification_sound" usage="5" content_type="4" flags="0" show_badge="true" />
+<channel id="complete" name="Done" importance="3" sound="content://settings/system/notification_sound" usage="5" content_type="4" flags="0" show_badge="true" />
+<channel id="waiting" name="Queued" importance="3" sound="content://settings/system/notification_sound" usage="5" content_type="4" flags="0" show_badge="true" />
+</package>
+</ranking>
+<enabled_listeners version="1">
+<service_listing approved="com.google.android.apps.restore/com.google.android.apps.pixelmigrate.component.NotificationConsolidatorService" user="0" primary="true" />
+</enabled_listeners>
+<enabled_assistants version="1">
+<service_listing approved="com.google.android.ext.services/android.ext.services.notification.Assistant" user="0" primary="true" />
+</enabled_assistants>
+<dnd_apps version="1">
+<service_listing approved="com.android.camera2" user="0" primary="true" />
+<service_listing approved="com.google.android.ext.services:com.google.android.apps.restore" user="0" primary="false" />
+</dnd_apps>
+</notification-policy>

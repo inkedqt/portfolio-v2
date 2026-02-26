@@ -1,0 +1,3 @@
+﻿SecurityMode	SSID	PreSharedKey	WEPKeys	Password	Identity	DefaultGwMacAddress	semCreationTime	semUpdateTime	LastConnectedTime	CaptivePortal	LoginUrl	IpAssignment	Path
+NONE	AndroidWifi											DHCP	/home/kali/Downloads/temp_extract_dir/output/ALEAPP_Reports_2026-02-26_Thursday_060844/data/misc/wifi/WifiConfigStore.xml
+NONE	Tessss											DHCP	/home/kali/Downloads/temp_extract_dir/output/ALEAPP_Reports_2026-02-26_Thursday_060844/data/misc/wifi/WifiConfigStore.xml

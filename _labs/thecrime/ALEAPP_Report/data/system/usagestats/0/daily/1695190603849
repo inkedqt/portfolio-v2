@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='utf-8' standalone='yes' ?>
+<usagestats version="1" endTime="139851">
+    <interactive count="0" time="0" />
+    <non-interactive count="0" time="0" />
+    <keyguard-shown count="0" time="0" />
+    <keyguard-hidden count="0" time="0" />
+    <packages>
+        <package lastTimeActive="-1694982495009" package="com.android.providers.calendar" timeActive="0" lastEvent="0" />
+        <package lastTimeActive="431" package="com.google.android.setupwizard" timeActive="0" lastEvent="0" />
+        <package lastTimeActive="-1694982495009" package="com.google.android.gms" timeActive="0" lastEvent="0" />
+        <package lastTimeActive="-1694982495009" package="com.google.android.gsf" timeActive="0" lastEvent="0" />
+        <package lastTimeActive="-1694982495009" package="com.google.android.ims" timeActive="0" lastEvent="0" />
+        <package lastTimeActive="3907" package="com.google.android.apps.nexuslauncher" timeActive="0" lastEvent="2" />
+        <package lastTimeActive="3931" package="com.android.settings" timeActive="0" lastEvent="1" appLaunchCount="1" />
+    </packages>
+    <configurations />
+    <event-log>
+        <event time="431" package="com.google.android.setupwizard" flags="0" type="10" />
+        <event time="3907" package="com.google.android.apps.nexuslauncher" class="com.google.android.apps.nexuslauncher.NexusLauncherActivity" flags="0" type="2" />
+        <event time="3931" package="com.android.settings" class="com.android.settings.Settings$WifiSettingsActivity" flags="0" type="1" />
+    </event-log>
+</usagestats>

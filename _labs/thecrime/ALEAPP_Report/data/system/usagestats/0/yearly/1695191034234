@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='utf-8' standalone='yes' ?>
+<usagestats version="1" endTime="29790082">
+    <interactive count="0" time="0" />
+    <non-interactive count="0" time="0" />
+    <keyguard-shown count="0" time="0" />
+    <keyguard-hidden count="0" time="0" />
+    <packages>
+        <package lastTimeActive="-1695054174725" package="com.google.android.ext.services" timeActive="0" lastEvent="0" />
+        <package lastTimeActive="-1695054174725" package="com.android.providers.telephony" timeActive="0" lastEvent="0" />
+        <package lastTimeActive="-1694993698037" package="com.google.android.googlequicksearchbox" timeActive="0" lastEvent="0" />
+        <package lastTimeActive="-1694993698037" package="com.android.providers.calendar" timeActive="0" lastEvent="0" />
+        <package lastTimeActive="12243583" package="com.android.settings.intelligence" timeActive="20735" lastEvent="2" appLaunchCount="5" />
+        <package lastTimeActive="-1695054174725" package="com.android.se" timeActive="0" lastEvent="0" />
+        <package lastTimeActive="-1694993698037" package="com.android.cellbroadcastreceiver" timeActive="0" lastEvent="0" />
+        <package lastTimeActive="12216725" package="com.android.chrome" timeActive="884" lastEvent="2" appLaunchCount="1" />
+        <package lastTimeActive="-1694993698037" package="com.google.android.gms" timeActive="0" lastEvent="0" />
+        <package lastTimeActive="-1694993698037" package="com.google.android.gsf" timeActive="0" lastEvent="0" />
+        <package lastTimeActive="-1694993698037" package="com.google.android.ims" timeActive="0" lastEvent="0" />
+        <package lastTimeActive="12245360" package="com.google.android.apps.nexuslauncher" timeActive="12163121" lastEvent="1" appLaunchCount="6" />
+        <package lastTimeActive="-1695054174725" package="com.android.smspush" timeActive="0" lastEvent="0" />
+        <package lastTimeActive="12245352" package="com.android.settings" timeActive="39360" lastEvent="2" appLaunchCount="9" />
+        <package lastTimeActive="-1695054174725" package="com.android.phone" timeActive="0" lastEvent="0" />
+        <package lastTimeActive="-1694993698037" package="com.android.providers.blockednumber" timeActive="0" lastEvent="0" />
+        <package lastTimeActive="-1695054174725" package="com.android.providers.userdictionary" timeActive="0" lastEvent="0" />
+        <package lastTimeActive="-1694993698037" package="com.android.emergency" timeActive="0" lastEvent="0" />
+        <package lastTimeActive="-1695054174725" package="com.android.systemui" timeActive="0" lastEvent="0" />
+        <package lastTimeActive="-1694993698037" package="com.android.traceur" timeActive="0" lastEvent="0" />
+        <package lastTimeActive="-1694993698037" package="com.android.providers.contacts" timeActive="0" lastEvent="0" />
+        <package lastTimeActive="-1694993698037" package="com.google.android.inputmethod.latin" timeActive="0" lastEvent="0" />
+    </packages>
+    <configurations />
+    <event-log />
+</usagestats>

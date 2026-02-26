@@ -1,0 +1,86 @@
+<?xml version='1.0' encoding='utf-8' standalone='yes' ?>
+<usagestats version="1" endTime="29790082">
+    <interactive count="0" time="0" />
+    <non-interactive count="0" time="0" />
+    <keyguard-shown count="0" time="0" />
+    <keyguard-hidden count="0" time="0" />
+    <packages>
+        <package lastTimeActive="-1695054174725" package="com.google.android.ext.services" timeActive="0" lastEvent="0" />
+        <package lastTimeActive="-1695054174725" package="com.android.providers.telephony" timeActive="0" lastEvent="0" />
+        <package lastTimeActive="-1694993698037" package="com.google.android.googlequicksearchbox" timeActive="0" lastEvent="0" />
+        <package lastTimeActive="-1694993698037" package="com.android.providers.calendar" timeActive="0" lastEvent="0" />
+        <package lastTimeActive="12243583" package="com.android.settings.intelligence" timeActive="20735" lastEvent="2" appLaunchCount="5" />
+        <package lastTimeActive="-1695054174725" package="com.android.se" timeActive="0" lastEvent="0" />
+        <package lastTimeActive="-1694993698037" package="com.android.cellbroadcastreceiver" timeActive="0" lastEvent="0" />
+        <package lastTimeActive="12216725" package="com.android.chrome" timeActive="884" lastEvent="2" appLaunchCount="1" />
+        <package lastTimeActive="-1694993698037" package="com.google.android.gms" timeActive="0" lastEvent="0" />
+        <package lastTimeActive="-1694993698037" package="com.google.android.gsf" timeActive="0" lastEvent="0" />
+        <package lastTimeActive="-1694993698037" package="com.google.android.ims" timeActive="0" lastEvent="0" />
+        <package lastTimeActive="12245360" package="com.google.android.apps.nexuslauncher" timeActive="12163121" lastEvent="1" appLaunchCount="6" />
+        <package lastTimeActive="-1695054174725" package="com.android.smspush" timeActive="0" lastEvent="0" />
+        <package lastTimeActive="12245352" package="com.android.settings" timeActive="39360" lastEvent="2" appLaunchCount="9" />
+        <package lastTimeActive="-1695054174725" package="com.android.phone" timeActive="0" lastEvent="0" />
+        <package lastTimeActive="-1694993698037" package="com.android.providers.blockednumber" timeActive="0" lastEvent="0" />
+        <package lastTimeActive="-1695054174725" package="com.android.providers.userdictionary" timeActive="0" lastEvent="0" />
+        <package lastTimeActive="-1694993698037" package="com.android.emergency" timeActive="0" lastEvent="0" />
+        <package lastTimeActive="-1695054174725" package="com.android.systemui" timeActive="0" lastEvent="0" />
+        <package lastTimeActive="-1694993698037" package="com.android.traceur" timeActive="0" lastEvent="0" />
+        <package lastTimeActive="-1694993698037" package="com.android.providers.contacts" timeActive="0" lastEvent="0" />
+        <package lastTimeActive="-1694993698037" package="com.google.android.inputmethod.latin" timeActive="0" lastEvent="0" />
+    </packages>
+    <configurations />
+    <event-log>
+        <event time="20441" package="com.google.android.apps.nexuslauncher" class="com.google.android.apps.nexuslauncher.NexusLauncherActivity" flags="0" type="2" />
+        <event time="20652" package="com.android.settings" class="com.android.settings.Settings" flags="0" type="1" />
+        <event time="21877" package="com.android.settings" class="com.android.settings.Settings" flags="0" type="2" />
+        <event time="21881" package="com.android.settings.intelligence" class="com.android.settings.intelligence.search.SearchActivity" flags="0" type="1" />
+        <event time="32800" package="com.android.settings.intelligence" class="com.android.settings.intelligence.search.SearchActivity" flags="0" type="2" />
+        <event time="32804" package="com.android.settings" class="com.android.settings.search.SearchResultTrampoline" flags="0" type="1" />
+        <event time="32807" package="com.android.settings" class="com.android.settings.search.SearchResultTrampoline" flags="0" type="2" />
+        <event time="32815" package="com.android.settings" class="com.android.settings.SubSettings" flags="0" type="1" />
+        <event time="56884" package="com.android.settings" class="com.android.settings.SubSettings" flags="0" type="2" />
+        <event time="56889" package="com.android.settings.intelligence" class="com.android.settings.intelligence.search.SearchActivity" flags="0" type="1" />
+        <event time="58859" package="com.android.settings.intelligence" class="com.android.settings.intelligence.search.SearchActivity" flags="0" type="2" />
+        <event time="58875" package="com.android.settings" class="com.android.settings.search.SearchResultTrampoline" flags="0" type="1" />
+        <event time="58879" package="com.android.settings" class="com.android.settings.search.SearchResultTrampoline" flags="0" type="2" />
+        <event time="58884" package="com.android.settings" class="com.android.settings.SubSettings" flags="0" type="1" />
+        <event time="62858" package="com.android.settings" class="com.android.settings.SubSettings" flags="0" type="2" />
+        <event time="62860" package="com.google.android.apps.nexuslauncher" class="com.google.android.apps.nexuslauncher.NexusLauncherActivity" flags="0" type="1" />
+        <event time="73537" package="com.google.android.apps.nexuslauncher" class="com.google.android.apps.nexuslauncher.NexusLauncherActivity" flags="0" type="2" />
+        <event time="73592" package="com.android.settings" class="com.android.settings.Settings" flags="0" type="1" />
+        <event time="74838" package="com.android.settings" class="com.android.settings.Settings" flags="0" type="2" />
+        <event time="74842" package="com.android.settings.intelligence" class="com.android.settings.intelligence.search.SearchActivity" flags="0" type="1" />
+        <event time="76551" package="com.android.settings.intelligence" class="com.android.settings.intelligence.search.SearchActivity" flags="0" type="2" />
+        <event time="76553" package="com.google.android.apps.nexuslauncher" class="com.google.android.apps.nexuslauncher.NexusLauncherActivity" flags="0" type="1" />
+        <event time="86367" package="com.google.android.apps.nexuslauncher" class="com.google.android.apps.nexuslauncher.NexusLauncherActivity" flags="0" type="2" />
+        <event time="86388" package="com.android.settings" class="com.android.settings.Settings$WifiSettingsActivity" flags="0" type="1" />
+        <event time="88855" package="com.android.settings" class="com.android.settings.Settings$WifiSettingsActivity" flags="0" type="2" />
+        <event time="88866" package="com.google.android.apps.nexuslauncher" class="com.google.android.apps.nexuslauncher.NexusLauncherActivity" flags="0" type="1" />
+        <event time="2045054" package="com.google.android.apps.nexuslauncher" class="com.google.android.apps.nexuslauncher.NexusLauncherActivity" flags="0" type="2" />
+        <event time="2045163" package="com.android.settings" class="com.android.settings.Settings" flags="0" type="1" />
+        <event time="2046254" package="com.android.settings" class="com.android.settings.Settings" flags="0" type="2" />
+        <event time="2046276" package="com.android.settings.intelligence" class="com.android.settings.intelligence.search.SearchActivity" flags="0" type="1" />
+        <event time="2050175" package="com.android.settings.intelligence" class="com.android.settings.intelligence.search.SearchActivity" flags="0" type="2" />
+        <event time="2050192" package="com.android.settings" class="com.android.settings.search.SearchResultTrampoline" flags="0" type="1" />
+        <event time="2050197" package="com.android.settings" class="com.android.settings.search.SearchResultTrampoline" flags="0" type="2" />
+        <event time="2050202" package="com.android.settings" class="com.android.settings.SubSettings" flags="0" type="1" />
+        <event time="2052264" package="com.android.settings" class="com.android.settings.SubSettings" flags="0" type="2" />
+        <event time="2052267" package="com.google.android.apps.nexuslauncher" class="com.google.android.apps.nexuslauncher.NexusLauncherActivity" flags="0" type="1" />
+        <event time="12215680" package="com.google.android.apps.nexuslauncher" class="com.google.android.apps.nexuslauncher.NexusLauncherActivity" flags="0" type="2" />
+        <event time="12215793" package="com.android.chrome" class="org.chromium.chrome.browser.ChromeTabbedActivity" flags="0" type="1" />
+        <event time="12215932" package="com.android.chrome" class="org.chromium.chrome.browser.ChromeTabbedActivity" flags="0" type="2" />
+        <event time="12215980" package="com.android.chrome" class="org.chromium.chrome.browser.firstrun.FirstRunActivity" flags="0" type="1" />
+        <event time="12216725" package="com.android.chrome" class="org.chromium.chrome.browser.firstrun.FirstRunActivity" flags="0" type="2" />
+        <event time="12216728" package="com.google.android.apps.nexuslauncher" class="com.google.android.apps.nexuslauncher.NexusLauncherActivity" flags="0" type="1" />
+        <event time="12239757" package="com.google.android.apps.nexuslauncher" class="com.google.android.apps.nexuslauncher.NexusLauncherActivity" flags="0" type="2" />
+        <event time="12239887" package="com.android.settings" class="com.android.settings.Settings" flags="0" type="1" />
+        <event time="12241340" package="com.android.settings" class="com.android.settings.Settings" flags="0" type="2" />
+        <event time="12241345" package="com.android.settings.intelligence" class="com.android.settings.intelligence.search.SearchActivity" flags="0" type="1" />
+        <event time="12243583" package="com.android.settings.intelligence" class="com.android.settings.intelligence.search.SearchActivity" flags="0" type="2" />
+        <event time="12243586" package="com.android.settings" class="com.android.settings.search.SearchResultTrampoline" flags="0" type="1" />
+        <event time="12243591" package="com.android.settings" class="com.android.settings.search.SearchResultTrampoline" flags="0" type="2" />
+        <event time="12243596" package="com.android.settings" class="com.android.settings.SubSettings" flags="0" type="1" />
+        <event time="12245352" package="com.android.settings" class="com.android.settings.SubSettings" flags="0" type="2" />
+        <event time="12245360" package="com.google.android.apps.nexuslauncher" class="com.google.android.apps.nexuslauncher.NexusLauncherActivity" flags="0" type="1" />
+    </event-log>
+</usagestats>

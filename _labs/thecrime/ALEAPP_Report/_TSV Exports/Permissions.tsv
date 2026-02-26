@@ -1,0 +1,675 @@
+﻿Name	Package	Protection
+com.google.android.apps.nexuslauncher.permission.READ_SETTINGS	com.google.android.apps.nexuslauncher	18
+com.google.android.gms.auth.api.phone.permission.SEND	com.google.android.gms	2
+android.permission.REAL_GET_TASKS	android	18
+android.permission.ACCESS_CACHE_FILESYSTEM	android	18
+android.permission.REMOTE_AUDIO_PLAYBACK	android	2
+android.permission.DOWNLOAD_WITHOUT_NOTIFICATION	com.android.providers.downloads	
+com.google.android.apps.photos.permission.C2D_MESSAGE	com.google.android.apps.photos	2
+android.permission.REGISTER_WINDOW_MANAGER_LISTENERS	android	2
+android.permission.INTENT_FILTER_VERIFICATION_AGENT	android	18
+android.permission.BIND_INCALL_SERVICE	android	18
+android.permission.PROVIDE_RESOLVER_RANKER_SERVICE	android	18
+com.google.android.gms.trustagent.framework.model.DATA_CHANGE_NOTIFICATION	com.google.android.gms	2
+android.permission.WRITE_SETTINGS	android	1218
+com.google.android.gm.permission.WRITE_GMAIL	com.google.android.gm	2
+com.android.permission.INSTALL_EXISTING_PACKAGES	android	18
+android.permission.READ_SMS	android	1
+android.permission.CONTROL_KEYGUARD	android	2
+android.permission.MANAGE_CAMERA	android	2
+android.permission.READ_WALLPAPER_INTERNAL	android	18
+com.google.android.calendar.permission.C2D_MESSAGE	com.google.android.calendar	2
+android.permission.CONFIGURE_WIFI_DISPLAY	android	2
+android.permission.CONFIGURE_DISPLAY_COLOR_MODE	android	2
+android.permission.ACCESS_WIMAX_STATE	android	
+android.permission.SET_INPUT_CALIBRATION	android	2
+com.google.android.gms.matchstick.permission.BROADCAST_LIGHTER_WEB_INFO	com.google.android.gms	2
+android.permission.RECOVERY	android	18
+android.permission.TEMPORARY_ENABLE_ACCESSIBILITY	android	2
+android.permission.SET_PROCESS_LIMIT	android	50
+com.google.android.googleapps.permission.GOOGLE_AUTH.sitemaps	com.google.android.gsf	2
+com.google.android.googlequicksearchbox.permission.C2D_MESSAGE	com.google.android.googlequicksearchbox	2
+android.permission.READ_LOWPAN_CREDENTIAL	android	18
+com.google.android.googleapps.permission.GOOGLE_AUTH.panoramio	com.google.android.gsf	
+android.permission.FRAME_STATS	android	2
+com.google.android.gm.permission.BROADCAST_INTERNAL	com.google.android.gm	2
+com.google.android.gms.permission.APPINDEXING	com.google.android.gms	2
+android.permission.READ_CALENDAR	android	1
+android.permission.BRICK	android	2
+android.permission.READ_CALL_LOG	android	1
+com.google.android.c2dm.permission.RECEIVE	com.google.android.gsf	
+android.permission.BIND_PRINT_RECOMMENDATION_SERVICE	android	2
+com.google.android.videos.permission.MOCK_GCM_RECEIVE	com.google.android.videos	2
+android.permission.ACCESS_FINE_LOCATION	android	4097
+android.permission.RESTART_PACKAGES	android	
+android.permission.STORAGE_INTERNAL	android	2
+android.permission.USE_CREDENTIALS	android	
+android.permission.TABLET_MODE	android	2
+android.permission.NOTIFICATION_DURING_SETUP	android	18
+android.permission.BIND_KEYGUARD_APPWIDGET	android	18
+android.permission.NETWORK_BYPASS_PRIVATE_DNS	android	2
+com.google.android.googleapps.permission.GOOGLE_AUTH.sierrasandbox	com.google.android.gsf	2
+android.permission.READ_SYSTEM_UPDATE_INFO	android	2
+android.permission.BIND_DEVICE_ADMIN	android	2
+android.permission.MODIFY_AUDIO_SETTINGS	android	
+android.permission.ACCESS_CHECKIN_PROPERTIES	android	18
+android.permission.KILL_UID	android	258
+android.permission.SIGNAL_PERSISTENT_PROCESSES	android	50
+android.permission.BIND_PRINT_SERVICE	android	2
+android.permission.ACCESS_NOTIFICATION_POLICY	android	
+android.permission.ACTIVITY_EMBEDDING	android	50
+android.permission.BIND_RUNTIME_PERMISSION_PRESENTER_SERVICE	android	2
+android.permission.MODIFY_AUDIO_ROUTING	android	18
+android.permission.RECEIVE_BLUETOOTH_MAP	android	18
+android.permission.ACCESS_MOCK_LOCATION	android	2
+android.permission.ACCESS_UCE_OPTIONS_SERVICE	android	18
+android.permission.BIND_VR_LISTENER_SERVICE	android	2
+android.permission.GET_APP_OPS_STATS	android	50
+android.permission.RECEIVE_DATA_ACTIVITY_CHANGE	android	18
+com.google.android.providers.gsf.permission.READ_GSERVICES	com.google.android.gsf	
+android.permission.ANSWER_PHONE_CALLS	android	8193
+com.google.android.setupwizard.WRITE_DEVICE_ORIGIN	com.google.android.setupwizard	18
+com.google.android.youtube.permission.C2D_MESSAGE	com.google.android.youtube	2
+android.permission.READ_WIFI_CREDENTIAL	android	18
+android.permission.BIND_DREAM_SERVICE	android	2
+android.permission.WRITE_GSERVICES	android	18
+com.android.printspooler.permission.ACCESS_ALL_PRINT_JOBS	com.android.printspooler	2
+android.permission.INSTALL_LOCATION_PROVIDER	android	18
+com.google.android.voicesearch.AUDIO_FILE_ACCESS	com.google.android.googlequicksearchbox	2
+android.permission.USE_RESERVED_DISK	android	18
+android.permission.READ_RUNTIME_PROFILES	android	18
+android.permission.MANAGE_ACCOUNTS	android	
+android.permission.CONTROL_WIFI_DISPLAY	android	2
+com.google.android.googleapps.permission.GOOGLE_AUTH.ah	com.google.android.gsf	2
+com.google.android.googleapps.permission.GOOGLE_AUTH.cl	com.google.android.gsf	2
+com.google.android.googleapps.permission.GOOGLE_AUTH.cp	com.google.android.gsf	2
+com.google.android.googleapps.permission.GOOGLE_AUTH.ig	com.google.android.gsf	2
+android.permission.SYSTEM_ALERT_WINDOW	android	1250
+android.permission.INSTANT_APP_FOREGROUND_SERVICE	android	4194
+android.permission.BIND_CARRIER_SERVICES	android	18
+com.google.android.googleapps.permission.GOOGLE_AUTH.lh2	com.google.android.gsf	2
+com.google.android.gsf.subscribedfeeds.permission.C2D_MESSAGE	com.google.android.gsf	2
+android.permission.BROADCAST_PHONE_ACCOUNT_REGISTRATION	com.android.server.telecom	18
+android.permission.START_TASKS_FROM_RECENTS	android	18
+android.permission.NFC_TRANSACTION_EVENT	android	
+com.google.android.providers.talk.permission.WRITE_ONLY	com.google.android.gsf	1
+android.permission.CONTROL_LOCATION_UPDATES	android	18
+com.google.android.googleapps.permission.GOOGLE_AUTH.gbase	com.google.android.gsf	2
+com.google.android.gms.permission.BIND_NETWORK_TASK_SERVICE	com.google.android.gms	2
+com.google.android.googleapps.permission.GOOGLE_AUTH.local	com.google.android.gsf	2
+com.google.android.googleapps.permission.GOOGLE_AUTH.orkut	com.google.android.gsf	2
+com.google.android.googleapps.permission.GOOGLE_AUTH.print	com.google.android.gsf	2
+android.permission.RECEIVE_WAP_PUSH	android	1
+android.permission.GET_TOP_ACTIVITY_INFO	android	2
+com.google.android.gms.auth.authzen.permission.DEVICE_SYNC_FINISHED	com.google.android.gms	2
+com.google.android.googleapps.permission.GOOGLE_AUTH.OTHER_SERVICES	com.google.android.gsf	2
+android.permission.CLEAR_APP_USER_DATA	android	258
+com.google.android.xmpp.permission.USE_XMPP_ENDPOINT	com.google.android.gsf	2
+android.permission.PROVIDE_TRUST_AGENT	android	18
+android.permission.SET_VOLUME_KEY_LONG_PRESS_LISTENER	android	50
+android.permission.BROADCAST_CALLLOG_INFO	com.android.server.telecom	18
+com.google.android.gms.chromesync.permission.CONTENT_PROVIDER_ACCESS	com.google.android.gms	2
+android.permission.INSTALL_PACKAGES	android	18
+android.permission.MANAGE_SOUND_TRIGGER	android	18
+android.permission.SEND_RESPOND_VIA_MESSAGE	android	18
+com.google.android.ims.providers.ACCESS_DATA	com.google.android.ims	18
+com.android.permission.WHITELIST_BLUETOOTH_DEVICE	com.android.bluetooth	2
+com.google.android.googleapps.permission.GOOGLE_AUTH.doraemon	com.google.android.gsf	
+android.permission.ACCESS_FM_RADIO	android	18
+android.permission.MANAGE_VOICE_KEYPHRASES	android	18
+android.permission.SHUTDOWN	android	18
+android.permission.CHANGE_COMPONENT_ENABLED_STATE	android	18
+com.google.android.gms.permission.CHECKIN_NOW	com.google.android.gms	2
+android.permission.BIND_QUICK_SETTINGS_TILE	android	2
+android.permission.BIND_TV_INPUT	android	18
+android.permission.NFC	android	
+android.permission.MODIFY_PARENTAL_CONTROLS	android	18
+android.permission.INTERNAL_SYSTEM_WINDOW	android	2
+android.permission.PROCESS_PHONE_ACCOUNT_REGISTRATION	com.android.server.telecom	18
+android.permission.RETRIEVE_WINDOW_TOKEN	android	2
+android.permission.BIND_AUTOFILL	android	2
+com.google.android.gms.learning.permission.LAUNCH_IN_APP_PROXY	com.google.android.gms	2
+android.permission.NETWORK_SETTINGS	android	2
+android.permission.MANAGE_AUDIO_POLICY	android	2
+com.google.android.googleapps.permission.GOOGLE_AUTH.writely	com.google.android.gsf	2
+com.google.android.gms.permission.SEND_ANDROID_PAY_DATA	com.google.android.gms	2
+android.permission.BODY_SENSORS	android	1
+com.google.android.gm.permission.AUTO_SEND	com.google.android.gm	2
+android.permission.CHANGE_OVERLAY_PACKAGES	android	18
+android.permission.BIND_WALLPAPER	android	18
+android.permission.START_ANY_ACTIVITY	android	2
+android.permission.CAMERA_SEND_SYSTEM_EVENTS	android	18
+com.google.android.gms.permission.CAR_SPEED	com.google.android.gms	1
+com.google.android.apps.now.OPT_IN_WIZARD	com.google.android.googlequicksearchbox	18
+com.google.android.gms.auth.authzen.permission.GCM_DEVICE_PROXIMITY	com.google.android.gms	2
+android.permission.SEND_DOWNLOAD_COMPLETED_INTENTS	com.android.providers.downloads	2
+com.google.android.googlequicksearchbox.permission.FINISH_GEL_ACTIVITY	com.google.android.googlequicksearchbox	2
+android.permission.GET_PROCESS_STATE_AND_OOM_SCORE	android	50
+android.permission.BROADCAST_SMS	android	2
+android.permission.CALL_PRIVILEGED	android	18
+android.permission.BIND_INTENT_FILTER_VERIFIER	android	2
+android.permission.READ_PHONE_NUMBERS	android	4097
+android.permission.MANAGE_APP_TOKENS	android	2
+android.permission.CHANGE_NETWORK_STATE	android	
+android.permission.CAPTURE_TV_INPUT	android	18
+android.permission.MASTER_CLEAR	android	18
+android.permission.FOREGROUND_SERVICE	android	4096
+android.permission.PERSISTENT_ACTIVITY	android	
+android.permission.BIND_TELECOM_CONNECTION_SERVICE	android	18
+android.permission.WRITE_SYNC_SETTINGS	android	
+com.google.android.providers.gsf.permission.WRITE_GSERVICES	com.google.android.gsf	18
+android.permission.SET_DEBUG_APP	android	50
+android.permission.REQUEST_COMPANION_USE_DATA_IN_BACKGROUND	android	
+com.android.systemui.permission.SEND_ALERT_BROADCASTS	com.android.systemui	1026
+android.permission.ACCESS_CONTENT_PROVIDERS_EXTERNALLY	android	2
+android.permission.RESET_SHORTCUT_MANAGER_THROTTLING	android	2
+com.google.android.googleapps.permission.GOOGLE_AUTH.notebook	com.google.android.gsf	2
+android.permission.RESET_FINGERPRINT_LOCKOUT	android	2
+android.permission.STATSCOMPANION	android	2
+android.permission.RECEIVE_BOOT_COMPLETED	android	
+com.google.android.apps.inputmethod.latin.permission.UPDATE_STICKER_INDEX	com.google.android.inputmethod.latin	2
+com.google.android.gms.permission.TRANSFER_WIFI_CREDENTIAL	com.google.android.gms	
+com.google.android.googleapps.permission.GOOGLE_AUTH	com.google.android.gsf	2
+android.permission.LOOP_RADIO	android	18
+android.permission.GLOBAL_SEARCH_CONTROL	android	2
+android.permission.SUBSCRIBED_FEEDS_READ	android	
+com.google.android.gms.permission.NEARBY_START_DISCOVERER	com.google.android.gms	2
+com.google.android.gms.auth.permission.POST_SIGN_IN_ACCOUNT	com.google.android.gms	2
+android.permission.MANAGE_BIND_INSTANT_SERVICE	android	2
+com.google.android.googleapps.permission.GOOGLE_AUTH.ALL_SERVICES	com.google.android.gsf	2
+android.permission.PEERS_MAC_ADDRESS	android	2050
+android.permission.DEVICE_POWER	android	2
+com.google.android.providers.settings.permission.READ_GSETTINGS	com.google.android.gsf	2
+android.permission.RECEIVE_MMS	android	1
+android.permission.RECEIVE_SMS	android	1
+com.google.android.gms.cloudsave.BIND_EVENT_BROADCAST	com.google.android.gms	18
+android.permission.SET_TIME_ZONE	android	18
+android.permission.REMOVE_TASKS	android	2
+android.permission.READ_PRINT_SERVICES	android	1026
+com.google.android.ambientindication.permission.AMBIENT_INDICATION	com.android.systemui	18
+android.permission.MANAGE_SUBSCRIPTION_PLANS	android	18
+com.google.android.googlequicksearchbox.permission.PAUSE_HOTWORD	com.google.android.googlequicksearchbox	18
+android.permission.EXPAND_STATUS_BAR	android	
+com.google.android.setupwizard.READ_DEFERRED_SETUP_REASON	com.google.android.setupwizard	18
+com.android.launcher.permission.UNINSTALL_SHORTCUT	android	
+android.permission.MANAGE_PROFILE_AND_DEVICE_OWNERS	android	2
+com.google.android.gms.permission.REPORT_TAP	com.google.android.gms	2
+android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS	android	
+android.permission.READ_PROFILE	android	
+android.permission.BIND_VOICE_INTERACTION	android	2
+com.google.android.gtalkservice.permission.SEND_HEARTBEAT	com.google.android.gsf	18
+android.permission.BLUETOOTH	android	
+android.permission.BROADCAST_WAP_PUSH	android	2
+android.permission.CHANGE_WIFI_MULTICAST_STATE	android	
+com.google.android.onetimeinitializer.permission.ONE_TIME_INITIALIZED	com.google.android.onetimeinitializer	2
+android.permission.DVB_DEVICE	android	18
+android.permission.PERFORM_SIM_ACTIVATION	android	18
+android.permission.OPEN_APPLICATION_DETAILS_OPEN_BY_DEFAULT_PAGE	android	2
+com.android.alarm.permission.SET_ALARM	android	
+android.permission.CAPTURE_AUDIO_HOTWORD	android	18
+android.permission.WRITE_MEDIA_STORAGE	android	18
+android.permission.CONTROL_DISPLAY_SATURATION	android	18
+com.android.voicemail.permission.READ_VOICEMAIL	android	18
+android.permission.WRITE_BLOCKED_NUMBERS	android	2
+android.permission.ACCESS_AMBIENT_LIGHT_STATS	android	50
+android.permission.SET_ANIMATION_SCALE	android	50
+com.google.android.gms.permission.AD_ID_NOTIFICATION	com.google.android.gms	
+android.permission.WATCH_APPOPS	android	2
+android.permission.GET_TASKS	android	
+android.permission.BIND_CACHE_QUOTA_SERVICE	android	2
+android.permission.BROADCAST_NETWORK_PRIVILEGED	android	18
+android.permission.ACCESS_SURFACE_FLINGER	android	2
+android.permission.SUBSCRIBED_FEEDS_WRITE	android	
+android.permission.AUTHENTICATE_ACCOUNTS	android	
+android.permission.INTERNET	android	4096
+android.permission.BIND_RESOLVER_RANKER_SERVICE	android	2
+com.android.vending.CHECK_LICENSE	com.android.vending	
+android.permission.TV_INPUT_HARDWARE	android	18
+com.android.vending.INTENT_VENDING_ONLY	com.google.android.gsf	2
+com.google.android.googleapps.permission.GOOGLE_AUTH.knol	com.google.android.gsf	2
+com.google.android.googleapps.permission.GOOGLE_AUTH.mail	com.google.android.gsf	2
+com.google.android.googleapps.permission.GOOGLE_AUTH.news	com.google.android.gsf	2
+com.google.android.googleapps.permission.GOOGLE_AUTH.talk	com.google.android.gsf	2
+com.google.android.googleapps.permission.GOOGLE_AUTH.wifi	com.google.android.gsf	2
+com.google.android.googleapps.permission.GOOGLE_AUTH.wise	com.google.android.gsf	2
+android.permission.TRANSMIT_IR	android	
+com.google.android.gms.permission.C2D_MESSAGE	com.google.android.gms	2
+android.permission.RETRIEVE_WINDOW_CONTENT	android	18
+com.google.firebase.auth.api.gms.permission.LAUNCH_FEDERATED_SIGN_IN	com.google.android.gms	2
+com.breel.wallpapers.notifications	com.android.systemui	
+android.permission.REORDER_TASKS	android	
+android.permission.ACCESS_BROADCAST_RADIO	android	18
+com.android.browser.permission.READ_HISTORY_BOOKMARKS	android	
+android.permission.GET_INTENT_SENDER_INTENT	android	2
+com.google.android.gms.nearby.exposurenotification.EXPOSURE_CALLBACK	com.google.android.gms	2
+com.android.chrome.permission.CHILD_SERVICE	com.android.chrome	2
+com.ticno.olymptrade.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION	com.ticno.olymptrade	2
+com.google.android.gms.permission.PHENOTYPE_OVERRIDE_FLAGS	com.google.android.gms	2
+com.google.android.videos.permission.C2D_MESSAGE	com.google.android.videos	2
+android.permission.REQUEST_COMPANION_RUN_IN_BACKGROUND	android	
+android.permission.BLUETOOTH_ADMIN	android	
+android.permission.CONTROL_VPN	android	18
+android.permission.UPDATE_DEVICE_STATS	android	18
+android.permission.BLUETOOTH_STACK	android	2
+android.permission.BLUETOOTH_MAP	android	2
+android.permission.READ_PRECISE_PHONE_STATE	android	18
+com.google.android.gms.auth.api.signin.permission.REVOCATION_NOTIFICATION	com.google.android.gms	2
+com.google.android.gms.magictether.permission.CONNECTED_HOST_CHANGED	com.google.android.gms	2
+android.permission.MANAGE_FINGERPRINT	android	18
+com.google.android.googleapps.permission.GOOGLE_AUTH.YouTubeUser	com.google.android.gsf	2
+com.google.android.partnersetup.permission.UPDATE_CLIENT_ID	com.google.android.partnersetup	18
+com.google.android.gms.permission.CONTACTS_SYNC_DELEGATION	com.google.android.gms	2
+android.permission.WRITE_EMBEDDED_SUBSCRIPTIONS	android	50
+android.permission.RECOVER_KEYSTORE	android	18
+com.google.android.googleapps.permission.GOOGLE_AUTH.androidsecure	com.google.android.gsf	2
+android.permission.NET_ADMIN	android	2
+com.google.android.gms.permission.GAMES_DEBUG_SETTINGS	com.google.android.gms	2
+android.permission.RESTRICTED_VR_ACCESS	android	1026
+android.permission.CARRIER_FILTER_SMS	android	18
+com.google.android.permission.BROADCAST_DATA_MESSAGE	com.google.android.gsf	18
+com.google.android.gms.WRITE_VERIFY_APPS_CONSENT	com.google.android.gms	18
+android.permission.PERFORM_CDMA_PROVISIONING	android	18
+com.google.android.gms.trustagent.permission.TRUSTAGENT_STATE	com.google.android.gms	2
+android.permission.BIND_CONNECTION_SERVICE	android	18
+android.permission.READ_EXTERNAL_STORAGE	android	1
+com.google.android.gm.permission.READ_CONTENT_PROVIDER	com.google.android.gm	1
+android.permission.INSTALL_GRANT_RUNTIME_PERMISSIONS	android	770
+android.permission.WRITE_SOCIAL_STREAM	android	
+android.permission.ACCESS_INSTANT_APPS	android	770
+android.permission.CONTROL_REMOTE_APP_TRANSITION_ANIMATIONS	android	18
+android.permission.LAUNCH_TRUST_AGENT_SETTINGS	android	18
+android.permission.REGISTER_CALL_PROVIDER	android	18
+android.permission.GET_PACKAGE_SIZE	android	
+android.permission.MODIFY_THEME_OVERLAY	android	2
+android.permission.CLEAR_APP_GRANTED_URI_PERMISSIONS	android	2
+com.google.android.c2dm.permission.SEND	com.google.android.gsf	18
+android.permission.BIND_VPN_SERVICE	android	2
+android.permission.systemui.IDENTITY	com.android.systemui	2
+android.permission.TRUST_LISTENER	android	2
+android.permission.ACCOUNT_MANAGER	android	2
+android.permission.MANAGE_USB	android	18
+com.google.android.partnersetup.permission.WRITE_APP_PROVIDER	com.google.android.partnersetup	18
+android.permission.ACCESS_ALL_DOWNLOADS	com.android.providers.downloads	2
+android.permission.ALLOCATE_AGGRESSIVE	android	18
+android.permission.INTERACT_ACROSS_USERS_FULL	android	258
+android.permission.CHANGE_ACCESSIBILITY_VOLUME	android	2
+android.permission.BIND_APPWIDGET	android	18
+com.google.android.gms.permission.PHENOTYPE_UPDATE_BROADCAST	com.google.android.gms	2
+android.permission.STOP_APP_SWITCHES	android	18
+android.permission.RECEIVE_MEDIA_RESOURCE_USAGE	android	18
+android.permission.BATTERY_STATS	android	50
+com.google.android.gms.permission.INTERNAL_BROADCAST	com.google.android.gms	2
+android.permission.PACKAGE_USAGE_STATS	android	114
+android.permission.WRITE_PROFILE	android	
+android.permission.MOUNT_UNMOUNT_FILESYSTEMS	android	18
+android.permission.GET_ACCOUNTS_PRIVILEGED	android	18
+android.permission.READ_PRINT_SERVICE_RECOMMENDATIONS	android	1026
+android.permission.TETHER_PRIVILEGED	android	18
+android.permission.WRITE_SECURE_SETTINGS	android	50
+android.permission.SERIAL_PORT	android	18
+android.permission.BIND_NOTIFICATION_LISTENER_SERVICE	android	2
+android.permission.BIND_SCREENING_SERVICE	android	18
+android.permission.FORCE_PERSISTABLE_URI_PERMISSIONS	android	2
+android.permission.UNLIMITED_SHORTCUTS_API_CALLS	android	65538
+android.permission.CAPTURE_AUDIO_OUTPUT	android	18
+android.permission.BIND_MIDI_DEVICE_SERVICE	android	2
+com.google.android.googleapps.permission.GOOGLE_AUTH.grandcentral	com.google.android.gsf	2
+com.google.android.gms.auth.proximity.permission.SMS_CONNECT_SETUP_REQUESTED	com.google.android.gms	2
+android.permission.ACCESS_COARSE_LOCATION	android	4097
+android.permission.MOVE_PACKAGE	android	18
+com.google.sensor.elmyra.permission.USE_RAW_SENSOR	com.android.systemui	1026
+android.permission.SET_ACTIVITY_WATCHER	android	2
+com.google.android.apps.messaging.services.ACCESS_JIBESERVICE	com.google.android.apps.messaging	
+android.permission.READ_BLOCKED_NUMBERS	android	2
+com.google.android.apps.wallpaper.NOTIFY_ROTATING_WALLPAPER_CHANGED	com.google.android.apps.wallpaper	2
+android.permission.STATUS_BAR_SERVICE	android	2
+android.permission.READ_SEARCH_INDEXABLES	android	18
+android.permission.READ_PHONE_STATE	android	1
+android.permission.NFC_HANDOVER_STATUS	android	18
+android.permission.SCORE_NETWORKS	android	18
+android.permission.PROVISION_MANAGED_DEVICE_SILENTLY	com.android.managedprovisioning	1026
+android.permission.DIAGNOSTIC	android	2
+com.google.android.googleapps.permission.GOOGLE_AUTH.jotspot	com.google.android.gsf	2
+android.permission.ACCESS_LOCATION_EXTRA_COMMANDS	android	
+android.permission.RECEIVE_WIFI_CREDENTIAL_CHANGE	android	18
+android.permission.READ_PRIVILEGED_PHONE_STATE	android	18
+com.google.android.gms.permission.GOOGLE_PAY	com.google.android.gms	2
+android.permission.UPDATE_LOCK_TASK_PACKAGES	android	2050
+android.permission.ACCESS_IMS_CALL_SERVICE	android	18
+android.permission.TRIGGER_TIME_ZONE_RULES_CHECK	android	2
+android.permission.SEND_SMS	android	1
+android.permission.ACCESS_DOWNLOAD_MANAGER	com.android.providers.downloads	18
+android.permission.BROADCAST_STICKY	android	
+android.permission.INSTALL_PACKAGE_UPDATES	android	18
+com.google.android.gms.chimera.permission.QUERY_MODULES	com.google.android.gms	2
+android.permission.ASEC_ACCESS	android	2
+android.permission.BIND_REMOTE_DISPLAY	android	2
+android.permission.BLUETOOTH_PRIVILEGED	android	18
+android.permission.NETWORK_STACK	android	2
+com.google.android.gms.permission.CAR	com.google.android.gms	2
+android.permission.SET_ALWAYS_FINISH	android	50
+android.permission.CALL_PHONE	android	1
+com.android.companiondevicemanager.permission.BIND	com.android.companiondevicemanager	2
+android.permission.HARDWARE_TEST	android	2
+com.google.android.elmyra.permission.CONFIGURE_ASSIST_GESTURE	com.android.systemui	1026
+com.google.android.videos.permission.INVALIDATE_AUTH_TOKENS	com.google.android.videos	2
+android.permission.ASEC_CREATE	android	2
+android.permission.QUERY_TIME_ZONE_RULES	android	18
+com.google.android.apps.restore.RESET_FLOW_PERMISSION	com.google.android.apps.restore	2
+android.permission.WRITE_SMS	android	
+com.google.android.gm.permission.READ_GMAIL	com.google.android.gm	2
+android.permission.CONTROL_DISPLAY_BRIGHTNESS	android	2
+android.permission.SUBSTITUTE_NOTIFICATION_APP_NAME	android	18
+com.google.android.xmpp.permission.BROADCAST	com.google.android.gsf	18
+com.google.android.xmpp.permission.SEND_RECEIVE	com.google.android.gsf	2
+android.intent.category.MASTER_CLEAR.permission.C2D_MESSAGE	android	2
+android.permission.BIND_AUTOFILL_SERVICE	android	2
+android.permission.WRITE_CONTACTS	android	1
+android.permission.ACCESS_KEYGUARD_SECURE_STORAGE	android	2
+android.permission.BIND_JOB_SERVICE	android	2
+android.permission.CONFIRM_FULL_BACKUP	android	2
+android.permission.CAPTURE_SECURE_VIDEO_OUTPUT	android	18
+com.google.android.googleapps.permission.GOOGLE_AUTH.goanna_mobile	com.google.android.gsf	
+android.permission.SET_TIME	android	18
+android.permission.WRITE_APN_SETTINGS	android	18
+com.google.android.xmpp.permission.XMPP_ENDPOINT_BROADCAST	com.google.android.gsf	18
+com.google.android.providers.settings.permission.WRITE_GSETTINGS	com.google.android.gsf	2
+android.permission.CHANGE_WIFI_STATE	android	
+android.permission.BIND_COMPANION_DEVICE_MANAGER_SERVICE	android	2
+com.google.android.googleapps.permission.GOOGLE_AUTH.adsense	com.google.android.gsf	2
+android.permission.BIND_PACKAGE_VERIFIER	android	2
+android.permission.READ_INSTALL_SESSIONS	android	
+com.google.android.googleapps.permission.GOOGLE_AUTH.adwords	com.google.android.gsf	2
+android.permission.MANAGE_IPSEC_TUNNELS	android	66
+android.permission.MODIFY_CELL_BROADCASTS	android	18
+android.permission.MODIFY_DAY_NIGHT_MODE	android	18
+android.permission.BIND_ROUTE_PROVIDER	android	2
+android.permission.RECEIVE_STK_COMMANDS	android	18
+android.permission.GET_PASSWORD	android	2
+android.permission.BIND_CARRIER_MESSAGING_SERVICE	android	18
+android.permission.NETWORK_SETUP_WIZARD	android	2050
+android.permission.ACCESS_BLUETOOTH_SHARE	com.android.bluetooth	2
+android.permission.OBSERVE_APP_USAGE	android	18
+android.permission.PACKAGE_VERIFICATION_AGENT	android	18
+com.google.android.apps.maps.permission.PREFETCH	com.google.android.apps.maps	2
+android.permission.SET_ORIENTATION	android	2
+android.permission.REVOKE_RUNTIME_PERMISSIONS	android	770
+android.permission.BIND_EUICC_SERVICE	android	2
+android.permission.BIND_VISUAL_VOICEMAIL_SERVICE	android	18
+android.permission.MANAGE_USERS	android	18
+com.google.android.gm.email.permission.ACCESS_PROVIDER	com.google.android.gm	2
+com.google.android.gms.contextmanager.CONTEXT_MANAGER_RESTARTED_BROADCAST	com.google.android.gms	2
+android.permission.SET_PREFERRED_APPLICATIONS	android	514
+android.permission.BIND_TV_REMOTE_SERVICE	android	18
+android.permission.FLASHLIGHT	android	
+android.permission.DELETE_CACHE_FILES	android	18
+android.permission.SET_WALLPAPER_COMPONENT	android	18
+android.permission.ACCESS_UCE_PRESENCE_SERVICE	android	18
+android.permission.ACCESS_NETWORK_STATE	android	4096
+android.permission.BIND_CONDITION_PROVIDER_SERVICE	android	2
+android.permission.SET_DISPLAY_OFFSET	android	18
+android.permission.ACCESS_MTP	android	18
+android.permission.DISABLE_KEYGUARD	android	
+android.permission.BACKUP	android	18
+android.permission.INTERNAL_DELETE_CACHE_FILES	android	2
+android.permission.ACCEPT_HANDOVER	android	1
+android.permission.PROCESS_CALLLOG_INFO	com.android.server.telecom	18
+com.google.android.googleapps.permission.GOOGLE_AUTH.youtube	com.google.android.gsf	2
+com.google.android.gms.carsetup.DRIVING_MODE_MANAGER	com.google.android.gms	2
+android.permission.CAMERA	android	4097
+android.permission.CHANGE_CONFIGURATION	android	50
+android.permission.USER_ACTIVITY	android	18
+android.permission.LOCAL_MAC_ADDRESS	android	18
+com.google.android.gms.permission.SHOW_PAYMENT_CARD_DETAILS	com.google.android.gms	2
+android.permission.READ_LOGS	android	50
+com.google.android.apps.maps.permission.C2D_MESSAGE	com.google.android.apps.maps	2
+android.permission.COPY_PROTECTED_DATA	android	2
+com.google.android.gms.magictether.permission.SCANNED_DEVICE	com.google.android.gms	2
+android.permission.BIND_AUTOFILL_FIELD_CLASSIFICATION_SERVICE	android	2
+android.permission.ASEC_DESTROY	android	2
+android.permission.INTERACT_ACROSS_USERS	android	50
+android.permission.SET_WALLPAPER	android	
+android.permission.ASEC_RENAME	android	2
+com.google.android.gms.permission.ACTIVITY_RECOGNITION	com.google.android.gms	
+com.google.android.googleapps.permission.GOOGLE_AUTH.android	com.google.android.gsf	2
+android.permission.SET_KEYBOARD_LAYOUT	android	2
+com.google.android.googleapps.permission.GOOGLE_AUTH.finance	com.google.android.gsf	2
+android.permission.USE_DATA_IN_BACKGROUND	android	2
+android.permission.WRITE_CALENDAR	android	1
+android.permission.UPDATE_CONFIG	android	18
+android.permission.ACCESS_NETWORK_CONDITIONS	android	18
+android.permission.WRITE_CALL_LOG	android	1
+android.permission.BIND_NOTIFICATION_ASSISTANT_SERVICE	android	2
+android.permission.READ_DREAM_STATE	android	18
+android.permission.QUERY_DO_NOT_ASK_CREDENTIALS_ON_BOOT	android	2
+com.google.android.googleapps.permission.GOOGLE_AUTH.dodgeball	com.google.android.gsf	2
+com.google.android.launcher.permission.RECEIVE_FIRST_LOAD_BROADCAST	com.google.android.googlequicksearchbox	18
+com.google.android.gms.permission.BIND_PAYMENTS_CALLBACK_SERVICE	com.google.android.gms	2
+android.permission.UPDATE_LOCK	android	18
+android.permission.ACCESS_LOWPAN_STATE	android	18
+android.permission.READ_NETWORK_USAGE_HISTORY	android	18
+android.permission.ACCESS_DRM_CERTIFICATES	android	18
+com.google.android.gsf.permission.C2D_MESSAGE	com.google.android.gsf	2
+com.google.android.apps.docs.permission.READ_MY_DATA	com.google.android.apps.docs	2
+android.permission.DISABLE_HIDDEN_API_CHECKS	android	2
+android.permission.INSTALL_SELF_UPDATES	android	18
+com.google.android.googlequicksearchbox.permission.FLUSH_LOGS	com.google.android.googlequicksearchbox	2
+android.permission.BIND_SOUND_TRIGGER_DETECTION_SERVICE	android	2
+android.permission.TV_VIRTUAL_REMOTE_CONTROLLER	android	18
+android.permission.MANAGE_APP_OPS_RESTRICTIONS	android	258
+android.permission.READ_INPUT_STATE	android	2
+android.permission.MANAGE_LOWPAN_INTERFACES	android	18
+android.permission.KILL_BACKGROUND_PROCESSES	android	
+android.permission.MANAGE_USER_OEM_UNLOCK_STATE	android	18
+com.google.android.setupwizard.READ_DEVICE_ORIGIN_FIRST_PARTY	com.google.android.setupwizard	
+android.permission.CACHE_CONTENT	android	2
+android.permission.USE_FINGERPRINT	android	
+android.permission.REQUEST_NETWORK_SCORES	android	2050
+android.permission.ACCESS_VOICE_INTERACTION_SERVICE	android	2
+android.permission.SHOW_KEYGUARD_MESSAGE	android	18
+android.permission.BIND_PRINT_SPOOLER_SERVICE	android	2
+android.permission.BIND_DIRECTORY_SEARCH	android	18
+android.permission.CONNECTIVITY_USE_RESTRICTED_NETWORKS	android	18
+android.permission.USE_SIP	android	1
+android.permission.CHANGE_HDMI_CEC_ACTIVE_SOURCE	android	18
+com.google.android.gms.permission.GRANT_WALLPAPER_PERMISSIONS	com.google.android.gms	2
+android.permission.WRITE_USER_DICTIONARY	android	
+android.permission.REGISTER_SIM_SUBSCRIPTION	android	18
+android.permission.READ_SYNC_STATS	android	
+android.permission.MANAGE_OWN_CALLS	android	
+android.permission.WRITE_DREAM_STATE	android	18
+android.permission.FREEZE_SCREEN	android	2
+android.permission.ACCESS_VR_STATE	android	1026
+android.permission.NOTIFY_TV_INPUTS	android	18
+android.permission.DOWNLOAD_CACHE_NON_PURGEABLE	com.android.providers.downloads	18
+com.google.android.dialer.permission.C2D_MESSAGE	com.google.android.dialer	2
+android.permission.ACCESS_SHORTCUTS	android	65538
+android.permission.BIND_TELEPHONY_NETWORK_SERVICE	android	2
+android.permission.REBOOT	android	18
+android.permission.DISPATCH_NFC_MESSAGE	android	18
+com.google.android.gms.chimera.permission.CONFIG_CHANGE	com.google.android.gms	2
+com.google.android.googleapps.permission.GOOGLE_AUTH.health	com.google.android.gsf	2
+com.google.android.gms.auth.permission.FACE_UNLOCK	com.google.android.gms	2
+android.permission.MOUNT_FORMAT_FILESYSTEMS	android	18
+android.permission.PROCESS_OUTGOING_CALLS	android	1
+android.permission.READ_CELL_BROADCASTS	android	1
+android.permission.REQUEST_DELETE_PACKAGES	android	
+android.permission.SUSPEND_APPS	android	18
+android.permission.OEM_UNLOCK_STATE	android	2
+android.permission.REGISTER_CONNECTION_MANAGER	android	18
+android.permission.MANAGE_DEVICE_ADMINS	android	18
+android.permission.CLEAR_APP_CACHE	android	18
+com.google.android.gms.permission.CAR_VENDOR_EXTENSION	com.google.android.gms	1
+android.permission.MODIFY_QUIET_MODE	android	18
+android.permission.CHANGE_APP_IDLE_STATE	android	18
+com.google.android.gms.auth.permission.GOOGLE_ACCOUNT_CHANGE	com.google.android.gms	2
+android.permission.BIND_SETTINGS_SUGGESTIONS_SERVICE	android	2
+android.permission.BRIGHTNESS_SLIDER_USAGE	android	50
+com.google.android.gms.trustagent.framework.model.DATA_ACCESS	com.google.android.gms	2
+android.permission.BIND_TRUST_AGENT	android	2
+com.google.android.googleapps.permission.GOOGLE_AUTH.mobile	com.google.android.gsf	2
+android.permission.MANAGE_DOCUMENTS	android	2
+android.permission.TEST_BLACKLISTED_PASSWORD	android	2
+android.permission.ACCESS_PDB_STATE	android	2
+android.permission.MANAGE_NETWORK_POLICY	android	2
+android.permission.BIND_REMOTEVIEWS	android	18
+android.permission.ASEC_MOUNT_UNMOUNT	android	2
+com.google.android.apps.docs.permission.SYNC_STATUS	com.google.android.apps.docs	
+android.permission.GRANT_RUNTIME_PERMISSIONS	android	770
+android.permission.SET_POINTER_SPEED	android	2
+android.permission.CHANGE_BACKGROUND_DATA_SETTING	android	2
+android.permission.READ_CONTENT_RATING_SYSTEMS	android	18
+android.permission.MANAGE_NOTIFICATIONS	android	2
+android.permission.USE_COLORIZED_NOTIFICATIONS	android	2050
+com.android.systemui.permission.SELF	com.android.systemui	2
+com.android.chrome.TOS_ACKED	com.android.chrome	18
+android.permission.GLOBAL_SEARCH	android	18
+android.permission.NET_TUNNELING	android	2
+android.permission.SEND_SHOW_SUSPENDED_APP_DETAILS	android	2
+android.permission.CONNECTIVITY_INTERNAL	android	18
+com.google.android.googleapps.permission.GOOGLE_AUTH.reader	com.google.android.gsf	
+android.permission.FACTORY_TEST	android	2
+android.permission.SET_WALLPAPER_HINTS	android	
+android.permission.MANAGE_MEDIA_PROJECTION	android	2
+android.permission.READ_SYNC_SETTINGS	android	
+com.google.android.googleapps.permission.GOOGLE_AUTH.sierra	com.google.android.gsf	2
+com.google.android.gms.permission.SHOW_TRANSACTION_RECEIPT	com.google.android.gms	2
+com.google.android.googleapps.permission.GOOGLE_AUTH.speech	com.google.android.gsf	2
+com.google.android.apps.now.CURRENT_ACCOUNT_ACCESS	com.google.android.googlequicksearchbox	2
+com.google.android.partnersetup.permission.ACCESS_PROVIDER	com.google.android.partnersetup	2
+com.android.browser.permission.WRITE_HISTORY_BOOKMARKS	android	
+com.android.chrome.permission.C2D_MESSAGE	com.android.chrome	2
+android.permission.BIND_TELEPHONY_DATA_SERVICE	android	2
+com.google.android.apps.nexuslauncher.permission.WRITE_SETTINGS	com.google.android.apps.nexuslauncher	18
+android.permission.GET_ACCOUNTS	android	1
+android.permission.BROADCAST_PACKAGE_REMOVED	android	2
+android.permission.DISABLE_INPUT_DEVICE	android	2
+android.permission.RUN_IN_BACKGROUND	android	2
+android.permission.OVERRIDE_WIFI_CONFIG	android	18
+android.permission.FORCE_STOP_PACKAGES	android	18
+com.google.android.gms.permission.CAR_MILEAGE	com.google.android.gms	1
+android.permission.MANAGE_CA_CERTIFICATES	android	18
+android.permission.SET_MEDIA_KEY_LISTENER	android	50
+android.permission.HIDE_NON_SYSTEM_OVERLAY_WINDOWS	android	258
+android.permission.CAPTURE_VIDEO_OUTPUT	android	18
+android.permission.ACCESS_NOTIFICATIONS	android	82
+com.google.android.googleapps.permission.GOOGLE_AUTH.geowiki	com.google.android.gsf	
+android.permission.WRITE_EXTERNAL_STORAGE	android	1
+android.permission.VIBRATE	android	4096
+com.android.certinstaller.INSTALL_AS_USER	com.android.certinstaller	2
+com.google.android.gsf.permission.CONNECTION	com.google.android.gsf	2
+android.permission.BIND_ACCESSIBILITY_SERVICE	android	2
+android.permission.MODIFY_ACCESSIBILITY_DATA	android	2
+com.google.android.googleapps.permission.GOOGLE_AUTH.blogger	com.google.android.gsf	2
+android.server.checkin.CHECKIN.permission.C2D_MESSAGE	com.google.android.gsf	2
+android.permission.MANAGE_ACTIVITY_STACKS	android	50
+android.permission.UPDATE_TIME_ZONE_RULES	android	18
+android.permission.SEND_CALL_LOG_CHANGE	com.android.providers.contacts	18
+com.google.android.music.permission.C2D_MESSAGE	com.google.android.music	2
+android.permission.HDMI_CEC	android	18
+android.permission.BIND_INPUT_METHOD	android	2
+android.permission.INVOKE_CARRIER_SETUP	android	18
+android.permission.CHANGE_DEVICE_IDLE_TEMP_WHITELIST	android	18
+android.permission.REMOVE_DRM_CERTIFICATES	android	18
+android.permission.CHANGE_LOWPAN_STATE	android	18
+android.permission.READ_USER_DICTIONARY	android	
+android.permission.FILTER_EVENTS	android	2
+com.google.android.apps.nexuslauncher.permission.QSB	com.google.android.apps.nexuslauncher	18
+com.google.android.gms.permission.SAFETY_NET	com.google.android.gms	2
+com.google.android.googleapps.permission.GOOGLE_AUTH.speechpersonalization	com.google.android.gsf	2
+android.permission.RECEIVE_EMERGENCY_BROADCAST	android	18
+com.google.android.providers.talk.permission.READ_ONLY	com.google.android.gsf	1
+android.permission.BIND_TEXTCLASSIFIER_SERVICE	android	2
+android.permission.VIEW_INSTANT_APPS	android	1026
+android.permission.CREATE_USERS	android	2
+android.permission.MANAGE_SLICE_PERMISSIONS	android	2
+com.google.android.gms.googlehelp.LAUNCH_SUPPORT_SCREENSHARE	com.google.android.gms	18
+android.permission.MODIFY_NETWORK_ACCOUNTING	android	18
+android.permission.MANAGE_SCOPED_ACCESS_DIRECTORY_PERMISSIONS	android	2
+com.google.android.gms.common.internal.SHARED_PREFERENCES_PERMISSION	com.google.android.gms	2
+android.permission.CRYPT_KEEPER	android	18
+android.permission.SEND_EMBMS_INTENTS	android	18
+android.permission.BIND_NFC_SERVICE	android	2
+android.permission.START_PRINT_SERVICE_CONFIG_ACTIVITY	com.android.printspooler	2
+android.permission.CONFIGURE_DISPLAY_BRIGHTNESS	android	50
+com.android.voicemail.permission.WRITE_VOICEMAIL	android	18
+com.google.android.gms.permission.SHOW_WARM_WELCOME_TAPANDPAY_APP	com.google.android.gms	2
+com.google.android.systemui.permission.WIRELESS_CHARGER_STATUS	com.android.systemui	18
+android.permission.GET_DETAILED_TASKS	android	2
+com.google.android.gm.email.permission.READ_ATTACHMENT	com.google.android.gm	2
+android.permission.NOTIFY_PENDING_SYSTEM_UPDATE	android	18
+android.permission.DISPATCH_PROVISIONING_MESSAGE	android	18
+android.permission.ALLOW_ANY_CODEC_FOR_PLAYBACK	android	18
+android.permission.MODIFY_APPWIDGET_BIND_PERMISSIONS	android	18
+android.permission.ACCESS_WIFI_STATE	android	
+com.google.android.gms.permission.BROADCAST_TO_GOOGLEHELP	com.google.android.gms	2
+android.permission.USE_BIOMETRIC	android	
+com.google.android.deskclock.permission.RECEIVE_ALERT_BROADCASTS	com.google.android.deskclock	18
+com.google.android.gms.permission.READ_VALUABLES_IMAGES	com.google.android.gms	2
+com.google.android.launcher.permission.WRITE_SETTINGS	com.google.android.googlequicksearchbox	18
+android.permission.FORCE_BACK	android	2
+com.android.chrome.permission.READ_WRITE_BOOKMARK_FOLDERS	com.android.chrome	18
+com.google.android.googleapps.permission.GOOGLE_AUTH.groups2	com.google.android.gsf	2
+com.google.android.launcher.permission.RECEIVE_LAUNCH_BROADCASTS	com.google.android.googlequicksearchbox	2
+com.google.android.launcher.permission.READ_SETTINGS	com.google.android.googlequicksearchbox	
+com.android.chrome.permission.DEBUG	com.android.chrome	2
+android.permission.MANAGE_APP_OPS_MODES	android	770
+com.android.systemui.permission.PLUGIN	com.android.systemui	2
+android.permission.MANAGE_BLUETOOTH_WHEN_PERMISSION_REVIEW_REQUIRED	android	2
+android.permission.BIND_IMS_SERVICE	android	32786
+com.google.android.gms.permission.CAR_FUEL	com.google.android.gms	1
+android.permission.CHANGE_WIMAX_STATE	android	
+com.google.android.gms.auth.authzen.permission.KEY_REGISTRATION_FINISHED	com.google.android.gms	2
+android.permission.CAMERA_DISABLE_TRANSMIT_LED	android	18
+android.permission.REQUEST_INSTALL_PACKAGES	android	66
+com.google.android.gms.magictether.permission.CLIENT_TETHERING_PREFERENCE_CHANGED	com.google.android.gms	2
+com.google.android.setupwizard.READ_DEVICE_ORIGIN	com.google.android.setupwizard	18
+android.permission.CONTROL_INCALL_EXPERIENCE	android	18
+android.permission.MODIFY_PHONE_STATE	android	18
+com.android.smspush.WAPPUSH_MANAGER_BIND	com.android.smspush	18
+com.google.android.gm.email.permission.GET_WIDGET_UPDATE	com.google.android.gm	2
+android.permission.ACCESS_VR_MANAGER	android	2
+com.google.android.gm.email.permission.UPDATE_AUTH_NOTIFICATION	com.google.android.gm	2
+android.permission.MANAGE_AUTO_FILL	android	2
+com.google.android.googlequicksearchbox.LAUNCH_FROM_DSP_HOTWORD	com.google.android.googlequicksearchbox	18
+android.permission.PACKET_KEEPALIVE_OFFLOAD	android	18
+com.android.launcher.permission.INSTALL_SHORTCUT	android	
+android.permission.BIND_TEXT_SERVICE	android	2
+android.permission.STATUS_BAR	android	18
+android.permission.READ_FRAME_BUFFER	android	18
+android.permission.RECORD_AUDIO	android	4097
+android.permission.SEND_SMS_NO_CONFIRMATION	android	18
+com.google.android.gms.DRIVE	com.google.android.gms	2
+android.permission.DUMP	android	50
+com.google.android.googleapps.permission.GOOGLE_AUTH.sierraqa	com.google.android.gsf	2
+android.permission.GET_APP_GRANTED_URI_PERMISSIONS	android	2
+com.google.android.gms.permission.REQUEST_SCREEN_LOCK_COMPLEXITY	com.google.android.gms	
+android.permission.LOCATION_HARDWARE	android	18
+com.google.android.googlequicksearchbox.LAUNCH_WITH_RECORDED_AUDIO	com.google.android.googlequicksearchbox	18
+android.permission.READ_SOCIAL_STREAM	android	
+android.permission.WAKE_LOCK	android	4096
+android.permission.READ_CONTACTS	android	1
+com.google.android.gms.auth.cryptauth.permission.KEY_CHANGE	com.google.android.gms	2
+android.permission.INJECT_EVENTS	android	2
+android.permission.ACCESS_DOWNLOAD_MANAGER_ADVANCED	com.android.providers.downloads	18
+android.permission.MANAGE_SENSORS	android	2
+android.permission.BIND_NETWORK_RECOMMENDATION_SERVICE	android	2
+android.permission.BIND_CHOOSER_TARGET_SERVICE	android	2
+com.google.android.gms.permission.GROWTH	com.google.android.gms	2
+com.discord.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION	com.discord	2
+android.permission.UPDATE_APP_OPS_STATS	android	274
+android.permission.MANAGE_CARRIER_OEM_UNLOCK_STATE	android	18
+android.permission.ACCESS_INPUT_FLINGER	android	2
+android.permission.OBSERVE_GRANT_REVOKE_PERMISSIONS	android	18
+android.permission.READ_OEM_UNLOCK_STATE	android	18
+android.permission.SET_HARMFUL_APP_WARNINGS	android	514
+com.google.android.apps.docs.permission.C2D_MESSAGE	com.google.android.apps.docs	2
+android.permission.SET_SCREEN_COMPATIBILITY	android	2
+com.google.android.gtalkservice.permission.GTALK_SERVICE	com.google.android.gsf	2
+android.permission.MEDIA_CONTENT_CONTROL	android	18
+android.permission.DELETE_PACKAGES	android	18
+android.permission.MANAGE_WIFI_WHEN_PERMISSION_REVIEW_REQUIRED	android	2
+com.google.android.gms.magictether.permission.DISABLE_SOFT_AP	com.google.android.gms	2
+com.google.android.calendar.permission.READ_OOBE	com.google.android.calendar	2
+com.android.voicemail.permission.ADD_VOICEMAIL	android	1
+com.google.android.gms.chromesync.permission.METADATA_UPDATED	com.google.android.gms	2

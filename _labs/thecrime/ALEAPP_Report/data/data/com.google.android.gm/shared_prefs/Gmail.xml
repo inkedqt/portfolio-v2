@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='utf-8' standalone='yes' ?>
+<map>
+    <boolean name="confirm-send" value="false" />
+    <boolean name="conversation-list-sender-image" value="true" />
+    <string name="removal-action">archive</string>
+    <boolean name="conversation-overview-mode" value="true" />
+    <boolean name="confirm-delete" value="false" />
+    <boolean name="conversation-list-swipe" value="true" />
+    <string name="cache-google-accounts-synced"></string>
+    <boolean name="confirm-archive" value="false" />
+</map>

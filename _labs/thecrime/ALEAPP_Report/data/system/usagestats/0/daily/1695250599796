@@ -1,0 +1,124 @@
+<?xml version='1.0' encoding='utf-8' standalone='yes' ?>
+<usagestats version="1" endTime="3220820">
+    <interactive count="5" time="1695243772893" />
+    <non-interactive count="3" time="1695243773849" />
+    <keyguard-shown count="0" time="0" />
+    <keyguard-hidden count="0" time="0" />
+    <packages>
+        <package lastTimeActive="-1695241010008" package="com.google.android.ext.services" timeActive="0" lastEvent="0" />
+        <package lastTimeActive="-1695241010008" package="com.android.providers.telephony" timeActive="0" lastEvent="0" />
+        <package lastTimeActive="-1695241010008" package="com.google.android.googlequicksearchbox" timeActive="0" lastEvent="0" />
+        <package lastTimeActive="-1695241010008" package="com.android.providers.calendar" timeActive="0" lastEvent="0" />
+        <package lastTimeActive="-1695241010008" package="com.android.providers.media" timeActive="0" lastEvent="0" />
+        <package lastTimeActive="-1695241010008" package="com.android.mms.service" timeActive="0" lastEvent="0" />
+        <package lastTimeActive="-1695241010008" package="com.android.providers.downloads" timeActive="0" lastEvent="0" />
+        <package lastTimeActive="2759162" package="com.discord" timeActive="31774" lastEvent="2" appLaunchCount="3" />
+        <package lastTimeActive="-1695241010008" package="com.android.vending" timeActive="0" lastEvent="0" />
+        <package lastTimeActive="2708840" package="com.ticno.olymptrade" timeActive="28862" lastEvent="2" appLaunchCount="2" />
+        <package lastTimeActive="-1695241010008" package="android" timeActive="0" lastEvent="0" />
+        <package lastTimeActive="2813527" package="com.google.android.setupwizard" timeActive="0" lastEvent="0" />
+        <package lastTimeActive="-1695241010008" package="com.android.printspooler" timeActive="0" lastEvent="0" />
+        <package lastTimeActive="-1695241010008" package="com.android.se" timeActive="0" lastEvent="0" />
+        <package lastTimeActive="-1695241010008" package="com.google.android.dialer" timeActive="0" lastEvent="0" />
+        <package lastTimeActive="2742972" package="com.google.android.apps.maps" timeActive="29072" lastEvent="2" appLaunchCount="1" />
+        <package lastTimeActive="-1695241010008" package="com.android.keychain" timeActive="0" lastEvent="0" />
+        <package lastTimeActive="2749560" package="com.android.chrome" timeActive="5485" lastEvent="2" appLaunchCount="2" />
+        <package lastTimeActive="-1695241010008" package="com.google.android.gms" timeActive="0" lastEvent="0" />
+        <package lastTimeActive="-1695241010008" package="com.google.android.gsf" timeActive="0" lastEvent="0" />
+        <package lastTimeActive="-1695241010008" package="com.google.android.ims" timeActive="0" lastEvent="0" />
+        <package lastTimeActive="-1695241010008" package="com.google.android.partnersetup" timeActive="0" lastEvent="0" />
+        <package lastTimeActive="2805859" package="com.google.android.apps.nexuslauncher" timeActive="782374" lastEvent="1" appLaunchCount="10" />
+        <package lastTimeActive="-1695241010008" package="com.android.smspush" timeActive="0" lastEvent="0" />
+        <package lastTimeActive="2805684" package="com.android.settings" timeActive="9452" lastEvent="2" appLaunchCount="2" />
+        <package lastTimeActive="-1695241010008" package="com.android.phone" timeActive="0" lastEvent="0" />
+        <package lastTimeActive="-1695241010008" package="com.android.providers.blockednumber" timeActive="0" lastEvent="0" />
+        <package lastTimeActive="-1695241010008" package="com.android.systemui" timeActive="0" lastEvent="0" />
+        <package lastTimeActive="-1695241010008" package="com.android.providers.contacts" timeActive="0" lastEvent="0" />
+    </packages>
+    <configurations>
+        <config lastTimeActive="2799819" timeActive="230978" count="1" fs="1065353216" mcc="310" mnc="260" locales="en-US" touch="3" key="2" keyHid="1" hardKeyHid="1" nav="1" navHid="2" ori="1" scrLay="268435810" clrMod="5" ui="17" width="411" height="819" sw="411" density="560" />
+        <config lastTimeActive="2801435" timeActive="0" count="1" active="true" fs="1065353216" mcc="310" mnc="260" locales="en-US" touch="3" key="2" keyHid="1" hardKeyHid="1" nav="1" navHid="2" ori="1" scrLay="268435810" clrMod="5" ui="17" width="411" height="819" sw="411" density="560" />
+        <config lastTimeActive="2568842" timeActive="1774" count="1" fs="1065353216" locales="en-US" touch="3" key="2" keyHid="1" hardKeyHid="1" nav="1" navHid="2" ori="1" scrLay="268435810" clrMod="5" ui="17" width="411" height="819" sw="411" density="560" />
+        <config lastTimeActive="2801434" timeActive="1508" count="1" fs="1065353216" locales="en-US" touch="3" key="2" keyHid="1" hardKeyHid="1" nav="1" navHid="2" ori="1" scrLay="268435810" clrMod="5" ui="17" width="411" height="819" sw="411" density="560" />
+        <config lastTimeActive="2567048" timeActive="20" count="1" fs="1065353216" locales="en-US" touch="1" key="1" keyHid="1" hardKeyHid="2" nav="1" navHid="2" ori="1" scrLay="268435810" clrMod="5" width="411" height="819" sw="411" density="560" />
+        <config lastTimeActive="2799834" timeActive="11" count="1" fs="1065353216" locales="en-US" touch="1" key="1" keyHid="1" hardKeyHid="2" nav="1" navHid="2" ori="1" scrLay="268435810" clrMod="5" width="411" height="819" sw="411" density="560" />
+        <config lastTimeActive="2567028" timeActive="4" count="1" fs="1065353216" locales="en-US" touch="1" key="1" keyHid="1" hardKeyHid="2" nav="1" navHid="2" ori="1" scrLay="268435810" clrMod="5" width="411" height="891" sw="411" density="560" />
+        <config lastTimeActive="2799823" timeActive="4" count="1" fs="1065353216" locales="en-US" touch="1" key="1" keyHid="1" hardKeyHid="2" nav="1" navHid="2" ori="1" scrLay="268435810" clrMod="5" width="411" height="891" sw="411" density="560" />
+        <config lastTimeActive="2567068" timeActive="20" count="1" fs="1065353216" locales="en-US" touch="1" key="1" keyHid="1" hardKeyHid="2" nav="1" navHid="2" ori="1" scrLay="268435810" clrMod="5" ui="17" width="411" height="819" sw="411" density="560" />
+        <config lastTimeActive="2799926" timeActive="92" count="1" fs="1065353216" locales="en-US" touch="1" key="1" keyHid="1" hardKeyHid="2" nav="1" navHid="2" ori="1" scrLay="268435810" clrMod="5" ui="17" width="411" height="819" sw="411" density="560" />
+    </configurations>
+    <event-log>
+        <event time="1751311" package="com.discord" flags="0" type="8" shortcutId="1153848030269804606" />
+        <event time="1751418" package="com.discord" flags="0" type="12" />
+        <event time="1751472" package="com.discord" flags="0" type="10" />
+        <event time="1756934" package="com.google.android.apps.nexuslauncher" class="com.google.android.apps.nexuslauncher.NexusLauncherActivity" flags="0" type="2" />
+        <event time="1756942" package="com.discord" flags="0" type="7" />
+        <event time="1757008" package="com.discord" class="com.discord.main.MainActivity" flags="0" type="1" />
+        <event time="1771070" package="com.discord" class="com.discord.main.MainActivity" flags="0" type="2" />
+        <event time="1771085" package="com.google.android.apps.nexuslauncher" class="com.google.android.apps.nexuslauncher.NexusLauncherActivity" flags="0" type="1" />
+        <event time="1774372" package="com.google.android.apps.nexuslauncher" class="com.google.android.apps.nexuslauncher.NexusLauncherActivity" flags="0" type="2" />
+        <event time="1774403" package="com.discord" class="com.discord.main.MainActivity" flags="0" type="1" />
+        <event time="1786545" package="com.discord" class="com.discord.main.MainActivity" flags="0" type="2" />
+        <event time="1786568" package="com.google.android.apps.nexuslauncher" class="com.google.android.apps.nexuslauncher.NexusLauncherActivity" flags="0" type="1" />
+        <event time="2298996" package="android" flags="0" type="16" />
+        <event time="2299523" package="com.google.android.apps.nexuslauncher" class="com.google.android.apps.nexuslauncher.NexusLauncherActivity" flags="0" type="2" />
+        <event time="2421808" package="android" flags="0" type="15" />
+        <event time="2421817" package="com.google.android.apps.nexuslauncher" class="com.google.android.apps.nexuslauncher.NexusLauncherActivity" flags="0" type="1" />
+        <event time="2510568" package="android" flags="0" type="16" />
+        <event time="2511112" package="com.google.android.apps.nexuslauncher" class="com.google.android.apps.nexuslauncher.NexusLauncherActivity" flags="0" type="2" />
+        <event time="2511246" package="android" flags="0" type="15" />
+        <event time="2511253" package="com.google.android.apps.nexuslauncher" class="com.google.android.apps.nexuslauncher.NexusLauncherActivity" flags="0" type="1" />
+        <event time="2529334" package="com.google.android.apps.nexuslauncher" class="com.google.android.apps.nexuslauncher.NexusLauncherActivity" flags="0" type="2" />
+        <event time="2529425" package="com.android.chrome" class="org.chromium.chrome.browser.ChromeTabbedActivity" flags="0" type="1" />
+        <event time="2532298" package="com.android.chrome" class="org.chromium.chrome.browser.ChromeTabbedActivity" flags="0" type="2" />
+        <event time="2532312" package="com.google.android.apps.nexuslauncher" class="com.google.android.apps.nexuslauncher.NexusLauncherActivity" flags="0" type="1" />
+        <event time="2548998" package="com.google.android.apps.nexuslauncher" class="com.google.android.apps.nexuslauncher.NexusLauncherActivity" flags="0" type="2" />
+        <event time="2567025" package="android" flags="0" type="5" fs="1065353216" locales="en-US" touch="1" key="1" keyHid="1" hardKeyHid="2" nav="1" navHid="2" ori="1" scrLay="268435810" clrMod="5" width="411" height="891" sw="411" density="560" />
+        <event time="2567029" package="android" flags="0" type="5" fs="0" height="819" />
+        <event time="2567049" package="android" flags="0" type="5" fs="0" ui="17" />
+        <event time="2567069" package="android" flags="0" type="5" fs="0" touch="3" key="2" />
+        <event time="2567499" package="android" flags="0" type="15" />
+        <event time="2567986" package="com.android.settings" class="com.android.settings.FallbackHome" flags="0" type="1" />
+        <event time="2568843" package="android" flags="0" type="5" fs="0" mcc="310" mnc="260" />
+        <event time="2572321" package="com.android.settings" class="com.android.settings.FallbackHome" flags="0" type="2" />
+        <event time="2572576" package="com.google.android.apps.nexuslauncher" class="com.google.android.apps.nexuslauncher.NexusLauncherActivity" flags="0" type="1" />
+        <event time="2579811" package="com.google.android.setupwizard" flags="0" type="12" />
+        <event time="2679033" package="com.google.android.apps.nexuslauncher" class="com.google.android.apps.nexuslauncher.NexusLauncherActivity" flags="0" type="2" />
+        <event time="2679042" package="com.ticno.olymptrade" class="com.space307.feature_launch.presentation.LaunchActivity" flags="0" type="1" />
+        <event time="2680664" package="com.ticno.olymptrade" class="com.space307.feature_launch.presentation.LaunchActivity" flags="0" type="2" />
+        <event time="2680686" package="com.ticno.olymptrade" class="com.space307.feature_auth_impl.auth.presentation.AuthActivity" flags="0" type="1" />
+        <event time="2702311" package="com.ticno.olymptrade" class="com.space307.feature_auth_impl.auth.presentation.AuthActivity" flags="0" type="2" />
+        <event time="2702318" package="com.google.android.apps.nexuslauncher" class="com.google.android.apps.nexuslauncher.NexusLauncherActivity" flags="0" type="1" />
+        <event time="2703207" package="com.google.android.apps.nexuslauncher" class="com.google.android.apps.nexuslauncher.NexusLauncherActivity" flags="0" type="2" />
+        <event time="2703225" package="com.ticno.olymptrade" class="com.space307.feature_auth_impl.auth.presentation.AuthActivity" flags="0" type="1" />
+        <event time="2708840" package="com.ticno.olymptrade" class="com.space307.feature_auth_impl.auth.presentation.AuthActivity" flags="0" type="2" />
+        <event time="2708847" package="com.google.android.apps.nexuslauncher" class="com.google.android.apps.nexuslauncher.NexusLauncherActivity" flags="0" type="1" />
+        <event time="2713874" package="com.google.android.apps.nexuslauncher" class="com.google.android.apps.nexuslauncher.NexusLauncherActivity" flags="0" type="2" />
+        <event time="2713900" package="com.google.android.apps.maps" class="com.google.android.maps.MapsActivity" flags="0" type="1" />
+        <event time="2742972" package="com.google.android.apps.maps" class="com.google.android.maps.MapsActivity" flags="0" type="2" />
+        <event time="2742978" package="com.google.android.apps.nexuslauncher" class="com.google.android.apps.nexuslauncher.NexusLauncherActivity" flags="0" type="1" />
+        <event time="2746869" package="com.google.android.apps.nexuslauncher" class="com.google.android.apps.nexuslauncher.NexusLauncherActivity" flags="0" type="2" />
+        <event time="2746948" package="com.android.chrome" class="org.chromium.chrome.browser.ChromeTabbedActivity" flags="0" type="1" />
+        <event time="2749560" package="com.android.chrome" class="org.chromium.chrome.browser.ChromeTabbedActivity" flags="0" type="2" />
+        <event time="2749576" package="com.google.android.apps.nexuslauncher" class="com.google.android.apps.nexuslauncher.NexusLauncherActivity" flags="0" type="1" />
+        <event time="2753503" package="com.google.android.apps.nexuslauncher" class="com.google.android.apps.nexuslauncher.NexusLauncherActivity" flags="0" type="2" />
+        <event time="2753592" package="com.discord" class="com.discord.main.MainActivity" flags="0" type="1" />
+        <event time="2759162" package="com.discord" class="com.discord.main.MainActivity" flags="0" type="2" />
+        <event time="2759169" package="com.google.android.apps.nexuslauncher" class="com.google.android.apps.nexuslauncher.NexusLauncherActivity" flags="0" type="1" />
+        <event time="2762885" package="android" flags="0" type="16" />
+        <event time="2763421" package="com.google.android.apps.nexuslauncher" class="com.google.android.apps.nexuslauncher.NexusLauncherActivity" flags="0" type="2" />
+        <event time="2763841" package="android" flags="0" type="15" />
+        <event time="2763850" package="com.google.android.apps.nexuslauncher" class="com.google.android.apps.nexuslauncher.NexusLauncherActivity" flags="0" type="1" />
+        <event time="2781477" package="com.google.android.apps.nexuslauncher" class="com.google.android.apps.nexuslauncher.NexusLauncherActivity" flags="0" type="2" />
+        <event time="2799820" package="android" flags="0" type="5" fs="0" touch="1" key="1" height="891" />
+        <event time="2799824" package="android" flags="0" type="5" fs="0" height="819" />
+        <event time="2799835" package="android" flags="0" type="5" fs="0" ui="17" />
+        <event time="2799927" package="android" flags="0" type="5" fs="0" touch="3" key="2" />
+        <event time="2800158" package="android" flags="0" type="15" />
+        <event time="2800567" package="com.android.settings" class="com.android.settings.FallbackHome" flags="0" type="1" />
+        <event time="2801435" package="android" flags="0" type="5" fs="0" mcc="310" mnc="260" />
+        <event time="2805684" package="com.android.settings" class="com.android.settings.FallbackHome" flags="0" type="2" />
+        <event time="2805859" package="com.google.android.apps.nexuslauncher" class="com.google.android.apps.nexuslauncher.NexusLauncherActivity" flags="0" type="1" />
+        <event time="2813527" package="com.google.android.setupwizard" flags="0" type="12" />
+    </event-log>
+</usagestats>
