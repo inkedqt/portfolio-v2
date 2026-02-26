@@ -9,7 +9,7 @@ tactics:
 proof: https://cyberdefenders.org/blueteam-ctf-challenges/achievements/inksec/the-crime/
 challenge_url: https://cyberdefenders.org/blueteam-ctf-challenges/the-crime/
 permalink: /blue-team/labs/crimelab/
-summary: Utilize ALEAPP to analyze Android device artifacts, reconstructing a victim's financial details, movements, and communication patterns.
+summary: "Utilize ALEAPP to analyze Android device artifacts, reconstructing a victim's financial details, movements, and communication patterns."
 art: https://cyberdefenders.org/media/terraform/The%20Crime/The_Crime.webp
 ---
 # The Crime – Android Mobile Forensic Investigation
@@ -174,6 +174,7 @@ This sequence suggests financial distress leading to foreign travel and a prearr
 ---
 ## IOCs 
 
+
 | Type                | Value                                                            |
 | ------------------- | ---------------------------------------------------------------- |
 | OlympTrade SHA256   | 4f168a772350f283a1c49e78c1548d7c2c6c05106d8b9feb825fdc3466e9df3c |
@@ -184,6 +185,7 @@ This sequence suggests financial distress leading to foreign travel and a prearr
 | discord channel     | 1153848030269804606                                              |
 | Airline Ticket Hash | 55187f283e17f99c1eacaeee950020761c04fa32579be38f1088cea7b3ebc7d6 |
 # Conclusion
+
 
 Mobile forensic analysis confirmed:
 
@@ -213,7 +215,6 @@ This case demonstrates the investigative power of:
 - Social platform artifact analysis
     
 
-Full artifact output available via:  [ALEAPP Forensic Report](ALEAPP_Report/index.html) 
 
 
 ---
