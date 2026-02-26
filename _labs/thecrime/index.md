@@ -8,7 +8,7 @@ tools: "[ALEAPP, DB Browser for SQLite]"
 tactics:
 proof: https://cyberdefenders.org/blueteam-ctf-challenges/achievements/inksec/the-crime/
 challenge_url: https://cyberdefenders.org/blueteam-ctf-challenges/the-crime/
-permalink: /blue-team/labs/crimelab/
+permalink: /blue-team/labs/thecrime/
 summary: "Utilize ALEAPP to analyze Android device artifacts, reconstructing a victim's financial details, movements, and communication patterns."
 art: https://cyberdefenders.org/media/terraform/The%20Crime/The_Crime.webp
 ---
