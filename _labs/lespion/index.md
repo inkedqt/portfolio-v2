@@ -128,14 +128,17 @@ This confirms the state associated with the final movement of the person of inte
 
 ## IOCs 
 
-| Type        | Value                            |
-| ----------- | -------------------------------- |
+
+| Type | Value |
+| ---- | ----- |
 | office.jpg  | 9b65d6c4e1e10209b4c874e79549e00c |
 | WebCam.png  | 21375b5626ba750d5ff393d9f6e719ec |
 | Github      | https://github.com/EMarseille99  |
 | API Key     | aJFRaLHjMXvYZgLPwiJkroYLGRkNBW   |
 | Password    | PicassoBaguette99                |
 | Mining Tool | xmrig                            |
+
+
 ## Conclusion
 
 The investigation confirms:
