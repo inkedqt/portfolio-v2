@@ -4,6 +4,11 @@ platform: letsdefend
 status: closed
 severity: High
 tags:
+  - mitre/T1047
+  - mitre/T1204
+  - mitre/T1486
+  - mitre/T1059
+  - WMI
 date: 2026-02-28
 MITRE ATT&CK:
 outcome: true-positive
