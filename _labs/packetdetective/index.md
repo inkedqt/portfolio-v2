@@ -101,7 +101,7 @@ What is the name of the file that was opened by the attacker?" answer="eventlog"
 {% include answer.html question="Clearing event logs is a common tactic to hide malicious actions and evade detection. Pinpointing the timestamp of this action is essential for building a timeline of the attacker’s behavior.  
 What is the timestamp of the attempt to clear the event log? (24-hour UTC format)" answer="2020-09-23 16:50" %}
 
-{% include flag.html question="The attacker used "named pipes" for communication, suggesting they may have utilized Remote Procedure Calls (RPC) for lateral movement across the network. RPC allows one program to request services from another remotely, which could grant the attacker unauthorized access or control.  
+{% include flag.html question="The attacker used 'named pipes' for communication, suggesting they may have utilized Remote Procedure Calls (RPC) for lateral movement across the network. RPC allows one program to request services from another remotely, which could grant the attacker unauthorized access or control.  
 What is the name of the service that communicated using this named pipe?" answer="atsvc" %}
 
 {% include answer.html question="Measuring the duration of suspicious communication can reveal how long the attacker maintained unauthorized access, providing insights into the scope and persistence of the attack.  
