@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tate Pannam — SOC Analyst Resume</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Share+Tech+Mono&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --pink: #ff66c4;
+    --cyan: #00fff0;
+    --bg: #0d0d0f;
+    --surface: #13131a;
+    --border: #1e1e2e;
+    --text: #c8c8d4;
+    --dim: #6b6b80;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    line-height: 1.6;
+    max-width: 210mm;
+    margin: 0 auto;
+    padding: 12mm 14mm;
+  }
+
+  /* HEADER */
+  .header {
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 10px;
+    margin-bottom: 14px;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: end;
+    gap: 20px;
+  }
+
+  .name {
+    font-family: 'Orbitron', monospace;
+    font-size: 28px;
+    font-weight: 900;
+    letter-spacing: 4px;
+    line-height: 1;
+    color: #fff;
+  }
+
+  .name span { color: var(--pink); }
+
+  .title {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 10px;
+    color: var(--dim);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-top: 4px;
+  }
+
+  .title span { color: var(--cyan); }
+
+  .contact {
+    text-align: right;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 9.5px;
+    color: var(--dim);
+    line-height: 1.8;
+  }
+
+  .contact a { color: var(--cyan); text-decoration: none; }
+
+  /* SECTION */
+  .section {
+    margin-bottom: 12px;
+    page-break-inside: avoid;
+  }
+
+  .section-title {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 3px;
+    color: var(--pink);
+    text-transform: uppercase;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 3px;
+    margin-bottom: 8px;
+  }
+
+  .section-title::before {
+    content: '// ';
+    color: var(--dim);
+  }
+
+  /* SUMMARY */
+  .summary p {
+    font-size: 10.5px;
+    line-height: 1.65;
+    color: var(--text);
+    margin-bottom: 5px;
+  }
+
+  .summary strong { color: var(--cyan); font-weight: 500; }
+
+  /* TABLES */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 10px;
+  }
+
+  th {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 8px;
+    letter-spacing: 2px;
+    color: var(--dim);
+    text-transform: uppercase;
+    text-align: left;
+    padding: 4px 8px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  td {
+    padding: 4px 8px;
+    border-bottom: 1px solid #1a1a25;
+    vertical-align: top;
+  }
+
+  tr:last-child td { border-bottom: none; }
+
+  .cert-name { color: #e0e0ee; font-weight: 500; }
+  .cert-issuer { color: var(--dim); }
+
+  .status-completed {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 9px;
+    color: var(--cyan);
+  }
+
+  .status-planned {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 9px;
+    color: var(--dim);
+  }
+
+  .status-progress {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 9px;
+    color: var(--pink);
+  }
+
+  /* TWO COLUMN COMPETENCIES */
+  .competencies-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px 20px;
+  }
+
+  .comp-group h4 {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 9px;
+    color: var(--cyan);
+    letter-spacing: 1px;
+    margin-bottom: 4px;
+    text-transform: uppercase;
+  }
+
+  .comp-group ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .comp-group ul li {
+    font-size: 10px;
+    color: var(--text);
+    padding: 1px 0;
+    padding-left: 10px;
+    position: relative;
+  }
+
+  .comp-group ul li::before {
+    content: '›';
+    color: var(--pink);
+    position: absolute;
+    left: 0;
+  }
+
+  /* PORTFOLIO STATS */
+  .stats-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+    margin-bottom: 8px;
+  }
+
+  .stat-box {
+    border: 1px solid var(--border);
+    padding: 6px 8px;
+    text-align: center;
+  }
+
+  .stat-number {
+    font-family: 'Orbitron', monospace;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1;
+    display: block;
+  }
+
+  .stat-label {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 7.5px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--dim);
+    display: block;
+    margin-top: 2px;
+  }
+
+  .stat-box:nth-child(1) .stat-number { color: var(--pink); }
+  .stat-box:nth-child(2) .stat-number { color: var(--cyan); }
+  .stat-box:nth-child(3) .stat-number { color: #ffcc00; }
+  .stat-box:nth-child(4) .stat-number { color: #ff4444; }
+
+  .portfolio-bullets {
+    list-style: none;
+    padding: 0;
+  }
+
+  .portfolio-bullets li {
+    font-size: 10px;
+    padding: 2px 0 2px 12px;
+    position: relative;
+    color: var(--text);
+  }
+
+  .portfolio-bullets li::before {
+    content: '›';
+    color: var(--pink);
+    position: absolute;
+    left: 0;
+  }
+
+  .portfolio-bullets li strong { color: var(--cyan); font-weight: 500; }
+
+  .portfolio-url {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 9px;
+    color: var(--cyan);
+    margin-bottom: 6px;
+    display: block;
+  }
+
+  /* EXPERIENCE */
+  .job { margin-bottom: 10px; page-break-inside: avoid; }
+
+  .job-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 3px;
+  }
+
+  .job-title {
+    font-size: 11px;
+    font-weight: 500;
+    color: #e0e0ee;
+  }
+
+  .job-company { color: var(--pink); }
+
+  .job-period {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 9px;
+    color: var(--dim);
+  }
+
+  .job ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .job ul li {
+    font-size: 10px;
+    padding: 1.5px 0 1.5px 12px;
+    position: relative;
+    color: var(--text);
+  }
+
+  .job ul li::before {
+    content: '›';
+    color: var(--dim);
+    position: absolute;
+    left: 0;
+  }
+
+  /* EDUCATION TABLE */
+  .edu-row td:first-child { color: #e0e0ee; font-weight: 500; }
+  .edu-row td:nth-child(2) { color: var(--dim); }
+  .edu-row td:nth-child(3) { font-family: 'Share Tech Mono', monospace; font-size: 9px; color: var(--cyan); }
+
+  .medal-tag {
+    color: var(--pink);
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 8px;
+  }
+
+  /* FOOTER */
+  .footer {
+    margin-top: 10px;
+    padding-top: 8px;
+    border-top: 1px solid var(--border);
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 8.5px;
+    color: var(--dim);
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .footer span { color: var(--pink); }
+
+  /* PRINT */
+  @media print {
+    body {
+      background: #0d0d0f !important;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+      padding: 10mm 12mm;
+    }
+
+    .section { page-break-inside: avoid; }
+    .job { page-break-inside: avoid; }
+
+    @page {
+      size: A4;
+      margin: 0;
+    }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="header">
+  <div>
+    <div class="name">TATE <span>PANNAM</span></div>
+    <div class="title">SOC Analyst <span>|</span> Blue Team <span>|</span> Threat Detection</div>
+  </div>
+  <div class="contact">
+    <a href="mailto:tate@inksec.io">tate@inksec.io</a><br>
+    0491 600 241<br>
+    <a href="https://inksec.io">inksec.io</a><br>
+    Melbourne, AU — Remote-ready
+  </div>
+</div>
+
+<!-- SUMMARY -->
+<div class="section summary">
+  <div class="section-title">SUMMARY</div>
+  <p>Cybersecurity practitioner transitioning into SOC operations with strong hands-on experience across threat detection, log analysis, incident triage, and MITRE ATT&CK mapping. Background in offensive security provides deep attacker-behaviour context that directly enhances detection accuracy and alert quality.</p>
+  <p>Currently completing Cert IV in Cyber Security (Victoria University) with a <strong>TAFE medal nomination</strong>. Actively documenting daily SOC investigations on inksec.io — <strong>43 investigations</strong>, <strong>72 YouTube walkthroughs</strong>, <strong>41 unique MITRE techniques</strong> mapped across a public portfolio of <strong>23 full lab writeups</strong>.</p>
+  <p>Two decades of IT support and systems experience across Australian telecoms, freelance digital operations, and small-business infrastructure. Clear communicator with proven ability to document, escalate, and work under pressure.</p>
+</div>
+
+<!-- CERTIFICATIONS -->
+<div class="section">
+  <div class="section-title">CERTIFICATIONS</div>
+  <table>
+    <tr>
+      <th>Certification</th>
+      <th>Issuer</th>
+      <th>Status</th>
+    </tr>
+    <tr>
+      <td class="cert-name">CDSA – Certified Defensive Security Analyst</td>
+      <td class="cert-issuer">Hack The Box</td>
+      <td class="status-completed">Completed</td>
+    </tr>
+    <tr>
+      <td class="cert-name">SAL1 – SOC Analyst Level 1</td>
+      <td class="cert-issuer">TryHackMe</td>
+      <td class="status-completed">Completed</td>
+    </tr>
+    <tr>
+      <td class="cert-name">SOC Analyst Learning Path</td>
+      <td class="cert-issuer">LetsDefend / HTB</td>
+      <td class="status-completed">Completed</td>
+    </tr>
+    <tr>
+      <td class="cert-name">AWS Academy Cloud Foundations</td>
+      <td class="cert-issuer">AWS Academy</td>
+      <td class="status-completed">Completed</td>
+    </tr>
+    <tr>
+      <td class="cert-name">CPTS – Certified Penetration Testing Specialist</td>
+      <td class="cert-issuer">Hack The Box</td>
+      <td class="status-completed">Completed</td>
+    </tr>
+    <tr>
+      <td class="cert-name">CWES – Certified Web Exploitation Specialist</td>
+      <td class="cert-issuer">Hack The Box</td>
+      <td class="status-completed">Completed</td>
+    </tr>
+    <tr>
+      <td class="cert-name">BSCP – Burp Suite Certified Practitioner</td>
+      <td class="cert-issuer">PortSwigger</td>
+      <td class="status-completed">Completed</td>
+    </tr>
+    <tr>
+      <td class="cert-name">eJPT – Junior Penetration Tester</td>
+      <td class="cert-issuer">INE</td>
+      <td class="status-completed">Completed</td>
+    </tr>
+    <tr>
+      <td class="cert-name">ICCA – INE Certified Cloud Associate</td>
+      <td class="cert-issuer">INE</td>
+      <td class="status-completed">Completed</td>
+    </tr>
+    <tr>
+      <td class="cert-name">BTL1 – Blue Team Level 1</td>
+      <td class="cert-issuer">Security Blue Team</td>
+      <td class="status-planned">Planned</td>
+    </tr>
+    <tr>
+      <td class="cert-name">Cert IV in Cyber Security</td>
+      <td class="cert-issuer">Victoria University</td>
+      <td class="status-progress">In Progress</td>
+    </tr>
+  </table>
+</div>
+
+<!-- CORE COMPETENCIES -->
+<div class="section">
+  <div class="section-title">CORE COMPETENCIES</div>
+  <div class="competencies-grid">
+    <div class="comp-group">
+      <h4>Detection & Monitoring</h4>
+      <ul>
+        <li>Alert triage & escalation workflows</li>
+        <li>Windows Event Log & Sysmon telemetry analysis</li>
+        <li>Linux audit log & auth log investigation</li>
+        <li>SIEM log ingestion, normalisation, correlation</li>
+        <li>DNS / HTTP / TLS traffic pattern analysis</li>
+        <li>Anomaly detection: process trees, persistence</li>
+        <li>MITRE ATT&CK technique mapping</li>
+        <li>Cloud logging fundamentals (CloudTrail, IAM)</li>
+      </ul>
+    </div>
+    <div class="comp-group">
+      <h4>Incident Response</h4>
+      <ul>
+        <li>Alert validation, IOC identification, containment</li>
+        <li>PowerShell abuse, scheduled tasks, run key analysis</li>
+        <li>Incident timeline construction & documentation</li>
+        <li>Memory forensics (Volatility 3)</li>
+        <li>Network forensics (Wireshark, Zeek, Suricata)</li>
+        <li>OSINT pivoting and IOC enrichment</li>
+      </ul>
+    </div>
+    <div class="comp-group">
+      <h4>Offensive Knowledge (Detection Context)</h4>
+      <ul>
+        <li>Web attack patterns: SQLi, LFI, RCE, IDOR, SSRF</li>
+        <li>AD paths: Kerberoasting, Pass-the-Hash, ESC1</li>
+        <li>Attacker tooling: Mimikatz, Impacket, PsExec</li>
+        <li>Privesc and post-exploitation behaviour patterns</li>
+      </ul>
+    </div>
+    <div class="comp-group">
+      <h4>Tooling</h4>
+      <ul>
+        <li>Splunk, Wazuh, Elastic SIEM</li>
+        <li>Wireshark, Zeek, Suricata, Snort</li>
+        <li>Volatility 3, Autopsy, FTK Imager, NetworkMiner</li>
+        <li>Sysmon + SwiftOnSecurity ruleset</li>
+        <li>Bash, Python (intermediate)</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- PORTFOLIO -->
+<div class="section">
+  <div class="section-title">PORTFOLIO</div>
+  <span class="portfolio-url">inksec.io — Blue Team SOC Portfolio (public, updated daily)</span>
+  <div class="stats-row">
+    <div class="stat-box">
+      <span class="stat-number">43</span>
+      <span class="stat-label">Investigations</span>
+    </div>
+    <div class="stat-box">
+      <span class="stat-number">72</span>
+      <span class="stat-label">YouTube Videos</span>
+    </div>
+    <div class="stat-box">
+      <span class="stat-number">41</span>
+      <span class="stat-label">MITRE Techniques</span>
+    </div>
+    <div class="stat-box">
+      <span class="stat-number">23</span>
+      <span class="stat-label">Lab Writeups</span>
+    </div>
+  </div>
+  <ul class="portfolio-bullets">
+    <li><strong>Daily investigations</strong> — LetsDefend alerts triaged using 5W methodology, documented with MITRE ATT&CK mapping</li>
+    <li><strong>Lab writeups</strong> — CyberDefenders and BTLO labs covering memory forensics, network analysis, OSINT, DFIR, malware investigation</li>
+    <li><strong>YouTube series</strong> — live walkthroughs as part of the <em>Day N of Becoming a SOC Analyst</em> series</li>
+    <li><strong>Custom tooling</strong> — Python/Jekyll pipelines powering searchable command reference, auto-generated lab grid, MITRE heatmap</li>
+  </ul>
+</div>
+
+<!-- EXPERIENCE -->
+<div class="section">
+  <div class="section-title">PROFESSIONAL EXPERIENCE</div>
+
+  <div class="job">
+    <div class="job-header">
+      <div class="job-title">Freelance IT & Digital Systems Consultant — <span class="job-company">Thailand</span></div>
+      <div class="job-period">2011 – 2024</div>
+    </div>
+    <ul>
+      <li>Managed hosting, DNS, SSL, email, CMS backends, and access controls for small-business clients</li>
+      <li>Investigated downtime, bot attacks, brute-force attempts and performed log-based post-incident analysis</li>
+      <li>Implemented monitoring alerts, performed malware clean-ups and security patching on client systems</li>
+      <li>Supported clients through COVID-era digital transitions: online payments, remote comms, cloud migration</li>
+      <li>Continued self-directed cybersecurity study throughout: HackTheBox, TryHackMe, INE, cloud training</li>
+    </ul>
+  </div>
+
+  <div class="job">
+    <div class="job-header">
+      <div class="job-title">IT Helpdesk Support & Team Manager — <span class="job-company">Primus Telecom, Melbourne</span></div>
+      <div class="job-period">2002 – 2010</div>
+    </div>
+    <ul>
+      <li>L1/L2 support for broadband, VoIP, DSL, PPPoE, and email services across a national customer base</li>
+      <li>Investigated authentication failures, packet loss, DNS issues, and interpreted modem/router telemetry</li>
+      <li>Managed a team of 15+ agents — exceeded KPI targets, delivered training and knowledge base documentation</li>
+      <li>Coordinated escalations with NOC, assisted with service provisioning and fault data correlation</li>
+    </ul>
+  </div>
+
+  <div class="job">
+    <div class="job-header">
+      <div class="job-title">IT Support Technician — <span class="job-company">Discriptus, Australia</span></div>
+      <div class="job-period">1997 – 2002</div>
+    </div>
+    <ul>
+      <li>Desktop support, Exchange and file server maintenance, LAN troubleshooting, AV and patch management</li>
+    </ul>
+  </div>
+</div>
+
+<!-- EDUCATION -->
+<div class="section">
+  <div class="section-title">EDUCATION</div>
+  <table>
+    <tr>
+      <th>Qualification</th>
+      <th>Institution</th>
+      <th>Status</th>
+    </tr>
+    <tr class="edu-row">
+      <td>Cert IV in Cyber Security</td>
+      <td>Victoria University</td>
+      <td>In Progress <span class="medal-tag">★ TAFE Medal Nomination</span></td>
+    </tr>
+    <tr class="edu-row">
+      <td>Cert IV in Information Technology</td>
+      <td>Computer Power St Kilda</td>
+      <td>Completed 2003</td>
+    </tr>
+  </table>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <span>References available upon request</span>
+  <span>inksec.io &nbsp;·&nbsp; tate@inksec.io &nbsp;·&nbsp; <span>0491 600 241</span></span>
+</div>
+
+</body>
+</html>
