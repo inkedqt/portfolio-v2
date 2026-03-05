@@ -217,12 +217,20 @@ const COMMANDS_DATA = [
     "lab_url": "/blue-team/labs/packetdetective/",
     "desc": "Filter SMB2 traffic to identify files written by attacker IP, revealing remote execution via PSEXESVC.exe",
     "tags": "wireshark"
+  },
+  {
+    "command": "http && ip.addr == 23.158.56.196 && http.request.method == \"POST\"",
+    "tool": "wireshark",
+    "lab": "jetbrains",
+    "lab_url": "/blue-team/labs/jetbrains/",
+    "desc": "Filter HTTP POST requests from attacker IP to identify webshell uploads and command execution activity",
+    "tags": "wireshark"
   }
 ];
 
 const COMMANDS_META = {
-  "total": 27,
-  "labs": 10,
+  "total": 28,
+  "labs": 11,
   "tools": [
     "shell",
     "splunk",
