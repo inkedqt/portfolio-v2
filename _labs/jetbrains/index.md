@@ -4,7 +4,7 @@ title: jetbrains
 platform: CyberDefenders
 difficulty: Easy
 category: Network Forensics
-tools: "[Wireshark, NetworkMiner, Brim]"
+tools: "[Wireshark]"
 tactics: "[Initial Access, Execution, Command and Control]"
 proof: https://cyberdefenders.org/blueteam-ctf-challenges/achievements/inksec/jetbrains/
 challenge_url: https://cyberdefenders.org/blueteam-ctf-challenges/jetbrains/
