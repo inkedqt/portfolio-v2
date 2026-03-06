@@ -225,12 +225,20 @@ const COMMANDS_DATA = [
     "lab_url": "/blue-team/labs/jetbrains/",
     "desc": "Filter HTTP POST requests from attacker IP to identify webshell uploads and command execution activity",
     "tags": "wireshark"
+  },
+  {
+    "command": "http && ip.addr == 111.224.180.128 and frame contains \"lqkctf24s9h9lg67teu8uevn3q\"",
+    "tool": "wireshark",
+    "lab": "retailbreach",
+    "lab_url": "/blue-team/labs/retailbreach/",
+    "desc": "Filter attacker traffic containing the stolen session cookie to confirm hijacked session usage",
+    "tags": "wireshark"
   }
 ];
 
 const COMMANDS_META = {
-  "total": 28,
-  "labs": 11,
+  "total": 29,
+  "labs": 12,
   "tools": [
     "shell",
     "splunk",
