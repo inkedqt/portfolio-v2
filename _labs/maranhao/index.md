@@ -160,7 +160,7 @@ malicious ip ``208.95.112.1``
 
 {% include flag.html question="Forensic correlation across endpoints requires file-level fingerprinting. What SHA1 hash uniquely represents the dropper binary that initiated further payload deployment?" answer="FCB94C06FA80CE277B47E545B3805AB38BB6ACF4" %}
 
-{% include answer.html question="Post-installation, the secondary payload did not remain in temporary directories but was staged in a user-space program folder. Identify the exact directory path used for this execution pivot." answer="C:\Users\Levi\AppData\Local\Programs\Microsoft Updater\" %}
+{% include answer.html question="Post-installation, the secondary payload did not remain in temporary directories but was staged in a user-space program folder. Identify the exact directory path used for this execution pivot." answer="C:\Users\Levi\AppData\Local\Programs\Microsoft Updater" %}
 
 {% include flag.html question="During execution, the secondary component was invoked with a victim-tagging token for C2 identification. What globally unique string was provided as the argument?" answer="e90de8b2-eb79-4614-94f8-308f0f81573b" %}
 
@@ -180,7 +180,7 @@ malicious ip ``208.95.112.1``
 
 {% include flag.html question="During host triage, analysts identified a query that enumerated logical drives along with their free space and size. This could help an attacker determine whether the host was worth further exploitation e.g., data exfiltration feasibility. Which WMI command produced this disk inventory?" answer="wmic logicaldisk get Caption,FreeSpace,Size,Description /format:list" %}
 
-{% include answer.html question="Unlike transient licensing tokens stored in tokens.dat, the malware pursued a static registry artifact used as a backup for Windows activation. Identify the precise registry entry (hive, key path, and value) that serves as a fallback product key reference." answer="HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\SoftwareProtectionPlatform\BackupProductKeyDefault" %}
+{% include answer.html question="Unlike transient licensing tokens stored in tokens.dat, the malware pursued a static registry artifact used as a backup for Windows activation. Identify the precise registry entry (hive, key path, and value) that serves as a fallback product key reference." answer='HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\SoftwareProtectionPlatform\BackupProductKeyDefault' %}
 
 {% include flag.html question="Attackers often terminate browsers before attempting to steal session data, cookies, or inject a malicious browser extension. What is the command that was used to forcibly terminate all browser processes?" answer="taskkill  /F /IM msedge.exe" %}
 
