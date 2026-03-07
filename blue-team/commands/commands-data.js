@@ -233,12 +233,44 @@ const COMMANDS_DATA = [
     "lab_url": "/blue-team/labs/retailbreach/",
     "desc": "Filter attacker traffic containing the stolen session cookie to confirm hijacked session usage",
     "tags": "wireshark"
+  },
+  {
+    "command": "ip.addr==10.0.2.4 && smb2",
+    "tool": "wireshark",
+    "lab": "lockdown",
+    "lab_url": "/blue-team/labs/lockdown/",
+    "desc": "Filter SMB2 traffic from attacker IP to identify share enumeration and file upload activity",
+    "tags": "wireshark"
+  },
+  {
+    "command": "vol -f memdump.mem windows.info",
+    "tool": "volatility",
+    "lab": "lockdown",
+    "lab_url": "/blue-team/labs/lockdown/",
+    "desc": "Dump system information from memory image including kernel base address and OS version",
+    "tags": "volatility"
+  },
+  {
+    "command": "vol -f memdump.mem windows.pstree",
+    "tool": "volatility",
+    "lab": "lockdown",
+    "lab_url": "/blue-team/labs/lockdown/",
+    "desc": "Display running process tree from memory to identify suspicious parent-child relationships and injected processes",
+    "tags": "volatility"
+  },
+  {
+    "command": "vol -f memdump.mem windows.cmdline",
+    "tool": "volatility",
+    "lab": "lockdown",
+    "lab_url": "/blue-team/labs/lockdown/",
+    "desc": "Extract full command line arguments for all running processes to identify malicious execution paths and persistence mechanisms",
+    "tags": "volatility"
   }
 ];
 
 const COMMANDS_META = {
-  "total": 29,
-  "labs": 12,
+  "total": 33,
+  "labs": 13,
   "tools": [
     "shell",
     "splunk",
