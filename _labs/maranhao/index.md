@@ -9,7 +9,7 @@ tactics: "[Initial Access, Execution, Persistence, Privilege Escalation, Defense
 proof: https://cyberdefenders.org/blueteam-ctf-challenges/achievements/inksec/maranhao/
 challenge_url: https://cyberdefenders.org/blueteam-ctf-challenges/maranhao/
 permalink: /blue-team/labs/maranhao/
-summary: '"Investigate a trojanized game installer by analyzing browser history, logs, registry hives, and filesystem artifacts to map the full attack chain and extract IOCs."'
+summary: "Investigate a trojanized game installer by analyzing browser history, logs, registry hives, and filesystem artifacts to map the full attack chain and extract IOCs."
 art: https://cyberdefenders.org/media/terraform/Maranh%C3%A3o/terraform/Maranh%C3%A3o/maranhao.webp
 ---
 ## Scenario
