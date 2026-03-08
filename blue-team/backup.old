@@ -75,7 +75,7 @@ nav {
 .nav-brand .pk { color:var(--pink); text-shadow:0 0 20px var(--pink-dim); }
 .nav-brand .cx { color:var(--cyan); }
 .nav-links { display:flex; gap:clamp(14px,3vw,32px); list-style:none; align-items:center; }
-.nav-links a { font-size:10px; letter-spacing:0.2em; text-transform:uppercase; color:var(--subtle); text-decoration:none; transition:color 0.2s; }
+.nav-links a { font-size:10px; letter-spacing:0.2em; text-transform:uppercase; color:var(--cyan); text-decoration:none; transition:color 0.2s; }
 .nav-links a:hover { color:var(--pink); }
 .nav-back { font-size:10px; letter-spacing:0.15em; color:var(--subtle); text-decoration:none; border:1px solid var(--muted); padding:4px 10px; transition:all 0.2s; }
 .nav-back:hover { color:var(--cyan); border-color:var(--cyan-dim); }
@@ -202,6 +202,7 @@ section:last-child { border-bottom:none; }
 /* platform filter colours */
 .fbtn[data-platform="BTL1"].active       { border-color:rgba(0,245,212,0.4); color:var(--cyan); background:var(--cyan-faint); }
 .fbtn[data-platform="BTLO"].active       { border-color:rgba(255,209,102,0.4); color:var(--gold); background:rgba(255,209,102,0.07); }
+.fbtn[data-platform="CyberDefenders"].active { border-color:rgba(0,180,255,0.4); color:#00b4ff; background:rgba(0,180,255,0.07); }
 .fbtn[data-platform="LetsDefend"].active { border-color:var(--pink-dim); color:var(--pink); background:var(--pink-faint); }
 .fbtn[data-platform="TryHackMe"].active  { border-color:rgba(0,255,136,0.3); color:var(--green); background:rgba(0,255,136,0.05); }
 .fbtn[data-platform="Splunk"].active     { border-color:rgba(255,140,0,0.4); color:#ff8c00; background:rgba(255,140,0,0.07); }
@@ -258,6 +259,7 @@ section:last-child { border-bottom:none; }
 }
 .badge-BTL1       { background:rgba(0,245,212,0.15); border-color:var(--cyan-dim); color:var(--cyan); }
 .badge-BTLO       { background:rgba(255,209,102,0.15); border-color:var(--gold-dim); color:var(--gold); }
+.badge-CyberDefenders { background:rgba(0,180,255,0.12); border-color:rgba(0,180,255,0.4); color:#00b4ff; }
 .badge-LetsDefend { background:rgba(255,102,196,0.15); border-color:var(--pink-dim); color:var(--pink); }
 .badge-TryHackMe  { background:rgba(0,255,136,0.12); border-color:var(--green-dim); color:var(--green); }
 .badge-Splunk     { background:rgba(255,140,0,0.12); border-color:rgba(255,140,0,0.4); color:#ff8c00; }
@@ -414,6 +416,7 @@ section:last-child { border-bottom:none; }
   .hero-stats { flex-wrap:wrap; }
   nav .nav-links { display:none; }
 }
+html { scroll-behavior: smooth; zoom: 1.2; }
 </style>
 </head>
 <body>
@@ -423,9 +426,9 @@ section:last-child { border-bottom:none; }
   <a class="nav-brand" href="/"><span class="pk">ink</span>sec<span class="cx">.io</span></a>
   <ul class="nav-links">
     <li><a href="#investigations">Investigations</a></li>
-    <li><a href="#btl1">BTL1</a></li>
     <li><a href="#labs">Labs</a></li>
     <li><a href="#environments">Lab Envs</a></li>
+    <li><a href="/resume/">Resume</a></li>
   </ul>
   <a class="nav-back" href="/">← home</a>
 </nav>
@@ -575,64 +578,28 @@ section:last-child { border-bottom:none; }
     </div>
   </section>
 
-  <!-- BTL1 LABS -->
-  <section id="btl1">
-    <div class="sec-eyebrow">// security blue team · certification path</div>
-    <div class="sec-title">BTL1 <span class="cx">Certification Labs</span></div>
-    <p class="sec-desc">Hands-on labs from the Blue Team Level 1 certification path. Real-world defensive scenarios with full investigation documentation and MITRE ATT&CK mapping.</p>
-    <div class="btl1-progress">
-      <div class="progress-track"><div class="progress-fill" id="btl1-fill" style="width:22%"></div></div>
-      <div class="progress-text"><span id="btl1-done">2</span> of 9 BTL1 labs completed (<span id="btl1-pct">22%</span>)</div>
+  <!-- DAILY INVESTIGATIONS -->
+  <section id="investigations">
+    <div class="sec-eyebrow">// daily soc practice · live investigation log</div>
+    <div class="sec-title">daily <span class="pk">investigations</span></div>
+    <p class="sec-desc">Every alert triaged, documented, and mapped to MITRE ATT&CK. Updated daily as part of the <em>Day N of Becoming a SOC Analyst</em> series.</p>
+    <div class="hero-stats" style="margin-bottom:24px;">
+      <div class="hstat"><div class="hstat-val pk" id="inv-total">—</div><div class="hstat-label">Investigations</div></div>
+      <div class="hstat"><div class="hstat-val cx" id="inv-tp">—</div><div class="hstat-label">True Positives</div></div>
+      <div class="hstat"><div class="hstat-val go" id="inv-mitre">—</div><div class="hstat-label">MITRE Techniques</div></div>
+      <div class="hstat"><div class="hstat-val pk" id="inv-critical">—</div><div class="hstat-label">Critical</div></div>
     </div>
-    <!-- Featured BTL1 writeup -->
-    <div class="featured-lab">
-      <div class="featured-art">
-        <img src="/assets/images/labs/btl1/piggy-hero.png"
-             onerror="this.style.background='#1a1a2e';this.style.display='block'"
-             alt="Piggy BTL1 Lab">
-      </div>
-      <div class="featured-body">
-        <div class="featured-tag">BTL1 · Lab 1 · Featured Writeup</div>
-        <div class="featured-title">Piggy</div>
-        <div class="featured-meta">Completed · 27/27 · February 13, 2026</div>
-        <div class="featured-cats">
-          <span class="featured-cat">PCAP Analysis</span>
-          <span class="featured-cat">Wireshark</span>
-          <span class="featured-cat">OSINT</span>
-          <span class="featured-cat">MITRE ATT&CK</span>
-        </div>
-        <p class="featured-summary">Multi-PCAP investigation across four capture files — identifying SSH data exfiltration, malware infrastructure, ASN attribution via WHOIS, and full MITRE ATT&CK technique mapping. Tools: Wireshark, VirusTotal, WHOIS/ASN lookups, MITRE ATT&CK Navigator.</p>
-        <a class="featured-cta" href="/blue-team/piggy/">read full writeup →</a>
-      </div>
+    <div style="font-size:10px;letter-spacing:0.1em;color:var(--subtle);margin-bottom:16px;">
+      Latest: <span id="inv-latest" style="color:var(--cyan);">—</span>
     </div>
-
-    <!-- Featured Bec-Ky -->
-    <div class="featured-lab" style="margin-top:14px;">
-      <div class="featured-art">
-        <img src="/assets/images/labs/btl1/becky.png"
-             onerror="this.style.background='#1a1a2e';this.style.display='block'"
-             alt="Bec-Ky BTLO Lab">
-      </div>
-      <div class="featured-body">
-        <div class="featured-tag">BTLO · Lab 2 · BEC Investigation</div>
-        <div class="featured-title">Bec-Ky</div>
-        <div class="featured-meta">Completed · Easy · February 2026</div>
-        <div class="featured-cats">
-          <span class="featured-cat">Incident Response</span>
-          <span class="featured-cat">BEC</span>
-          <span class="featured-cat">Email Forensics</span>
-        </div>
-        <p class="featured-summary">Business Email Compromise investigation — unauthorised bank transfers from company pension fund to multiple external accounts. Trace the attacker's methodology and identify the full scope of compromise.</p>
-        <a class="featured-cta" href="/blue-team/bec-ky/">read full writeup →</a>
-      </div>
-    </div>
+    <a class="featured-cta" href="/blue-team/alerts/" style="display:inline-block;">view full investigation log →</a>
   </section>
 
   <!-- ALL LABS -->
   <section id="labs">
     <div class="sec-eyebrow">// all completed labs</div>
     <div class="sec-title">lab <span class="pk">grid</span></div>
-    <p class="sec-desc">All platforms, all labs. Filter by platform, difficulty, or category. Adding new labs weekly.</p>
+    <p class="sec-desc">All platforms, all labs. Filter by platform, difficulty, or category. Adding new labs weekly. BTL1: <span id="btl1-done">1</span> of 9 completed.</p>
 
     <div class="filter-bar">
       <input class="filter-search" type="text" placeholder="> search labs, tools, techniques..." id="lab-search">
@@ -641,7 +608,8 @@ section:last-child { border-bottom:none; }
         <button class="fbtn active" data-platform="all">All</button>
         <button class="fbtn" data-platform="BTL1">BTL1</button>
         <button class="fbtn" data-platform="BTLO">BTLO</button>
-        <button class="fbtn" data-platform="LetsDefend">LetsDefend</button>
+        <button class="fbtn" data-platform="CyberDefenders">CyberDefenders</button>
+	<button class="fbtn" data-platform="LetsDefend">LetsDefend</button>
         <button class="fbtn" data-platform="TryHackMe">TryHackMe</button>
         <button class="fbtn" data-platform="HackSmarter">HackSmarter</button>
       </div>
@@ -717,6 +685,18 @@ section:last-child { border-bottom:none; }
         <a class="ach-link" href="/blue-team/alerts/">view full log →</a>
       </div>
       <div class="doc-card">
+  	<div class="doc-icon">⌨️</div>
+  	<div class="doc-title">Command Reference</div>
+  	<div class="doc-desc">Every command used across real lab investigations — searchable, filterable, and copyable. Built so future me doesn't have to google the same thing twice.</div>
+  	<ul class="doc-bullets">
+    	  <li>26 commands and growing</li>
+   	  <li>Volatility · Splunk · Wireshark · Zeek</li>
+    	  <li>Linked back to source lab for context</li>
+   	  <li>Auto-extracted from investigation notes</li>
+  	</ul>
+  	<a class="ach-link" href="/blue-team/commands/">view command reference →</a>
+      </div>
+      <div class="doc-card">
         <div class="doc-icon">🔗</div>
         <div class="doc-title">Public Platform Profiles</div>
         <div class="doc-desc">Verified investigation work across multiple SOC training platforms — all publicly verifiable.</div>
@@ -767,44 +747,18 @@ const LABS = [
   // ── BTL1 ──
   {
     name:     'Piggy',
-    platform: 'BTL1',
+    platform: 'BTLO',
     diff:     'Easy',
     cats:     ['PCAP Analysis','Wireshark','OSINT','MITRE ATT&CK'],
     status:   'done',
     score:    '27/27',
     summary:  'Multi-PCAP investigation — SSH data exfiltration identification, malware infrastructure discovery, ASN attribution, MITRE ATT&CK mapping across four capture files.',
     art:      '/assets/images/labs/btl1/piggy-hero.png',
-    writeup:  '/blue-team/piggy/',
-    proof:    null,
-    featured: true,
+    writeup:  '/blue-team/labs/piggy/',
+    proof:    'https://blueteamlabs.online/achievement/share/144656/66',
   },
 
   // ── BTLO (examples — add yours as you complete them) ──
-  {
-    name:     'Pathfinder\'s Mark',
-    platform: 'BTLO',
-    diff:     'Medium',
-    cats:     ['Incident Response','Log Analysis'],
-    status:   'done',
-    score:    null,
-    summary:  'Winter festival incident response — analysing unusual network activity and identifying threat actor TTPs through structured IR methodology.',
-    art:      'https://blueteamlabs.online/storage/challenges/2b0e0ae0d31ab1ee1d16.jpg',
-    writeup:  null,
-    proof:    null,
-    featured: true,
-  },
-  {
-    name:     'Shimmerward Eye',
-    platform: 'BTLO',
-    diff:     'Medium',
-    cats:     ['Digital Forensics','Memory Analysis'],
-    status:   'done',
-    score:    null,
-    summary:  'Digital forensics investigation — evidence collection and timeline reconstruction in a complex multi-stage compromise scenario.',
-    art:      'https://blueteamlabs.online/storage/challenges/b9e2ae0d31ab1ee1d167.jpg',
-    writeup:  null,
-    proof:    null,
-  },
   {
     name:     'Bec-Ky',
     platform: 'BTLO',
@@ -813,23 +767,312 @@ const LABS = [
     status:   'done',
     score:    null,
     summary:  'Business Email Compromise investigation — suspected cyber incident involving unauthorised bank transfers from company pension fund. Trace the attacker\'s methodology.',
-    art:      '/assets/images/labs/btl1/bec-ky.png',
-    writeup:  '/blue-team/bec-ky/',
-    proof:    null,
-  },
-  {
-    name:     'MiddleMayhem',
-    platform: 'BTLO',
-    diff:     'Easy',
-    cats:     ['Incident Response','SIEM','Log Analysis'],
-    status:   'done',
-    score:    null,
-    summary:  'MiddleMayhem Inc. unusual network traffic to admin portal — SIEM log analysis to determine attack pattern and scope of incident.',
-    art:      'https://blueteamlabs.online/storage/challenges/d4g2ae0d31ab1ee1d167.jpg',
-    writeup:  null,
-    proof:    null,
+    art:      '/assets/images/labs/btl1/becky.png',
+    writeup:  '/blue-team/labs/bec-ky/',
+    proof:    'https://blueteamlabs.online/achievement/share/144656/267',
   },
 
+  // ── CyberDefenders ──
+  {
+    name:     'WebStrike',
+    platform: 'CyberDefenders',
+    diff:     'Easy',
+    cats:     ['Network Forensics','PCAP Analysis','Wireshark','Web Shell'],
+    status:   'done',
+    score:    null,
+    summary:  'Suspicious file identified on a company web server. PCAP analysis revealed a double-extension bypass (image.jpg.php) used to upload a PHP webshell, reverse shell attempt via netcat on port 8080, and /etc/passwd exfiltration attempt. Attacker attributed to Tianjin, China via IP2Location.',
+    art:      'https://cyberdefenders.org/media/terraform/WebStrike/WebStrike.webp',
+    writeup:  '/blue-team/labs/webstrike/',
+    proof:    'https://cyberdefenders.org/blueteam-ctf-challenges/achievements/inksec/webstrike/',
+  },
+  {
+    name:     'Oski',
+    platform: 'CyberDefenders',
+    diff:     'Easy',
+    cats:     ['Threat Intelligence','Malware Analysis','Sandbox Analysis','Credential Access','PCAP Analysis'],
+    status:   'done',
+    score:    null,
+    summary:  'Analyzed a Stealc malware sample using VirusTotal and Any.Run to extract configuration details, identify command and control infrastructure, recover RC4 encryption keys, and map observed behaviour to MITRE ATT&CK techniques.',
+    art:      'https://cyberdefenders.org/media/terraform/Oski/Oski.webp',
+    writeup:  '/blue-team/labs/oski/',
+    proof:    'https://cyberdefenders.org/blueteam-ctf-challenges/achievements/inksec/oski/',
+  },
+  {
+    name:     'PoisonedCredentials',
+    platform: 'CyberDefenders',
+    diff:     'Easy',   
+    cats:     ['Network Forensics','PCAP Analysis','Wireshark'],
+    status:   'done',   
+    score:    null,
+    summary:  'Analyzed PCAP data to detect LLMNR poisoning, identify the rogue responder, extract NTLM credentials, and confirm unauthorized SMB access to the targeted host.',
+    art:      'https://cyberdefenders.org/media/terraform/PoisonedCredentials/PoisonedCredentials.webp',
+    writeup:  '/blue-team/labs/poisonedcredentials/',
+    proof:    'https://cyberdefenders.org/blueteam-ctf-challenges/achievements/inksec/poisonedcredentials/',
+  },
+  {
+    name:     'Yellow Rat',
+    platform: 'CyberDefenders',
+    diff:     'Easy',
+    cats:     ['Threat Intel', 'VirusTotal', 'Red Canary', 'Execution', 'Persistence', 'Defense Evasion', 'Command and Control', 'Exfiltration'],
+    status:   'done',
+    score:    null,
+    summary:  'Analyzed Yellow Cockatoo RAT DLL using VirusTotal and ANY.RUN, identifying C2 infrastructure, persistence via .lnk startup files, and solarmarker.dat drop.',
+    art:      'https://cyberdefenders.org/media/terraform/Yellow%20RAT/Yellow_RAT.webp',
+    writeup:  '/blue-team/labs/yellowrat/',
+    proof:    'https://cyberdefenders.org/blueteam-ctf-challenges/achievements/inksec/yellow-rat/',
+  },
+  {
+    name:     'Amadey - APT-C-36',
+    platform: 'CyberDefenders',
+    diff:     'Easy',
+    cats:     ['Endpoint Forensics', 'Memory Analysis', 'Volatility 3', 'Execution', 'Persistence', 'Privilege Escalation', 'Defense Evasion', 'Command and Control', 'Exfiltration'],
+    status:   'done',
+    score:    null,
+    summary:  'Reconstruct Amadey Trojan behavior by analyzing memory dumps with Volatility3 to identify malicious processes, C2 communications, payload delivery, and persistence mechanisms.',
+    art:      'https://cyberdefenders.org/media/terraform/Amadey/Amadey.webp',
+    writeup:  '/blue-team/labs/amadey/',
+    proof:    'https://cyberdefenders.org/blueteam-ctf-challenges/achievements/inksec/amadey-apt-c-36/',
+  },
+  {
+    name:     'Lespion',
+    platform: 'CyberDefenders',
+    diff:     'Easy',
+    cats:     ['Threat Intel', 'Wireshark', 'Google Maps', 'Google Image search', 'Sherlock'],
+    status:   'done',
+    score:    null,
+    summary:  'Investigated an insider breach using GitHub analysis and OSINT pivoting to uncover exposed credentials, crypto-mining activity, and geolocation evidence.',
+    art:      'https://cyberdefenders.org/media/terraform/Lespion/Lespion.webp',
+    writeup:  '/blue-team/labs/lespion/',
+    proof:    'https://cyberdefenders.org/blueteam-ctf-challenges/achievements/inksec/lespion/',
+  },
+  {
+    name:     'The Crime',
+    platform: 'CyberDefenders',
+    diff:     'Easy',
+    cats:     ['Endpoint Forensics', 'ALEAPP', 'DB Browser for SQLite'],
+    status:   'done',
+    score:    null,
+    summary:  "Utilize ALEAPP to analyze Android device artifacts, reconstructing a victim's financial details, movements, and communication patterns.",
+    art:      'https://cyberdefenders.org/media/terraform/The%20Crime/The_Crime.webp',
+    writeup:  '/blue-team/labs/thecrime/',
+    proof:    'https://cyberdefenders.org/blueteam-ctf-challenges/achievements/inksec/the-crime/',
+  },
+  {
+    name:     'PSEXEC Hunt',
+    platform: 'CyberDefenders',
+    diff:     'Easy',
+    cats:     ['Network Forensics', 'Wireshark', 'Execution', 'Defense Evasion', 'Discovery', 'Lateral Movement'],
+    status:   'done',
+    score:    null,
+    summary:  "Analyze SMB traffic in a PCAP file using Wireshark to identify PsExec lateral movement, compromised systems, user credentials, and administrative shares.",
+    art:      'https://cyberdefenders.org/media/terraform/PsExec%20Hunt/PsExec_Hunt.webp',
+    writeup:  '/blue-team/labs/psexechunt/',
+    proof:    'https://cyberdefenders.org/blueteam-ctf-challenges/achievements/inksec/psexec-hunt/',
+  },
+  {
+    name:     'Red Stealer',
+    platform: 'CyberDefenders',
+    diff:     'Easy',
+    cats:     ['Threat Intel', 'Whois', 'VirusTotal', 'MalwareBazaar', 'ThreatFox', 'ANY.RUN', 'Execution', 'Persistence', 'Privilege Escalation', 'Defense Evasion', 'Discovery', 'Collection', 'Impact'],
+    status:   'done',
+    score:    null,
+    summary:  "Analyze a suspicious executable using VirusTotal and MalwareBazaar to extract IOCs, identify C2 infrastructure, MITRE ATT&CK techniques, and privilege escalation mechanisms.",
+    art:      'https://cyberdefenders.org/media/terraform/Red%20Stealer/Red_Stealer.webp',
+    writeup:  '/blue-team/labs/redstealer/',
+    proof:    'https://cyberdefenders.org/blueteam-ctf-challenges/achievements/inksec/red-stealer/',
+  },
+  {
+    name:     '3cx Supply Chain',
+    platform: 'CyberDefenders',
+    diff:     'Easy',
+    cats:     ['Threat Intel', 'VirusTotal', 'Persistence', 'Privilege Escalation', 'Defense Evasion', 'Discovery'],
+    status:   'done',
+    score:    null,
+    summary:  "Reconstruct the 3CX supply chain attack by analyzing compromised MSI and DLL artifacts to identify TTPs and attribute the incident to a threat actor.",
+    art:      'https://cyberdefenders.org/media/terraform/3CX%20Supply%20Chain/3cx_supply_chain_720.webp',
+    writeup:  '/blue-team/labs/3cxsupplychain/',
+    proof:    'https://cyberdefenders.org/blueteam-ctf-challenges/achievements/inksec/3cx-supply-chain/',
+  },
+  {
+    name:     'DanaBot',
+    platform: 'CyberDefenders',
+    diff:     'Easy',
+    cats:     ['Network Forensics', 'Wireshark', 'VirusTotal', 'ANY.RUN', 'Network Miner', 'Execution', 'Command and Control'],
+    status:   'done',
+    score:    null,
+    summary:  "Analyze network traffic using Wireshark to identify DanaBot initial access, deobfuscate malicious JavaScript, and extract IOCs like IPs, file hashes, and execution processes.",
+    art:      'https://cyberdefenders.org/media/terraform/DanaBot/DanaBot.webp',
+    writeup:  '/blue-team/labs/danabot/',
+    proof:    'https://cyberdefenders.org/blueteam-ctf-challenges/achievements/inksec/danabot/',
+  },
+  {
+    name:     'Volatility Traces',
+    platform: 'CyberDefenders',
+    diff:     'Easy',
+    cats:     ['Endpoint Forensics', 'Volatility 3', 'Execution', 'Persistence'],
+    status:   'done',
+    score:    null,
+    summary:  "Analyze a memory dump using Volatility to identify malicious processes, persistence mechanisms, defense evasion techniques, and map them to MITRE ATT&CK.",
+    art:      'https://cyberdefenders.org/media/terraform/Volatility%20Traces/Volatility_Traces_A7cz9FH.webp',
+    writeup:  '/blue-team/labs/volatilitytraces/',
+    proof:    'https://cyberdefenders.org/blueteam-ctf-challenges/achievements/inksec/volatility-traces/',
+  },
+  {
+    name:     'Insider',
+    platform: 'CyberDefenders',
+    diff:     'Easy',
+    cats:     ['Endpoint Forensics', 'FTK Imager', 'Execution', 'Credential Access'],
+    status:   'done',
+    score:    null,
+    summary:  "Analyze Linux disk image artifacts, including logs and Bash history, using FTK Imager to investigate insider threat activities and reconstruct user actions.",
+    art:      'https://cyberdefenders.org/media/terraform/Insider/Insider_MIaRqal.webp',
+    writeup:  '/blue-team/labs/insider/',
+    proof:    'https://cyberdefenders.org/blueteam-ctf-challenges/achievements/inksec/insider/',
+  },
+  {
+    name:     'NerisBot',
+    platform: 'CyberDefenders',
+    diff:     'Easy',
+    cats:     ['Threat Hunting', 'Splunk', 'Command and Control'],
+    status:   'done',
+    score:    null,
+    summary:  'Reconstruct the attack timeline by correlating Suricata and Zeek logs in Splunk to identify malicious IPs, C2 domains, targeted hosts, and file hashes.',
+    art:      'https://cyberdefenders.org/media/terraform/NerisBot/NerisBot_uISG1hp.webp',
+    writeup:  '/blue-team/labs/nerisbot/',
+    proof:    'https://cyberdefenders.org/blueteam-ctf-challenges/achievements/inksec/nerisbot/',
+  },
+  {
+    name:     'Ramnit',
+    platform: 'CyberDefenders',
+    diff:     'Easy',
+    cats:     ['Endpoint Forensics', 'Volatility 3', 'VirusTotal', 'Execution', 'Defense Evasion', 'Command and Control'],
+    status:   'done',
+    score:    null,
+    summary:  "Analyze a memory dump using Volatility to identify a malicious process, extract network IOCs, file hash, and compilation timestamp, correlating with external threat intelligence.",
+    art:      'https://cyberdefenders.org/media/terraform/Ramnit/Ramnit.webp',
+    writeup:  '/blue-team/labs/ramnit/',
+    proof:    'https://cyberdefenders.org/blueteam-ctf-challenges/achievements/inksec/ramnit/',
+  },
+  {
+    name:     'GrabThePhisher',
+    platform: 'CyberDefenders',
+    diff:     'Easy',
+    cats:     ['Threat Intel', 'Text Editor', 'Initial Access', 'Exfiltration'],
+    status:   'done',
+    score:    null,
+    summary:  'Analyze a cryptocurrency phishing kit to identify exfiltration methods, extract critical IOCs, and gather threat actor intelligence using local logs and Telegram APIs.',
+    art:      'https://cyberdefenders.org/media/terraform/GrabThePhisher/GrabThePhisher.webp',
+    writeup:  '/blue-team/labs/grabthephisher/',
+    proof:    'https://cyberdefenders.org/blueteam-ctf-challenges/achievements/inksec/grabthephisher/',
+  },
+  {
+    name:     'PacketDetective',
+    platform: 'CyberDefenders',
+    diff:     'Easy',
+    cats:     ['Network Forensics', 'Wireshark', 'Execution', 'Defense Evasion', 'Command and Control'],
+    status:   'done',
+    score:    null,
+    summary:  "Analyze network traffic in PCAP files using Wireshark to extract IOCs and reconstruct attacker tactics like authentication and remote execution.",
+    art:      'https://cyberdefenders.org/media/terraform/PacketDetective/Packet_Detective.webp',
+    writeup:  '/blue-team/labs/packetdetective/',
+    proof:    'https://cyberdefenders.org/blueteam-ctf-challenges/achievements/inksec/packetdetective/',
+  },
+  {
+    name:     'jetbrains',
+    platform: 'CyberDefenders',
+    diff:     'Easy',
+    cats:     ['Network Forensics', 'Wireshark', 'NetworkMiner', 'Brim', 'Initial Access', 'Execution', 'Command and Control'],
+    status:   'done',
+    score:    null,
+    summary:  'Analyze network traffic using Wireshark to identify web server exploitation, extract attacker IOCs and persistence mechanisms, and map attack techniques to MITRE ATT&CK.',
+    art:      'https://cyberdefenders.org/media/terraform/JetBrains/JetBrains_w96gGwO.webp',
+    writeup:  '/blue-team/labs/jetbrains/',
+    proof:    'https://cyberdefenders.org/blueteam-ctf-challenges/achievements/inksec/jetbrains/',
+  },
+  {
+    name:     'RetailBreach',
+    platform: 'CyberDefenders',
+    diff:     'Easy',
+    cats:     ['Network Forensics', 'Wireshark', 'Reconnaissance', 'Initial Access', 'Execution', 'Defense Evasion', 'Credential Access', 'Discovery', 'Lateral Movement'],
+    status:   'done',
+    score:    null,
+    summary:  "Investigate network traffic with Wireshark to identify attacker TTPs, extract XSS payloads and session tokens, and determine exploited web application vulnerabilities.",
+    art:      'https://cyberdefenders.org/media/terraform/RetailBreach/RetailBreach_S9g8WLI.webp',
+    writeup:  '/blue-team/labs/retailbreach/',
+    proof:    'https://cyberdefenders.org/blueteam-ctf-challenges/achievements/inksec/retailbreach/',
+  },
+  {
+    name:     'Openfire',
+    platform: 'CyberDefenders',
+    diff:     'Easy',
+    cats:     ['Network Forensics', 'Wireshark', 'Initial Access', 'Execution', 'Persistence', 'Discovery', 'Command and Control'],
+    status:   'done',
+    score:    null,
+    summary:  "Reconstruct an Openfire server attack timeline by analyzing PCAP files with Wireshark to identify login attempts, plugin uploads, command execution, and the exploited CVE-2023-32315 vulnerability.",
+    art:      'https://cyberdefenders.org/media/terraform/Openfire/Openfire_rYHqdgk.webp',
+    writeup:  '/blue-team/labs/openfire/',
+    proof:    'https://cyberdefenders.org/blueteam-ctf-challenges/achievements/inksec/openfire/',
+  },
+  {
+    name:     'XLMRat',
+    platform: 'CyberDefenders',
+    diff:     'Easy',
+    cats:     ['Network Forensics', 'CyberChef', 'Wireshark', 'VirusTotal', 'Python3', 'PowerShell', 'Execution', 'Defense Evasion'],
+    status:   'done',
+    score:    null,
+    summary:  'Analyze network traffic to identify malware delivery, deobfuscate scripts, and map attacker techniques using MITRE ATT&CK, focusing on stealthy execution and reflective code loading.',
+    art:      'https://cyberdefenders.org/media/terraform/XLMRat/terraform/XLMRat/xlmrat.webp',
+    writeup:  '/blue-team/labs/CHANGE-ME/',
+    proof:    'https://cyberdefenders.org/blueteam-ctf-challenges/achievements/inksec/xlmrat/',
+  },
+  {
+    name:     'Lockdown',
+    platform: 'CyberDefenders',
+    diff:     'Easy',
+    cats:     ['Network Forensics', 'CyberChef', 'Wireshark', 'VirusTotal', 'Volatility', 'Execution', 'Persistence', 'Privilege Escalation', 'Defense Evasion', 'Discovery', 'Lateral Movement', 'Command and Control'],
+    status:   'done',
+    score:    null,
+    summary:  "Reconstruct a multi-stage intrusion by analyzing network traffic, memory, and malware artifacts using Wireshark, Volatility, and VirusTotal, mapping findings to MITRE ATT&CK.",
+    art:      'https://cyberdefenders.org/media/terraform/Lockdown/terraform/Lockdown/lockdown.webp',
+    writeup:  '/blue-team/labs/lockdown/',
+    proof:    'https://cyberdefenders.org/blueteam-ctf-challenges/achievements/inksec/lockdown/',
+  },
+  {
+    name:     'Maranhao',
+    platform: 'CyberDefenders',
+    diff:     'Easy',
+    cats:     ['Endpoint Forensics', 'FTK Imager', 'Initial Access', 'Execution', 'Persistence', 'Privilege Escalation', 'Defense Evasion', 'Credential Access', 'Collection'],
+    status:   'done',
+    score:    null,
+    summary:  "Investigate a trojanized game installer by analyzing browser history, logs, registry hives, and filesystem artifacts to map the full attack chain and extract IOCs.",
+    art:      'https://cyberdefenders.org/media/terraform/Maranh%C3%A3o/terraform/Maranh%C3%A3o/maranhao.webp',
+    writeup:  '/blue-team/labs/maranhao/',
+    proof:    'https://cyberdefenders.org/blueteam-ctf-challenges/achievements/inksec/maranhao/',
+  },
+  {
+    name:     'ContainerBreak - Rootkit Trail',
+    platform: 'CyberDefenders',
+    diff:     'Easy',
+    cats:     ['Endpoint Forensics', 'Linux Command Line Tools', 'Execution', 'Persistence', 'Privilege Escalation', 'Defense Evasion', 'Command and Control'],
+    status:   'done',
+    score:    null,
+    summary:  "Investigated a post-container-escape Linux compromise involving rootkit installation, hidden processes, and persistence mechanisms identified through live forensic collection.",
+    art:      'https://cyberdefenders.org/media/terraform/DuskUnfold0x2/terraform/DuskUnfold0x2/duskunfold0x2_ic6Ej2s.webp',
+    writeup:  '/blue-team/labs/containerbreak/',
+    proof:    'https://cyberdefenders.org/blueteam-ctf-challenges/achievements/inksec/containerbreak-rootkit-trail/',
+  },
+  {
+    name:     'SigmaPredator',
+    platform: 'CyberDefenders',
+    diff:     'Easy',
+    cats:     ['Detection Engineering', 'VsCode', 'Sigma', 'Chainsaw', 'Defense Evasion'],
+    status:   'done',
+    score:    null,
+    summary:  "Design and validate Sigma rules to detect event log clearing techniques across CLI, WMI, and PowerShell execution artifacts.",
+    art:      'https://cyberdefenders.org/media/terraform/SigmaPredator/SigmaPredator.webp',
+    writeup:  '/blue-team/labs/sigmapredator/',
+    proof:    'https://cyberdefenders.org/blueteam-ctf-challenges/achievements/inksec/sigmapredator/',
+  },
   // ── LetsDefend ──
   {
     name:     'SOC Analyst Path',
@@ -1024,6 +1267,23 @@ renderAll();
 <script src="/alerts-data.js"></script>
 <script>
   if (typeof ALERTS !== 'undefined') {
+    // populate blue-team page investigation stats
+    const invTp   = document.getElementById('inv-total');
+    const invTpEl = document.getElementById('inv-tp');
+    const invMit  = document.getElementById('inv-mitre');
+    const invCrit = document.getElementById('inv-critical');
+    const invLat  = document.getElementById('inv-latest');
+    if (invTp) {
+      const tp     = ALERTS.filter(a => a.outcome && a.outcome.includes('true')).length;
+      const mitre  = new Set(ALERTS.flatMap(a => a.mitre||[])).size;
+      const crit   = ALERTS.filter(a => a.severity === 'critical').length;
+      const latest = ALERTS.slice().sort((a,b) => b.date.localeCompare(a.date))[0];
+      invTp.textContent   = ALERTS.length;
+      invTpEl.textContent = tp;
+      invMit.textContent  = mitre;
+      invCrit.textContent = crit;
+      if (invLat && latest) invLat.textContent = latest.id + ' — ' + latest.title.slice(0,40) + (latest.title.length>40?'…':'');
+    }
     const tp     = ALERTS.filter(a => a.outcome?.includes('true')).length;
     const fp     = ALERTS.filter(a => a.outcome?.includes('false')).length;
     const mitre  = new Set(ALERTS.flatMap(a => a.mitre||[])).size;

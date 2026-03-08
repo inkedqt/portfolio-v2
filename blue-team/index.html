@@ -200,13 +200,13 @@ section:last-child { border-bottom:none; }
 .fbtn.active { border-color:var(--pink-dim); color:var(--pink); background:var(--pink-faint); }
 
 /* platform filter colours */
-.fbtn[data-platform="BTL1"].active       { border-color:rgba(0,245,212,0.4); color:var(--cyan); background:var(--cyan-faint); }
-.fbtn[data-platform="BTLO"].active       { border-color:rgba(255,209,102,0.4); color:var(--gold); background:rgba(255,209,102,0.07); }
-.fbtn[data-platform="CyberDefenders"].active { border-color:rgba(0,180,255,0.4); color:#00b4ff; background:rgba(0,180,255,0.07); }
-.fbtn[data-platform="LetsDefend"].active { border-color:var(--pink-dim); color:var(--pink); background:var(--pink-faint); }
-.fbtn[data-platform="TryHackMe"].active  { border-color:rgba(0,255,136,0.3); color:var(--green); background:rgba(0,255,136,0.05); }
-.fbtn[data-platform="Splunk"].active     { border-color:rgba(255,140,0,0.4); color:#ff8c00; background:rgba(255,140,0,0.07); }
-.fbtn[data-platform="HackSmarter"].active{ border-color:rgba(180,130,255,0.4); color:#b482ff; background:rgba(180,130,255,0.07); }
+.fbtn[data-skill="Network Forensics"].active     { border-color:rgba(0,245,212,0.4); color:var(--cyan); background:var(--cyan-faint); }
+.fbtn[data-skill="Endpoint Forensics"].active    { border-color:rgba(255,209,102,0.4); color:var(--gold); background:rgba(255,209,102,0.07); }
+.fbtn[data-skill="Malware Analysis"].active      { border-color:rgba(255,102,196,0.4); color:var(--pink); background:var(--pink-faint); }
+.fbtn[data-skill="Threat Intelligence"].active   { border-color:rgba(0,180,255,0.4); color:#00b4ff; background:rgba(0,180,255,0.07); }
+.fbtn[data-skill="Threat Hunting"].active        { border-color:rgba(0,255,136,0.3); color:var(--green); background:var(--green-dim); }
+.fbtn[data-skill="Detection Engineering"].active { border-color:rgba(180,130,255,0.4); color:#b482ff; background:rgba(180,130,255,0.07); }
+.fbtn[data-skill="Incident Response"].active     { border-color:rgba(255,140,0,0.4); color:#ff8c00; background:rgba(255,140,0,0.07); }
 
 /* diff colours */
 .fbtn[data-diff="Easy"].active   { border-color:var(--cyan-dim); color:var(--cyan); background:var(--cyan-faint); }
@@ -604,14 +604,15 @@ html { scroll-behavior: smooth; zoom: 1.2; }
     <div class="filter-bar">
       <input class="filter-search" type="text" placeholder="> search labs, tools, techniques..." id="lab-search">
       <div class="filter-group">
-        <span class="filter-label">platform</span>
-        <button class="fbtn active" data-platform="all">All</button>
-        <button class="fbtn" data-platform="BTL1">BTL1</button>
-        <button class="fbtn" data-platform="BTLO">BTLO</button>
-        <button class="fbtn" data-platform="CyberDefenders">CyberDefenders</button>
-	<button class="fbtn" data-platform="LetsDefend">LetsDefend</button>
-        <button class="fbtn" data-platform="TryHackMe">TryHackMe</button>
-        <button class="fbtn" data-platform="HackSmarter">HackSmarter</button>
+        <span class="filter-label">skill</span>
+        <button class="fbtn active" data-skill="all">All</button>
+        <button class="fbtn" data-skill="Network Forensics">Network Forensics</button>
+        <button class="fbtn" data-skill="Endpoint Forensics">Endpoint Forensics</button>
+        <button class="fbtn" data-skill="Malware Analysis">Malware Analysis</button>
+        <button class="fbtn" data-skill="Threat Intelligence">Threat Intel</button>
+        <button class="fbtn" data-skill="Threat Hunting">Threat Hunting</button>
+        <button class="fbtn" data-skill="Detection Engineering">Detection Eng</button>
+        <button class="fbtn" data-skill="Incident Response">Incident Response</button>
       </div>
       <div class="filter-group">
         <span class="filter-label">diff</span>
@@ -747,6 +748,7 @@ const LABS = [
   // ── BTL1 ──
   {
     name:     'Piggy',
+    skill:    'Network Forensics',
     platform: 'BTLO',
     diff:     'Easy',
     cats:     ['PCAP Analysis','Wireshark','OSINT','MITRE ATT&CK'],
@@ -761,6 +763,7 @@ const LABS = [
   // ── BTLO (examples — add yours as you complete them) ──
   {
     name:     'Bec-Ky',
+    skill:    'Incident Response',
     platform: 'BTLO',
     diff:     'Easy',
     cats:     ['Incident Response','BEC','Email Forensics'],
@@ -775,6 +778,7 @@ const LABS = [
   // ── CyberDefenders ──
   {
     name:     'WebStrike',
+    skill:    'Network Forensics',
     platform: 'CyberDefenders',
     diff:     'Easy',
     cats:     ['Network Forensics','PCAP Analysis','Wireshark','Web Shell'],
@@ -787,6 +791,7 @@ const LABS = [
   },
   {
     name:     'Oski',
+    skill:    'Malware Analysis',
     platform: 'CyberDefenders',
     diff:     'Easy',
     cats:     ['Threat Intelligence','Malware Analysis','Sandbox Analysis','Credential Access','PCAP Analysis'],
@@ -799,6 +804,7 @@ const LABS = [
   },
   {
     name:     'PoisonedCredentials',
+    skill:    'Network Forensics',
     platform: 'CyberDefenders',
     diff:     'Easy',   
     cats:     ['Network Forensics','PCAP Analysis','Wireshark'],
@@ -811,6 +817,7 @@ const LABS = [
   },
   {
     name:     'Yellow Rat',
+    skill:    'Threat Intelligence',
     platform: 'CyberDefenders',
     diff:     'Easy',
     cats:     ['Threat Intel', 'VirusTotal', 'Red Canary', 'Execution', 'Persistence', 'Defense Evasion', 'Command and Control', 'Exfiltration'],
@@ -823,6 +830,7 @@ const LABS = [
   },
   {
     name:     'Amadey - APT-C-36',
+    skill:    'Malware Analysis',
     platform: 'CyberDefenders',
     diff:     'Easy',
     cats:     ['Endpoint Forensics', 'Memory Analysis', 'Volatility 3', 'Execution', 'Persistence', 'Privilege Escalation', 'Defense Evasion', 'Command and Control', 'Exfiltration'],
@@ -835,6 +843,7 @@ const LABS = [
   },
   {
     name:     'Lespion',
+    skill:    'Threat Intelligence',
     platform: 'CyberDefenders',
     diff:     'Easy',
     cats:     ['Threat Intel', 'Wireshark', 'Google Maps', 'Google Image search', 'Sherlock'],
@@ -847,6 +856,7 @@ const LABS = [
   },
   {
     name:     'The Crime',
+    skill:    'Endpoint Forensics',
     platform: 'CyberDefenders',
     diff:     'Easy',
     cats:     ['Endpoint Forensics', 'ALEAPP', 'DB Browser for SQLite'],
@@ -859,6 +869,7 @@ const LABS = [
   },
   {
     name:     'PSEXEC Hunt',
+    skill:    'Threat Hunting',
     platform: 'CyberDefenders',
     diff:     'Easy',
     cats:     ['Network Forensics', 'Wireshark', 'Execution', 'Defense Evasion', 'Discovery', 'Lateral Movement'],
@@ -871,6 +882,7 @@ const LABS = [
   },
   {
     name:     'Red Stealer',
+    skill:    'Threat Intelligence',
     platform: 'CyberDefenders',
     diff:     'Easy',
     cats:     ['Threat Intel', 'Whois', 'VirusTotal', 'MalwareBazaar', 'ThreatFox', 'ANY.RUN', 'Execution', 'Persistence', 'Privilege Escalation', 'Defense Evasion', 'Discovery', 'Collection', 'Impact'],
@@ -883,6 +895,7 @@ const LABS = [
   },
   {
     name:     '3cx Supply Chain',
+    skill:    'Threat Intelligence',
     platform: 'CyberDefenders',
     diff:     'Easy',
     cats:     ['Threat Intel', 'VirusTotal', 'Persistence', 'Privilege Escalation', 'Defense Evasion', 'Discovery'],
@@ -895,6 +908,7 @@ const LABS = [
   },
   {
     name:     'DanaBot',
+    skill:    'Malware Analysis',
     platform: 'CyberDefenders',
     diff:     'Easy',
     cats:     ['Network Forensics', 'Wireshark', 'VirusTotal', 'ANY.RUN', 'Network Miner', 'Execution', 'Command and Control'],
@@ -907,6 +921,7 @@ const LABS = [
   },
   {
     name:     'Volatility Traces',
+    skill:    'Endpoint Forensics',
     platform: 'CyberDefenders',
     diff:     'Easy',
     cats:     ['Endpoint Forensics', 'Volatility 3', 'Execution', 'Persistence'],
@@ -919,6 +934,7 @@ const LABS = [
   },
   {
     name:     'Insider',
+    skill:    'Endpoint Forensics',
     platform: 'CyberDefenders',
     diff:     'Easy',
     cats:     ['Endpoint Forensics', 'FTK Imager', 'Execution', 'Credential Access'],
@@ -931,6 +947,7 @@ const LABS = [
   },
   {
     name:     'NerisBot',
+    skill:    'Threat Hunting',
     platform: 'CyberDefenders',
     diff:     'Easy',
     cats:     ['Threat Hunting', 'Splunk', 'Command and Control'],
@@ -943,6 +960,7 @@ const LABS = [
   },
   {
     name:     'Ramnit',
+    skill:    'Endpoint Forensics',
     platform: 'CyberDefenders',
     diff:     'Easy',
     cats:     ['Endpoint Forensics', 'Volatility 3', 'VirusTotal', 'Execution', 'Defense Evasion', 'Command and Control'],
@@ -955,6 +973,7 @@ const LABS = [
   },
   {
     name:     'GrabThePhisher',
+    skill:    'Threat Intelligence',
     platform: 'CyberDefenders',
     diff:     'Easy',
     cats:     ['Threat Intel', 'Text Editor', 'Initial Access', 'Exfiltration'],
@@ -967,6 +986,7 @@ const LABS = [
   },
   {
     name:     'PacketDetective',
+    skill:    'Network Forensics',
     platform: 'CyberDefenders',
     diff:     'Easy',
     cats:     ['Network Forensics', 'Wireshark', 'Execution', 'Defense Evasion', 'Command and Control'],
@@ -979,6 +999,7 @@ const LABS = [
   },
   {
     name:     'jetbrains',
+    skill:    'Network Forensics',
     platform: 'CyberDefenders',
     diff:     'Easy',
     cats:     ['Network Forensics', 'Wireshark', 'NetworkMiner', 'Brim', 'Initial Access', 'Execution', 'Command and Control'],
@@ -991,6 +1012,7 @@ const LABS = [
   },
   {
     name:     'RetailBreach',
+    skill:    'Network Forensics',
     platform: 'CyberDefenders',
     diff:     'Easy',
     cats:     ['Network Forensics', 'Wireshark', 'Reconnaissance', 'Initial Access', 'Execution', 'Defense Evasion', 'Credential Access', 'Discovery', 'Lateral Movement'],
@@ -1003,6 +1025,7 @@ const LABS = [
   },
   {
     name:     'Openfire',
+    skill:    'Network Forensics',
     platform: 'CyberDefenders',
     diff:     'Easy',
     cats:     ['Network Forensics', 'Wireshark', 'Initial Access', 'Execution', 'Persistence', 'Discovery', 'Command and Control'],
@@ -1015,6 +1038,7 @@ const LABS = [
   },
   {
     name:     'XLMRat',
+    skill:    'Malware Analysis',
     platform: 'CyberDefenders',
     diff:     'Easy',
     cats:     ['Network Forensics', 'CyberChef', 'Wireshark', 'VirusTotal', 'Python3', 'PowerShell', 'Execution', 'Defense Evasion'],
@@ -1027,6 +1051,7 @@ const LABS = [
   },
   {
     name:     'Lockdown',
+    skill:    ['Malware Analysis', 'Network Forensics', 'Endpoint Forensics'],
     platform: 'CyberDefenders',
     diff:     'Easy',
     cats:     ['Network Forensics', 'CyberChef', 'Wireshark', 'VirusTotal', 'Volatility', 'Execution', 'Persistence', 'Privilege Escalation', 'Defense Evasion', 'Discovery', 'Lateral Movement', 'Command and Control'],
@@ -1039,6 +1064,7 @@ const LABS = [
   },
   {
     name:     'Maranhao',
+    skill:    'Endpoint Forensics',
     platform: 'CyberDefenders',
     diff:     'Easy',
     cats:     ['Endpoint Forensics', 'FTK Imager', 'Initial Access', 'Execution', 'Persistence', 'Privilege Escalation', 'Defense Evasion', 'Credential Access', 'Collection'],
@@ -1051,6 +1077,7 @@ const LABS = [
   },
   {
     name:     'ContainerBreak - Rootkit Trail',
+    skill:    'Endpoint Forensics',
     platform: 'CyberDefenders',
     diff:     'Easy',
     cats:     ['Endpoint Forensics', 'Linux Command Line Tools', 'Execution', 'Persistence', 'Privilege Escalation', 'Defense Evasion', 'Command and Control'],
@@ -1063,6 +1090,7 @@ const LABS = [
   },
   {
     name:     'SigmaPredator',
+    skill:    'Detection Engineering',
     platform: 'CyberDefenders',
     diff:     'Easy',
     cats:     ['Detection Engineering', 'VsCode', 'Sigma', 'Chainsaw', 'Defense Evasion'],
@@ -1076,6 +1104,7 @@ const LABS = [
   // ── LetsDefend ──
   {
     name:     'SOC Analyst Path',
+    skill:    'Threat Hunting',
     platform: 'LetsDefend',
     diff:     'Medium',
     cats:     ['Alert Triage','SIEM','Malware','Phishing','Network'],
@@ -1090,6 +1119,7 @@ const LABS = [
   // ── TryHackMe ──
   {
     name:     'Advent of Cyber 2025 (SOC-mas)',
+    skill:    'Incident Response',
     platform: 'TryHackMe',
     diff:     'Easy',
     cats:     ['SOC','Splunk','DFIR','Phishing','Network Forensics'],
@@ -1102,6 +1132,7 @@ const LABS = [
   },
   {
     name:     'Night Shift CTF',
+    skill:    'Incident Response',
     platform: 'TryHackMe',
     diff:     'Medium',
     cats:     ['SOC Simulation','Alert Triage','Log Correlation','IR'],
@@ -1116,6 +1147,7 @@ const LABS = [
   // ── HackSmarter ──
   {
     name:     'Source Leak Investigation',
+    skill:    'Incident Response',
     platform: 'HackSmarter',
     diff:     'Easy',
     cats:     ['Incident Response','DFIR','Digital Forensics'],
@@ -1151,7 +1183,7 @@ function renderCard(lab) {
 
   return `
     <div class="lab-card"
-         data-platform="${lab.platform}"
+         data-skill="${Array.isArray(lab.skill) ? lab.skill.join(',') : lab.skill}"
          data-diff="${lab.diff}"
          data-name="${lab.name.toLowerCase()}"
          data-cats="${lab.cats.join(' ').toLowerCase()}"
@@ -1209,7 +1241,7 @@ function updateBTL1Progress() {
 
 // ── FILTER ─────────────────────────────────────────────────────────
 
-let activePlatform = 'all';
+let activeSkill = 'all';
 let activeDiff     = null;
 
 function applyFilter() {
@@ -1217,7 +1249,8 @@ function applyFilter() {
   const cards = document.querySelectorAll('#lab-grid .lab-card');
   let visible = 0;
   cards.forEach(card => {
-    const pMatch = activePlatform === 'all' || card.dataset.platform === activePlatform;
+    const skillList = (card.dataset.skill || '').split(',');
+    const pMatch = activeSkill === 'all' || skillList.includes(activeSkill);
     const dMatch = !activeDiff || card.dataset.diff === activeDiff;
     const qMatch = !query ||
       card.dataset.name.includes(query) ||
@@ -1237,11 +1270,11 @@ function updateResultCount() {
 }
 
 // platform buttons
-document.querySelectorAll('.fbtn[data-platform]').forEach(btn => {
+document.querySelectorAll('.fbtn[data-skill]').forEach(btn => {
   btn.addEventListener('click', () => {
-    document.querySelectorAll('.fbtn[data-platform]').forEach(b=>b.classList.remove('active'));
+    document.querySelectorAll('.fbtn[data-skill]').forEach(b=>b.classList.remove('active'));
     btn.classList.add('active');
-    activePlatform = btn.dataset.platform;
+    activeSkill = btn.dataset.skill;
     applyFilter();
   });
 });
