@@ -199,6 +199,15 @@ section:last-child { border-bottom:none; }
 .fbtn:hover { color:var(--text); border-color:var(--subtle); }
 .fbtn.active { border-color:var(--pink-dim); color:var(--pink); background:var(--pink-faint); }
 
+/* skill filter base colours (always visible) */
+.fbtn[data-skill="Network Forensics"]     { color:var(--cyan); }
+.fbtn[data-skill="Endpoint Forensics"]    { color:var(--gold); }
+.fbtn[data-skill="Malware Analysis"]      { color:var(--pink); }
+.fbtn[data-skill="Threat Intelligence"]   { color:#00b4ff; }
+.fbtn[data-skill="Threat Hunting"]        { color:var(--green); }
+.fbtn[data-skill="Detection Engineering"] { color:#b482ff; }
+.fbtn[data-skill="Incident Response"]     { color:#ff8c00; }
+
 /* platform filter colours */
 .fbtn[data-skill="Network Forensics"].active     { border-color:rgba(0,245,212,0.4); color:var(--cyan); background:var(--cyan-faint); }
 .fbtn[data-skill="Endpoint Forensics"].active    { border-color:rgba(255,209,102,0.4); color:var(--gold); background:rgba(255,209,102,0.07); }

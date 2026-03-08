@@ -27,6 +27,7 @@ def build_entry(fm):
     cats     = fm.get('category', [])
     tools    = fm.get('tools', [])
     tactics  = fm.get('tactics', [])
+    skill    = fm.get('skill', 'Endpoint Forensics')
     proof    = fm.get('proof', None)
     art      = fm.get('art', None)
     writeup  = fm.get('permalink', '')
@@ -40,11 +41,13 @@ def build_entry(fm):
             v = v.strip().lstrip('[').rstrip(']')
             all_cats += [x.strip() for x in v.split(',')]
 
+    skill_js = '[' + ', '.join(f"'{s}'" for s in skill) + ']' if isinstance(skill, list) else f"'{skill}'"
     proof_js = f"'{proof}'" if proof else 'null'
     art_js   = f"'{art}'" if art else 'null'
 
     return f"""  {{
     name:     '{name}',
+    skill:    {skill_js},
     platform: '{platform}',
     diff:     '{diff}',
     cats:     {to_js_array(all_cats)},
