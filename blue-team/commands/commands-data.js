@@ -265,12 +265,52 @@ const COMMANDS_DATA = [
     "lab_url": "/blue-team/labs/lockdown/",
     "desc": "Extract full command line arguments for all running processes to identify malicious execution paths and persistence mechanisms",
     "tags": "volatility"
+  },
+  {
+    "command": "index=* \"userIdentity.userName\"=\"helpdesk.luke\" eventName=GetObject | stats min(_time) as first_access_timestamp",
+    "tool": "splunk",
+    "lab": "awsraid",
+    "lab_url": "/blue-team/labs/awsraid/",
+    "desc": "Find the earliest S3 GetObject event for a specific IAM user — returns first access timestamp as epoch",
+    "tags": "splunk"
+  },
+  {
+    "command": "index=\"aws_cloudtrail\" \"userIdentity.userName\"=\"helpdesk.luke\" eventSource=\"s3.amazonaws.com\" eventName=\"GetObject\" | table _time, eventName, requestParameters.bucketName, requestParameters.key",
+    "tool": "splunk",
+    "lab": "awsraid",
+    "lab_url": "/blue-team/labs/awsraid/",
+    "desc": "List all S3 objects accessed by a specific IAM user — shows bucket name and object key per event",
+    "tags": "splunk"
+  },
+  {
+    "command": "index=\"aws_cloudtrail\" \"userIdentity.userName\"=\"helpdesk.luke\" eventName=PutBucketPublicAccessBlock | stats count by requestParameters.bucketName",
+    "tool": "splunk",
+    "lab": "awsraid",
+    "lab_url": "/blue-team/labs/awsraid/",
+    "desc": "Detect S3 bucket public access block modifications by a specific user — attacker staging data for public exfiltration",
+    "tags": "splunk"
+  },
+  {
+    "command": "`index=\"aws_cloudtrail\" \"userIdentity.userName\"=\"helpdesk.luke\" eventCategory=\"Management\" | search eventName=\"CreateUser\" OR eventName=\"CreateLoginProfile\"| table _time, eventName, requestParameters.userName`",
+    "tool": "splunk",
+    "lab": "awsraid",
+    "lab_url": "/blue-team/labs/awsraid/",
+    "desc": "Hunt for IAM backdoor account creation — finds CreateUser and CreateLoginProfile events used to establish persistence",
+    "tags": "splunk"
+  },
+  {
+    "command": "index=\"aws_cloudtrail\" \"userIdentity.userName\"=\"helpdesk.luke\" eventName=AddUserToGroup | stats count by requestParameters.groupName",
+    "tool": "splunk",
+    "lab": "awsraid",
+    "lab_url": "/blue-team/labs/awsraid/",
+    "desc": "Identify group membership changes made by a compromised IAM user — detects privilege escalation via admin group assignment",
+    "tags": "splunk"
   }
 ];
 
 const COMMANDS_META = {
-  "total": 33,
-  "labs": 13,
+  "total": 38,
+  "labs": 14,
   "tools": [
     "shell",
     "splunk",
