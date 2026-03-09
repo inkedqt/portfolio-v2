@@ -2,7 +2,7 @@
 layout: lab
 title: XWorm
 platform: CyberDefenders
-difficulty: Easy
+difficulty: Medium
 category: Malware Analysis
 skill: Malware Analysis
 tools: "[PEStudio, dnSpy]"
