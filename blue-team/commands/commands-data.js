@@ -271,7 +271,7 @@ const COMMANDS_DATA = [
     "tool": "splunk",
     "lab": "awsraid",
     "lab_url": "/blue-team/labs/awsraid/",
-    "desc": "Find the earliest S3 GetObject event for a specific IAM user — returns first access timestamp as epoch",
+    "desc": "Find the earliest S3 GetObject event for a specific IAM user \u2014 returns first access timestamp as epoch",
     "tags": "splunk"
   },
   {
@@ -279,7 +279,7 @@ const COMMANDS_DATA = [
     "tool": "splunk",
     "lab": "awsraid",
     "lab_url": "/blue-team/labs/awsraid/",
-    "desc": "List all S3 objects accessed by a specific IAM user — shows bucket name and object key per event",
+    "desc": "List all S3 objects accessed by a specific IAM user \u2014 shows bucket name and object key per event",
     "tags": "splunk"
   },
   {
@@ -287,7 +287,7 @@ const COMMANDS_DATA = [
     "tool": "splunk",
     "lab": "awsraid",
     "lab_url": "/blue-team/labs/awsraid/",
-    "desc": "Detect S3 bucket public access block modifications by a specific user — attacker staging data for public exfiltration",
+    "desc": "Detect S3 bucket public access block modifications by a specific user \u2014 attacker staging data for public exfiltration",
     "tags": "splunk"
   },
   {
@@ -295,7 +295,7 @@ const COMMANDS_DATA = [
     "tool": "splunk",
     "lab": "awsraid",
     "lab_url": "/blue-team/labs/awsraid/",
-    "desc": "Hunt for IAM backdoor account creation — finds CreateUser and CreateLoginProfile events used to establish persistence",
+    "desc": "Hunt for IAM backdoor account creation \u2014 finds CreateUser and CreateLoginProfile events used to establish persistence",
     "tags": "splunk"
   },
   {
@@ -303,14 +303,30 @@ const COMMANDS_DATA = [
     "tool": "splunk",
     "lab": "awsraid",
     "lab_url": "/blue-team/labs/awsraid/",
-    "desc": "Identify group membership changes made by a compromised IAM user — detects privilege escalation via admin group assignment",
+    "desc": "Identify group membership changes made by a compromised IAM user \u2014 detects privilege escalation via admin group assignment",
     "tags": "splunk"
+  },
+  {
+    "command": "ip.addr == 185.220.101.50 and tcp.port == 4444",
+    "tool": "wireshark",
+    "lab": "redishell",
+    "lab_url": "/blue-team/labs/redishell/",
+    "desc": "Filter Wireshark to isolate reverse shell traffic between victim and C2 on port 4444 for TCP stream reconstruction",
+    "tags": "wireshark"
+  },
+  {
+    "command": "kill -9 24918",
+    "tool": "shell",
+    "lab": "redishell",
+    "lab_url": "/blue-team/labs/redishell/",
+    "desc": "kill -9 24918" → "Attacker terminates active tcpdump process to stop network capture and destroy forensic evidence",
+    "tags": "shell"
   }
 ];
 
 const COMMANDS_META = {
-  "total": 38,
-  "labs": 14,
+  "total": 40,
+  "labs": 15,
   "tools": [
     "shell",
     "splunk",
