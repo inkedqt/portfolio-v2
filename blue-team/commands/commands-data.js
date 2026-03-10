@@ -3,19 +3,342 @@
 
 const COMMANDS_DATA = [
   {
+    "command": "ip.addr == 192.168.232.162 llmnr && ip.addr == 192.168.232.162",
+    "tool": "wireshark",
+    "lab": "PoisonedCredentials",
+    "lab_url": "/blue-team/labs/poisonedcredentials/",
+    "desc": "Filter Wireshark for LLMNR traffic from a specific host. Used to identify LLMNR poisoning attempts where an attacker responds to broadcast name resolution requests.",
+    "tags": "wireshark llmnr poisoning broadcast name resolution"
+  },
+  {
+    "command": "llmnr && ip.addr == 192.168.232.215",
+    "tool": "wireshark",
+    "lab": "PoisonedCredentials",
+    "lab_url": "/blue-team/labs/poisonedcredentials/",
+    "desc": "Isolate LLMNR packets from a specific IP. Useful for confirming which host is sending or responding to LLMNR queries during a poisoning investigation.",
+    "tags": "wireshark llmnr poisoning responder"
+  },
+  {
+    "command": "ntlmssp.auth.username && ip.addr == 192.168.232.215",
+    "tool": "wireshark",
+    "lab": "PoisonedCredentials",
+    "lab_url": "/blue-team/labs/poisonedcredentials/",
+    "desc": "Filter for NTLM authentication packets from a specific IP. Reveals usernames captured during NTLM relay or credential theft via LLMNR poisoning.",
+    "tags": "wireshark ntlm credentials username authentication capture"
+  },
+  {
+    "command": "./vol.py -f ../../Artifacts/Windows\\ 7\\ x64-Snapshot4.vmem windows.pstree.PsTree",
+    "tool": "volatility",
+    "lab": "amadey",
+    "lab_url": "/blue-team/labs/amadey/",
+    "desc": "Display process tree from a Windows 7 memory snapshot. Shows parent-child process relationships to identify unusual spawning chains.",
+    "tags": "volatility process tree parent child hierarchy"
+  },
+  {
+    "command": "./vol.py -f ../../Artifacts/Windows\\ 7\\ x64-Snapshot4.vmem cmdline",
+    "tool": "volatility",
+    "lab": "amadey",
+    "lab_url": "/blue-team/labs/amadey/",
+    "desc": "Extract command line arguments for all processes in the memory snapshot. Reveals execution parameters, paths, and flags used at runtime.",
+    "tags": "volatility cmdline arguments execution parameters"
+  },
+  {
+    "command": "./vol.py -f ../../Artifacts/Windows\\ 7\\ x64-Snapshot4.vmem windows.netscan.NetScan",
+    "tool": "volatility",
+    "lab": "amadey",
+    "lab_url": "/blue-team/labs/amadey/",
+    "desc": "Scan memory for active and closed network connections. Maps processes to remote IPs and ports to identify C2 communication.",
+    "tags": "volatility network connections c2 ip port remote"
+  },
+  {
+    "command": "`./vol.py -f ../../Artifacts/Windows\\ 7\\ x64-Snapshot4.vmem  windows.memmap.Memmap --pid 2748 --dump` strings pid.2748.dmp | grep -A 5 -i \"^get /\"",
+    "tool": "volatility",
+    "lab": "amadey",
+    "lab_url": "/blue-team/labs/amadey/",
+    "desc": "Dump memory for a specific PID then extract strings to find HTTP GET requests. Useful for recovering C2 URLs or download activity from a malicious process.",
+    "tags": "volatility memmap dump strings http get url c2 pid"
+  },
+  {
+    "command": "./vol.py -f ../../Artifacts/Windows\\ 7\\ x64-Snapshot4.vmem windows.filescan.FileScan > filescan.txt",
+    "tool": "volatility",
+    "lab": "amadey",
+    "lab_url": "/blue-team/labs/amadey/",
+    "desc": "Scan memory for file objects and redirect output to a text file. Saves results for grepping specific filenames and virtual addresses for later extraction.",
+    "tags": "volatility filescan file objects virtual address output"
+  },
+  {
+    "command": "http.request.method == \"GET\"",
+    "tool": "wireshark",
+    "lab": "danabot",
+    "lab_url": "/blue-team/labs/danabot/",
+    "desc": "Wireshark display filter for HTTP GET requests only. Useful for isolating download activity and C2 beacon traffic in a PCAP.",
+    "tags": "wireshark http get request filter download"
+  },
+  {
+    "command": "echo \"UGljYXNzb0JhZ3VldHRlOTk=\" | base64 -d",
+    "tool": "shell",
+    "lab": "lespion",
+    "lab_url": "/blue-team/labs/lespion/",
+    "desc": "Decode a base64 encoded string. Common technique for recovering obfuscated credentials, commands, or configuration data found in malware artifacts.",
+    "tags": "shell base64 decode obfuscation credentials"
+  },
+  {
+    "command": "index=* sourcetype=suricata eventtype=suricata_eve_ids_attack | stats values(dest_ip) values(http.http_user_agent) values(http.http_content_type) values(http.http_protocol) values(http.status) values(http.hostname) values(http.url) by src_ip",
+    "tool": "splunk",
+    "lab": "nerisbot",
+    "lab_url": "/blue-team/labs/nerisbot/",
+    "desc": "Aggregate Suricata IDS attack events by source IP. Collapses thousands of alerts into actionable rows showing user agents, hostnames, and URLs per attacker IP.",
+    "tags": "splunk suricata ids aggregate stats src_ip user agent url hostname"
+  },
+  {
+    "command": "index=* sourcetype=zeek:files tx_hosts=\"195.88.191.59\" | table _time md5 sha1 sha256",
+    "tool": "splunk",
+    "lab": "nerisbot",
+    "lab_url": "/blue-team/labs/nerisbot/",
+    "desc": "Pull all files transferred from a specific host using Zeek file logs. Returns timestamps and hashes for VirusTotal submission and IOC documentation.",
+    "tags": "splunk zeek files hashes md5 sha1 sha256 tx_hosts download"
+  },
+  {
+    "command": "index=* sourcetype=zeek:files tx_hosts=\"195.88.191.59\" | join left=L right=R where L.seen_bytes=R.bytes [search index=* sourcetype=suricata src_ip=147.32.84.165 dest_ip=195.88.191.59 url=*] | table L.md5, R.url",
+    "tool": "splunk",
+    "lab": "nerisbot",
+    "lab_url": "/blue-team/labs/nerisbot/",
+    "desc": "Correlate Zeek file hashes with Suricata HTTP URLs. Maps downloaded file hashes to the exact URLs they were retrieved from. Replace IPs as needed.",
+    "tags": "splunk zeek suricata join correlate files url hash download"
+  },
+  {
+    "command": "ntlmssp.challenge.target_name",
+    "tool": "wireshark",
+    "lab": "psexechunt",
+    "lab_url": "/blue-team/labs/psexechunt/",
+    "desc": "Filter for NTLM challenge packets containing the target domain or hostname. Helps identify the server being authenticated against during lateral movement.",
+    "tags": "wireshark ntlm challenge target domain hostname lateral movement"
+  },
+  {
+    "command": "ntlmssp.auth.username",
+    "tool": "wireshark",
+    "lab": "psexechunt",
+    "lab_url": "/blue-team/labs/psexechunt/",
+    "desc": "Filter for NTLM authentication packets to extract usernames. Identifies which accounts were used during PsExec or other remote execution activity.",
+    "tags": "wireshark ntlm authentication username psexec lateral movement"
+  },
+  {
+    "command": "smb2.tree",
+    "tool": "wireshark",
+    "lab": "psexechunt",
+    "lab_url": "/blue-team/labs/psexechunt/",
+    "desc": "Filter for SMB2 tree connect requests. Reveals which shares were accessed \u2014 ADMIN$, IPC$, or C$ connections are strong indicators of PsExec or remote service installation.",
+    "tags": "wireshark smb2 tree share admin psexec remote execution"
+  },
+  {
+    "command": "vol -f memory.dmp windows.netscan.NetScan",
+    "tool": "volatility",
+    "lab": "ramnit",
+    "lab_url": "/blue-team/labs/ramnit/",
+    "desc": "List active and closed network connections from memory. Used to identify C2 communication \u2014 maps process names and PIDs to remote IPs and ports.",
+    "tags": "volatility netscan network connections c2 remote ip port"
+  },
+  {
+    "command": "vol -f memory.dmp windows.filescan | grep \"ChromeSetup\"",
+    "tool": "volatility",
+    "lab": "ramnit",
+    "lab_url": "/blue-team/labs/ramnit/",
+    "desc": "Scan memory for file objects and filter by filename. Locates the virtual address of a specific file needed for extraction with dumpfiles.",
+    "tags": "volatility filescan grep filename virtual address locate"
+  },
+  {
+    "command": "vol -f memory.dmp windows.dumpfiles --virtaddr 0xca82b85325a0",
+    "tool": "volatility",
+    "lab": "ramnit",
+    "lab_url": "/blue-team/labs/ramnit/",
+    "desc": "Extract a specific file from memory using its virtual address obtained from filescan. Output file can then be hashed and submitted to VirusTotal.",
+    "tags": "volatility dumpfiles extract virtaddr virtual address file"
+  },
+  {
+    "command": "sha256sum file.0xca82b85325a0.0xca82b7e06c80.ImageSectionObject.ChromeSetup.exe.img sha1sum file.0xca82b85325a0.0xca82b7e06c80.ImageSectionObject.ChromeSetup.exe.img",
+    "tool": "shell",
+    "lab": "ramnit",
+    "lab_url": "/blue-team/labs/ramnit/",
+    "desc": "Hash a Volatility-extracted memory image file for VirusTotal submission. Volatility dumpfiles output uses this long naming convention \u2014 hash both SHA256 and SHA1.",
+    "tags": "shell hash sha256 sha1 virustotal extracted memory image"
+  },
+  {
+    "command": "python3 vol.py -f memory.dmp windows.psscan",
+    "tool": "volatility",
+    "lab": "volatilitytraces",
+    "lab_url": "/blue-team/labs/volatilitytraces/",
+    "desc": "Scan physical memory for process structures. Unlike pslist, catches hidden or terminated processes that have been unlinked from the standard process list.",
+    "tags": "volatility psscan process scan physical memory hidden unlinked"
+  },
+  {
+    "command": "python3 vol.py -f memory.dmp windows.cmdline",
+    "tool": "volatility",
+    "lab": "volatilitytraces",
+    "lab_url": "/blue-team/labs/volatilitytraces/",
+    "desc": "Extract full command line arguments for all processes. Reveals attacker intent \u2014 PowerShell flags, exclusion paths, and execution parameters are visible here.",
+    "tags": "volatility cmdline arguments powershell parameters execution intent"
+  },
+  {
+    "command": "python3 vol.py -f memory.dmp windows.getsids | grep -i powershell",
+    "tool": "volatility",
+    "lab": "volatilitytraces",
+    "lab_url": "/blue-team/labs/volatilitytraces/",
+    "desc": "Map processes to user accounts via SID, filtered for PowerShell. Links malicious process activity to a specific local or domain user account.",
+    "tags": "volatility getsids sid user account privilege powershell attribution"
+  },
+  {
+    "command": "http.request.method == \"POST\"",
+    "tool": "wireshark",
+    "lab": "webstrike",
+    "lab_url": "/blue-team/labs/webstrike/",
+    "desc": "Filter for HTTP POST requests in Wireshark. Useful for identifying form submissions, file uploads, exploit payloads, or data exfiltration over HTTP.",
+    "tags": "wireshark http post request filter upload exfiltration"
+  },
+  {
+    "command": "ip.addr == 117.11.88.124",
+    "tool": "wireshark",
+    "lab": "webstrike",
+    "lab_url": "/blue-team/labs/webstrike/",
+    "desc": "Filter all Wireshark traffic to or from a specific IP address. Used to isolate attacker traffic once a suspicious IP has been identified.",
+    "tags": "wireshark ip filter isolate attacker traffic"
+  },
+  {
+    "command": "`tcp.port == 8080`",
+    "tool": "wireshark",
+    "lab": "webstrike",
+    "lab_url": "/blue-team/labs/webstrike/",
+    "desc": "Filter traffic on a specific TCP port. Port 8080 is commonly used for alternative HTTP, web shells, or C2 callbacks to avoid standard port detection.",
+    "tags": "wireshark tcp port 8080 http webshell c2 filter"
+  },
+  {
+    "command": "smb2 && ip.addr == 172.16.66.1",
+    "tool": "wireshark",
+    "lab": "packetdetective",
+    "lab_url": "/blue-team/labs/packetdetective/",
+    "desc": "Filter SMB2 traffic to identify files written by attacker IP, revealing remote execution via PSEXESVC.exe",
+    "tags": "wireshark"
+  },
+  {
+    "command": "http && ip.addr == 23.158.56.196 && http.request.method == \"POST\"",
+    "tool": "wireshark",
+    "lab": "jetbrains",
+    "lab_url": "/blue-team/labs/jetbrains/",
+    "desc": "Filter HTTP POST requests from attacker IP to identify webshell uploads and command execution activity",
+    "tags": "wireshark"
+  },
+  {
+    "command": "http && ip.addr == 111.224.180.128 and frame contains \"lqkctf24s9h9lg67teu8uevn3q\"",
+    "tool": "wireshark",
+    "lab": "retailbreach",
+    "lab_url": "/blue-team/labs/retailbreach/",
+    "desc": "Filter attacker traffic containing the stolen session cookie to confirm hijacked session usage",
+    "tags": "wireshark"
+  },
+  {
+    "command": "ip.addr==10.0.2.4 && smb2",
+    "tool": "wireshark",
+    "lab": "lockdown",
+    "lab_url": "/blue-team/labs/lockdown/",
+    "desc": "Filter SMB2 traffic from attacker IP to identify share enumeration and file upload activity",
+    "tags": "wireshark"
+  },
+  {
+    "command": "vol -f memdump.mem windows.info",
+    "tool": "volatility",
+    "lab": "lockdown",
+    "lab_url": "/blue-team/labs/lockdown/",
+    "desc": "Dump system information from memory image including kernel base address and OS version",
+    "tags": "volatility"
+  },
+  {
+    "command": "vol -f memdump.mem windows.pstree",
+    "tool": "volatility",
+    "lab": "lockdown",
+    "lab_url": "/blue-team/labs/lockdown/",
+    "desc": "Display running process tree from memory to identify suspicious parent-child relationships and injected processes",
+    "tags": "volatility"
+  },
+  {
+    "command": "vol -f memdump.mem windows.cmdline",
+    "tool": "volatility",
+    "lab": "lockdown",
+    "lab_url": "/blue-team/labs/lockdown/",
+    "desc": "Extract full command line arguments for all running processes to identify malicious execution paths and persistence mechanisms",
+    "tags": "volatility"
+  },
+  {
+    "command": "index=* \"userIdentity.userName\"=\"helpdesk.luke\" eventName=GetObject | stats min(_time) as first_access_timestamp",
+    "tool": "splunk",
+    "lab": "awsraid",
+    "lab_url": "/blue-team/labs/awsraid/",
+    "desc": "Find the earliest S3 GetObject event for a specific IAM user \u2014 returns first access timestamp as epoch",
+    "tags": "splunk"
+  },
+  {
+    "command": "index=\"aws_cloudtrail\" \"userIdentity.userName\"=\"helpdesk.luke\" eventSource=\"s3.amazonaws.com\" eventName=\"GetObject\" | table _time, eventName, requestParameters.bucketName, requestParameters.key",
+    "tool": "splunk",
+    "lab": "awsraid",
+    "lab_url": "/blue-team/labs/awsraid/",
+    "desc": "List all S3 objects accessed by a specific IAM user \u2014 shows bucket name and object key per event",
+    "tags": "splunk"
+  },
+  {
+    "command": "index=\"aws_cloudtrail\" \"userIdentity.userName\"=\"helpdesk.luke\" eventName=PutBucketPublicAccessBlock | stats count by requestParameters.bucketName",
+    "tool": "splunk",
+    "lab": "awsraid",
+    "lab_url": "/blue-team/labs/awsraid/",
+    "desc": "Detect S3 bucket public access block modifications by a specific user \u2014 attacker staging data for public exfiltration",
+    "tags": "splunk"
+  },
+  {
+    "command": "`index=\"aws_cloudtrail\" \"userIdentity.userName\"=\"helpdesk.luke\" eventCategory=\"Management\" | search eventName=\"CreateUser\" OR eventName=\"CreateLoginProfile\"| table _time, eventName, requestParameters.userName`",
+    "tool": "splunk",
+    "lab": "awsraid",
+    "lab_url": "/blue-team/labs/awsraid/",
+    "desc": "Hunt for IAM backdoor account creation \u2014 finds CreateUser and CreateLoginProfile events used to establish persistence",
+    "tags": "splunk"
+  },
+  {
+    "command": "index=\"aws_cloudtrail\" \"userIdentity.userName\"=\"helpdesk.luke\" eventName=AddUserToGroup | stats count by requestParameters.groupName",
+    "tool": "splunk",
+    "lab": "awsraid",
+    "lab_url": "/blue-team/labs/awsraid/",
+    "desc": "Identify group membership changes made by a compromised IAM user \u2014 detects privilege escalation via admin group assignment",
+    "tags": "splunk"
+  },
+  {
+    "command": "ip.addr == 185.220.101.50 and tcp.port == 4444",
+    "tool": "wireshark",
+    "lab": "redishell",
+    "lab_url": "/blue-team/labs/redishell/",
+    "desc": "Filter Wireshark to isolate reverse shell traffic between victim and C2 on port 4444 for TCP stream reconstruction",
+    "tags": "wireshark"
+  },
+  {
+    "command": "kill -9 24918",
+    "tool": "shell",
+    "lab": "redishell",
+    "lab_url": "/blue-team/labs/redishell/",
+    "desc": "kill -9 24918 Attacker terminates active tcpdump process to stop network capture and destroy forensic evidence",
+    "tags": "shell"
+  },
+  {
     "command": "cat * | grep -c \"https://cdn.discordapp.com/\"",
     "tool": "shell",
     "lab": "foxy",
     "lab_url": "/blue-team/labs/foxy/",
-    "desc": "",
+    "desc": "Count occurrences of a string across all files in a directory. -c returns a line count per file rather than the matching lines themselves.",
     "tags": "shell"
   }
 ];
 
 const COMMANDS_META = {
-  "total": 1,
-  "labs": 1,
+  "total": 41,
+  "labs": 16,
   "tools": [
-    "shell"
+    "shell",
+    "splunk",
+    "volatility",
+    "wireshark"
   ]
 };

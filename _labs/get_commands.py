@@ -37,22 +37,21 @@ def detect_tool(command: str) -> str:
     return "shell"
 
 def load_existing(filepath: str):
-    """Load existing commands-data.js, return (list, dict keyed by command string)."""
     if not os.path.exists(filepath):
         return [], {}
     with open(filepath, "r", encoding="utf-8") as f:
         content = f.read()
     match = re.search(r"const COMMANDS_DATA = (\[.*?\]);", content, re.DOTALL)
     if not match:
-        print("WARNING: Could not parse existing commands-data.js — starting fresh.")
-        return [], {}
+        print("ERROR: Could not parse existing commands-data.js — aborting to prevent data loss.")
+        sys.exit(1)
     try:
         existing_list = json.loads(match.group(1))
         existing_dict = {e["command"].strip(): e for e in existing_list}
         return existing_list, existing_dict
-    except json.JSONDecodeError:
-        print("WARNING: JSON parse error — starting fresh.")
-        return [], {}
+    except json.JSONDecodeError as e:
+        print(f"ERROR: JSON parse error — {e} — aborting to prevent data loss.")
+        sys.exit(1)
 
 def extract_commands(filepath: str, lab_name: str) -> list:
     with open(filepath, "r", encoding="utf-8") as f:
@@ -147,14 +146,15 @@ def main():
             added += 1
             print(f"  ++ added: {key[:60]}")
 
-    write_output(OUTPUT_JS, existing_list)
-
-    print(f"\n── Done ─────────────────────────────")
-    print(f"  Added   : {added} new commands")
-    print(f"  Skipped : {skipped} duplicates")
-    print(f"  Total   : {len(existing_list)} commands in commands-data.js")
     if added > 0:
+        write_output(OUTPUT_JS, existing_list)
+        print(f"\n── Done ─────────────────────────────")
+        print(f"  Added   : {added} new commands")
+        print(f"  Skipped : {skipped} duplicates")
+        print(f"  Total   : {len(existing_list)} commands in commands-data.js")
         print(f"\n  Open commands-data.js and fill in 'desc' for the {added} new entries.")
+    else:
+        print("  Nothing new to write — file unchanged.")
 
 if __name__ == "__main__":
     main()
