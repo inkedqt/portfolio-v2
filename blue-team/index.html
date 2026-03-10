@@ -640,6 +640,17 @@ html { scroll-behavior: smooth; zoom: 1.2; }
     <div class="result-count" id="result-count">showing <span id="result-num">0</span> labs</div>
     <div class="lab-grid" id="lab-grid"></div>
     <div class="no-results" id="no-results">no labs match that filter.</div>
+
+    <!-- CHALLENGES -->
+    <div style="margin-top:60px; padding-top:40px; border-top:1px solid var(--muted);">
+      <div style="font-family:'Share Tech Mono',monospace; font-size:9px; letter-spacing:0.3em; color:var(--subtle); text-transform:uppercase; margin-bottom:8px;">// challenges</div>
+      <div style="font-family:'Syne Mono',monospace; font-size:clamp(20px,3vw,28px); margin-bottom:6px;">
+        <span style="color:var(--text);">challenge</span> <span style="color:var(--pink);">log</span>
+      </div>
+      <p style="font-size:11px; color:var(--subtle); margin-bottom:20px; letter-spacing:0.05em;">Shorter CTF-style challenges. Same platforms, less depth.</p>
+      <div class="lab-grid" id="challenge-grid"></div>
+    </div>
+
   </section>
 
   <!-- LAB ENVIRONMENTS -->
@@ -1251,6 +1262,21 @@ const LABS = [
     writeup:  'https://www.hacksmarter.org/courses/b0ecedbe-d142-48bf-9b6d-f58ccdbd4b44',
     proof:    null,
   },
+  // ── BTLO Challenges ──
+  {
+    name:     'Follina',
+    skill:    'Threat Intelligence',
+    platform: 'BTLO',
+    diff:     'Easy',
+    cats:     ['Threat Intelligence', 'VirusTotal', 'Any.Run', 'OSINT', 'OSINT'],
+    status:   'done',
+    score:    null,
+    summary:  'On a Friday evening when you were in a mood to celebrate your weekend, your team was alerted with a new RCE vulnerability actively being exploited.',
+    art:      'https://blueteamlabs.online/achievement/share/challenge/144656/43',
+    writeup:  '/blue-team/labs/CHANGE-ME/',
+    proof:    'https://blueteamlabs.online/achievement/share/challenge/144656/43',
+    type:     'challenge',
+  },
 
 ];
 
@@ -1301,9 +1327,19 @@ function renderCard(lab) {
 }
 
 function renderAll() {
-  // skip featured from grid (it's shown above)
-  const gridLabs = LABS.filter(l => !l.featured);
+  // skip featured and challenges from main grid
+  const gridLabs = LABS.filter(l => !l.featured && l.type !== 'challenge');
   document.getElementById('lab-grid').innerHTML = gridLabs.map(renderCard).join('');
+
+  // render challenges separately
+  const challenges = LABS.filter(l => l.type === 'challenge');
+  const cGrid = document.getElementById('challenge-grid');
+  if (cGrid) {
+    cGrid.innerHTML = challenges.length
+      ? challenges.map(renderCard).join('')
+      : '<p style="color:var(--subtle);font-size:11px;">no challenges yet.</p>';
+  }
+
   document.getElementById('stat-total').textContent = LABS.length;
   updateResultCount();
   renderPlatformCounts();
