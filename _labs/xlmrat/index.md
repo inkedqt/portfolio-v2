@@ -8,7 +8,7 @@ tools: "[CyberChef, Wireshark, VirusTotal, Python3, PowerShell]"
 tactics: "[Execution, Defense Evasion]"
 proof: https://cyberdefenders.org/blueteam-ctf-challenges/achievements/inksec/xlmrat/
 challenge_url: https://cyberdefenders.org/blueteam-ctf-challenges/xlmrat/
-permalink: /blue-team/labs/CHANGE-ME/
+permalink: /blue-team/labs/xlmrat/
 summary: '"Analyze network traffic to identify malware delivery, deobfuscate scripts, and map attacker techniques using MITRE ATT&CK, focusing on stealthy execution and reflective code loading."'
 art: https://cyberdefenders.org/media/terraform/XLMRat/terraform/XLMRat/xlmrat.webp
 ---
