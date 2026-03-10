@@ -12,6 +12,7 @@ challenge_url: https://cyberdefenders.org/blueteam-ctf-challenges/tomcat-takeove
 permalink: /blue-team/labs/tomcat-takeover/
 summary: "\"Analyze network traffic using Wireshark's custom columns, filters, and statistics to identify suspicious web server administration access and potential compromise.\""
 art: https://cyberdefenders.org/media/terraform/Tomcat%20Takeover/Tomcat_Takeover.webp
+youtube: https://www.youtube.com/watch?v=4BKpp2tgKwM
 ---
 #### Scenario
 
