@@ -32,6 +32,7 @@ def build_entry(fm):
     art      = fm.get('art', None)
     writeup  = fm.get('permalink', '')
     summary  = fm.get('summary', '').strip('"').strip("'")
+    type_    = fm.get('type', 'lab')
 
     all_cats = []
     for v in [cats, tools, tactics]:
@@ -57,6 +58,7 @@ def build_entry(fm):
     art:      {art_js},
     writeup:  '{writeup}',
     proof:    {proof_js},
+    type:     '{type_}',
   }},"""
 
 def inject_into_html(entry, html_path):
