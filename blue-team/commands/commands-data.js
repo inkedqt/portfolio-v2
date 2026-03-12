@@ -329,12 +329,28 @@ const COMMANDS_DATA = [
     "lab_url": "/blue-team/labs/foxy/",
     "desc": "Count occurrences of a string across all files in a directory. -c returns a line count per file rather than the matching lines themselves.",
     "tags": "shell"
+  },
+  {
+    "command": "index=* src_ip=\"218.92.0.204\" | stats count by http_request_uri | sort -count",
+    "tool": "splunk",
+    "lab": "middlemayhem",
+    "lab_url": "/blue-team/labs/middlemayhem/",
+    "desc": "Count and rank unique URIs accessed by attacker IP to measure scan scope",
+    "tags": "splunk"
+  },
+  {
+    "command": "index=* src_ip=\"<webserver_ip>\" dest_port=22 | stats count by dest_ip | sort -count",
+    "tool": "splunk",
+    "lab": "middlemayhem",
+    "lab_url": "/blue-team/labs/middlemayhem/",
+    "desc": "Identify internal hosts targeted by SSH brute-force from compromised web server",
+    "tags": "splunk"
   }
 ];
 
 const COMMANDS_META = {
-  "total": 41,
-  "labs": 16,
+  "total": 43,
+  "labs": 17,
   "tools": [
     "shell",
     "splunk",
