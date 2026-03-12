@@ -30,7 +30,7 @@ The challenge hints that steghide and stegsolve are required tools. Before touch
 **Phone number:** `8650 4006`
 
 This doubles as the steghide passphrase for the next stage.
-![[squid_dork.png]]
+![squid_dork.png](squid_dork.png)
 
 ---
 
@@ -38,22 +38,22 @@ This doubles as the steghide passphrase for the next stage.
 
 Install steghide if not already available: `sudo apt install steghide`
 
-![[squid_steghide.png]]
+![squid_steghide.png](squid_steghide.png)
 Using the phone number as the passphrase against the invitation card image extracts a hidden file: **Extracted file:** `Dalgona.png`
 
 ---
 ### Stegsolve 
 Analysis Opening `Dalgona.png` in stegsolve.jar (available at [github.com/Giotino/stegsolve](https://github.com/Giotino/stegsolve/releases)) and cycling through colour plane filters reveals the hint embedded in the image: 
-![[squid_stegsolve.png]]
+![squid_stegsolve.png](squid_stegsolve.png)
 **Hint:** `red pixel`
-![[squid_pixel.png]]
+![squid_pixel.png](squid_pixel.png)
 
 ---
 ### Pixel Analysis— pixspy.com 
 Following the red pixel hint, the image is uploaded to pixspy.com to extract the red channel RGB values.
-![[squid_pixspy.png]]
+![squid_pixspy.png](squid_pixspy.png)
 Pulling just the R values produces the following decimal sequence:
-![[squid_r_codes.png]]
+![squid_r_codes.png](squid_r_codes.png)
 ```zsh
 123, 102, 124, 173, 123, 64, 166, 63, 137, 115, 171, 64, 156, 155, 64, 162, 137, 107, 165, 171, 65, 175
 ```
@@ -63,8 +63,8 @@ Pulling just the R values produces the following decimal sequence:
 The decimal sequence is submitted to dcode.fr using ASCII decode, which converts the red channel values to the final flag:
 
 **Flag:** `SBT{S4v3_My4nm4r_Guy5}`
-![[squid_dcode_fr.png]]
-![[squid_ascii.png]]
+![squid_dcode_fr.png](squid_decode_fr.png)
+![squid_ascii.png](squid_ascii.png)
 
 ## MITRE ATT&CK
 
