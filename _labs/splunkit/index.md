@@ -14,7 +14,7 @@ summary: '"One of the employees clicked on a malicious link and got the endpoint
 art: https://blueteamlabs.online/storage/labs/8e110194c3000089ab097ca6915c85ae966c6e5b.png
 type:
 points:
-youtube:
+youtube: https://www.youtube.com/watch?v=2DF7wNC9r9k
 ---
 ---
 ## Overview
