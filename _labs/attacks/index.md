@@ -202,7 +202,7 @@ The malware author's GitHub username is **ajayrandhawa**.
 
 {% include flag.html question="What two files were created from this file extraction" answer="rundell33.exe, svchost.exe" %}
 
-{% include answer.html question="What's the file path of the folder these two files created?" answer='c:\users\administrator\appdata\roaming\WPDNSE\' %}
+{% include answer.html question="What's the file path of the folder these two files created?" answer="c:\users\administrator\appdata\roaming\WPDNSE" %}
 
 {% include flag.html question="What's the name of the .sys file created by the malware?" answer="atapi.sys" %}
 
