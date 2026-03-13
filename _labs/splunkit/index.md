@@ -128,20 +128,75 @@ DCSync (T1003.006) impersonates a domain controller and requests password replic
 
 ---
 
-{% include flag.html question="Did one of the employees inform you about a recent phishing email they received named "Invoice" during the investigation? Can you locate the IP address from which the file was downloaded?" answer="139.59.21.147 8080" %}
-
-{% include answer.html question="What is the file that was downloaded after the malicious document was opened? Please provide the complete path where the file was downloaded and saved" answer="C:\Windows\Temp\svchost.exe" %}
-
-{% include flag.html question="What is the URL from which additional file were being downloaded?" answer="http://24.199.117.142 1337/svchost.exe" %}
-
-{% include answer.html question="Which domain user seemed to be compromised?" answer="ricksanchez" %}
-
-{% include flag.html question="Could you check if there were any persistent actions detected? Please name the program utilized" answer="schtasks.exe" %}
-
-{% include answer.html question="What is the name of the task employed for maintaining persistence?" answer="Microsoft Teams Updater" %}
-
-{% include flag.html question="What famous script, commonly used by attackers, was dropped as an additional file to facilitate internal reconnaissance and enumeration?" answer="PowerView.ps1" %}
-
-{% include answer.html question="What additional file was deployed by the attacker to extract credentials?" answer="Invoke-Mimikatz.ps1" %}
-
-{% include flag.html question="What technique for credential dumping, similar to a known method often used in domain controller environments, was employed by the attacker?" answer="DCSync" %}
+<div class="qa-item">
+  <div class="qa-question-text">Did one of the employees inform you about a recent phishing email they received named "Invoice" during the investigation? Can you locate the IP address from which the file was downloaded?</div>
+  <div class="flag-reveal">
+    <input type="checkbox">
+    <span class="r-placeholder">Click flag to reveal</span>
+    <span class="r-answer">139[.]59[.]21[.]147:8080</span>
+  </div>
+</div>
+<div class="qa-item">
+  <div class="qa-question-text">What is the file that was downloaded after the malicious document was opened? Please provide the complete path where the file was downloaded and saved.</div>
+  <div class="answer-reveal">
+    <input type="checkbox">
+    <span class="r-placeholder">Click to reveal answer</span>
+    <span class="r-answer">C:\Windows\Temp\svchost.exe</span>
+  </div>
+</div>
+<div class="qa-item">
+  <div class="qa-question-text">What is the URL from which additional files were being downloaded?</div>
+  <div class="flag-reveal">
+    <input type="checkbox">
+    <span class="r-placeholder">Click flag to reveal</span>
+    <span class="r-answer">hxxp[://]24[.]199[.]117[.]142:1337/svchost.exe</span>
+  </div>
+</div>
+<div class="qa-item">
+  <div class="qa-question-text">Which domain user seemed to be compromised?</div>
+  <div class="answer-reveal">
+    <input type="checkbox">
+    <span class="r-placeholder">Click to reveal answer</span>
+    <span class="r-answer">ricksanchez</span>
+  </div>
+</div>
+<div class="qa-item">
+  <div class="qa-question-text">Could you check if there were any persistent actions detected? Please name the program utilized.</div>
+  <div class="flag-reveal">
+    <input type="checkbox">
+    <span class="r-placeholder">Click flag to reveal</span>
+    <span class="r-answer">schtasks.exe</span>
+  </div>
+</div>
+<div class="qa-item">
+  <div class="qa-question-text">What is the name of the task employed for maintaining persistence?</div>
+  <div class="answer-reveal">
+    <input type="checkbox">
+    <span class="r-placeholder">Click to reveal answer</span>
+    <span class="r-answer">Microsoft Teams Updater</span>
+  </div>
+</div>
+<div class="qa-item">
+  <div class="qa-question-text">What famous script, commonly used by attackers, was dropped as an additional file to facilitate internal reconnaissance and enumeration?</div>
+  <div class="flag-reveal">
+    <input type="checkbox">
+    <span class="r-placeholder">Click flag to reveal</span>
+    <span class="r-answer">PowerView.ps1</span>
+  </div>
+</div>
+<div class="qa-item">
+  <div class="qa-question-text">What additional file was deployed by the attacker to extract credentials?</div>
+  <div class="answer-reveal">
+    <input type="checkbox">
+    <span class="r-placeholder">Click to reveal answer</span>
+    <span class="r-answer">Invoke-Mimikatz.ps1</span>
+  </div>
+</div>
+<div class="qa-item">
+  <div class="qa-question-text">What technique for credential dumping, similar to a known method often used in domain controller environments, was employed by the attacker?</div>
+  <div class="flag-reveal">
+    <input type="checkbox">
+    <span class="r-placeholder">Click flag to reveal</span>
+    <span class="r-answer">DCSync</span>
+  </div>
+</div>
