@@ -128,11 +128,11 @@ DCSync (T1003.006) impersonates a domain controller and requests password replic
 
 ---
 
-{% include flag.html question="Did one of the employees inform you about a recent phishing email they received named "Invoice" during the investigation? Can you locate the IP address from which the file was downloaded?" answer="139.59.21.147:8080" %}
+{% include flag.html question="Did one of the employees inform you about a recent phishing email they received named "Invoice" during the investigation? Can you locate the IP address from which the file was downloaded?" answer="139.59.21.147 8080" %}
 
 {% include answer.html question="What is the file that was downloaded after the malicious document was opened? Please provide the complete path where the file was downloaded and saved" answer="C:\Windows\Temp\svchost.exe" %}
 
-{% include flag.html question="What is the URL from which additional file were being downloaded?" answer="http://24.199.117.142:1337/svchost.exe" %}
+{% include flag.html question="What is the URL from which additional file were being downloaded?" answer="http://24.199.117.142 1337/svchost.exe" %}
 
 {% include answer.html question="Which domain user seemed to be compromised?" answer="ricksanchez" %}
 
