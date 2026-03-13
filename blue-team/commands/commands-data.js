@@ -345,12 +345,28 @@ const COMMANDS_DATA = [
     "lab_url": "/blue-team/labs/middlemayhem/",
     "desc": "Identify internal hosts targeted by SSH brute-force from compromised web server",
     "tags": "splunk"
+  },
+  {
+    "command": "index=* User=\"CYBERRANGE\\\\ricksanchez\" \"schtasks.exe\"",
+    "tool": "splunk",
+    "lab": "splunkit",
+    "lab_url": "/blue-team/labs/splunkit/",
+    "desc": "",
+    "tags": "splunk"
+  },
+  {
+    "command": "index=* User=\"CYBERRANGE\\\\ricksanchez\" \".ps1\"",
+    "tool": "splunk",
+    "lab": "splunkit",
+    "lab_url": "/blue-team/labs/splunkit/",
+    "desc": "",
+    "tags": "splunk"
   }
 ];
 
 const COMMANDS_META = {
-  "total": 43,
-  "labs": 17,
+  "total": 45,
+  "labs": 18,
   "tools": [
     "shell",
     "splunk",
