@@ -1,0 +1,285 @@
+---
+layout: default
+title: "Bookmarks // TI Resources"
+permalink: /bookmarks/
+---
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Share+Tech+Mono&display=swap');
+
+  :root {
+    --pink: #ff66c4;
+    --cyan: #00f5d4;
+    --bg: #080b0f;
+    --surface: #0d1117;
+    --surface2: #111820;
+    --border: #1a2535;
+    --text: #b0bec5;
+    --muted: #78909c;
+  }
+
+  .bm-wrapper {
+    font-family: 'Share Tech Mono', monospace;
+    background: var(--bg);
+    min-height: 100vh;
+    padding: 3rem 1.5rem;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .bm-header::before {
+    content: '// OSINT & THREAT INTELLIGENCE RESOURCES';
+    display: block;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--cyan);
+    letter-spacing: 0.15em;
+    margin-bottom: 0.75rem;
+    opacity: 0.7;
+  }
+
+  .bm-title {
+    font-family: 'Orbitron', monospace;
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    font-weight: 900;
+    color: #fff;
+    letter-spacing: 0.05em;
+    line-height: 1.1;
+    margin: 0 0 1rem 0;
+  }
+
+  .bm-title span { color: var(--pink); }
+
+  .bm-subtitle {
+    font-size: 0.85rem;
+    color: var(--muted);
+    max-width: 520px;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+  }
+
+  .bm-divider {
+    height: 1px;
+    background: linear-gradient(90deg, var(--pink), var(--cyan), transparent);
+    margin: 2rem 0;
+    opacity: 0.4;
+  }
+
+  .bm-category { margin-bottom: 3rem; }
+
+  .bm-cat-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .bm-cat-icon { color: var(--cyan); font-size: 1.1rem; }
+
+  .bm-cat-title {
+    font-family: 'Orbitron', monospace;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    color: var(--pink);
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+
+  .bm-cat-line { flex: 1; height: 1px; background: var(--border); }
+
+  .bm-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 0.75rem;
+  }
+
+  .bm-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 1rem 1.25rem;
+    text-decoration: none;
+    display: block;
+    position: relative;
+    overflow: hidden;
+    transition: border-color 0.2s, background 0.2s;
+  }
+
+  .bm-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 2px; height: 100%;
+    background: var(--cyan);
+    opacity: 0;
+    transition: opacity 0.2s;
+  }
+
+  .bm-card:hover { border-color: #1e3048; background: var(--surface2); }
+  .bm-card:hover::before { opacity: 1; }
+
+  .bm-card-name {
+    font-family: 'Orbitron', monospace;
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: #ffffff;
+    letter-spacing: 0.08em;
+    margin-bottom: 0.4rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .bm-card-name::after {
+    content: '→';
+    color: var(--cyan);
+    opacity: 0;
+    font-size: 0.8rem;
+    transition: opacity 0.2s, transform 0.2s;
+    transform: translateX(-4px);
+  }
+
+  .bm-card:hover .bm-card-name::after { opacity: 1; transform: translateX(0); }
+
+  .bm-card-desc {
+    font-size: 0.78rem;
+    color: var(--text);
+    line-height: 1.55;
+  }
+
+  .bm-card-url {
+    font-size: 0.65rem;
+    color: var(--cyan);
+    opacity: 0.45;
+    margin-top: 0.5rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .bm-footer {
+    margin-top: 4rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border);
+    font-size: 0.7rem;
+    color: var(--muted);
+  }
+
+  .bm-footer span { color: var(--pink); }
+</style>
+
+<div class="bm-wrapper">
+  <div class="bm-header">
+    <h1 class="bm-title">Book<span>marks</span></h1>
+    <p class="bm-subtitle">
+      A curated collection of threat intelligence, malware analysis, and OSINT resources — built up through labs, investigations, and real-world SOC work.
+    </p>
+  </div>
+
+  <div class="bm-divider"></div>
+  <div id="bm-content"></div>
+
+  <div class="bm-footer">
+    maintained by <span>inksec</span> — resources added as discovered during labs + investigations
+  </div>
+</div>
+
+<script>
+const BOOKMARKS = [
+  {
+    category: "Threat Intelligence",
+    icon: "◈",
+    links: [
+      { name: "Mandiant (Google)", url: "https://cloud.google.com/blog/topics/threat-intelligence", desc: "Nation-state and APT research, incident reports, UNC group tracking" },
+      { name: "CrowdStrike Adversary Intel", url: "https://www.crowdstrike.com/blog/category/threat-intelligence/", desc: "SPIDER/BEAR/KITTEN naming convention, adversary profiles" },
+      { name: "Group-IB Blog", url: "https://www.group-ib.com/blog/", desc: "Deep-dive threat actor research, ransomware ecosystem analysis" },
+      { name: "Rapid7 Blog", url: "https://www.rapid7.com/blog/threat-intelligence/", desc: "Vulnerability intel, exploitation research, incident response" },
+      { name: "Secureworks CTU", url: "https://www.secureworks.com/blog", desc: "Counter Threat Unit research, GOLD/IRON group naming" },
+      { name: "Palo Alto Unit 42", url: "https://unit42.paloaltonetworks.com/", desc: "Malware campaigns, threat actor profiles, cloud threats" },
+      { name: "SentinelOne Labs", url: "https://www.sentinelone.com/labs/", desc: "Malware reversing, endpoint threat research" },
+      { name: "Sekoia.io Blog", url: "https://blog.sekoia.io/", desc: "European TI perspective, phishing infra, tracking emerging groups" },
+      { name: "Darktrace Inside the SOC", url: "https://www.darktrace.com/inside-the-soc", desc: "Real-world incident analysis, network anomaly detection writeups" }
+    ]
+  },
+  {
+    category: "Malware Analysis",
+    icon: "◉",
+    links: [
+      { name: "Joe Sandbox", url: "https://www.joesandbox.com/", desc: "Deep behavioural sandbox, YARA strings, network IOCs" },
+      { name: "Any.run", url: "https://any.run/", desc: "Interactive sandbox, live process tree, quick triage" },
+      { name: "VirusTotal", url: "https://www.virustotal.com/", desc: "Multi-AV scanning, file/URL/IP lookups, graph relationships" },
+      { name: "MalwareBazaar", url: "https://bazaar.abuse.ch/", desc: "Malware sample repository, hash search, tag filtering" },
+      { name: "Hybrid Analysis", url: "https://www.hybrid-analysis.com/", desc: "Free sandbox powered by CrowdStrike Falcon, MITRE mapping" },
+      { name: "ThreatFox", url: "https://threatfox.abuse.ch/", desc: "IOC sharing platform, malware family tagging" }
+    ]
+  },
+  {
+    category: "IOC Lookup",
+    icon: "◎",
+    links: [
+      { name: "Shodan", url: "https://www.shodan.io/", desc: "Internet-wide port/banner scanning, exposed service discovery" },
+      { name: "URLScan", url: "https://urlscan.io/", desc: "Website scanning, screenshot, DOM analysis, phishing detection" },
+      { name: "AbuseIPDB", url: "https://www.abuseipdb.com/", desc: "Community IP reputation, abuse category reporting" },
+      { name: "GreyNoise", url: "https://www.greynoise.io/", desc: "Separates internet background noise from targeted attacks" },
+      { name: "OTX AlienVault", url: "https://otx.alienvault.com/", desc: "Community threat feeds, pulse subscriptions, IOC search" }
+    ]
+  },
+  {
+    category: "Domain & IP Intel",
+    icon: "◑",
+    links: [
+      { name: "WhoisFreaks", url: "https://whoisfreaks.com/", desc: "WHOIS history lookup, registrar tracking, domain age" },
+      { name: "DNSDumpster", url: "https://dnsdumpster.com/", desc: "DNS recon, subdomain enumeration, host mapping" },
+      { name: "SecurityTrails", url: "https://securitytrails.com/", desc: "Historical DNS, IP neighbours, subdomain history" }
+    ]
+  },
+  {
+    category: "Frameworks & Reference",
+    icon: "◇",
+    links: [
+      { name: "MITRE ATT&CK", url: "https://attack.mitre.org/", desc: "The bible — tactics, techniques, sub-techniques, group profiles" },
+      { name: "LOLBAS", url: "https://lolbas-project.github.io/", desc: "Living Off the Land Binaries — Windows LOL techniques" },
+      { name: "GTFOBins", url: "https://gtfobins.github.io/", desc: "Unix binaries for privilege escalation and evasion" },
+      { name: "NVD / CVE", url: "https://nvd.nist.gov/", desc: "Official CVE database, CVSS scoring, patch status" },
+      { name: "Exploit-DB", url: "https://www.exploit-db.com/", desc: "Public exploits, PoCs, searchable by CVE or product" }
+    ]
+  },
+  {
+    category: "Government & CERT",
+    icon: "◆",
+    links: [
+      { name: "CISA Advisories", url: "https://www.cisa.gov/news-events/cybersecurity-advisories", desc: "US federal advisories, KEV catalogue, joint advisories" },
+      { name: "ACSC (Australia)", url: "https://www.cyber.gov.au/about-us/advisories", desc: "Australian Cyber Security Centre — local threat advisories" },
+      { name: "NCSC (UK)", url: "https://www.ncsc.gov.uk/section/keep-up-to-date/threat-reports", desc: "UK threat reports, incident guidance, technical advisories" }
+    ]
+  }
+];
+
+const container = document.getElementById('bm-content');
+
+BOOKMARKS.forEach(section => {
+  const cat = document.createElement('div');
+  cat.className = 'bm-category';
+
+  const header = `
+    <div class="bm-cat-header">
+      <span class="bm-cat-icon">${section.icon}</span>
+      <span class="bm-cat-title">${section.category}</span>
+      <div class="bm-cat-line"></div>
+    </div>`;
+
+  const cards = section.links.map(link => {
+    const urlClean = link.url.replace(/^https?:\/\//, '').replace(/\/$/, '');
+    return `
+      <a href="${link.url}" target="_blank" rel="noopener" class="bm-card">
+        <div class="bm-card-name">${link.name}</div>
+        <div class="bm-card-desc">${link.desc}</div>
+        <div class="bm-card-url">${urlClean}</div>
+      </a>`;
+  }).join('');
+
+  cat.innerHTML = header + `<div class="bm-grid">${cards}</div>`;
+  container.appendChild(cat);
+});
+</script>
