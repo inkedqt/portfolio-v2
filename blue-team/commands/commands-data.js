@@ -351,7 +351,7 @@ const COMMANDS_DATA = [
     "tool": "splunk",
     "lab": "splunkit",
     "lab_url": "/blue-team/labs/splunkit/",
-    "desc": "",
+    "desc": "Hunt scheduled task creation by a specific user. Useful for detecting persistence via schtasks.exe under a compromised account.",
     "tags": "splunk"
   },
   {
@@ -359,14 +359,30 @@ const COMMANDS_DATA = [
     "tool": "splunk",
     "lab": "splunkit",
     "lab_url": "/blue-team/labs/splunkit/",
-    "desc": "",
+    "desc": "Hunt PowerShell script execution by a specific user. Useful for detecting malicious .ps1 activity under a compromised account.",
     "tags": "splunk"
+  },
+  {
+    "command": "tcp.flags.syn == 1 && tcp.flags.ack == 1",
+    "tool": "wireshark",
+    "lab": "xxeinfiltration",
+    "lab_url": "/blue-team/labs/xxeinfiltration/",
+    "desc": "Filter for completed TCP handshakes (SYN-ACK). Used to identify open ports on a target during attacker reconnaissance.",
+    "tags": "wireshark"
+  },
+  {
+    "command": "mysql.login_request",
+    "tool": "wireshark",
+    "lab": "xxeinfiltration",
+    "lab_url": "/blue-team/labs/xxeinfiltration/",
+    "desc": "Filter for MySQL login attempts in a PCAP. Used to identify credential-based database access following credential theft.",
+    "tags": "wireshark"
   }
 ];
 
 const COMMANDS_META = {
-  "total": 45,
-  "labs": 18,
+  "total": 47,
+  "labs": 19,
   "tools": [
     "shell",
     "splunk",
