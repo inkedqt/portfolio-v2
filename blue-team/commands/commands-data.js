@@ -401,12 +401,36 @@ const COMMANDS_DATA = [
     "lab_url": "/blue-team/labs/revil_gold/",
     "desc": "Extract all hashes logged by Sysmon for a specific executable at process creation. Returns SHA256, MD5, SHA1 and IMPHASH for immediate threat intel cross-referencing.",
     "tags": "splunk"
+  },
+  {
+    "command": "exiftool image.jpg",
+    "tool": "shell",
+    "lab": "shibainsider",
+    "lab_url": "/blue-team/labs/shibainsider/",
+    "desc": "Extract metadata from image file to identify embedded technique hints",
+    "tags": "shell"
+  },
+  {
+    "command": "steghide extract -sf image.jpg",
+    "tool": "shell",
+    "lab": "shibainsider",
+    "lab_url": "/blue-team/labs/shibainsider/",
+    "desc": "Extract hidden data from steganographic image using steghide",
+    "tags": "shell"
+  },
+  {
+    "command": "exiftool uploaded_1.JPG | grep -i \"date\" exiftool uploaded_1.JPG | grep -i \"comment\"",
+    "tool": "shell",
+    "lab": "meta",
+    "lab_url": "/blue-team/labs/meta/",
+    "desc": "Extract metadata from image file to identify embedded technique hints",
+    "tags": "shell"
   }
 ];
 
 const COMMANDS_META = {
-  "total": 50,
-  "labs": 20,
+  "total": 53,
+  "labs": 22,
   "tools": [
     "shell",
     "splunk",
