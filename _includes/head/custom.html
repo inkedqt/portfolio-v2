@@ -3,3 +3,12 @@
 <link rel="shortcut icon" href="{{ '/favicon.ico' | relative_url }}">
 <link rel="apple-touch-icon" href="{{ '/apple-touch-icon.png' | relative_url }}">
 <link rel="manifest" href="{{ '/site.webmanifest' | relative_url }}">
+
+<title>{% if page.title %}{{ page.title }} | inksec.io{% else %}inksec.io – SOC & Blue Team Portfolio{% endif %}</title>
+<meta name="description" content="{% if page.summary %}{{ page.summary }}{% else %}SOC analyst portfolio — BTLO, CyberDefenders, HTB labs and blue team writeups by Tate Pannam.{% endif %}">
+<meta name="author" content="Tate Pannam">
+<meta property="og:title" content="{% if page.title %}{{ page.title }} | inksec.io{% else %}inksec.io{% endif %}">
+<meta property="og:description" content="{% if page.summary %}{{ page.summary }}{% else %}SOC analyst portfolio — blue team labs and writeups.{% endif %}">
+<meta property="og:url" content="{{ page.url | absolute_url }}">
+<meta property="og:type" content="website">
+<meta property="og:image" content="{% if page.art %}{{ page.art }}{% else %}https://inksec.io/assets/preview.png{% endif %}">
