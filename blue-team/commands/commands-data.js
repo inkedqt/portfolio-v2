@@ -377,12 +377,36 @@ const COMMANDS_DATA = [
     "lab_url": "/blue-team/labs/xxeinfiltration/",
     "desc": "Filter for MySQL login attempts in a PCAP. Used to identify credential-based database access following credential theft.",
     "tags": "wireshark"
+  },
+  {
+    "command": "index=revil \"event.code\"=11 \"readme\"",
+    "tool": "splunk",
+    "lab": "revil_gold",
+    "lab_url": "/blue-team/labs/revil_gold/",
+    "desc": "Hunt for ransom note file creation via Sysmon Event ID 11. Filtering on 'readme' identifies ransomware-dropped notes and surfaces the responsible process ID and executable path.",
+    "tags": "splunk"
+  },
+  {
+    "command": "index=revil powershell.exe \"event.code\"=1",
+    "tool": "splunk",
+    "lab": "revil_gold",
+    "lab_url": "/blue-team/labs/revil_gold/",
+    "desc": "Hunt for PowerShell process execution via Sysmon Event ID 1. Used to identify obfuscated commands such as Base64-encoded shadow copy deletion during ransomware investigations.",
+    "tags": "splunk"
+  },
+  {
+    "command": "index=revil event.code=1 \"facebook assistant.exe\" | table winlog.event_data.Hashes",
+    "tool": "splunk",
+    "lab": "revil_gold",
+    "lab_url": "/blue-team/labs/revil_gold/",
+    "desc": "Extract all hashes logged by Sysmon for a specific executable at process creation. Returns SHA256, MD5, SHA1 and IMPHASH for immediate threat intel cross-referencing.",
+    "tags": "splunk"
   }
 ];
 
 const COMMANDS_META = {
-  "total": 47,
-  "labs": 19,
+  "total": 50,
+  "labs": 20,
   "tools": [
     "shell",
     "splunk",
