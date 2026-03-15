@@ -4,5 +4,6 @@
     <input type="checkbox">
     <span class="r-placeholder">Click to reveal answer</span>
     <span class="r-answer">{{ include.answer }}</span>
+    <button class="copy-btn" onclick="event.stopPropagation();navigator.clipboard.writeText('{{ include.answer }}');this.textContent='copied';setTimeout(()=>this.textContent='copy',1500)">copy</button>
   </div>
 </div>

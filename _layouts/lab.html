@@ -382,19 +382,19 @@ nav {
   letter-spacing: 0.03em;
 }
 
-/* Pink — flag answers (executables, filenames, values) */
+/* Pink — flag answers */
 .flag-reveal {
   position: relative;
   display: flex;
-  align-items: center;
+  align-items: stretch;
   background: #0e0e1a;
   border: 1px solid var(--pink-dim);
   border-radius: 4px;
   overflow: hidden;
-  height: 44px;
+  min-height: 44px;
   cursor: pointer;
   user-select: none;
-  max-width: 520px;
+  max-width: 620px;
 }
 .flag-reveal input[type="checkbox"] {
   appearance: none; -webkit-appearance: none;
@@ -408,37 +408,62 @@ nav {
   background: var(--pink);
   color: #0d0d0d;
   display: flex; align-items: center; justify-content: center;
-  min-width: 44px; height: 100%;
+  min-width: 44px;
   z-index: 1; pointer-events: none; flex-shrink: 0;
 }
 .flag-reveal .r-placeholder,
 .flag-reveal .r-answer {
-  padding: 0 14px;
+  padding: 12px 44px 12px 14px;
   pointer-events: none;
-  position: absolute; left: 44px;
+  position: absolute; left: 44px; right: 0;
   transition: opacity 0.2s ease;
   font-family: 'Share Tech Mono', monospace;
-  font-size: 11px; letter-spacing: 0.08em; white-space: nowrap;
+  font-size: 11px; letter-spacing: 0.08em;
+  white-space: pre-wrap; word-break: break-word;
+  line-height: 1.6;
 }
-.flag-reveal .r-placeholder { color: var(--subtle); font-style: italic; z-index: 2; }
-.flag-reveal .r-answer { color: var(--pink); font-weight: 500; opacity: 0; z-index: 2; }
+.flag-reveal .r-placeholder { color: var(--subtle); font-style: italic; z-index: 2; top: 50%; transform: translateY(-50%); white-space: nowrap; }
+.flag-reveal .r-answer { color: var(--pink); font-weight: 500; opacity: 0; z-index: 2; top: 0; }
 .flag-reveal input:checked ~ .r-placeholder { opacity: 0; }
 .flag-reveal input:checked ~ .r-answer { opacity: 1; }
 .flag-reveal:has(input:checked) { border-color: var(--pink); }
 
-/* Cyan — technique/concept answers (cmdlets, IDs, techniques) */
+/* copy button */
+.copy-btn {
+  position: absolute;
+  right: 8px; top: 50%; transform: translateY(-50%);
+  z-index: 4;
+  display: none;
+  padding: 2px 8px;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 9px; letter-spacing: 0.1em;
+  background: transparent;
+  border: 1px solid;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: background 0.2s;
+  pointer-events: auto;
+}
+.flag-reveal .copy-btn { color: var(--pink); border-color: var(--pink-dim); }
+.flag-reveal .copy-btn:hover { background: var(--pink-faint); }
+.answer-reveal .copy-btn { color: var(--cyan); border-color: var(--cyan-dim); }
+.answer-reveal .copy-btn:hover { background: var(--cyan-faint); }
+.flag-reveal:has(input:checked) .copy-btn,
+.answer-reveal:has(input:checked) .copy-btn { display: block; }
+
+/* Cyan — technique/concept answers */
 .answer-reveal {
   position: relative;
   display: flex;
-  align-items: center;
+  align-items: stretch;
   background: #0e0e1a;
   border: 1px solid var(--cyan-dim);
   border-radius: 4px;
   overflow: hidden;
-  height: 44px;
+  min-height: 44px;
   cursor: pointer;
   user-select: none;
-  max-width: 520px;
+  max-width: 620px;
 }
 .answer-reveal input[type="checkbox"] {
   appearance: none; -webkit-appearance: none;
@@ -453,20 +478,22 @@ nav {
   border-right: 1px solid var(--cyan-dim);
   color: var(--cyan);
   display: flex; align-items: center; justify-content: center;
-  min-width: 44px; height: 100%;
+  min-width: 44px;
   z-index: 1; pointer-events: none; flex-shrink: 0;
 }
 .answer-reveal .r-placeholder,
 .answer-reveal .r-answer {
-  padding: 0 14px;
+  padding: 12px 44px 12px 14px;
   pointer-events: none;
-  position: absolute; left: 44px;
+  position: absolute; left: 44px; right: 0;
   transition: opacity 0.2s ease;
   font-family: 'Share Tech Mono', monospace;
-  font-size: 11px; letter-spacing: 0.08em; white-space: nowrap;
+  font-size: 11px; letter-spacing: 0.08em;
+  white-space: pre-wrap; word-break: break-word;
+  line-height: 1.6;
 }
-.answer-reveal .r-placeholder { color: var(--subtle); font-style: italic; z-index: 2; }
-.answer-reveal .r-answer { color: var(--cyan); font-weight: 500; opacity: 0; z-index: 2; }
+.answer-reveal .r-placeholder { color: var(--subtle); font-style: italic; z-index: 2; top: 50%; transform: translateY(-50%); white-space: nowrap; }
+.answer-reveal .r-answer { color: var(--cyan); font-weight: 500; opacity: 0; z-index: 2; top: 0; }
 .answer-reveal input:checked ~ .r-placeholder { opacity: 0; }
 .answer-reveal input:checked ~ .r-answer { opacity: 1; }
 .answer-reveal:has(input:checked) { border-color: var(--cyan); }
