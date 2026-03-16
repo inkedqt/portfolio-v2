@@ -1,0 +1,1078 @@
+---
+layout: null
+title: "ATT&CK Heatmap // inksec.io"
+permalink: /blue-team/heatmap/
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ATT&CK Heatmap // inksec.io</title>
+<link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Syne+Mono&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --black:       #050508;
+  --deep:        #08080f;
+  --panel:       #0c0c18;
+  --panel2:      #10101f;
+  --pink:        #ff66c4;
+  --pink-dim:    rgba(255,102,196,0.4);
+  --pink-faint:  rgba(255,102,196,0.07);
+  --pink-bright: #ff90d6;
+  --cyan:        #00f5d4;
+  --cyan-dim:    rgba(0,245,212,0.4);
+  --cyan-faint:  rgba(0,245,212,0.07);
+  --gold:        #ffd166;
+  --gold-dim:    rgba(255,209,102,0.35);
+  --green:       #00ff88;
+  --green-dim:   rgba(0,255,136,0.3);
+  --orange:      #ff9f43;
+  --red:         #ff6b6b;
+  --muted:       #2a2a45;
+  --subtle:      #4a4a6a;
+  --text:        #c8c8e8;
+  --text-dim:    #b0b0cc;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--black);
+  color: var(--text);
+  font-family: 'Share Tech Mono', monospace;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: '';
+  position: fixed; inset: 0;
+  background:
+    linear-gradient(#1a1a2e 1px, transparent 1px),
+    linear-gradient(90deg, #1a1a2e 1px, transparent 1px);
+  background-size: 36px 36px;
+  opacity: 0.08;
+  pointer-events: none; z-index: 0;
+}
+
+.scanline {
+  position: fixed; top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--pink-dim), transparent);
+  animation: scan 8s linear infinite;
+  opacity: 0.2; z-index: 999; pointer-events: none;
+}
+@keyframes scan { 0%{top:-1px} 100%{top:100%} }
+
+/* ── NAV ── */
+nav {
+  position: sticky; top: 0; z-index: 100;
+  background: rgba(5,5,8,0.95);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--muted);
+  padding: 0 clamp(16px,5vw,80px);
+  display: flex; align-items: center;
+  justify-content: space-between; height: 52px;
+}
+.nav-brand {
+  font-family: 'Syne Mono', monospace;
+  font-size: 15px; color: var(--text);
+  text-decoration: none;
+}
+.nav-brand .pk { color: var(--pink); text-shadow: 0 0 20px var(--pink-dim); }
+.nav-brand .cx { color: var(--cyan); }
+.nav-links { display:flex; gap:clamp(14px,3vw,32px); list-style:none; align-items:center; }
+.nav-links a {
+  font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--cyan); text-decoration: none; transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--pink); }
+
+/* ── LAYOUT ── */
+.wrap {
+  position: relative; z-index: 1;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 48px clamp(16px,4vw,64px) 80px;
+}
+
+/* ── HEADER ── */
+.page-eyebrow {
+  font-size: 9px; letter-spacing: 0.35em; text-transform: uppercase;
+  color: var(--subtle); margin-bottom: 12px;
+}
+.page-title {
+  font-family: 'Syne Mono', monospace;
+  font-size: clamp(22px, 4vw, 36px);
+  line-height: 1.1; margin-bottom: 10px;
+}
+.page-title .pk { color: var(--pink); text-shadow: 0 0 40px var(--pink-dim); }
+.page-title .cx { color: var(--cyan); }
+.page-sub {
+  font-family: 'DM Mono', monospace; font-weight: 300;
+  font-size: 12px; color: var(--text-dim);
+  max-width: 560px; line-height: 1.6; margin-bottom: 32px;
+}
+
+/* ── STAT BAR ── */
+.stat-bar {
+  display: flex; gap: 1px; flex-wrap: wrap; margin-bottom: 36px;
+}
+.stat-block {
+  background: var(--panel); border: 1px solid var(--muted);
+  padding: 12px 20px; min-width: 120px;
+}
+.stat-val {
+  font-family: 'Syne Mono', monospace;
+  font-size: clamp(18px, 3vw, 26px);
+  color: var(--pink); text-shadow: 0 0 30px var(--pink-dim);
+  display: block; line-height: 1;
+}
+.stat-label {
+  font-size: 8px; letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--subtle); margin-top: 5px; display: block;
+}
+
+/* ── LEGEND ── */
+.legend {
+  display: flex; gap: 16px; flex-wrap: wrap; align-items: center;
+  margin-bottom: 24px; padding: 10px 16px;
+  border: 1px solid var(--muted); background: var(--panel);
+  width: fit-content;
+}
+.legend-label {
+  font-size: 8px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--subtle);
+}
+.legend-items { display: flex; gap: 8px; align-items: center; }
+.legend-cell {
+  width: 28px; height: 16px; border: 1px solid var(--muted);
+  font-size: 7px; display: flex; align-items: center; justify-content: center;
+  color: rgba(255,255,255,0.4);
+}
+.lc-0  { background: var(--panel); color: var(--subtle); }
+.lc-1  { background: rgba(255,102,196,0.12); border-color: rgba(255,102,196,0.2); }
+.lc-2  { background: rgba(255,102,196,0.22); border-color: rgba(255,102,196,0.35); }
+.lc-3  { background: rgba(255,102,196,0.38); border-color: rgba(255,102,196,0.5); }
+.lc-4  { background: rgba(255,102,196,0.58); border-color: var(--pink-dim); color: #fff; }
+.lc-5  { background: rgba(255,102,196,0.75); border-color: var(--pink); box-shadow: 0 0 8px var(--pink-dim); color: #fff; }
+.legend-sep { color: var(--subtle); font-size: 10px; }
+
+/* ── MATRIX SCROLL WRAPPER ── */
+.matrix-scroll {
+  overflow-x: auto;
+  margin-bottom: 32px;
+  padding-bottom: 8px;
+}
+.matrix-scroll::-webkit-scrollbar { height: 4px; }
+.matrix-scroll::-webkit-scrollbar-track { background: var(--panel); }
+.matrix-scroll::-webkit-scrollbar-thumb { background: var(--pink-dim); }
+
+/* ── MATRIX ── */
+.matrix {
+  display: flex;
+  gap: 2px;
+  min-width: max-content;
+}
+
+/* ── TACTIC COLUMN ── */
+.tactic-col { width: 148px; flex-shrink: 0; }
+
+.tactic-header {
+  background: var(--panel);
+  border: 1px solid var(--muted);
+  border-bottom: 2px solid var(--pink-dim);
+  padding: 8px 10px 10px;
+  margin-bottom: 2px;
+}
+.tactic-id {
+  font-size: 7px; letter-spacing: 0.15em; color: var(--subtle);
+  margin-bottom: 3px;
+}
+.tactic-name {
+  font-family: 'Syne Mono', monospace;
+  font-size: 9px; color: var(--pink);
+  letter-spacing: 0.05em; line-height: 1.2;
+  text-transform: uppercase;
+}
+.tactic-count {
+  font-size: 8px; color: var(--cyan);
+  margin-top: 5px; letter-spacing: 0.1em;
+}
+
+/* ── TECHNIQUE CELLS ── */
+.tech-cell {
+  width: 148px;
+  min-height: 34px;
+  border: 1px solid var(--muted);
+  padding: 5px 8px;
+  margin-bottom: 2px;
+  cursor: pointer;
+  position: relative;
+  transition: border-color 0.15s, background 0.15s;
+  background: var(--panel);
+}
+.tech-cell:hover { border-color: var(--pink); z-index: 2; }
+.tech-cell:hover .tech-id { color: var(--pink-bright); }
+
+.tech-cell.is-sub {
+  margin-left: 6px;
+  width: 142px;
+  border-left: 2px solid rgba(255,102,196,0.15);
+}
+.tech-cell.is-sub .tech-id { color: rgba(255,102,196,0.5); font-size: 7px; }
+
+.tech-cell.hit-0  { background: var(--panel); }
+.tech-cell.hit-1  { background: rgba(255,102,196,0.10); border-color: rgba(255,102,196,0.2); }
+.tech-cell.hit-2  { background: rgba(255,102,196,0.20); border-color: rgba(255,102,196,0.35); }
+.tech-cell.hit-3  { background: rgba(255,102,196,0.32); border-color: rgba(255,102,196,0.5); }
+.tech-cell.hit-4  { background: rgba(255,102,196,0.50); border-color: var(--pink-dim); }
+.tech-cell.hit-5  {
+  background: rgba(255,102,196,0.68); border-color: var(--pink);
+  box-shadow: 0 0 10px var(--pink-dim);
+}
+.tech-cell.hit-5 .tech-id  { color: #fff; }
+.tech-cell.hit-5 .tech-name { color: #fff; }
+
+.tech-id {
+  font-size: 8px; letter-spacing: 0.1em; color: var(--subtle);
+  line-height: 1; margin-bottom: 2px;
+}
+.tech-name {
+  font-family: 'DM Mono', monospace; font-weight: 300;
+  font-size: 9px; color: var(--text-dim);
+  line-height: 1.25; word-break: break-word;
+}
+.tech-count-badge {
+  position: absolute; top: 3px; right: 4px;
+  font-size: 7px; color: var(--pink);
+  letter-spacing: 0.05em;
+}
+
+/* ── TACTIC SPACER (when no more techniques) ── */
+.tactic-pad { height: 2px; }
+
+/* ── DETAIL PANEL ── */
+.detail-panel {
+  position: fixed;
+  top: 0; right: -380px;
+  width: 360px; height: 100vh;
+  background: rgba(8,8,15,0.97);
+  border-left: 1px solid var(--muted);
+  border-left-color: var(--pink-dim);
+  backdrop-filter: blur(14px);
+  z-index: 200;
+  transition: right 0.3s cubic-bezier(0.16,1,0.3,1);
+  overflow-y: auto;
+  padding: 24px 20px;
+}
+.detail-panel.open { right: 0; }
+.detail-panel::-webkit-scrollbar { width: 3px; }
+.detail-panel::-webkit-scrollbar-thumb { background: var(--pink-dim); }
+
+.detail-close {
+  font-size: 9px; letter-spacing: 0.2em; color: var(--subtle);
+  cursor: pointer; text-transform: uppercase;
+  float: right; padding: 2px 6px;
+  border: 1px solid var(--muted);
+  transition: all 0.2s;
+}
+.detail-close:hover { color: var(--pink); border-color: var(--pink-dim); }
+
+.detail-tactic-tag {
+  font-size: 7px; letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--cyan); border: 1px solid var(--cyan-dim);
+  padding: 2px 8px; display: inline-block; margin-bottom: 14px;
+  background: var(--cyan-faint);
+}
+.detail-id {
+  font-family: 'Syne Mono', monospace;
+  font-size: 28px; color: var(--pink);
+  text-shadow: 0 0 30px var(--pink-dim);
+  letter-spacing: 0.05em; line-height: 1;
+  margin-bottom: 6px;
+}
+.detail-name {
+  font-family: 'DM Mono', monospace; font-weight: 300;
+  font-size: 14px; color: var(--text);
+  line-height: 1.4; margin-bottom: 16px;
+}
+.detail-divider {
+  height: 1px; background: var(--muted); margin: 16px 0;
+}
+.detail-count-block {
+  display: flex; align-items: baseline; gap: 8px;
+  margin-bottom: 16px;
+}
+.detail-count-num {
+  font-family: 'Syne Mono', monospace;
+  font-size: 36px; color: var(--cyan);
+  text-shadow: 0 0 20px var(--cyan-dim);
+}
+.detail-count-label {
+  font-size: 9px; letter-spacing: 0.2em;
+  text-transform: uppercase; color: var(--subtle);
+}
+.detail-section-title {
+  font-size: 8px; letter-spacing: 0.25em; text-transform: uppercase;
+  color: var(--subtle); margin-bottom: 10px;
+}
+.detail-source-item {
+  border: 1px solid var(--muted);
+  border-left: 2px solid var(--pink-dim);
+  background: var(--panel);
+  padding: 8px 12px;
+  margin-bottom: 6px;
+  text-decoration: none;
+  display: block;
+  transition: border-color 0.2s, background 0.2s;
+}
+.detail-source-item:hover {
+  border-left-color: var(--pink);
+  background: var(--panel2);
+}
+.detail-source-type {
+  font-size: 7px; letter-spacing: 0.15em; text-transform: uppercase;
+  color: var(--cyan); margin-bottom: 3px;
+}
+.detail-source-name {
+  font-size: 10px; color: var(--text-dim); line-height: 1.3;
+}
+.detail-attack-link {
+  font-size: 8px; letter-spacing: 0.15em;
+  color: var(--subtle); text-decoration: none;
+  border: 1px solid var(--muted); padding: 5px 12px;
+  display: inline-block; margin-top: 16px;
+  transition: all 0.2s;
+}
+.detail-attack-link:hover { color: var(--cyan); border-color: var(--cyan-dim); }
+
+/* ── OVERLAY ── */
+.overlay {
+  display: none;
+  position: fixed; inset: 0;
+  background: rgba(0,0,0,0.4);
+  z-index: 199;
+}
+.overlay.active { display: block; }
+
+/* ── TACTIC COVERAGE BAR ── */
+.tactic-coverage {
+  margin-bottom: 36px;
+}
+.tc-title {
+  font-size: 8px; letter-spacing: 0.25em; text-transform: uppercase;
+  color: var(--subtle); margin-bottom: 12px;
+}
+.tc-grid {
+  display: flex; flex-wrap: wrap; gap: 4px;
+}
+.tc-item {
+  background: var(--panel); border: 1px solid var(--muted);
+  padding: 6px 12px; cursor: pointer; transition: all 0.2s;
+  position: relative; overflow: hidden;
+}
+.tc-item:hover { border-color: var(--pink-dim); }
+.tc-fill {
+  position: absolute; top: 0; left: 0; bottom: 0;
+  background: linear-gradient(90deg, var(--pink-faint), transparent);
+  pointer-events: none;
+}
+.tc-name {
+  font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--text-dim); position: relative; z-index: 1;
+}
+.tc-num {
+  font-family: 'Syne Mono', monospace;
+  font-size: 12px; color: var(--pink); position: relative; z-index: 1;
+}
+
+/* ── NO DATA MSG ── */
+.no-data-msg {
+  background: var(--panel); border: 1px solid var(--muted);
+  border-left: 2px solid var(--gold-dim);
+  padding: 14px 18px; margin-bottom: 24px;
+  font-size: 11px; color: var(--text-dim); line-height: 1.7;
+  max-width: 600px;
+}
+.no-data-msg strong { color: var(--gold); }
+</style>
+</head>
+<body>
+<div class="scanline"></div>
+
+<nav>
+  <a class="nav-brand" href="/">
+    <span class="pk">ink</span>sec<span class="cx">.io</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="/blue-team/">blue team</a></li>
+    <li><a href="/blue-team/#labs">labs</a></li>
+    <li><a href="/blue-team/#alerts">alerts</a></li>
+  </ul>
+</nav>
+
+<div class="overlay" id="overlay"></div>
+
+<div class="wrap">
+  <div class="page-eyebrow">// mitre att&ck enterprise · coverage heatmap</div>
+  <h1 class="page-title">
+    <span class="pk">ATT&CK</span> <span class="cx">Heatmap</span>
+  </h1>
+  <p class="page-sub">
+    Technique coverage derived from all documented labs and investigations.
+    Intensity reflects frequency — how many times each technique appeared across writeups.
+  </p>
+
+  <!-- STAT BAR -->
+  <div class="stat-bar">
+    <div class="stat-block">
+      <span class="stat-val" id="stat-total">—</span>
+      <span class="stat-label">Total Observations</span>
+    </div>
+    <div class="stat-block">
+      <span class="stat-val" id="stat-unique">—</span>
+      <span class="stat-label">Unique Techniques</span>
+    </div>
+    <div class="stat-block">
+      <span class="stat-val" id="stat-tactics">—</span>
+      <span class="stat-label">Tactics Covered</span>
+    </div>
+    <div class="stat-block">
+      <span class="stat-val" id="stat-sources">—</span>
+      <span class="stat-label">Labs + Alerts</span>
+    </div>
+  </div>
+
+  <!-- LEGEND -->
+  <div class="legend">
+    <span class="legend-label">Frequency:</span>
+    <div class="legend-items">
+      <div class="legend-cell lc-0">0</div>
+      <div class="legend-cell lc-1">1</div>
+      <div class="legend-cell lc-2">2</div>
+      <div class="legend-cell lc-3">3-4</div>
+      <div class="legend-cell lc-4">5-7</div>
+      <div class="legend-cell lc-5">8+</div>
+    </div>
+    <span class="legend-sep">|</span>
+    <span class="legend-label">Click any cell for details</span>
+  </div>
+
+  <!-- TACTIC COVERAGE MINI-BAR -->
+  <div class="tactic-coverage">
+    <div class="tc-title">// tactic coverage — scroll right for full matrix</div>
+    <div class="tc-grid" id="tc-grid"></div>
+  </div>
+
+  <!-- MATRIX -->
+  <div class="matrix-scroll">
+    <div class="matrix" id="attack-matrix"></div>
+  </div>
+
+  <!-- DETAIL PANEL -->
+  <div class="detail-panel" id="detail-panel">
+    <span class="detail-close" id="detail-close">✕ close</span>
+    <div id="detail-content"></div>
+  </div>
+</div>
+
+<!-- Load ALERTS data -->
+<script src="/alerts-data.js"></script>
+<!-- Load LABS data if available (create labs-data.js from your LABS array) -->
+<script src="/labs-data.js" onerror="console.log('labs-data.js not found — using ALERTS only')"></script>
+
+<script>
+// ═══════════════════════════════════════════════════════════════
+// ATT&CK ENTERPRISE TECHNIQUE MAP
+// ═══════════════════════════════════════════════════════════════
+
+const TACTICS = [
+  { id: 'TA0043', name: 'Reconnaissance',      short: 'RECON',       alias: ['Reconnaissance'] },
+  { id: 'TA0042', name: 'Resource Development', short: 'RES DEV',     alias: ['Resource Development'] },
+  { id: 'TA0001', name: 'Initial Access',       short: 'INIT ACCESS', alias: ['Initial Access'] },
+  { id: 'TA0002', name: 'Execution',            short: 'EXECUTION',   alias: ['Execution'] },
+  { id: 'TA0003', name: 'Persistence',          short: 'PERSISTENCE', alias: ['Persistence'] },
+  { id: 'TA0004', name: 'Priv Escalation',      short: 'PRIV ESC',    alias: ['Privilege Escalation'] },
+  { id: 'TA0005', name: 'Defense Evasion',      short: 'DEF EVASION', alias: ['Defense Evasion'] },
+  { id: 'TA0006', name: 'Credential Access',    short: 'CRED ACCESS', alias: ['Credential Access'] },
+  { id: 'TA0007', name: 'Discovery',            short: 'DISCOVERY',   alias: ['Discovery'] },
+  { id: 'TA0008', name: 'Lateral Movement',     short: 'LAT MOVE',    alias: ['Lateral Movement'] },
+  { id: 'TA0009', name: 'Collection',           short: 'COLLECTION',  alias: ['Collection'] },
+  { id: 'TA0011', name: 'Command & Control',    short: 'C2',          alias: ['Command and Control', 'C2', 'Command & Control'] },
+  { id: 'TA0010', name: 'Exfiltration',         short: 'EXFIL',       alias: ['Exfiltration'] },
+  { id: 'TA0040', name: 'Impact',               short: 'IMPACT',      alias: ['Impact'] },
+];
+
+// technique id, name, primary tactic, parent (if sub-technique)
+const TECHNIQUES = [
+  // ── RECONNAISSANCE
+  { id:'T1595',     name:'Active Scanning',                    ta:'TA0043' },
+  { id:'T1595.001', name:'Scanning IP Blocks',                 ta:'TA0043', p:'T1595' },
+  { id:'T1595.002', name:'Vulnerability Scanning',             ta:'TA0043', p:'T1595' },
+  { id:'T1592',     name:'Gather Victim Host Info',            ta:'TA0043' },
+  { id:'T1589',     name:'Gather Victim Identity Info',        ta:'TA0043' },
+  { id:'T1590',     name:'Gather Victim Network Info',         ta:'TA0043' },
+  { id:'T1591',     name:'Gather Victim Org Info',             ta:'TA0043' },
+  { id:'T1598',     name:'Phishing for Information',           ta:'TA0043' },
+  { id:'T1596',     name:'Search Open Tech Databases',         ta:'TA0043' },
+  { id:'T1596.001', name:'DNS/Passive DNS',                    ta:'TA0043', p:'T1596' },
+  { id:'T1596.002', name:'WHOIS',                              ta:'TA0043', p:'T1596' },
+  { id:'T1593',     name:'Search Open Websites/Domains',       ta:'TA0043' },
+  { id:'T1594',     name:'Search Victim-Owned Websites',       ta:'TA0043' },
+
+  // ── RESOURCE DEVELOPMENT
+  { id:'T1583',     name:'Acquire Infrastructure',             ta:'TA0042' },
+  { id:'T1583.001', name:'Domains',                            ta:'TA0042', p:'T1583' },
+  { id:'T1583.006', name:'Web Services',                       ta:'TA0042', p:'T1583' },
+  { id:'T1586',     name:'Compromise Accounts',                ta:'TA0042' },
+  { id:'T1584',     name:'Compromise Infrastructure',          ta:'TA0042' },
+  { id:'T1587',     name:'Develop Capabilities',               ta:'TA0042' },
+  { id:'T1587.001', name:'Malware',                            ta:'TA0042', p:'T1587' },
+  { id:'T1585',     name:'Establish Accounts',                 ta:'TA0042' },
+  { id:'T1588',     name:'Obtain Capabilities',                ta:'TA0042' },
+  { id:'T1588.002', name:'Tool',                               ta:'TA0042', p:'T1588' },
+  { id:'T1608',     name:'Stage Capabilities',                 ta:'TA0042' },
+  { id:'T1608.001', name:'Upload Malware',                     ta:'TA0042', p:'T1608' },
+
+  // ── INITIAL ACCESS
+  { id:'T1189',     name:'Drive-by Compromise',                ta:'TA0001' },
+  { id:'T1190',     name:'Exploit Public-Facing Application',  ta:'TA0001' },
+  { id:'T1133',     name:'External Remote Services',           ta:'TA0001' },
+  { id:'T1200',     name:'Hardware Additions',                 ta:'TA0001' },
+  { id:'T1566',     name:'Phishing',                           ta:'TA0001' },
+  { id:'T1566.001', name:'Spearphishing Attachment',           ta:'TA0001', p:'T1566' },
+  { id:'T1566.002', name:'Spearphishing Link',                 ta:'TA0001', p:'T1566' },
+  { id:'T1566.003', name:'Spearphishing via Service',          ta:'TA0001', p:'T1566' },
+  { id:'T1091',     name:'Replication via Removable Media',    ta:'TA0001' },
+  { id:'T1195',     name:'Supply Chain Compromise',            ta:'TA0001' },
+  { id:'T1199',     name:'Trusted Relationship',               ta:'TA0001' },
+  { id:'T1078',     name:'Valid Accounts',                     ta:'TA0001' },
+  { id:'T1078.001', name:'Default Accounts',                   ta:'TA0001', p:'T1078' },
+  { id:'T1078.002', name:'Domain Accounts',                    ta:'TA0001', p:'T1078' },
+  { id:'T1078.003', name:'Local Accounts',                     ta:'TA0001', p:'T1078' },
+
+  // ── EXECUTION
+  { id:'T1059',     name:'Command & Scripting Interpreter',    ta:'TA0002' },
+  { id:'T1059.001', name:'PowerShell',                         ta:'TA0002', p:'T1059' },
+  { id:'T1059.002', name:'AppleScript',                        ta:'TA0002', p:'T1059' },
+  { id:'T1059.003', name:'Windows Command Shell',              ta:'TA0002', p:'T1059' },
+  { id:'T1059.004', name:'Unix Shell',                         ta:'TA0002', p:'T1059' },
+  { id:'T1059.005', name:'Visual Basic',                       ta:'TA0002', p:'T1059' },
+  { id:'T1059.006', name:'Python',                             ta:'TA0002', p:'T1059' },
+  { id:'T1059.007', name:'JavaScript',                         ta:'TA0002', p:'T1059' },
+  { id:'T1203',     name:'Exploitation for Client Execution',  ta:'TA0002' },
+  { id:'T1559',     name:'Inter-Process Communication',        ta:'TA0002' },
+  { id:'T1106',     name:'Native API',                         ta:'TA0002' },
+  { id:'T1053',     name:'Scheduled Task/Job',                 ta:'TA0002' },
+  { id:'T1053.005', name:'Scheduled Task',                     ta:'TA0002', p:'T1053' },
+  { id:'T1053.006', name:'Systemd Timers',                     ta:'TA0002', p:'T1053' },
+  { id:'T1053.007', name:'Container Orchestration Job',        ta:'TA0002', p:'T1053' },
+  { id:'T1072',     name:'Software Deployment Tools',          ta:'TA0002' },
+  { id:'T1569',     name:'System Services',                    ta:'TA0002' },
+  { id:'T1569.002', name:'Service Execution',                  ta:'TA0002', p:'T1569' },
+  { id:'T1204',     name:'User Execution',                     ta:'TA0002' },
+  { id:'T1204.001', name:'Malicious Link',                     ta:'TA0002', p:'T1204' },
+  { id:'T1204.002', name:'Malicious File',                     ta:'TA0002', p:'T1204' },
+  { id:'T1047',     name:'Windows Management Instrumentation', ta:'TA0002' },
+
+  // ── PERSISTENCE
+  { id:'T1098',     name:'Account Manipulation',               ta:'TA0003' },
+  { id:'T1098.001', name:'Additional Cloud Creds',             ta:'TA0003', p:'T1098' },
+  { id:'T1197',     name:'BITS Jobs',                          ta:'TA0003' },
+  { id:'T1547',     name:'Boot/Logon Autostart Execution',     ta:'TA0003' },
+  { id:'T1547.001', name:'Registry Run Keys',                  ta:'TA0003', p:'T1547' },
+  { id:'T1547.004', name:'Winlogon Helper DLL',                ta:'TA0003', p:'T1547' },
+  { id:'T1547.009', name:'Shortcut Modification',              ta:'TA0003', p:'T1547' },
+  { id:'T1037',     name:'Boot/Logon Initialization Scripts',  ta:'TA0003' },
+  { id:'T1176',     name:'Browser Extensions',                 ta:'TA0003' },
+  { id:'T1554',     name:'Compromise Host Software Binary',    ta:'TA0003' },
+  { id:'T1136',     name:'Create Account',                     ta:'TA0003' },
+  { id:'T1136.001', name:'Local Account',                      ta:'TA0003', p:'T1136' },
+  { id:'T1136.002', name:'Domain Account',                     ta:'TA0003', p:'T1136' },
+  { id:'T1543',     name:'Create or Modify System Process',    ta:'TA0003' },
+  { id:'T1543.003', name:'Windows Service',                    ta:'TA0003', p:'T1543' },
+  { id:'T1546',     name:'Event Triggered Execution',          ta:'TA0003' },
+  { id:'T1546.003', name:'Windows Management Instrumentation', ta:'TA0003', p:'T1546' },
+  { id:'T1574',     name:'Hijack Execution Flow',              ta:'TA0003' },
+  { id:'T1574.001', name:'DLL Search Order Hijacking',         ta:'TA0003', p:'T1574' },
+  { id:'T1574.002', name:'DLL Side-Loading',                   ta:'TA0003', p:'T1574' },
+  { id:'T1556',     name:'Modify Authentication Process',      ta:'TA0003' },
+  { id:'T1137',     name:'Office Application Startup',         ta:'TA0003' },
+  { id:'T1542',     name:'Pre-OS Boot',                        ta:'TA0003' },
+  { id:'T1505',     name:'Server Software Component',          ta:'TA0003' },
+  { id:'T1505.003', name:'Web Shell',                          ta:'TA0003', p:'T1505' },
+
+  // ── PRIVILEGE ESCALATION
+  { id:'T1548',     name:'Abuse Elevation Control Mechanism',  ta:'TA0004' },
+  { id:'T1548.002', name:'Bypass UAC',                         ta:'TA0004', p:'T1548' },
+  { id:'T1134',     name:'Access Token Manipulation',          ta:'TA0004' },
+  { id:'T1134.001', name:'Token Impersonation/Theft',          ta:'TA0004', p:'T1134' },
+  { id:'T1068',     name:'Exploitation for Privilege Escalation', ta:'TA0004' },
+  { id:'T1484',     name:'Domain Policy Modification',         ta:'TA0004' },
+  { id:'T1611',     name:'Escape to Host',                     ta:'TA0004' },
+  { id:'T1055',     name:'Process Injection',                  ta:'TA0004' },
+  { id:'T1055.001', name:'DLL Injection',                      ta:'TA0004', p:'T1055' },
+  { id:'T1055.002', name:'PE Injection',                       ta:'TA0004', p:'T1055' },
+  { id:'T1055.012', name:'Process Hollowing',                  ta:'TA0004', p:'T1055' },
+
+  // ── DEFENSE EVASION
+  { id:'T1140',     name:'Deobfuscate/Decode Files',           ta:'TA0005' },
+  { id:'T1222',     name:'File & Directory Permissions Mod',   ta:'TA0005' },
+  { id:'T1564',     name:'Hide Artifacts',                     ta:'TA0005' },
+  { id:'T1564.001', name:'Hidden Files & Directories',         ta:'TA0005', p:'T1564' },
+  { id:'T1564.003', name:'Hidden Window',                      ta:'TA0005', p:'T1564' },
+  { id:'T1562',     name:'Impair Defenses',                    ta:'TA0005' },
+  { id:'T1562.001', name:'Disable or Modify Tools',            ta:'TA0005', p:'T1562' },
+  { id:'T1562.002', name:'Disable Windows Event Logging',      ta:'TA0005', p:'T1562' },
+  { id:'T1562.004', name:'Disable or Modify System Firewall',  ta:'TA0005', p:'T1562' },
+  { id:'T1070',     name:'Indicator Removal',                  ta:'TA0005' },
+  { id:'T1070.001', name:'Clear Windows Event Logs',           ta:'TA0005', p:'T1070' },
+  { id:'T1070.003', name:'Clear Command History',              ta:'TA0005', p:'T1070' },
+  { id:'T1070.004', name:'File Deletion',                      ta:'TA0005', p:'T1070' },
+  { id:'T1036',     name:'Masquerading',                       ta:'TA0005' },
+  { id:'T1036.005', name:'Match Legitimate Name or Location',  ta:'TA0005', p:'T1036' },
+  { id:'T1112',     name:'Modify Registry',                    ta:'TA0005' },
+  { id:'T1027',     name:'Obfuscated Files or Information',    ta:'TA0005' },
+  { id:'T1027.001', name:'Binary Padding',                     ta:'TA0005', p:'T1027' },
+  { id:'T1027.002', name:'Software Packing',                   ta:'TA0005', p:'T1027' },
+  { id:'T1027.010', name:'Command Obfuscation',                ta:'TA0005', p:'T1027' },
+  { id:'T1014',     name:'Rootkit',                            ta:'TA0005' },
+  { id:'T1218',     name:'System Binary Proxy Execution',      ta:'TA0005' },
+  { id:'T1218.005', name:'Mshta',                              ta:'TA0005', p:'T1218' },
+  { id:'T1218.010', name:'Regsvr32',                           ta:'TA0005', p:'T1218' },
+  { id:'T1218.011', name:'Rundll32',                           ta:'TA0005', p:'T1218' },
+  { id:'T1216',     name:'System Script Proxy Execution',      ta:'TA0005' },
+  { id:'T1553',     name:'Subvert Trust Controls',             ta:'TA0005' },
+  { id:'T1553.002', name:'Code Signing',                       ta:'TA0005', p:'T1553' },
+  { id:'T1497',     name:'Virtualization/Sandbox Evasion',     ta:'TA0005' },
+  { id:'T1220',     name:'XSL Script Processing',              ta:'TA0005' },
+
+  // ── CREDENTIAL ACCESS
+  { id:'T1557',     name:'Adversary-in-the-Middle',            ta:'TA0006' },
+  { id:'T1110',     name:'Brute Force',                        ta:'TA0006' },
+  { id:'T1110.001', name:'Password Guessing',                  ta:'TA0006', p:'T1110' },
+  { id:'T1110.002', name:'Password Cracking',                  ta:'TA0006', p:'T1110' },
+  { id:'T1110.003', name:'Password Spraying',                  ta:'TA0006', p:'T1110' },
+  { id:'T1555',     name:'Credentials from Password Stores',   ta:'TA0006' },
+  { id:'T1555.003', name:'Credentials from Web Browsers',      ta:'TA0006', p:'T1555' },
+  { id:'T1555.005', name:'Password Managers',                  ta:'TA0006', p:'T1555' },
+  { id:'T1212',     name:'Exploitation for Credential Access', ta:'TA0006' },
+  { id:'T1187',     name:'Forced Authentication',              ta:'TA0006' },
+  { id:'T1606',     name:'Forge Web Credentials',              ta:'TA0006' },
+  { id:'T1056',     name:'Input Capture',                      ta:'TA0006' },
+  { id:'T1056.001', name:'Keylogging',                         ta:'TA0006', p:'T1056' },
+  { id:'T1056.002', name:'GUI Input Capture',                  ta:'TA0006', p:'T1056' },
+  { id:'T1556',     name:'Modify Authentication Process',      ta:'TA0006' },
+  { id:'T1040',     name:'Network Sniffing',                   ta:'TA0006' },
+  { id:'T1003',     name:'OS Credential Dumping',              ta:'TA0006' },
+  { id:'T1003.001', name:'LSASS Memory',                       ta:'TA0006', p:'T1003' },
+  { id:'T1003.002', name:'Security Account Manager',           ta:'TA0006', p:'T1003' },
+  { id:'T1003.003', name:'NTDS',                               ta:'TA0006', p:'T1003' },
+  { id:'T1003.006', name:'DCSync',                             ta:'TA0006', p:'T1003' },
+  { id:'T1528',     name:'Steal Application Access Token',     ta:'TA0006' },
+  { id:'T1558',     name:'Steal or Forge Kerberos Tickets',    ta:'TA0006' },
+  { id:'T1558.001', name:'Golden Ticket',                      ta:'TA0006', p:'T1558' },
+  { id:'T1558.003', name:'Kerberoasting',                      ta:'TA0006', p:'T1558' },
+  { id:'T1558.004', name:'AS-REP Roasting',                    ta:'TA0006', p:'T1558' },
+  { id:'T1539',     name:'Steal Web Session Cookie',           ta:'TA0006' },
+  { id:'T1552',     name:'Unsecured Credentials',              ta:'TA0006' },
+  { id:'T1552.001', name:'Credentials In Files',               ta:'TA0006', p:'T1552' },
+  { id:'T1552.002', name:'Credentials in Registry',            ta:'TA0006', p:'T1552' },
+  { id:'T1552.004', name:'Private Keys',                       ta:'TA0006', p:'T1552' },
+
+  // ── DISCOVERY
+  { id:'T1087',     name:'Account Discovery',                  ta:'TA0007' },
+  { id:'T1087.001', name:'Local Account',                      ta:'TA0007', p:'T1087' },
+  { id:'T1087.002', name:'Domain Account',                     ta:'TA0007', p:'T1087' },
+  { id:'T1010',     name:'Application Window Discovery',       ta:'TA0007' },
+  { id:'T1217',     name:'Browser Information Discovery',      ta:'TA0007' },
+  { id:'T1482',     name:'Domain Trust Discovery',             ta:'TA0007' },
+  { id:'T1083',     name:'File and Directory Discovery',       ta:'TA0007' },
+  { id:'T1046',     name:'Network Service Discovery',          ta:'TA0007' },
+  { id:'T1135',     name:'Network Share Discovery',            ta:'TA0007' },
+  { id:'T1201',     name:'Password Policy Discovery',          ta:'TA0007' },
+  { id:'T1120',     name:'Peripheral Device Discovery',        ta:'TA0007' },
+  { id:'T1069',     name:'Permission Groups Discovery',        ta:'TA0007' },
+  { id:'T1069.001', name:'Local Groups',                       ta:'TA0007', p:'T1069' },
+  { id:'T1069.002', name:'Domain Groups',                      ta:'TA0007', p:'T1069' },
+  { id:'T1057',     name:'Process Discovery',                  ta:'TA0007' },
+  { id:'T1012',     name:'Query Registry',                     ta:'TA0007' },
+  { id:'T1018',     name:'Remote System Discovery',            ta:'TA0007' },
+  { id:'T1518',     name:'Software Discovery',                 ta:'TA0007' },
+  { id:'T1518.001', name:'Security Software Discovery',        ta:'TA0007', p:'T1518' },
+  { id:'T1082',     name:'System Information Discovery',       ta:'TA0007' },
+  { id:'T1614',     name:'System Location Discovery',          ta:'TA0007' },
+  { id:'T1016',     name:'System Network Configuration Discovery', ta:'TA0007' },
+  { id:'T1049',     name:'System Network Connections Discovery', ta:'TA0007' },
+  { id:'T1033',     name:'System Owner/User Discovery',        ta:'TA0007' },
+  { id:'T1007',     name:'System Service Discovery',           ta:'TA0007' },
+  { id:'T1124',     name:'System Time Discovery',              ta:'TA0007' },
+
+  // ── LATERAL MOVEMENT
+  { id:'T1210',     name:'Exploitation of Remote Services',    ta:'TA0008' },
+  { id:'T1534',     name:'Internal Spearphishing',             ta:'TA0008' },
+  { id:'T1570',     name:'Lateral Tool Transfer',              ta:'TA0008' },
+  { id:'T1563',     name:'Remote Service Session Hijacking',   ta:'TA0008' },
+  { id:'T1563.001', name:'SSH Hijacking',                      ta:'TA0008', p:'T1563' },
+  { id:'T1021',     name:'Remote Services',                    ta:'TA0008' },
+  { id:'T1021.001', name:'Remote Desktop Protocol',            ta:'TA0008', p:'T1021' },
+  { id:'T1021.002', name:'SMB/Windows Admin Shares',           ta:'TA0008', p:'T1021' },
+  { id:'T1021.004', name:'SSH',                                ta:'TA0008', p:'T1021' },
+  { id:'T1021.006', name:'Windows Remote Management',          ta:'TA0008', p:'T1021' },
+  { id:'T1550',     name:'Use Alternate Authentication Material', ta:'TA0008' },
+  { id:'T1550.002', name:'Pass the Hash',                      ta:'TA0008', p:'T1550' },
+  { id:'T1550.003', name:'Pass the Ticket',                    ta:'TA0008', p:'T1550' },
+  { id:'T1080',     name:'Taint Shared Content',               ta:'TA0008' },
+
+  // ── COLLECTION
+  { id:'T1560',     name:'Archive Collected Data',             ta:'TA0009' },
+  { id:'T1560.001', name:'Archive via Utility',                ta:'TA0009', p:'T1560' },
+  { id:'T1123',     name:'Audio Capture',                      ta:'TA0009' },
+  { id:'T1119',     name:'Automated Collection',               ta:'TA0009' },
+  { id:'T1115',     name:'Clipboard Data',                     ta:'TA0009' },
+  { id:'T1530',     name:'Data from Cloud Storage',            ta:'TA0009' },
+  { id:'T1213',     name:'Data from Information Repositories', ta:'TA0009' },
+  { id:'T1005',     name:'Data from Local System',             ta:'TA0009' },
+  { id:'T1039',     name:'Data from Network Shared Drive',     ta:'TA0009' },
+  { id:'T1025',     name:'Data from Removable Media',          ta:'TA0009' },
+  { id:'T1074',     name:'Data Staged',                        ta:'TA0009' },
+  { id:'T1074.001', name:'Local Data Staging',                 ta:'TA0009', p:'T1074' },
+  { id:'T1114',     name:'Email Collection',                   ta:'TA0009' },
+  { id:'T1114.001', name:'Local Email Collection',             ta:'TA0009', p:'T1114' },
+  { id:'T1114.002', name:'Remote Email Collection',            ta:'TA0009', p:'T1114' },
+  { id:'T1185',     name:'Browser Session Hijacking',          ta:'TA0009' },
+  { id:'T1113',     name:'Screen Capture',                     ta:'TA0009' },
+  { id:'T1125',     name:'Video Capture',                      ta:'TA0009' },
+
+  // ── COMMAND & CONTROL
+  { id:'T1071',     name:'Application Layer Protocol',         ta:'TA0011' },
+  { id:'T1071.001', name:'Web Protocols (HTTP/S)',             ta:'TA0011', p:'T1071' },
+  { id:'T1071.002', name:'File Transfer Protocols',            ta:'TA0011', p:'T1071' },
+  { id:'T1071.004', name:'DNS',                                ta:'TA0011', p:'T1071' },
+  { id:'T1132',     name:'Data Encoding',                      ta:'TA0011' },
+  { id:'T1132.001', name:'Standard Encoding',                  ta:'TA0011', p:'T1132' },
+  { id:'T1001',     name:'Data Obfuscation',                   ta:'TA0011' },
+  { id:'T1568',     name:'Dynamic Resolution',                 ta:'TA0011' },
+  { id:'T1568.002', name:'Domain Generation Algorithms',       ta:'TA0011', p:'T1568' },
+  { id:'T1573',     name:'Encrypted Channel',                  ta:'TA0011' },
+  { id:'T1573.001', name:'Symmetric Cryptography',             ta:'TA0011', p:'T1573' },
+  { id:'T1573.002', name:'Asymmetric Cryptography',            ta:'TA0011', p:'T1573' },
+  { id:'T1008',     name:'Fallback Channels',                  ta:'TA0011' },
+  { id:'T1105',     name:'Ingress Tool Transfer',              ta:'TA0011' },
+  { id:'T1104',     name:'Multi-Stage Channels',               ta:'TA0011' },
+  { id:'T1095',     name:'Non-Application Layer Protocol',     ta:'TA0011' },
+  { id:'T1571',     name:'Non-Standard Port',                  ta:'TA0011' },
+  { id:'T1572',     name:'Protocol Tunneling',                 ta:'TA0011' },
+  { id:'T1090',     name:'Proxy',                              ta:'TA0011' },
+  { id:'T1090.001', name:'Internal Proxy',                     ta:'TA0011', p:'T1090' },
+  { id:'T1090.003', name:'Multi-hop Proxy',                    ta:'TA0011', p:'T1090' },
+  { id:'T1219',     name:'Remote Access Software',             ta:'TA0011' },
+  { id:'T1205',     name:'Traffic Signaling',                  ta:'TA0011' },
+  { id:'T1102',     name:'Web Service',                        ta:'TA0011' },
+
+  // ── EXFILTRATION
+  { id:'T1020',     name:'Automated Exfiltration',             ta:'TA0010' },
+  { id:'T1030',     name:'Data Transfer Size Limits',          ta:'TA0010' },
+  { id:'T1048',     name:'Exfil Over Alternative Protocol',    ta:'TA0010' },
+  { id:'T1041',     name:'Exfiltration Over C2 Channel',       ta:'TA0010' },
+  { id:'T1011',     name:'Exfil Over Other Network Medium',    ta:'TA0010' },
+  { id:'T1052',     name:'Exfil Over Physical Medium',         ta:'TA0010' },
+  { id:'T1567',     name:'Exfiltration Over Web Service',      ta:'TA0010' },
+  { id:'T1567.002', name:'Exfil to Cloud Storage',             ta:'TA0010', p:'T1567' },
+  { id:'T1029',     name:'Scheduled Transfer',                 ta:'TA0010' },
+  { id:'T1537',     name:'Transfer Data to Cloud Account',     ta:'TA0010' },
+
+  // ── IMPACT
+  { id:'T1531',     name:'Account Access Removal',             ta:'TA0040' },
+  { id:'T1485',     name:'Data Destruction',                   ta:'TA0040' },
+  { id:'T1486',     name:'Data Encrypted for Impact',          ta:'TA0040' },
+  { id:'T1565',     name:'Data Manipulation',                  ta:'TA0040' },
+  { id:'T1565.001', name:'Stored Data Manipulation',           ta:'TA0040', p:'T1565' },
+  { id:'T1491',     name:'Defacement',                         ta:'TA0040' },
+  { id:'T1561',     name:'Disk Wipe',                          ta:'TA0040' },
+  { id:'T1499',     name:'Endpoint Denial of Service',         ta:'TA0040' },
+  { id:'T1495',     name:'Firmware Corruption',                ta:'TA0040' },
+  { id:'T1490',     name:'Inhibit System Recovery',            ta:'TA0040' },
+  { id:'T1498',     name:'Network Denial of Service',          ta:'TA0040' },
+  { id:'T1496',     name:'Resource Hijacking',                 ta:'TA0040' },
+  { id:'T1489',     name:'Service Stop',                       ta:'TA0040' },
+  { id:'T1529',     name:'System Shutdown/Reboot',             ta:'TA0040' },
+];
+
+// ═══════════════════════════════════════════════════════════════
+// DATA PROCESSING
+// ═══════════════════════════════════════════════════════════════
+
+// Build lookup maps
+const techById   = {};
+const techByTactic = {};  // ta -> [tech, ...]
+
+TECHNIQUES.forEach(t => {
+  techById[t.id] = t;
+  if (!techByTactic[t.ta]) techByTactic[t.ta] = [];
+  techByTactic[t.ta].push(t);
+});
+
+// Tactic name → tactic ID lookup
+const tacticNameMap = {};
+TACTICS.forEach(t => {
+  t.alias.forEach(a => { tacticNameMap[a.toLowerCase()] = t.id; });
+});
+
+// Frequency map: tech ID → { count, sources: [{type, name, url}] }
+const freq  = {};
+// Tactic-level frequency (from tactic-name tags, not specific T-codes)
+const tacticFreq = {};
+
+function addHit(id, source) {
+  // Normalize: strip whitespace
+  id = id.trim();
+  if (!freq[id]) freq[id] = { count: 0, sources: [] };
+  freq[id].count++;
+  if (source && !freq[id].sources.find(s => s.name === source.name)) {
+    freq[id].sources.push(source);
+  }
+  // Also credit parent technique
+  const t = techById[id];
+  if (t && t.p) {
+    if (!freq[t.p]) freq[t.p] = { count: 0, sources: [] };
+    // Don't double-count sources for parent, but track it
+    if (source && !freq[t.p].sources.find(s => s.name === source.name)) {
+      freq[t.p].sources.push({ ...source, viaChild: id });
+    }
+  }
+}
+
+function addTacticHit(tacticId, source) {
+  if (!tacticFreq[tacticId]) tacticFreq[tacticId] = { count: 0, sources: [] };
+  tacticFreq[tacticId].count++;
+  if (source && !tacticFreq[tacticId].sources.find(s => s.name === source.name)) {
+    tacticFreq[tacticId].sources.push(source);
+  }
+}
+
+let totalSources = 0;
+
+// Process ALERTS (from /alerts-data.js)
+if (typeof ALERTS !== 'undefined' && Array.isArray(ALERTS)) {
+  ALERTS.forEach(alert => {
+    const src = { type: 'alert', name: alert.title || alert.alert_id || 'Alert', url: alert.url || '#' };
+    if (Array.isArray(alert.mitre)) {
+      alert.mitre.forEach(id => {
+        if (/^T\d{4}/.test(id)) addHit(id, src);
+      });
+    }
+    // Also check tags array if present
+    if (Array.isArray(alert.tags)) {
+      alert.tags.forEach(tag => {
+        if (/^T\d{4}/.test(tag)) addHit(tag, src);
+      });
+    }
+    totalSources++;
+  });
+}
+
+// Process LABS (from /labs-data.js or inline LABS)
+const labsData = typeof LABS !== 'undefined' ? LABS : [];
+labsData.forEach(lab => {
+  const src = { type: 'lab', name: lab.title || lab.name || 'Lab', url: lab.writeup || lab.url || '#' };
+  if (Array.isArray(lab.cats)) {
+    lab.cats.forEach(cat => {
+      // Specific T-code
+      const trimmed = cat.trim();
+      if (/^T\d{4}/.test(trimmed)) {
+        addHit(trimmed, src);
+      } else {
+        // Tactic-level name match
+        const taId = tacticNameMap[trimmed.toLowerCase()];
+        if (taId) addTacticHit(taId, src);
+      }
+    });
+  }
+  totalSources++;
+});
+
+// ═══════════════════════════════════════════════════════════════
+// RENDER
+// ═══════════════════════════════════════════════════════════════
+
+function getHitLevel(count) {
+  if (!count || count === 0) return 0;
+  if (count === 1) return 1;
+  if (count === 2) return 2;
+  if (count <= 4) return 3;
+  if (count <= 7) return 4;
+  return 5;
+}
+
+// Stats
+const uniqueHit = Object.keys(freq).filter(k => freq[k].count > 0).length;
+const tacticsCovered = TACTICS.filter(t =>
+  (techByTactic[t.id] || []).some(tech => freq[tech.id] && freq[tech.id].count > 0) ||
+  (tacticFreq[t.id] && tacticFreq[t.id].count > 0)
+).length;
+const totalObs = Object.values(freq).reduce((s, v) => s + v.count, 0);
+
+document.getElementById('stat-total').textContent   = totalObs || '—';
+document.getElementById('stat-unique').textContent  = uniqueHit || '—';
+document.getElementById('stat-tactics').textContent = tacticsCovered || '—';
+document.getElementById('stat-sources').textContent = totalSources || '—';
+
+// Tactic coverage mini-bar
+const tcGrid = document.getElementById('tc-grid');
+TACTICS.forEach(tactic => {
+  const techs = techByTactic[tactic.id] || [];
+  const techTotal = techs.reduce((s, t) => s + (freq[t.id] ? freq[t.id].count : 0), 0);
+  const tacticTotal = (tacticFreq[tactic.id] ? tacticFreq[tactic.id].count : 0);
+  const total = techTotal + tacticTotal;
+  const maxPossible = 30; // rough scale for fill %
+  const fillPct = Math.min(100, (total / maxPossible) * 100);
+
+  const item = document.createElement('div');
+  item.className = 'tc-item';
+  item.innerHTML = `
+    <div class="tc-fill" style="width:${fillPct}%"></div>
+    <div class="tc-name">${tactic.short}</div>
+    <div class="tc-num">${total || '—'}</div>
+  `;
+  item.addEventListener('click', () => {
+    document.querySelector(`.tactic-col[data-ta="${tactic.id}"]`)
+      ?.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' });
+  });
+  tcGrid.appendChild(item);
+});
+
+// Matrix
+const matrix = document.getElementById('attack-matrix');
+
+TACTICS.forEach(tactic => {
+  const col = document.createElement('div');
+  col.className = 'tactic-col';
+  col.setAttribute('data-ta', tactic.id);
+
+  const techs = techByTactic[tactic.id] || [];
+  const tacticHits = (tacticFreq[tactic.id] ? tacticFreq[tactic.id].count : 0);
+  const techHitCount = techs.filter(t => freq[t.id] && freq[t.id].count > 0).length;
+  const countLabel = techHitCount
+    ? `${techHitCount} technique${techHitCount !== 1 ? 's' : ''} observed`
+    : (tacticHits ? `${tacticHits} tactic-level hits` : 'not observed');
+
+  col.innerHTML = `
+    <div class="tactic-header">
+      <div class="tactic-id">${tactic.id}</div>
+      <div class="tactic-name">${tactic.name}</div>
+      <div class="tactic-count">${countLabel}</div>
+    </div>
+  `;
+
+  // Build parent → children map for this tactic
+  const parents = techs.filter(t => !t.p);
+  const childMap = {};
+  techs.filter(t => t.p).forEach(t => {
+    if (!childMap[t.p]) childMap[t.p] = [];
+    childMap[t.p].push(t);
+  });
+
+  parents.forEach(tech => {
+    col.appendChild(buildCell(tech, false));
+    // Sub-techniques
+    (childMap[tech.id] || []).forEach(sub => {
+      col.appendChild(buildCell(sub, true));
+    });
+  });
+
+  matrix.appendChild(col);
+});
+
+function buildCell(tech, isSub) {
+  const hitData = freq[tech.id];
+  const count   = hitData ? hitData.count : 0;
+  const level   = getHitLevel(count);
+
+  const cell = document.createElement('div');
+  cell.className = `tech-cell hit-${level}${isSub ? ' is-sub' : ''}`;
+  cell.innerHTML = `
+    <div class="tech-id">${tech.id}</div>
+    <div class="tech-name">${tech.name}</div>
+    ${count > 0 ? `<div class="tech-count-badge">${count}</div>` : ''}
+  `;
+
+  cell.addEventListener('click', () => openDetail(tech, hitData, isSub));
+  return cell;
+}
+
+// ── DETAIL PANEL ──
+const panel   = document.getElementById('detail-panel');
+const overlay = document.getElementById('overlay');
+const closeBtn= document.getElementById('detail-close');
+
+function openDetail(tech, hitData, isSub) {
+  const count    = hitData ? hitData.count : 0;
+  const sources  = hitData ? hitData.sources : [];
+  const tactic   = TACTICS.find(t => t.id === tech.ta);
+  const attackUrl= `https://attack.mitre.org/techniques/${tech.id.replace('.','/')}/`;
+
+  let sourcesHtml = '';
+  if (sources.length > 0) {
+    sourcesHtml = `
+      <div class="detail-section-title">// observed in</div>
+      ${sources.map(s => `
+        <a class="detail-source-item" href="${s.url}" target="_blank">
+          <div class="detail-source-type">${s.type}${s.viaChild ? ` · via ${s.viaChild}` : ''}</div>
+          <div class="detail-source-name">${s.name}</div>
+        </a>
+      `).join('')}
+    `;
+  } else {
+    sourcesHtml = `
+      <div class="detail-section-title">// not yet observed</div>
+      <div style="font-size:10px;color:var(--subtle);padding:8px 0;">
+        This technique hasn't appeared in your documented labs or investigations yet.
+      </div>
+    `;
+  }
+
+  document.getElementById('detail-content').innerHTML = `
+    <div style="margin-bottom:20px;">
+      ${tactic ? `<div class="detail-tactic-tag">${tactic.name}</div>` : ''}
+      ${isSub ? `<div style="font-size:8px;color:var(--subtle);margin-bottom:6px;letter-spacing:0.15em">sub-technique of ${tech.p}</div>` : ''}
+      <div class="detail-id">${tech.id}</div>
+      <div class="detail-name">${tech.name}</div>
+    </div>
+
+    <div class="detail-divider"></div>
+
+    <div class="detail-count-block">
+      <span class="detail-count-num">${count}</span>
+      <span class="detail-count-label">total observations</span>
+    </div>
+
+    <div class="detail-divider"></div>
+
+    ${sourcesHtml}
+
+    <a class="detail-attack-link" href="${attackUrl}" target="_blank" rel="noopener">
+      → view on attack.mitre.org
+    </a>
+  `;
+
+  panel.classList.add('open');
+  overlay.classList.add('active');
+}
+
+closeBtn.addEventListener('click', closeDetail);
+overlay.addEventListener('click', closeDetail);
+function closeDetail() {
+  panel.classList.remove('open');
+  overlay.classList.remove('active');
+}
+
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') closeDetail();
+});
+</script>
+</body>
+</html>

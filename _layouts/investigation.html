@@ -323,25 +323,81 @@ nav {
 
 /* ── VERDICT BOX ── */
 .verdict-box {
-  margin: 40px 0 0;
-  padding: 16px 20px;
+  margin: 36px 0 0;
   border: 1px solid var(--muted);
   background: var(--panel);
-  display: flex; align-items: center; gap: 16px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Colored accent bar at top — overridden per outcome */
+.verdict-box::before {
+  content: '';
+  display: block;
+  height: 3px;
+  width: 100%;
+}
+
+/* Outcome-specific border + bar color */
+.verdict-box.vb-tp  { border-color: var(--green-dim); }
+.verdict-box.vb-tp::before  { background: linear-gradient(90deg, var(--green), transparent); }
+.verdict-box.vb-fp  { border-color: rgba(255,107,107,0.45); }
+.verdict-box.vb-fp::before  { background: linear-gradient(90deg, var(--red), transparent); }
+.verdict-box.vb-ben { border-color: var(--cyan-dim); }
+.verdict-box.vb-ben::before { background: linear-gradient(90deg, var(--cyan), transparent); }
+
+.verdict-inner {
+  padding: 20px 28px 22px;
+  display: flex; align-items: center;
+  justify-content: space-between; gap: 16px;
   flex-wrap: wrap;
 }
+
+.verdict-left { display: flex; flex-direction: column; gap: 6px; }
+
 .verdict-label {
   font-family: 'Share Tech Mono', monospace;
-  font-size: 8px; letter-spacing: 0.25em;
+  font-size: 8px; letter-spacing: 0.3em;
   text-transform: uppercase; color: var(--subtle);
 }
 .verdict-value {
   font-family: 'Syne Mono', monospace;
-  font-size: 14px;
+  font-size: clamp(22px, 4vw, 34px);
+  letter-spacing: 0.05em; line-height: 1;
 }
-.verdict-tp { color: var(--green); text-shadow: 0 0 20px var(--green-dim); }
-.verdict-fp { color: var(--red); }
-.verdict-ben { color: var(--cyan); }
+.verdict-tp  { color: var(--green); text-shadow: 0 0 40px var(--green-dim); }
+.verdict-fp  { color: var(--red);   text-shadow: 0 0 40px rgba(255,107,107,0.35); }
+.verdict-ben { color: var(--cyan);  text-shadow: 0 0 40px var(--cyan-dim); }
+
+.verdict-symbol {
+  font-family: 'Syne Mono', monospace;
+  font-size: clamp(36px, 6vw, 56px);
+  opacity: 0.12; line-height: 1;
+  pointer-events: none; user-select: none;
+}
+.verdict-symbol-tp  { color: var(--green); opacity: 0.15; }
+.verdict-symbol-fp  { color: var(--red);   opacity: 0.12; }
+.verdict-symbol-ben { color: var(--cyan);  opacity: 0.12; }
+
+/* ── IOC COPY ── */
+.ioc-copy-btn {
+  display: inline-flex; align-items: center; gap: 4px;
+  margin-left: 8px; vertical-align: middle;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 7px; letter-spacing: 0.1em;
+  color: var(--subtle); border: 1px solid var(--muted);
+  padding: 1px 5px; cursor: pointer;
+  background: transparent; transition: all 0.2s;
+  white-space: nowrap; flex-shrink: 0;
+}
+.ioc-copy-btn:hover { color: var(--cyan); border-color: var(--cyan-dim); }
+.ioc-copy-btn.copied { color: var(--green); border-color: var(--green-dim); }
+
+.ioc-cell-wrap {
+  display: flex; align-items: flex-start;
+  gap: 6px; flex-wrap: nowrap;
+}
+.ioc-cell-text { flex: 1; min-width: 0; word-break: break-all; }
 
 /* ── FOOTER NAV ── */
 .inv-footer-nav {
@@ -438,17 +494,38 @@ nav {
 
     <!-- Verdict -->
     {% if page.outcome %}
-    <div class="verdict-box">
-      <span class="verdict-label">analyst verdict</span>
-      {% assign outcome_lower = page.outcome | downcase %}
-      {% if outcome_lower == "true-positive" %}
-        <span class="verdict-value verdict-tp">TRUE POSITIVE</span>
-      {% elsif outcome_lower == "false-positive" %}
-        <span class="verdict-value verdict-fp">FALSE POSITIVE</span>
-      {% else %}
-        <span class="verdict-value verdict-ben">{{ page.outcome | upcase }}</span>
-      {% endif %}
+    {% assign outcome_lower = page.outcome | downcase %}
+    {% if outcome_lower == "true-positive" %}
+    <div class="verdict-box vb-tp">
+      <div class="verdict-inner">
+        <div class="verdict-left">
+          <span class="verdict-label">analyst verdict</span>
+          <span class="verdict-value verdict-tp">TRUE POSITIVE</span>
+        </div>
+        <span class="verdict-symbol verdict-symbol-tp">✓</span>
+      </div>
     </div>
+    {% elsif outcome_lower == "false-positive" %}
+    <div class="verdict-box vb-fp">
+      <div class="verdict-inner">
+        <div class="verdict-left">
+          <span class="verdict-label">analyst verdict</span>
+          <span class="verdict-value verdict-fp">FALSE POSITIVE</span>
+        </div>
+        <span class="verdict-symbol verdict-symbol-fp">✗</span>
+      </div>
+    </div>
+    {% else %}
+    <div class="verdict-box vb-ben">
+      <div class="verdict-inner">
+        <div class="verdict-left">
+          <span class="verdict-label">analyst verdict</span>
+          <span class="verdict-value verdict-ben">{{ page.outcome | upcase }}</span>
+        </div>
+        <span class="verdict-symbol verdict-symbol-ben">○</span>
+      </div>
+    </div>
+    {% endif %}
     {% endif %}
 
   {% if page.youtube %}
@@ -475,6 +552,86 @@ nav {
     <a class="footer-nav-link" href="/blue-team/">blue team ops →</a>
   </div>
 
-</div>
+<script>
+// ── IOC COPY BUTTONS ──
+// Patterns that identify IOC-like content in table cells
+const IOC_PATTERNS = [
+  // MD5 (32 hex)
+  /\b[0-9a-fA-F]{32}\b/,
+  // SHA1 (40 hex)
+  /\b[0-9a-fA-F]{40}\b/,
+  // SHA256 (64 hex)
+  /\b[0-9a-fA-F]{64}\b/,
+  // IPv4 (normal and defanged)
+  /\b\d{1,3}[\[.\]]+\d{1,3}[\[.\]]+\d{1,3}[\[.\]]+\d{1,3}\b/,
+  /\b\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\b/,
+  // Defanged URL/domain
+  /hxxp[s]?\[?:\/\/\]?/i,
+  /\w+\[\.\]\w+/,
+];
+
+function isIOC(text) {
+  const t = text.trim();
+  // Minimum useful length
+  if (t.length < 7) return false;
+  return IOC_PATTERNS.some(p => p.test(t));
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  const cells = document.querySelectorAll('.inv-content td');
+  cells.forEach(td => {
+    const raw = td.textContent.trim();
+    if (!isIOC(raw)) return;
+
+    // Wrap content
+    const existing = td.innerHTML;
+    const wrap = document.createElement('div');
+    wrap.className = 'ioc-cell-wrap';
+
+    const textSpan = document.createElement('span');
+    textSpan.className = 'ioc-cell-text';
+    textSpan.innerHTML = existing;
+
+    const btn = document.createElement('button');
+    btn.className = 'ioc-copy-btn';
+    btn.textContent = 'COPY';
+    btn.title = 'Copy IOC to clipboard';
+
+    btn.addEventListener('click', async (e) => {
+      e.stopPropagation();
+      try {
+        await navigator.clipboard.writeText(raw);
+        btn.textContent = 'COPIED';
+        btn.classList.add('copied');
+        setTimeout(() => {
+          btn.textContent = 'COPY';
+          btn.classList.remove('copied');
+        }, 1800);
+      } catch {
+        // Fallback for non-HTTPS
+        const ta = document.createElement('textarea');
+        ta.value = raw;
+        ta.style.position = 'fixed';
+        ta.style.opacity = '0';
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand('copy');
+        document.body.removeChild(ta);
+        btn.textContent = 'COPIED';
+        btn.classList.add('copied');
+        setTimeout(() => {
+          btn.textContent = 'COPY';
+          btn.classList.remove('copied');
+        }, 1800);
+      }
+    });
+
+    wrap.appendChild(textSpan);
+    wrap.appendChild(btn);
+    td.innerHTML = '';
+    td.appendChild(wrap);
+  });
+});
+</script>
 </body>
 </html>
