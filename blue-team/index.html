@@ -610,6 +610,28 @@ html { scroll-behavior: smooth; zoom: 1.2; }
     <a class="featured-cta" href="/blue-team/alerts/" style="display:inline-block;">view full investigation log →</a>
   </section>
 
+  <!-- HEATMAP -->
+  <section id="heatmap">
+    <div class="sec-eyebrow">// mitre att&ck enterprise · technique coverage</div>
+    <div class="sec-title">att&ck <span class="pk">heatmap</span></div>
+    <p class="sec-desc">Every technique observed across labs and investigations mapped to MITRE ATT&CK Enterprise. Generated live from documented writeups — no manual curation.</p>
+
+    <div class="hero-stats" style="margin-bottom:28px;">
+      <div class="hstat"><div class="hstat-val pk" id="hm-obs">—</div><div class="hstat-label">Observations</div></div>
+      <div class="hstat"><div class="hstat-val cx" id="hm-unique">—</div><div class="hstat-label">Unique Techniques</div></div>
+      <div class="hstat"><div class="hstat-val go" id="hm-tactics">14</div><div class="hstat-label">Tactics Covered</div></div>
+      <div class="hstat"><div class="hstat-val pk" id="hm-top">—</div><div class="hstat-label">Most Observed</div></div>
+    </div>
+
+    <div id="hm-mini" style="
+      display:flex; gap:3px; flex-wrap:nowrap;
+      overflow-x:auto; margin-bottom:28px;
+      padding-bottom:6px;
+    "></div>
+
+    <a class="featured-cta" href="/blue-team/heatmap/" style="display:inline-block;">explore full att&ck matrix →</a>
+  </section>
+
   <!-- ALL LABS -->
   <section id="labs">
     <div class="sec-eyebrow">// all completed labs</div>
@@ -949,6 +971,108 @@ renderAll();
       ? latest.id + ' — ' + latest.title.slice(0,35) + (latest.title.length>35?'…':'')
       : '—';
   }
+
+// ── HEATMAP SECTION ────────────────────────────────────────────────
+(function() {
+  const TACTICS = [
+    { id:'TA0043', short:'RECON',    alias:['Reconnaissance'] },
+    { id:'TA0042', short:'RES DEV',  alias:['Resource Development'] },
+    { id:'TA0001', short:'INIT ACC', alias:['Initial Access'] },
+    { id:'TA0002', short:'EXEC',     alias:['Execution'] },
+    { id:'TA0003', short:'PERSIST',  alias:['Persistence'] },
+    { id:'TA0004', short:'PRIV ESC', alias:['Privilege Escalation'] },
+    { id:'TA0005', short:'DEF EVA',  alias:['Defense Evasion'] },
+    { id:'TA0006', short:'CRED ACC', alias:['Credential Access'] },
+    { id:'TA0007', short:'DISCOV',   alias:['Discovery'] },
+    { id:'TA0008', short:'LAT MOVE', alias:['Lateral Movement'] },
+    { id:'TA0009', short:'COLLECT',  alias:['Collection'] },
+    { id:'TA0011', short:'C2',       alias:['Command and Control','Command & Control','C2'] },
+    { id:'TA0010', short:'EXFIL',    alias:['Exfiltration'] },
+    { id:'TA0040', short:'IMPACT',   alias:['Impact'] },
+  ];
+
+  const tacticAlias = {};
+  TACTICS.forEach(t => t.alias.forEach(a => { tacticAlias[a.toLowerCase()] = t.id; }));
+
+  const techFreq   = {};
+  const tacticFreq = {};
+
+  function hitTech(id) {
+    id = id.trim();
+    if (!/^T\d{4}/.test(id)) return;
+    techFreq[id] = (techFreq[id] || 0) + 1;
+  }
+  function hitTactic(id) {
+    tacticFreq[id] = (tacticFreq[id] || 0) + 1;
+  }
+
+  if (typeof ALERTS !== 'undefined') {
+    ALERTS.forEach(a => {
+      (a.mitre || []).forEach(id => hitTech(id));
+      (a.tags  || []).forEach(t  => { if (/^T\d{4}/.test(t)) hitTech(t); });
+    });
+  }
+  if (typeof LABS !== 'undefined') {
+    LABS.forEach(lab => {
+      (lab.cats || []).forEach(cat => {
+        cat = cat.trim();
+        if (/^T\d{4}/.test(cat)) hitTech(cat);
+        else { const ta = tacticAlias[cat.toLowerCase()]; if (ta) hitTactic(ta); }
+      });
+    });
+  }
+
+  const uniqueTechs = Object.keys(techFreq).length;
+  const totalObs    = Object.values(techFreq).reduce((s,v) => s + v, 0);
+
+  let topTech = '—', topCount = 0;
+  Object.entries(techFreq).forEach(([id, n]) => { if (n > topCount) { topCount = n; topTech = id; } });
+
+  const el = id => document.getElementById(id);
+  if (el('hm-obs'))    el('hm-obs').textContent    = totalObs    || '—';
+  if (el('hm-unique')) el('hm-unique').textContent  = uniqueTechs || '—';
+  if (el('hm-top'))    el('hm-top').textContent     = topTech;
+
+  // Mini matrix bar
+  const miniWrap = document.getElementById('hm-mini');
+  if (!miniWrap) return;
+
+  const maxVal = Math.max(...TACTICS.map(t => tacticFreq[t.id] || 0), 1);
+
+  const bgs     = ['var(--panel)','rgba(255,102,196,0.10)','rgba(255,102,196,0.20)','rgba(255,102,196,0.32)','rgba(255,102,196,0.48)','rgba(255,102,196,0.65)'];
+  const borders = ['var(--muted)','rgba(255,102,196,0.2)','rgba(255,102,196,0.35)','rgba(255,102,196,0.5)','rgba(255,102,196,0.65)','var(--pink)'];
+
+  TACTICS.forEach(tactic => {
+    const count   = tacticFreq[tactic.id] || 0;
+    const fillPct = Math.min(100, Math.round((count / maxVal) * 100));
+    const level   = count === 0 ? 0 : count <= 2 ? 1 : count <= 5 ? 2 : count <= 10 ? 3 : count <= 20 ? 4 : 5;
+
+    const col = document.createElement('a');
+    col.href  = '/blue-team/heatmap/';
+    col.title = `${tactic.alias[0]}: ${count} hits — click to explore`;
+    col.style.cssText = `display:flex;flex-direction:column;justify-content:flex-end;width:66px;flex-shrink:0;background:${bgs[level]};border:1px solid ${borders[level]};padding:8px 6px 6px;text-decoration:none;position:relative;overflow:hidden;transition:border-color 0.2s,background 0.2s;cursor:pointer;`;
+
+    const fill = document.createElement('div');
+    fill.style.cssText = `position:absolute;bottom:0;left:0;right:0;height:${fillPct}%;background:linear-gradient(0deg,rgba(255,102,196,0.15),transparent);pointer-events:none;`;
+
+    const label = document.createElement('div');
+    label.style.cssText = `font-family:'Share Tech Mono',monospace;font-size:7px;letter-spacing:0.15em;text-transform:uppercase;color:${count > 0 ? 'rgba(255,102,196,0.8)' : 'var(--subtle)'};line-height:1.2;margin-bottom:4px;position:relative;z-index:1;`;
+    label.textContent = tactic.short;
+
+    const num = document.createElement('div');
+    num.style.cssText = `font-family:'Syne Mono',monospace;font-size:${count > 9 ? '14px' : '16px'};color:${count > 0 ? 'var(--pink)' : 'var(--subtle)'};${count > 0 ? 'text-shadow:0 0 12px rgba(255,102,196,0.4);' : ''}line-height:1;position:relative;z-index:1;`;
+    num.textContent = count > 0 ? count : '·';
+
+    col.appendChild(fill);
+    col.appendChild(label);
+    col.appendChild(num);
+
+    col.addEventListener('mouseenter', () => { col.style.borderColor='var(--pink)'; col.style.background='rgba(255,102,196,0.12)'; });
+    col.addEventListener('mouseleave', () => { col.style.borderColor=borders[level]; col.style.background=bgs[level]; });
+
+    miniWrap.appendChild(col);
+  });
+})();
 </script>
 </body>
 </html>
