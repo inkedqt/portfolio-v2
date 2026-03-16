@@ -883,4 +883,19 @@ const LABS = [
     type:     'None',
   },
 
+  {
+    name:     'Revenge Hotels APT',
+    skill:    'Endpoint Forensics',
+    platform: 'CyberDefenders',
+    diff:     'Easy',
+    cats:     ['Endpoint Forensics', 'CyberChef', 'DB Browser for SQLite', 'dnSpy', 'Windows Event Viewer', 'Initial Access', 'Persistence', 'Privilege Escalation', 'Defense Evasion', 'Credential Access', 'Discovery', 'Lateral Movement', 'Collection', 'Exfiltration', 'T1566.001', 'T1204.002', 'T1059.005', 'T1059.001', 'T1027', 'T1562.001', 'T1547.001', 'T1543', 'T1071.001', 'T1005', 'T1560.001', 'T1041'],
+    status:   'done',
+    score:    null,
+    summary:  'Reconstruct a multi-stage RevengeHotels APT intrusion by correlating Chrome browser history, Sysmon event logs, registry artifacts, and .NET malware analysis to trace the full attack chain from phishing JS dropper through Quasar RAT persistence and data exfiltration.',
+    art:      'https://cyberdefenders.org/media/terraform/RevengeHotels%20APT/terraform/RevengeHotels%20APT/revengehotels-apt.webp',
+    writeup:  '/blue-team/labs/revengehotels/',
+    proof:    'https://cyberdefenders.org/blueteam-ctf-challenges/achievements/inksec/revengehotels-apt/',
+    type:     'None',
+  },
+
 ];

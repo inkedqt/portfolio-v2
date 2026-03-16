@@ -455,7 +455,7 @@ const COMMANDS_DATA = [
     "tool": "volatility",
     "lab": "redline",
     "lab_url": "/blue-team/labs/redline/",
-    "desc": "Scan memory regions for injected code — flags PAGE_EXECUTE_READWRITE and suspicious VAD entries",
+    "desc": "Scan memory regions for injected code \u2014 flags PAGE_EXECUTE_READWRITE and suspicious VAD entries",
     "tags": "volatility"
   },
   {
@@ -471,7 +471,7 @@ const COMMANDS_DATA = [
     "tool": "shell",
     "lab": "redline",
     "lab_url": "/blue-team/labs/redline/",
-    "desc": "Extract UTF-16 wide strings from memory dump and filter for PHP endpoints — catches .NET malware C2 URLs",
+    "desc": "Extract UTF-16 wide strings from memory dump and filter for PHP endpoints \u2014 catches .NET malware C2 URLs",
     "tags": "shell"
   },
   {
@@ -481,12 +481,20 @@ const COMMANDS_DATA = [
     "lab_url": "/blue-team/labs/redline/",
     "desc": "can memory for file handles and filter by name to recover full on-disk path of a malicious executable",
     "tags": "volatility"
+  },
+  {
+    "command": "EvtxECmd.exe -f \"C:\\Users\\Administrator\\Desktop\\Start Here\\Artifacts\\PC\\Windows\\System32\\winevt\\Logs\\Microsoft-Windows-Sysmon%4Operational.evtx\" --csv \"C:\\Temp\" --csvf sysmon.csv",
+    "tool": "shell",
+    "lab": "revengehotels",
+    "lab_url": "/blue-team/labs/revengehotels/",
+    "desc": "Export Windows event log to CSV for proper Timeline Explorer analysis — raw evtx renders unreadable without Sysmon installed on analysis host",
+    "tags": "shell"
   }
 ];
 
 const COMMANDS_META = {
-  "total": 60,
-  "labs": 24,
+  "total": 61,
+  "labs": 25,
   "tools": [
     "shell",
     "splunk",
