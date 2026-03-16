@@ -431,7 +431,7 @@ const COMMANDS_DATA = [
     "tool": "wireshark",
     "lab": "exxtensity",
     "lab_url": "/blue-team/labs/exxtensity/",
-    "desc": "",
+    "desc": "Filter traffic on non-standard port 14693 keylogger exfil port in Exxtensity",
     "tags": "wireshark"
   },
   {
@@ -439,7 +439,7 @@ const COMMANDS_DATA = [
     "tool": "volatility",
     "lab": "redline",
     "lab_url": "/blue-team/labs/redline/",
-    "desc": "",
+    "desc": "Display running processes as parent/child tree to identify anomalous spawning relationships",
     "tags": "volatility"
   },
   {
@@ -447,7 +447,7 @@ const COMMANDS_DATA = [
     "tool": "volatility",
     "lab": "redline",
     "lab_url": "/blue-team/labs/redline/",
-    "desc": "",
+    "desc": "List all running processes from memory with PID, PPID, start time",
     "tags": "volatility"
   },
   {
@@ -455,7 +455,7 @@ const COMMANDS_DATA = [
     "tool": "volatility",
     "lab": "redline",
     "lab_url": "/blue-team/labs/redline/",
-    "desc": "",
+    "desc": "Scan memory regions for injected code — flags PAGE_EXECUTE_READWRITE and suspicious VAD entries",
     "tags": "volatility"
   },
   {
@@ -463,7 +463,7 @@ const COMMANDS_DATA = [
     "tool": "volatility",
     "lab": "redline",
     "lab_url": "/blue-team/labs/redline/",
-    "desc": "",
+    "desc": "Enumerate active and recently closed network connections from memory",
     "tags": "volatility"
   },
   {
@@ -471,7 +471,7 @@ const COMMANDS_DATA = [
     "tool": "shell",
     "lab": "redline",
     "lab_url": "/blue-team/labs/redline/",
-    "desc": "",
+    "desc": "Extract UTF-16 wide strings from memory dump and filter for PHP endpoints — catches .NET malware C2 URLs",
     "tags": "shell"
   },
   {
@@ -479,7 +479,7 @@ const COMMANDS_DATA = [
     "tool": "volatility",
     "lab": "redline",
     "lab_url": "/blue-team/labs/redline/",
-    "desc": "",
+    "desc": "can memory for file handles and filter by name to recover full on-disk path of a malicious executable",
     "tags": "volatility"
   }
 ];
