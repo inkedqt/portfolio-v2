@@ -868,4 +868,19 @@ const LABS = [
     type:     'None',
   },
 
+  {
+    name:     'IcedID',
+    skill:    'Threat Intelligence',
+    platform: 'CyberDefenders',
+    diff:     'Easy',
+    cats:     ['Threat Intel', 'VirusTotal', 'Any.run', 'tria.ge', 'WHOIS', 'Initial Access', 'Execution', 'Persistence', 'Defense Evasion', 'Command and Control', 'Exfiltration', 'T1566.001', 'T1204.002', 'T1105', 'T1027.002', 'T1071.001', 'T1573.002', 'T1048.002', 'T1547.001', 'T1185', 'T1189'],
+    status:   'done',
+    score:    null,
+    summary:  'Pure threat intelligence investigation into an IcedID malware sample — analyzing a malicious Excel macro dropper via hash lookup across VirusTotal, Any.run, and tria.ge to map C2 infrastructure, identify the threat actor GOLD CABIN, and document the staged payload delivery chain.',
+    art:      'https://cyberdefenders.org/media/terraform/IcedID/IcedID_4yYxbLQ.webp',
+    writeup:  '/blue-team/labs/icedid/',
+    proof:    'https://cyberdefenders.org/blueteam-ctf-challenges/achievements/inksec/icedid/',
+    type:     'None',
+  },
+
 ];
