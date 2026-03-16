@@ -64,6 +64,9 @@ def build_entry(fm):
             all_cats += [x.strip() for x in v.split(',')]
 
     # Explicit mitre T-codes go at the end of cats, deduplicated
+    # Handle both list and Obsidian-quoted string e.g. '[T1055, T1071.001]'
+    if isinstance(mitre, str):
+        mitre = [x.strip() for x in mitre.strip().lstrip('[').rstrip(']').split(',')]
     if isinstance(mitre, list):
         for code in mitre:
             code = str(code).strip()

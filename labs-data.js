@@ -853,4 +853,19 @@ const LABS = [
     type:     'challenge',
   },
 
+  {
+    name:     'Redline',
+    skill:    'Endpoint Forensics',
+    platform: 'CyberDefenders',
+    diff:     'Easy',
+    cats:     ['Endpoint Forensics', 'Volatility', 'strings', 'Privilege Escalation', 'Defense Evasion', 'Command and Control', 'Exfiltration', 'T1055', 'T1036.005', 'T1071.001', 'T1041', 'T1555.003', 'T1572', 'T1105'],
+    status:   'done',
+    score:    null,
+    summary:  'Analyze a Windows memory dump using Volatility 3 to identify Redline stealer malware, trace attacker C2 infrastructure, and determine how the attacker bypassed the Network Intrusion Detection System via VPN tunneling.',
+    art:      'https://cyberdefenders.org/media/terraform/RedLine/RedLine.webp',
+    writeup:  '/blue-team/labs/redline/',
+    proof:    'https://cyberdefenders.org/blueteam-ctf-challenges/achievements/inksec/redline/',
+    type:     'None',
+  },
+
 ];

@@ -433,12 +433,60 @@ const COMMANDS_DATA = [
     "lab_url": "/blue-team/labs/exxtensity/",
     "desc": "",
     "tags": "wireshark"
+  },
+  {
+    "command": "vol -f MemoryDump.mem windows.pstree",
+    "tool": "volatility",
+    "lab": "redline",
+    "lab_url": "/blue-team/labs/redline/",
+    "desc": "",
+    "tags": "volatility"
+  },
+  {
+    "command": "vol -f MemoryDump.mem windows.pslist",
+    "tool": "volatility",
+    "lab": "redline",
+    "lab_url": "/blue-team/labs/redline/",
+    "desc": "",
+    "tags": "volatility"
+  },
+  {
+    "command": "vol -f MemoryDump.mem windows.malfind",
+    "tool": "volatility",
+    "lab": "redline",
+    "lab_url": "/blue-team/labs/redline/",
+    "desc": "",
+    "tags": "volatility"
+  },
+  {
+    "command": "vol -f MemoryDump.mem windows.netscan",
+    "tool": "volatility",
+    "lab": "redline",
+    "lab_url": "/blue-team/labs/redline/",
+    "desc": "",
+    "tags": "volatility"
+  },
+  {
+    "command": "strings -el MemoryDump.mem | grep \"\\.php\" | sort -u",
+    "tool": "shell",
+    "lab": "redline",
+    "lab_url": "/blue-team/labs/redline/",
+    "desc": "",
+    "tags": "shell"
+  },
+  {
+    "command": "vol -f MemoryDump.mem windows.filescan | grep -i oneetx.exe",
+    "tool": "volatility",
+    "lab": "redline",
+    "lab_url": "/blue-team/labs/redline/",
+    "desc": "",
+    "tags": "volatility"
   }
 ];
 
 const COMMANDS_META = {
-  "total": 54,
-  "labs": 23,
+  "total": 60,
+  "labs": 24,
   "tools": [
     "shell",
     "splunk",
