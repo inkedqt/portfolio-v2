@@ -15,6 +15,7 @@ art: https://blueteamlabs.online/storage/labs/d730336d25ffa104c54785046a6e5acc43
 type:
 points:
 youtube:
+locked: tate
 ---
 ## Overview
 

@@ -497,6 +497,115 @@ nav {
 .answer-reveal input:checked ~ .r-placeholder { opacity: 0; }
 .answer-reveal input:checked ~ .r-answer { opacity: 1; }
 .answer-reveal:has(input:checked) { border-color: var(--cyan); }
+
+/* ── LOCK OVERLAY ── */
+.lock-wrap {
+  position: relative;
+}
+.lock-blur {
+  filter: blur(3px);
+  opacity: 0.7;
+  pointer-events: none;
+  user-select: none;
+  transition: filter 0.4s ease, opacity 0.4s ease;
+}
+.lock-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.lock-box {
+  background: rgba(8,8,15,0.92);
+  border: 1px solid var(--pink-dim);
+  border-radius: 6px;
+  padding: 28px 32px;
+  text-align: center;
+  backdrop-filter: blur(8px);
+  max-width: 340px;
+  width: 90%;
+}
+.lock-icon {
+  font-size: 28px;
+  margin-bottom: 12px;
+  display: block;
+}
+.lock-label {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--subtle);
+  margin-bottom: 6px;
+}
+.lock-title {
+  font-family: 'Syne Mono', monospace;
+  font-size: 13px;
+  color: var(--pink);
+  margin-bottom: 4px;
+}
+.lock-sub {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  color: var(--subtle);
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+.lock-input-row {
+  display: flex;
+  gap: 8px;
+}
+.lock-input {
+  flex: 1;
+  background: var(--deep);
+  border: 1px solid var(--muted);
+  color: var(--text);
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 11px;
+  padding: 8px 12px;
+  border-radius: 3px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+.lock-input:focus { border-color: var(--pink-dim); }
+.lock-input.shake {
+  animation: shake 0.3s ease;
+  border-color: #ff4444;
+}
+.lock-btn {
+  background: var(--pink);
+  color: #0d0d0d;
+  border: none;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 8px 14px;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+.lock-btn:hover { opacity: 0.85; }
+.lock-active-badge {
+  display: none;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 8px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--pink);
+  border: 1px solid var(--pink-dim);
+  padding: 3px 10px;
+  border-radius: 3px;
+  margin-left: 8px;
+  vertical-align: middle;
+}
+@keyframes shake {
+  0%,100% { transform: translateX(0); }
+  25% { transform: translateX(-6px); }
+  75% { transform: translateX(6px); }
+}
 </style>
 </head>
 <body>
@@ -561,9 +670,29 @@ nav {
   </div>
   {% endif %}
   <!-- MARKDOWN CONTENT -->
+  {% if page.locked %}
+  <div class="lock-wrap">
+    <div class="lab-content lock-blur" id="lock-content">
+      {{ content }}
+    </div>
+    <div class="lock-overlay" id="lock-overlay">
+      <div class="lock-box">
+        <span class="lock-icon">🔒</span>
+        <div class="lock-label">// active lab</div>
+        <div class="lock-title">writeup locked</div>
+        <div class="lock-sub">this lab is currently active on BTLO.<br>password provided on request.</div>
+        <div class="lock-input-row">
+          <input class="lock-input" id="lock-pw" type="password" placeholder="enter password" autocomplete="off">
+          <button class="lock-btn" onclick="checkLock()">unlock</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% else %}
   <div class="lab-content">
     {{ content }}
   </div>
+  {% endif %}
 
   <!-- FOOTER NAV -->
   <div class="lab-footer-nav">
@@ -575,5 +704,39 @@ nav {
   </div>
 
 </div>
+
+{% if page.locked %}
+<script>
+const LOCK_KEY = 'inksec_unlocked_{{ page.permalink | slugify }}';
+const PASSWORD = '{{ page.locked }}';
+
+function checkLock() {
+  const input = document.getElementById('lock-pw');
+  const val = input.value.trim();
+  if (val === PASSWORD) {
+    unlock();
+    sessionStorage.setItem(LOCK_KEY, '1');
+  } else {
+    input.classList.add('shake');
+    input.value = '';
+    setTimeout(() => input.classList.remove('shake'), 400);
+  }
+}
+
+function unlock() {
+  document.getElementById('lock-content').classList.remove('lock-blur');
+  document.getElementById('lock-overlay').style.display = 'none';
+}
+
+// enter key support
+document.addEventListener('DOMContentLoaded', () => {
+  if (sessionStorage.getItem(LOCK_KEY)) unlock();
+  document.getElementById('lock-pw').addEventListener('keydown', e => {
+    if (e.key === 'Enter') checkLock();
+  });
+});
+</script>
+{% endif %}
+
 </body>
 </html>
