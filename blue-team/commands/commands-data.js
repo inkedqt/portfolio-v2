@@ -425,12 +425,20 @@ const COMMANDS_DATA = [
     "lab_url": "/blue-team/labs/meta/",
     "desc": "Extract metadata from image file to identify embedded technique hints",
     "tags": "shell"
+  },
+  {
+    "command": "tcp.port == 14693",
+    "tool": "wireshark",
+    "lab": "exxtensity",
+    "lab_url": "/blue-team/labs/exxtensity/",
+    "desc": "",
+    "tags": "wireshark"
   }
 ];
 
 const COMMANDS_META = {
-  "total": 53,
-  "labs": 22,
+  "total": 54,
+  "labs": 23,
   "tools": [
     "shell",
     "splunk",
