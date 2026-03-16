@@ -738,5 +738,51 @@ document.addEventListener('DOMContentLoaded', () => {
 </script>
 {% endif %}
 
+<script>
+// ── IOC COPY BUTTONS ──
+const IOC_PATTERNS = [
+  /[0-9a-fA-F]{32}/,
+  /[0-9a-fA-F]{40}/,
+  /[0-9a-fA-F]{64}/,
+  /\d{1,3}[\[.\]]+\d{1,3}[\[.\]]+\d{1,3}[\[.\]]+\d{1,3}/,
+  /\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}/,
+  /hxxp[s]?\[?:\/\/\]?/i,
+  /\w+\[\.\]\w+/,
+];
+function isIOC(t) {
+  t = t.trim();
+  if (t.length < 7) return false;
+  return IOC_PATTERNS.some(p => p.test(t));
+}
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll(".lab-content td").forEach(td => {
+    const raw = td.textContent.trim();
+    if (!isIOC(raw)) return;
+    const wrap = document.createElement("div");
+    wrap.style.cssText = "display:flex;align-items:flex-start;gap:6px;";
+    const textSpan = document.createElement("span");
+    textSpan.style.cssText = "flex:1;min-width:0;word-break:break-all;";
+    textSpan.innerHTML = td.innerHTML;
+    const btn = document.createElement("button");
+    btn.style.cssText = "flex-shrink:0;font-family:Share Tech Mono,monospace;font-size:7px;letter-spacing:0.1em;color:var(--subtle);border:1px solid var(--muted);padding:1px 5px;cursor:pointer;background:transparent;transition:all 0.2s;white-space:nowrap;";
+    btn.textContent = "COPY";
+    btn.addEventListener("mouseenter", () => { btn.style.color="var(--cyan)"; btn.style.borderColor="var(--cyan-dim)"; });
+    btn.addEventListener("mouseleave", () => { if (!btn.classList.contains("copied")) { btn.style.color="var(--subtle)"; btn.style.borderColor="var(--muted)"; }});
+    btn.addEventListener("click", async e => {
+      e.stopPropagation();
+      try { await navigator.clipboard.writeText(raw); } catch {
+        const ta = document.createElement("textarea");
+        ta.value = raw; ta.style.cssText = "position:fixed;opacity:0;";
+        document.body.appendChild(ta); ta.select(); document.execCommand("copy"); document.body.removeChild(ta);
+      }
+      btn.textContent = "COPIED"; btn.style.color = "var(--green)"; btn.style.borderColor = "var(--green-dim)"; btn.classList.add("copied");
+      setTimeout(() => { btn.textContent = "COPY"; btn.style.color = "var(--subtle)"; btn.style.borderColor = "var(--muted)"; btn.classList.remove("copied"); }, 1800);
+    });
+    wrap.appendChild(textSpan); wrap.appendChild(btn);
+    td.innerHTML = ""; td.appendChild(wrap);
+  });
+});
+</script>
+
 </body>
 </html>
