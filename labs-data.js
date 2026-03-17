@@ -958,4 +958,19 @@ const LABS = [
     type:     'None',
   },
 
+  {
+    name:     'Blocker',
+    skill:    'Detection Engineering',
+    platform: 'BTLO',
+    diff:     'Easy',
+    cats:     ['Detection Engineering', 'Sysmon', 'Event Viewer', 'URLHaus', 'Defense Evasion', 'Execution'],
+    status:   'done',
+    score:    null,
+    summary:  'Sysmon 14 FileBlockExecutable analysis — identifying blocked executable events, threat hunting via hash enrichment, and writing preventative Sysmon configuration rules. ',
+    art:      'https://blueteamlabs.online/storage/labs/a7284ee974e016ef8d49fe2504ea9892a1cc5e51.png',
+    writeup:  '/blue-team/labs/blocker/',
+    proof:    'https://blueteamlabs.online/achievement/share/144656/112',
+    type:     'None',
+  },
+
 ];
