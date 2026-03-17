@@ -495,7 +495,7 @@ const COMMANDS_DATA = [
     "tool": "wireshark",
     "lab": "winterstew",
     "lab_url": "/blue-team/labs/winterstew/",
-    "desc": "Filter HTTP POST requests from a specific host — used to extract login credentials submitted via web forms",
+    "desc": "Filter HTTP POST requests from a specific host \u2014 used to extract login credentials submitted via web forms",
     "tags": "wireshark"
   },
   {
@@ -503,7 +503,7 @@ const COMMANDS_DATA = [
     "tool": "wireshark",
     "lab": "winterstew",
     "lab_url": "/blue-team/labs/winterstew/",
-    "desc": "Filter HTTP 302 redirect responses — identifies successful logins and post-authentication redirects",
+    "desc": "Filter HTTP 302 redirect responses \u2014 identifies successful logins and post-authentication redirects",
     "tags": "wireshark"
   },
   {
@@ -511,7 +511,7 @@ const COMMANDS_DATA = [
     "tool": "kql",
     "lab": "rogueazure",
     "lab_url": "/blue-team/labs/rogueazure/",
-    "desc": "KQL: discover all available tables in the Sentinel workspace — run first on any new lab to confirm table names before writing queries",
+    "desc": "KQL: discover all available tables in the Sentinel workspace \u2014 run first on any new lab to confirm table names before writing queries",
     "tags": "kql"
   },
   {
@@ -519,7 +519,7 @@ const COMMANDS_DATA = [
     "tool": "kql",
     "lab": "rogueazure",
     "lab_url": "/blue-team/labs/rogueazure/",
-    "desc": "KQL: detect password spray — count failures and distinct target users per IP, high TargetUsers from single IP = spray pattern",
+    "desc": "KQL: detect password spray \u2014 count failures and distinct target users per IP, high TargetUsers from single IP = spray pattern",
     "tags": "kql"
   },
   {
@@ -535,7 +535,7 @@ const COMMANDS_DATA = [
     "tool": "kql",
     "lab": "rogueazure",
     "lab_url": "/blue-team/labs/rogueazure/",
-    "desc": "KQL: track all successful logins for a compromised account — reveals IP pivot and geolocation changes post-compromise",
+    "desc": "KQL: track all successful logins for a compromised account \u2014 reveals IP pivot and geolocation changes post-compromise",
     "tags": "kql"
   },
   {
@@ -543,7 +543,7 @@ const COMMANDS_DATA = [
     "tool": "kql",
     "lab": "rogueazure",
     "lab_url": "/blue-team/labs/rogueazure/",
-    "desc": "KQL: full post-exploitation audit trail for a compromised account — surfaces app registrations, role assignments, and all admin actions after breach",
+    "desc": "KQL: full post-exploitation audit trail for a compromised account \u2014 surfaces app registrations, role assignments, and all admin actions after breach",
     "tags": "kql"
   },
   {
@@ -551,7 +551,7 @@ const COMMANDS_DATA = [
     "tool": "kql",
     "lab": "rogueazure",
     "lab_url": "/blue-team/labs/rogueazure/",
-    "desc": "KQL: identify privilege escalation — shows role assignments made by the attacker including Global Administrator grants",
+    "desc": "KQL: identify privilege escalation \u2014 shows role assignments made by the attacker including Global Administrator grants",
     "tags": "kql"
   },
   {
@@ -559,15 +559,24 @@ const COMMANDS_DATA = [
     "tool": "kql",
     "lab": "rogueazure",
     "lab_url": "/blue-team/labs/rogueazure/",
-    "desc": "KQL: detect data exfiltration from Azure Blob Storage — GetBlob operations show files downloaded and the caller IP",
+    "desc": "KQL: detect data exfiltration from Azure Blob Storage \u2014 GetBlob operations show files downloaded and the caller IP",
     "tags": "kql"
+  },
+  {
+    "command": "ip.addr == 10.0.2.5 && smb2",
+    "tool": "wireshark",
+    "lab": "print",
+    "lab_url": "/blue-team/labs/print/",
+    "desc": "Filter SMB2 traffic from attacker IP to identify malicious file transfers",
+    "tags": "wireshark"
   }
 ];
 
 const COMMANDS_META = {
-  "total": 70,
-  "labs": 27,
+  "total": 71,
+  "labs": 28,
   "tools": [
+    "kql",
     "shell",
     "splunk",
     "volatility",

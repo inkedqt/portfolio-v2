@@ -943,4 +943,19 @@ const LABS = [
     type:     'None',
   },
 
+  {
+    name:     'Print',
+    skill:    'Incident Response',
+    platform: 'BTLO',
+    diff:     'Easy',
+    cats:     ['Incident Response', 'Wireshark', 'Event Viewer', 'Lateral Movement', 'Execution', 'Command and Control', 'T1210', 'T1059'],
+    status:   'done',
+    score:    null,
+    summary:  'PrintNightmare exploit analysis — tracing DLL injection via SMB, Windows Print Spooler abuse, reverse shell callback identification, and WerFault parent process forensics.',
+    art:      'https://blueteamlabs.online/storage/labs/f51510dc7f994f01337b731adaa1c8b06e959ce9.png',
+    writeup:  '/blue-team/labs/print/',
+    proof:    'https://blueteamlabs.online/achievement/share/144656/73',
+    type:     'None',
+  },
+
 ];
