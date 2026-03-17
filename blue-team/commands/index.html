@@ -159,6 +159,11 @@ nav {
 .filter-btn[data-tool="splunk"].active { color: #ffd166; border-color: rgba(255,209,102,0.4); background: rgba(255,209,102,0.07); }
 .filter-btn[data-tool="zeek"].active { color: #00b4ff; border-color: rgba(0,180,255,0.4); background: rgba(0,180,255,0.08); }
 .filter-btn[data-tool="wireshark"].active { color: var(--green); border-color: rgba(0,255,136,0.4); background: rgba(0,255,136,0.07); }
+.filter-btn[data-tool="kql"].active { color: #ff9f43; border-color: rgba(255,159,67,0.4); background: rgba(255,159,67,0.07); }
+.filter-btn[data-tool="powershell"].active { color: #5bc4f5; border-color: rgba(91,196,245,0.4); background: rgba(91,196,245,0.07); }
+.filter-btn[data-tool="python"].active { color: #4bc8a0; border-color: rgba(75,200,160,0.4); background: rgba(75,200,160,0.07); }
+.filter-btn[data-tool="aws"].active { color: #ff9900; border-color: rgba(255,153,0,0.4); background: rgba(255,153,0,0.07); }
+.filter-btn[data-tool="sql"].active { color: #b482ff; border-color: rgba(180,130,255,0.4); background: rgba(180,130,255,0.07); }
 
 /* ── RESULTS COUNT ── */
 .results-bar {
@@ -186,6 +191,11 @@ nav {
 .cmd-card[data-tool="splunk"]:hover { border-left-color: #ffd166; }
 .cmd-card[data-tool="zeek"]:hover { border-left-color: #00b4ff; }
 .cmd-card[data-tool="wireshark"]:hover { border-left-color: var(--green); }
+.cmd-card[data-tool="kql"]:hover { border-left-color: #ff9f43; }
+.cmd-card[data-tool="powershell"]:hover { border-left-color: #5bc4f5; }
+.cmd-card[data-tool="python"]:hover { border-left-color: #4bc8a0; }
+.cmd-card[data-tool="aws"]:hover { border-left-color: #ff9900; }
+.cmd-card[data-tool="sql"]:hover { border-left-color: #b482ff; }
 .cmd-card[data-tool="virustotal"]:hover { border-left-color: var(--cyan); }
 .cmd-card[data-tool="sha256sum"]:hover, .cmd-card[data-tool="sha1sum"]:hover { border-left-color: var(--cyan); }
 
@@ -233,6 +243,11 @@ nav {
 .cmd-tool.wireshark { color: var(--green); border-color: rgba(0,255,136,0.4); background: rgba(0,255,136,0.07); }
 .cmd-tool.virustotal { color: var(--cyan); border-color: var(--cyan-dim); background: var(--cyan-faint); }
 .cmd-tool.shell { color: var(--subtle); border-color: var(--muted); background: transparent; }
+.cmd-tool.kql { color: #ff9f43; border-color: rgba(255,159,67,0.4); background: rgba(255,159,67,0.07); }
+.cmd-tool.powershell { color: #5bc4f5; border-color: rgba(91,196,245,0.4); background: rgba(91,196,245,0.07); }
+.cmd-tool.python { color: #4bc8a0; border-color: rgba(75,200,160,0.4); background: rgba(75,200,160,0.07); }
+.cmd-tool.aws { color: #ff9900; border-color: rgba(255,153,0,0.4); background: rgba(255,153,0,0.07); }
+.cmd-tool.sql { color: #b482ff; border-color: rgba(180,130,255,0.4); background: rgba(180,130,255,0.07); }
 
 .cmd-lab {
   font-family: 'Share Tech Mono', monospace;
@@ -294,7 +309,7 @@ nav {
     <p class="page-desc">Commands extracted from real lab investigations. Searchable, filterable, copyable. Built so future me doesn't have to google the same thing twice.</p>
     <div class="page-stats">
       <div class="stat"><span id="total-count">21</span>commands</div>
-      <div class="stat"><span>5</span>tools</div>
+      <div class="stat"><span>10</span>tools</div>
       <div class="stat"><span>3</span>labs</div>
     </div>
   </div>
@@ -310,6 +325,11 @@ nav {
       <button class="filter-btn" data-tool="splunk">splunk</button>
       <button class="filter-btn" data-tool="zeek">zeek</button>
       <button class="filter-btn" data-tool="wireshark">wireshark</button>
+      <button class="filter-btn" data-tool="kql">kql</button>
+      <button class="filter-btn" data-tool="powershell">powershell</button>
+      <button class="filter-btn" data-tool="python">python</button>
+      <button class="filter-btn" data-tool="aws">aws</button>
+      <button class="filter-btn" data-tool="sql">sql</button>
     </div>
   </div>
 
@@ -358,6 +378,11 @@ const toolClass = {
   tshark:     'shell',
   grep:       'shell',
   shell:      'shell',
+  kql:        'kql',
+  powershell: 'powershell',
+  python:     'python',
+  aws:        'aws',
+  sql:        'sql',
 };
 
 function buildCards() {

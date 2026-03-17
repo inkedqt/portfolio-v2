@@ -24,6 +24,9 @@ TOOL_PATTERNS = [
     ("zeek",       [r"sourcetype=zeek", r"\bzeek:", r"tx_hosts=", r"id\.orig_h"]),
     ("wireshark",  [r"http\.request", r"http\.response", r"tcp\.stream", r"ip\.src\s*==", r"ip\.dst\s*==", r"ip\.addr\s*==", r"dns\.qry", r"ntlmssp\.", r"smb2\.", r"llmnr", r"tcp\.port"]),
     ("nmap",       [r"\bnmap\b"]),
+    ("aws",        [r"\baws\s+s3\b", r"\baws\s+cloudtrail\b", r"\baws\s+iam\b", r"\baws\s+ec2\b", r"\baws\b"]),
+    ("python",     [r"^\s*python3?\b", r"^\s*import\s", r"^\s*pip\b"]),
+    ("powershell", [r"^\s*(?:Get-|Set-|New-|Remove-|Invoke-|Write-|Read-)", r"\bPowerShell\b", r"\.ps1\b"]),
     ("tshark",     [r"\btshark\b"]),
     ("grep",       [r"^\s*grep\b"]),
 ]
@@ -56,8 +59,18 @@ def load_existing(filepath: str):
 def extract_commands(filepath: str, lab_name: str) -> list:
     with open(filepath, "r", encoding="utf-8") as f:
         content = f.read()
-    pattern = re.compile(r"```bash\s*\n(.*?)```", re.DOTALL)
-    blocks = pattern.findall(content)
+    bash_pattern = re.compile(r"```bash\s*\n(.*?)```",        re.DOTALL)
+    kql_pattern  = re.compile(r"```kql\s*\n(.*?)```",         re.DOTALL)
+    ps_pattern   = re.compile(r"```powershell\s*\n(.*?)```",  re.DOTALL)
+    py_pattern   = re.compile(r"```python\s*\n(.*?)```",      re.DOTALL)
+    sql_pattern  = re.compile(r"```sql\s*\n(.*?)```",         re.DOTALL)
+    kql_blocks   = set(b.strip() for b in kql_pattern.findall(content))
+    ps_blocks    = set(b.strip() for b in ps_pattern.findall(content))
+    py_blocks    = set(b.strip() for b in py_pattern.findall(content))
+    sql_blocks   = set(b.strip() for b in sql_pattern.findall(content))
+    blocks = (bash_pattern.findall(content) + kql_pattern.findall(content) +
+              ps_pattern.findall(content) + py_pattern.findall(content) +
+              sql_pattern.findall(content))
     commands = []
     for block in blocks:
         lines = block.strip().split("\n")
@@ -72,7 +85,18 @@ def extract_commands(filepath: str, lab_name: str) -> list:
         if not clean_lines:
             continue
         full_command = " ".join(l.strip() for l in clean_lines)
-        tool = tool_override or detect_tool(full_command)
+        b = block.strip()
+        if b in kql_blocks:
+            named_tool = "kql"
+        elif b in ps_blocks:
+            named_tool = "powershell"
+        elif b in py_blocks:
+            named_tool = "python"
+        elif b in sql_blocks:
+            named_tool = "sql"
+        else:
+            named_tool = None
+        tool = tool_override or named_tool or detect_tool(full_command)
         commands.append({
             "command": full_command,
             "tool": tool,

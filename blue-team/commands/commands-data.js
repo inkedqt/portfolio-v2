@@ -487,14 +487,86 @@ const COMMANDS_DATA = [
     "tool": "shell",
     "lab": "revengehotels",
     "lab_url": "/blue-team/labs/revengehotels/",
-    "desc": "Export Windows event log to CSV for proper Timeline Explorer analysis — raw evtx renders unreadable without Sysmon installed on analysis host",
+    "desc": "Export Windows event log to CSV for proper Timeline Explorer analysis \u2014 raw evtx renders unreadable without Sysmon installed on analysis host",
     "tags": "shell"
+  },
+  {
+    "command": "ip.addr == 192.168.90.5 && http.request.method == POST",
+    "tool": "wireshark",
+    "lab": "winterstew",
+    "lab_url": "/blue-team/labs/winterstew/",
+    "desc": "Filter HTTP POST requests from a specific host — used to extract login credentials submitted via web forms",
+    "tags": "wireshark"
+  },
+  {
+    "command": "http.response.code == 302",
+    "tool": "wireshark",
+    "lab": "winterstew",
+    "lab_url": "/blue-team/labs/winterstew/",
+    "desc": "Filter HTTP 302 redirect responses — identifies successful logins and post-authentication redirects",
+    "tags": "wireshark"
+  },
+  {
+    "command": "search * | distinct $table | order by $table asc",
+    "tool": "kql",
+    "lab": "rogueazure",
+    "lab_url": "/blue-team/labs/rogueazure/",
+    "desc": "KQL: discover all available tables in the Sentinel workspace — run first on any new lab to confirm table names before writing queries",
+    "tags": "kql"
+  },
+  {
+    "command": "InteractiveSignIns_CL | where Status == \"Failure\" | summarize FailedAttempts = count(), TargetUsers = dcount(Username) by IPAddress | order by FailedAttempts desc",
+    "tool": "kql",
+    "lab": "rogueazure",
+    "lab_url": "/blue-team/labs/rogueazure/",
+    "desc": "KQL: detect password spray — count failures and distinct target users per IP, high TargetUsers from single IP = spray pattern",
+    "tags": "kql"
+  },
+  {
+    "command": "InteractiveSignIns_CL | where IPAddress == \"52.59.240.166\" | where Status == \"Success\" | project EventTime, Username, IPAddress, Status | order by EventTime asc",
+    "tool": "kql",
+    "lab": "rogueazure",
+    "lab_url": "/blue-team/labs/rogueazure/",
+    "desc": "KQL: confirm successful logins from a known spray IP to identify the first compromised account",
+    "tags": "kql"
+  },
+  {
+    "command": "InteractiveSignIns_CL | where Username == \"mharmon@compliantsecure.store\" | where Status == \"Success\" | project EventTime, Username, IPAddress, Status, Location | order by EventTime asc",
+    "tool": "kql",
+    "lab": "rogueazure",
+    "lab_url": "/blue-team/labs/rogueazure/",
+    "desc": "KQL: track all successful logins for a compromised account — reveals IP pivot and geolocation changes post-compromise",
+    "tags": "kql"
+  },
+  {
+    "command": "AuditLogs_CL | where EventTime >= datetime(2025-11-14) | where ActorUserPrincipalName == \"mharmon@compliantsecure.store\" | project EventTime, Activity, ActorUserPrincipalName, Target1DisplayName, IPAddress | order by EventTime asc",
+    "tool": "kql",
+    "lab": "rogueazure",
+    "lab_url": "/blue-team/labs/rogueazure/",
+    "desc": "KQL: full post-exploitation audit trail for a compromised account — surfaces app registrations, role assignments, and all admin actions after breach",
+    "tags": "kql"
+  },
+  {
+    "command": "AuditLogs_CL | where Activity == \"Add member to role\" | where EventTime >= datetime(2025-11-14) | project EventTime, ActorUserPrincipalName, Target1DisplayName, TargetUserPrincipalName, NewRule, IPAddress | order by EventTime asc",
+    "tool": "kql",
+    "lab": "rogueazure",
+    "lab_url": "/blue-team/labs/rogueazure/",
+    "desc": "KQL: identify privilege escalation — shows role assignments made by the attacker including Global Administrator grants",
+    "tags": "kql"
+  },
+  {
+    "command": "StorageBlobLogs_CL | where TimeGenerated >= datetime(2025-11-14) | where OperationName == \"GetBlob\" | project TimeGenerated, AccountName, Uri, CallerIpAddress, OperationName | order by TimeGenerated asc",
+    "tool": "kql",
+    "lab": "rogueazure",
+    "lab_url": "/blue-team/labs/rogueazure/",
+    "desc": "KQL: detect data exfiltration from Azure Blob Storage — GetBlob operations show files downloaded and the caller IP",
+    "tags": "kql"
   }
 ];
 
 const COMMANDS_META = {
-  "total": 61,
-  "labs": 25,
+  "total": 70,
+  "labs": 27,
   "tools": [
     "shell",
     "splunk",
