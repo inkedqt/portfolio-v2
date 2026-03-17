@@ -973,4 +973,19 @@ const LABS = [
     type:     'None',
   },
 
+  {
+    name:     'Indicators',
+    skill:    'Endpoint Forensics',
+    platform: 'BTLO',
+    diff:     'Easy',
+    cats:     ['Endpoint Forensics', 'PowerShell', 'Text Editor', 'Exiftool', 'MalwareBazaar', 'VirusTotal', 'Command and Control', 'Execution', 'T1105'],
+    status:   'done',
+    score:    null,
+    summary:  'Static malware analysis of a Mirai botnet sample — extracting indicators via Exiftool, Zone Identifiers, hash enrichment, and manual binary inspection',
+    art:      'https://blueteamlabs.online/storage/labs/f3b3ab4922f9bff6c2981583edb5bd2188eac799.png',
+    writeup:  '/blue-team/labs/indicators/',
+    proof:    'https://blueteamlabs.online/achievement/share/144656/104',
+    type:     'None',
+  },
+
 ];

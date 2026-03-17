@@ -569,14 +569,31 @@ const COMMANDS_DATA = [
     "lab_url": "/blue-team/labs/print/",
     "desc": "Filter SMB2 traffic from attacker IP to identify malicious file transfers",
     "tags": "wireshark"
+  },
+  {
+    "command": "Get-Content .\\sh4 -Stream Zone.Identifier",
+    "tool": "powershell",
+    "lab": "indicators",
+    "lab_url": "/blue-team/labs/indicators/",
+    "desc": "Read NTFS Zone Identifier stream to determine file download origin URL",
+    "tags": "powershell"
+  },
+  {
+    "command": "Get-FileHash .\\sh4",
+    "tool": "powershell",
+    "lab": "indicators",
+    "lab_url": "/blue-team/labs/indicators/",
+    "desc": "Calculate SHA256 hash of file for threat intelligence enrichment",
+    "tags": "powershell"
   }
 ];
 
 const COMMANDS_META = {
-  "total": 71,
-  "labs": 28,
+  "total": 73,
+  "labs": 29,
   "tools": [
     "kql",
+    "powershell",
     "shell",
     "splunk",
     "volatility",
