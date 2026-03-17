@@ -585,12 +585,60 @@ const COMMANDS_DATA = [
     "lab_url": "/blue-team/labs/indicators/",
     "desc": "Calculate SHA256 hash of file for threat intelligence enrichment",
     "tags": "powershell"
+  },
+  {
+    "command": "index=* eventSource=\"s3.amazonaws.com\" eventName=\"GetObject\" | table eventTime, sourceIPAddress, requestParameters.bucketName, requestParameters.key, userAgent",
+    "tool": "splunk",
+    "lab": "spilledbucket",
+    "lab_url": "/blue-team/labs/spilledbucket/",
+    "desc": "CloudTrail: query S3 GetObject events to identify attacker IP, bucket name, and downloaded file",
+    "tags": "splunk"
+  },
+  {
+    "command": "index=* dstport=51820 | table start, srcaddr, dstaddr, dstport, protocol | sort start",
+    "tool": "splunk",
+    "lab": "spilledbucket",
+    "lab_url": "/blue-team/labs/spilledbucket/",
+    "desc": "VPC Flow Logs: find WireGuard connections on UDP 51820 to identify attacker IP and target EC2",
+    "tags": "splunk"
+  },
+  {
+    "command": "index=* eventName=\"AssumeRole\" sourceIPAddress!=\"resource-explorer-2.amazonaws.com\" | table eventTime, sourceIPAddress, requestParameters.roleArn | sort eventTime",
+    "tool": "splunk",
+    "lab": "spilledbucket",
+    "lab_url": "/blue-team/labs/spilledbucket/",
+    "desc": "CloudTrail: find AssumeRole events excluding AWS service noise to identify attacker role assumption",
+    "tags": "splunk"
+  },
+  {
+    "command": "index=* eventSource=\"iam.amazonaws.com\" \"i-00eda415438b3d90c\" | table eventTime, eventName, requestParameters | sort eventTime",
+    "tool": "splunk",
+    "lab": "spilledbucket",
+    "lab_url": "/blue-team/labs/spilledbucket/",
+    "desc": "CloudTrail: query IAM events tied to compromised instance ID to surface enumeration and persistence actions",
+    "tags": "splunk"
+  },
+  {
+    "command": "index=* dstport=22 | table start, srcaddr, dstaddr, dstport | sort start",
+    "tool": "splunk",
+    "lab": "spilledbucket",
+    "lab_url": "/blue-team/labs/spilledbucket/",
+    "desc": "VPC Flow Logs: identify SSH lateral movement by filtering inbound connections on port 22",
+    "tags": "splunk"
+  },
+  {
+    "command": "index=* srcaddr=\"10.0.2.32\" protocol=6 | stats count by dstaddr, dstport | sort -count",
+    "tool": "splunk",
+    "lab": "spilledbucket",
+    "lab_url": "/blue-team/labs/spilledbucket/",
+    "desc": "VPC Flow Logs: find outbound TCP connections from compromised EC2 to identify reverse shell C2 IP and port",
+    "tags": "splunk"
   }
 ];
 
 const COMMANDS_META = {
-  "total": 73,
-  "labs": 29,
+  "total": 79,
+  "labs": 30,
   "tools": [
     "kql",
     "powershell",

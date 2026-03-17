@@ -988,4 +988,19 @@ const LABS = [
     type:     'None',
   },
 
+  {
+    name:     'Spilled Bucket',
+    skill:    'Cloud Forensics',
+    platform: 'BTLO',
+    diff:     'Easy',
+    cats:     ['Cloud Forensics', 'Splunk', 'T1651', 'T1580', 'T1098.003'],
+    status:   'done',
+    score:    null,
+    summary:  'The attackers were successful in attacking and gaining access to their cloud infrastructure. Can you help them out?',
+    art:      'https://blueteamlabs.online/storage/labs/bf54d9e7f7017a8b512a95b62a9627c91e3a3bf1.png',
+    writeup:  '/blue-team/labs/spilledbucket/',
+    proof:    'https://blueteamlabs.online/achievement/share/144656/232',
+    type:     'None',
+  },
+
 ];
