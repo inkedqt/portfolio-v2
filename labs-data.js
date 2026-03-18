@@ -1033,4 +1033,19 @@ const LABS = [
     type:     'None',
   },
 
+  {
+    name:     'Gothic Panda 1',
+    skill:    'Threat Intelligence',
+    platform: 'BTLO',
+    diff:     'Medium',
+    cats:     ['Threat Intelligence', 'MITRE ATT&CK Navigator', 'OSINT', 'Google Dorks'],
+    status:   'done',
+    score:    null,
+    summary:  'CHANGE ME',
+    art:      'https://blueteamlabs.online/storage/labs/7bd52a566c4bdadc55e8da4032e1f51fb7164a69.png',
+    writeup:  '/blue-team/labs/gothicpanda1/',
+    proof:    'https://blueteamlabs.online/achievement/share/144656/234',
+    type:     'None',
+  },
+
 ];
