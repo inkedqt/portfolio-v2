@@ -633,12 +633,92 @@ const COMMANDS_DATA = [
     "lab_url": "/blue-team/labs/spilledbucket/",
     "desc": "VPC Flow Logs: find outbound TCP connections from compromised EC2 to identify reverse shell C2 IP and port",
     "tags": "splunk"
+  },
+  {
+    "command": "ip.src == 192.168.100.97 && http",
+    "tool": "wireshark",
+    "lab": "multistages",
+    "lab_url": "/blue-team/labs/multistages/",
+    "desc": "Wireshark: filter HTTP traffic from attacker IP to identify Cobalt Strike beacon URIs and encoded cookie data",
+    "tags": "wireshark"
+  },
+  {
+    "command": "ip.src == 192.168.100.100 && http.request.method == \"GET\"",
+    "tool": "wireshark",
+    "lab": "multistages",
+    "lab_url": "/blue-team/labs/multistages/",
+    "desc": "Wireshark: filter outbound GET requests from victim to identify C2 staging URL and payload delivery",
+    "tags": "wireshark"
+  },
+  {
+    "command": "python3 vol.py -f ../../Investigation\\ Files/memdump.raw windows.cmdline",
+    "tool": "volatility",
+    "lab": "multistages",
+    "lab_url": "/blue-team/labs/multistages/",
+    "desc": "Volatility: dump full process command lines to identify malicious PowerShell download cradle",
+    "tags": "volatility"
+  },
+  {
+    "command": "python3 vol.py -f ../../Investigation\\ Files/memdump.raw windows.cmdline | grep \"powershell\\|rundll32\\|explorer\"",
+    "tool": "volatility",
+    "lab": "multistages",
+    "lab_url": "/blue-team/labs/multistages/",
+    "desc": "Volatility: filter cmdline output for key processes to map the attack execution chain",
+    "tags": "volatility"
+  },
+  {
+    "command": "python3 vol.py -f ../../Investigation\\ Files/memdump.raw windows.pstree",
+    "tool": "volatility",
+    "lab": "multistages",
+    "lab_url": "/blue-team/labs/multistages/",
+    "desc": "Volatility: display process tree to identify parent-child injection chain across four stages",
+    "tags": "volatility"
+  },
+  {
+    "command": "python3 vol.py -f ../../Investigation\\ Files/memdump.raw windows.netscan",
+    "tool": "volatility",
+    "lab": "multistages",
+    "lab_url": "/blue-team/labs/multistages/",
+    "desc": "Volatility: scan network artifacts in memory to confirm beacon process PID actively connecting to C2 on port 80",
+    "tags": "volatility"
+  },
+  {
+    "command": "python3 vol.py -f ../../Investigation\\ Files/memdump.raw windows.malfind | grep -i \"PAGE_EXECUTE_READWRITE\"",
+    "tool": "volatility",
+    "lab": "multistages",
+    "lab_url": "/blue-team/labs/multistages/",
+    "desc": "Volatility: detect injected memory regions with RWX permissions indicating shellcode injection into legitimate processes",
+    "tags": "volatility"
+  },
+  {
+    "command": "python3 vol.py -f ../../Investigation\\ Files/memdump.raw windows.hivelist",
+    "tool": "volatility",
+    "lab": "multistages",
+    "lab_url": "/blue-team/labs/multistages/",
+    "desc": "Volatility: list registry hives in memory to locate SYSTEM hive offset for key extraction",
+    "tags": "volatility"
+  },
+  {
+    "command": "python3 vol.py -f ../../Investigation\\ Files/memdump.raw windows.registry.printkey --offset 0xf8a0007b010 --key \"Microsoft\\Cryptography\"",
+    "tool": "volatility",
+    "lab": "multistages",
+    "lab_url": "/blue-team/labs/multistages/",
+    "desc": "Volatility: extract MachineGuid from registry hive to identify unique Windows endpoint identifier",
+    "tags": "volatility"
+  },
+  {
+    "command": "$s=New-Object IO.MemoryStream([Convert]::FromBase64String(\"...\"))",
+    "tool": "powershell",
+    "lab": "multistages",
+    "lab_url": "/blue-team/labs/multistages/",
+    "desc": "Cobalt Strike stager response — reflective DLL loader delivered as base64-encoded blob via PowerShell MemoryStream",
+    "tags": "powershell"
   }
 ];
 
 const COMMANDS_META = {
-  "total": 79,
-  "labs": 30,
+  "total": 89,
+  "labs": 31,
   "tools": [
     "kql",
     "powershell",

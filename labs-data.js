@@ -1003,4 +1003,19 @@ const LABS = [
     type:     'None',
   },
 
+  {
+    name:     'Multi Stages',
+    skill:    'Incident Response',
+    platform: 'BTLO',
+    diff:     'Medium',
+    cats:     ['Incident Response', 'Wireshark Volatility', 'T1587.001 T1059 T1086'],
+    status:   'done',
+    score:    null,
+    summary:  'A Cobalt Strike intrusion investigated across network and memory artifacts — identifying the beacon, staged PowerShell delivery, and a four-stage process injection chain using Wireshark and Volatility3.',
+    art:      'https://blueteamlabs.online/storage/labs/590d1412e585c7e818030d1e08b5fc5558fe2bfd.png',
+    writeup:  '/blue-team/labs/multistages/',
+    proof:    'https://blueteamlabs.online/achievement/share/144656/83',
+    type:     'None',
+  },
+
 ];
