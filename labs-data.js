@@ -1020,18 +1020,10 @@ const LABS = [
 
   {
     name:     'Deep Phish',
-    skill:    'Network Forensics
-Endpoint Forensics
-Malware Analysis
-Threat Intelligence
-Threat Hunting
-Detection Engineering
-Incident Response
-Cloud Forensics
-Threat Intelligence',
+    skill:    'Incident Response',
     platform: 'BTLO',
     diff:     'Medium',
-    cats:     ['Network Forensics', 'Thunderbird', 'Text Editor', 'Chrome Developer Tools', 'Wireshark', 'T1566.002'],
+    cats:     ['Incident Response', 'Thunderbird', 'Text Editor', 'Chrome Developer Tools', 'Wireshark', 'T1566.002'],
     status:   'done',
     score:    null,
     summary:  'Dig into a phishing email and website to uncover more secrets... ',

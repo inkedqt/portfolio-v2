@@ -3,17 +3,8 @@ layout: lab
 title: Deep Phish
 platform: BTLO
 difficulty: Medium
-category: Network Forensics
-skill: |-
-  Network Forensics
-  Endpoint Forensics
-  Malware Analysis
-  Threat Intelligence
-  Threat Hunting
-  Detection Engineering
-  Incident Response
-  Cloud Forensics
-  Threat Intelligence
+category: Incident Response
+skill: Incident Response
 tools: "[Thunderbird, Text Editor, Chrome Developer Tools, Wireshark]"
 tactics:
 mitre: "[T1566.002]"
