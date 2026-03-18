@@ -1018,4 +1018,27 @@ const LABS = [
     type:     'None',
   },
 
+  {
+    name:     'Deep Phish',
+    skill:    'Network Forensics
+Endpoint Forensics
+Malware Analysis
+Threat Intelligence
+Threat Hunting
+Detection Engineering
+Incident Response
+Cloud Forensics
+Threat Intelligence',
+    platform: 'BTLO',
+    diff:     'Medium',
+    cats:     ['Network Forensics', 'Thunderbird', 'Text Editor', 'Chrome Developer Tools', 'Wireshark', 'T1566.002'],
+    status:   'done',
+    score:    null,
+    summary:  'Dig into a phishing email and website to uncover more secrets... ',
+    art:      'https://blueteamlabs.online/storage/labs/6c2be1378e2db6055d0f032e5714dbf98e7f909a.png',
+    writeup:  '/blue-team/labs/deepphish/',
+    proof:    'https://blueteamlabs.online/achievement/share/144656/140',
+    type:     'None',
+  },
+
 ];
