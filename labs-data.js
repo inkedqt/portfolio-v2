@@ -1093,4 +1093,19 @@ const LABS = [
     type:     'challenge',
   },
 
+  {
+    name:     'Network Analysis - Ransomware',
+    skill:    'Incident Response',
+    platform: 'BTLO',
+    diff:     'Medium',
+    cats:     ['Incident Response', 'Wireshark', 'TCPDump', 'T1486', 'T1071.001', 'T1041'],
+    status:   'done',
+    score:    null,
+    summary:  'Analysis of ransomware network traffic to identify a TeslaCrypt infection, recover the malicious executable, and decrypt an encrypted tender document using the Cisco Talos TeslaCrypt decryptor — made possible by TeslaCrypt\'s authors publicly releasing their master key in 2016.',
+    art:      'https://d2ghw05x0obr70.cloudfront.net/thumbnails/04c2ea39fcc6759e500419a2f84fc585ef99c650.png',
+    writeup:  '/blue-team/labs/ransomware_abc/',
+    proof:    'https://blueteamlabs.online/achievement/share/challenge/144656/30',
+    type:     'challenge',
+  },
+
 ];
