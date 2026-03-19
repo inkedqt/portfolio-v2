@@ -1048,4 +1048,34 @@ const LABS = [
     type:     'None',
   },
 
+  {
+    name:     'Trend',
+    skill:    'Incident Response',
+    platform: 'BTLO',
+    diff:     'Easy',
+    cats:     ['Incident Response', 'Wireshark', 'Persistence', '1078.001', 'T1059', 'T1105', 'T1059.003'],
+    status:   'done',
+    score:    null,
+    summary:  'A threat actor already inside the network exploited a TRENDnet TEW-652BRU router using CVE-2019-11399, a command injection vulnerability in the router\'s web interface.',
+    art:      'https://blueteamlabs.online/storage/labs/0e95d52a7b1bb4cb56b381e1a36a7143e3f8dfb5.png',
+    writeup:  '/blue-team/labs/trend/',
+    proof:    'https://blueteamlabs.online/achievement/share/144656/254',
+    type:     'None',
+  },
+
+  {
+    name:     'bruteforce',
+    skill:    'Network Forensics',
+    platform: 'BTLO',
+    diff:     'Medium',
+    cats:     ['Network Forensics', 'grep', 'excel', 'T1110.001', 'T1078'],
+    status:   'done',
+    score:    null,
+    summary:  'Analysis of Windows Security Event logs revealing an RDP brute force attack targeting the local Administrator account from a Vietnamese IP address, generating over 3000 Audit Failure events.',
+    art:      'https://d2ghw05x0obr70.cloudfront.net/thumbnails/801436163080cfe8f2ebc6f2de48607f6001144d.png',
+    writeup:  '/blue-team/labs/bruteforce/',
+    proof:    'https://blueteamlabs.online/achievement/share/challenge/144656/40',
+    type:     'challenge',
+  },
+
 ];
