@@ -606,6 +606,44 @@ nav {
   25% { transform: translateX(-6px); }
   75% { transform: translateX(6px); }
 }
+details.code-block {
+  margin: 1.5rem 0;
+  border: 1px solid var(--muted);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+details.code-block summary {
+  padding: 0.6rem 1rem;
+  cursor: pointer;
+  font-family: monospace;
+  font-size: 0.85rem;
+  background: var(--panel);
+  color: var(--cyan);
+  user-select: none;
+  list-style: none;
+}
+
+details.code-block summary::before {
+  content: "▶ ";
+  font-size: 0.7rem;
+}
+
+details.code-block[open] summary::before {
+  content: "▼ ";
+}
+
+details.code-block pre {
+  margin: 0;
+  padding: 1rem;
+  overflow-x: auto;
+  font-size: 0.8rem;
+  max-height: 500px;
+  overflow-y: auto;
+  background: var(--deep);
+  color: var(--text-dim);
+  border-top: 1px solid var(--muted);
+}
 </style>
 </head>
 <body>
