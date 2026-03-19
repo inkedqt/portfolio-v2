@@ -711,14 +711,38 @@ const COMMANDS_DATA = [
     "tool": "powershell",
     "lab": "multistages",
     "lab_url": "/blue-team/labs/multistages/",
-    "desc": "Cobalt Strike stager response — reflective DLL loader delivered as base64-encoded blob via PowerShell MemoryStream",
+    "desc": "Cobalt Strike stager response \u2014 reflective DLL loader delivered as base64-encoded blob via PowerShell MemoryStream",
     "tags": "powershell"
+  },
+  {
+    "command": "aureport -if audit.log --summary",
+    "tool": "shell",
+    "lab": "paranoid",
+    "lab_url": "/blue-team/labs/paranoid/",
+    "desc": "Generate a summary report from a specified audit log file",
+    "tags": "shell"
+  },
+  {
+    "command": "aureport -if audit.log --login --failed",
+    "tool": "shell",
+    "lab": "paranoid",
+    "lab_url": "/blue-team/labs/paranoid/",
+    "desc": "List failed login attempts from a specified audit log file",
+    "tags": "shell"
+  },
+  {
+    "command": "aureport -if audit.log --login --success",
+    "tool": "shell",
+    "lab": "paranoid",
+    "lab_url": "/blue-team/labs/paranoid/",
+    "desc": "List successful logins from a specified audit log file",
+    "tags": "shell"
   }
 ];
 
 const COMMANDS_META = {
-  "total": 89,
-  "labs": 31,
+  "total": 92,
+  "labs": 32,
   "tools": [
     "kql",
     "powershell",

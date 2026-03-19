@@ -1078,4 +1078,19 @@ const LABS = [
     type:     'challenge',
   },
 
+  {
+    name:     'Paranoid',
+    skill:    'Incident Response',
+    platform: 'BTLO',
+    diff:     'Medium',
+    cats:     ['Incident Response', 'aureport', 'T1110.001', 'T1046', 'T1059.004', 'T1068', 'T1005', 'T1070.002'],
+    status:   'done',
+    score:    null,
+    summary:  'Analysis of Linux auditd logs revealing an SSH brute force attack against a local account, followed by post-exploitation enumeration via LinPEAS, privilege escalation using a compiled CVE-2021-3156 (Baron Samedit) exploit, and exfiltration of /etc/shadow before the attacker cleaned up their tracks.',
+    art:      'https://d2ghw05x0obr70.cloudfront.net/thumbnails/8aa05047966639cf91688bbf0dafcc4c479f846a.png',
+    writeup:  '/blue-team/labs/paranoid/',
+    proof:    'https://blueteamlabs.online/achievement/share/challenge/144656/30',
+    type:     'challenge',
+  },
+
 ];
