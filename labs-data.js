@@ -1123,4 +1123,19 @@ const LABS = [
     type:     'challenge',
   },
 
+  {
+    name:     'Teh Report II',
+    skill:    'Incident Response',
+    platform: 'BTLO',
+    diff:     'Medium',
+    cats:     ['Incident Response', 'PDF'],
+    status:   'done',
+    score:    null,
+    summary:  'Analysis of the MITRE \'11 Strategies of a World-Class Cybersecurity Operations Center\' to extract key SOC concepts including organisational models, workflow, tooling standards, data retention, and red teaming approaches.',
+    art:      'https://d2ghw05x0obr70.cloudfront.net/thumbnails/0f360991c24d7875b7e7c5f2307479b8cdb38d77.png',
+    writeup:  '/blue-team/labs/thereport2/',
+    proof:    'https://blueteamlabs.online/achievement/share/challenge/144656/44',
+    type:     'challenge',
+  },
+
 ];
