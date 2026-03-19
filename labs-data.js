@@ -1138,4 +1138,19 @@ const LABS = [
     type:     'challenge',
   },
 
+  {
+    name:     'Fungames',
+    skill:    'Incident Response',
+    platform: 'BTLO',
+    diff:     'Easy',
+    cats:     ['Incident Response', 'Wireshark', 'CyberChef', 'VirusTotal', 'Credential Access', 'Collection', 'TA0031', 'TA0010', 'T1190', 'T1078', 'T1059.004', 'T1068', 'T1071.004'],
+    status:   'done',
+    score:    null,
+    summary:  'Full attack chain analysis of a PCAP from FunGames, an e-commerce platform. The attacker used SQLmap to extract credentials via SQLi, SSHed in with stolen creds, escalated to root via CVE-2024-1086 (Linux kernel netfilter exploit), then exfiltrated a customer\'s credit card data encoded as hex over a single malformed DNS query.',
+    art:      'https://blueteamlabs.online/storage/labs/1cccaf0a76bf83c066f29ce71016c4786aded972.png',
+    writeup:  '/blue-team/labs/fungames/',
+    proof:    'https://blueteamlabs.online/achievement/share/144656/223',
+    type:     'None',
+  },
+
 ];

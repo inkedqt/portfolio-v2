@@ -737,12 +737,20 @@ const COMMANDS_DATA = [
     "lab_url": "/blue-team/labs/paranoid/",
     "desc": "List successful logins from a specified audit log file",
     "tags": "shell"
+  },
+  {
+    "command": "ip.src == 192.168.8.142 && !ssh && !http",
+    "tool": "wireshark",
+    "lab": "fungames",
+    "lab_url": "/blue-team/labs/fungames/",
+    "desc": "Filter victim outbound traffic excluding SSH and HTTP to surface covert channels",
+    "tags": "wireshark"
   }
 ];
 
 const COMMANDS_META = {
-  "total": 92,
-  "labs": 32,
+  "total": 93,
+  "labs": 33,
   "tools": [
     "kql",
     "powershell",
