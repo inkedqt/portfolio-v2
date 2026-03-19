@@ -1153,4 +1153,20 @@ const LABS = [
     type:     'None',
   },
 
+
+  {
+    name:     'Phising analysis 2',
+    skill:    'Threat Intelligence',
+    platform: 'BTLO',
+    diff:     'Easy',
+    cats:     ['Threat Intelligence', 'Text Editor', 'Thunderbird', 'T1566.002'],
+    status:   'done',
+    score:    null,
+    summary:  'Analysis of a phishing email impersonating Amazon, delivered to saintington73@outlook.com. The email body is base64 encoded HTML, the CTA button points to a typosquatted domain, and the attacker left a personal Facebook profile URL embedded in the footer.',
+    art:      'https://d2ghw05x0obr70.cloudfront.net/thumbnails/6156a19eafa9b683f8616ae21d677fac47e20834.png',
+    writeup:  '/blue-team/labs/phishinganalysis2/',
+    proof:    'https://blueteamlabs.online/achievement/share/challenge/144656/24',
+    type:     'challenge',
+  },
+
 ];
