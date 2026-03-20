@@ -745,12 +745,20 @@ const COMMANDS_DATA = [
     "lab_url": "/blue-team/labs/fungames/",
     "desc": "Filter victim outbound traffic excluding SSH and HTTP to surface covert channels",
     "tags": "wireshark"
+  },
+  {
+    "command": "hashcat -m 16500 hash.txt -a 3 -i '?a?a?a?a'",
+    "tool": "shell",
+    "lab": "secrets",
+    "lab_url": "/blue-team/labs/secrets/",
+    "desc": "Brute-force crack a JWT signing secret using hashcat JWT mode (16500) with incremental all-character mask up to 4 characters",
+    "tags": "shell"
   }
 ];
 
 const COMMANDS_META = {
-  "total": 93,
-  "labs": 33,
+  "total": 94,
+  "labs": 34,
   "tools": [
     "kql",
     "powershell",

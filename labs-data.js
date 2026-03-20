@@ -1184,4 +1184,19 @@ const LABS = [
     type:     'challenge',
   },
 
+  {
+    name:     'Secrets',
+    skill:    'Incident Response',
+    platform: 'BTLO',
+    diff:     'Easy',
+    cats:     ['Incident Response', 'hashcat', 'jwt.io', 'Defense Evasion', 'Execution', 'T1110.002', 'T1078', 'T1550.001', 'T1606.001'],
+    status:   'done',
+    score:    null,
+    summary:  'You’re a senior cyber security engineer and during your shift, we have intercepted/noticed a high privilege actions from unknown source that could be identified as malicious. ',
+    art:      'https://d2ghw05x0obr70.cloudfront.net/thumbnails/6c8716189e006bfa2ca4881ccabef56b4d99c167.png',
+    writeup:  '/blue-team/labs/secrets/',
+    proof:    'https://blueteamlabs.online/achievement/share/challenge/144656/35',
+    type:     'challenge',
+  },
+
 ];
