@@ -753,12 +753,28 @@ const COMMANDS_DATA = [
     "lab_url": "/blue-team/labs/secrets/",
     "desc": "Brute-force crack a JWT signing secret using hashcat JWT mode (16500) with incremental all-character mask up to 4 characters",
     "tags": "shell"
+  },
+  {
+    "command": "hashcat -m 13751 -a 0 container.vc wordlist",
+    "tool": "shell",
+    "lab": "veriarty",
+    "lab_url": "/blue-team/labs/veriarty/",
+    "desc": "Crack a VeraCrypt container password using hashcat SHA-512 AES mode (13751) with a wordlist attack",
+    "tags": "shell"
+  },
+  {
+    "command": "gpg --import secret.key gpg --decrypt email.eml.gpg > email.eml",
+    "tool": "shell",
+    "lab": "veriarty",
+    "lab_url": "/blue-team/labs/veriarty/",
+    "desc": "Import a PGP private key into GPG keyring and decrypt a GPG-encrypted email to plaintext",
+    "tags": "shell"
   }
 ];
 
 const COMMANDS_META = {
-  "total": 94,
-  "labs": 34,
+  "total": 96,
+  "labs": 35,
   "tools": [
     "kql",
     "powershell",

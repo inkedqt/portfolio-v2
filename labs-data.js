@@ -1199,4 +1199,19 @@ const LABS = [
     type:     'challenge',
   },
 
+  {
+    name:     'Veriarty',
+    skill:    'Threat Intelligence',
+    platform: 'BTLO',
+    diff:     'Medium',
+    cats:     ['Threat Intelligence', 'hashcat', 'veracrypt', 'gpp', 'T1027', 'T1027.003', 'T1140', 'T1553', 'T1560', 'T1564.001', 'T1573'],
+    status:   'done',
+    score:    null,
+    summary:  'DI Lestrade has intercepted a transmission from a criminal known as Moriarty',
+    art:      'https://d2ghw05x0obr70.cloudfront.net/thumbnails/b17fa3b4085a6dc90f61c050a7f0326df12c3a21.png',
+    writeup:  '/blue-team/labs/veriarty/',
+    proof:    'https://blueteamlabs.online/achievement/share/challenge/144656/36',
+    type:     'challenge',
+  },
+
 ];
