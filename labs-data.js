@@ -1229,4 +1229,19 @@ const LABS = [
     type:     'challenge',
   },
 
+  {
+    name:     'secure shell',
+    skill:    'Incident Response',
+    platform: 'BTLO',
+    diff:     'Hard',
+    cats:     ['Incident Response', 'linux-cli', 'T1110', 'T1078', 'T1021.004'],
+    status:   'done',
+    score:    null,
+    summary:  'We had a SSH service on a system and noticed unusual change in size of the log file. ',
+    art:      'https://d2ghw05x0obr70.cloudfront.net/thumbnails/f938ccab8738797243659e599219f6b978126441.png',
+    writeup:  '/blue-team/labs/secureshell/',
+    proof:    'https://blueteamlabs.online/achievement/share/challenge/144656/17',
+    type:     'challenge',
+  },
+
 ];
