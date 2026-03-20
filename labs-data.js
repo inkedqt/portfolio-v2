@@ -1169,4 +1169,19 @@ const LABS = [
     type:     'challenge',
   },
 
+  {
+    name:     'Log Analysis Sysmon',
+    skill:    'Endpoint Forensics',
+    platform: 'BTLO',
+    diff:     'Medium',
+    cats:     ['Endpoint Forensics', 'Text Editor', 'PowerShell', 'Linux CLI', 'Command and Control', 'T1574.007', 'T1134.001'],
+    status:   'done',
+    score:    null,
+    summary:  'You are provided with Sysmon logs from a compromised endpoint. Analyse the logs to find out the steps and techniques used by the attacker.',
+    art:      'https://d2ghw05x0obr70.cloudfront.net/thumbnails/84e68852f4699766babf4f590e883bb24e403288.png',
+    writeup:  '/blue-team/labs/loganalysissysmon/',
+    proof:    'https://blueteamlabs.online/achievement/share/challenge/144656/18',
+    type:     'challenge',
+  },
+
 ];
