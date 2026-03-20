@@ -1244,4 +1244,19 @@ const LABS = [
     type:     'challenge',
   },
 
+  {
+    name:     'Phishing Analysis',
+    skill:    '[Security Operations]',
+    platform: 'BTLO',
+    diff:     'Easy',
+    cats:     ['Security Operations', 'Text Editor', 'Thunderbird', 'T1566.001', 'T1598.003', 'T1071.003'],
+    status:   'done',
+    score:    null,
+    summary:  'Can you investigate the email and attachment to collect useful artifacts? ',
+    art:      'https://d2ghw05x0obr70.cloudfront.net/thumbnails/dbcda50ac795a74ab7fa188aba2d18f724383d7b.png',
+    writeup:  '/blue-team/labs/phishinganalysis/',
+    proof:    'https://blueteamlabs.online/achievement/share/challenge/144656/16',
+    type:     'challenge',
+  },
+
 ];
