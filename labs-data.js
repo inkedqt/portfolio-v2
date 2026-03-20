@@ -1214,4 +1214,19 @@ const LABS = [
     type:     'challenge',
   },
 
+  {
+    name:     'injectionpart4',
+    skill:    'Malware Analysis',
+    platform: 'BTLO',
+    diff:     'Easy',
+    cats:     ['Malware Analysis', 'IDA', 'codebrowser', 'ghira', 'Defense Evasion', 'Execution', 'T1055.002', 'T1059.001', 'T1105', 'T1027', 'T1140'],
+    status:   'done',
+    score:    null,
+    summary:  'Reverse engineer the given file and understand the behavior. You can use any disassembler you like to complete this challenge. ',
+    art:      'https://d2ghw05x0obr70.cloudfront.net/thumbnails/5680dc738c3f92cf0f202c66875be626640e2f32.png',
+    writeup:  '/blue-team/labs/injectionpart4/',
+    proof:    'https://blueteamlabs.online/achievement/share/challenge/144656/41',
+    type:     'challenge',
+  },
+
 ];
