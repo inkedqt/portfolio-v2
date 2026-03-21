@@ -1,10 +1,7 @@
 name: Update BTLO Stats
 
 on:
-  schedule:
-    # Runs at 03:00 UTC daily — overnight AEST
-    - cron: "0 3 * * *"
-  workflow_dispatch: # Allow manual trigger
+  workflow_dispatch: # manual only
 
 jobs:
   scrape:
