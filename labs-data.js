@@ -1259,4 +1259,19 @@ const LABS = [
     type:     'challenge',
   },
 
+  {
+    name:     'Breach',
+    skill:    'Incident Response',
+    platform: 'BTLO',
+    diff:     'Easy',
+    cats:     ['Incident Response', 'Wireshark', 'T1190', 'T1136.001', 'T1204.002'],
+    status:   'done',
+    score:    null,
+    summary:  'Your mission is to use Wireshark to analyze the provided network capture files, detect signs of the Openfire vulnerability being exploited, and gather enough evidence to understand the nature of the breach. ',
+    art:      'https://blueteamlabs.online/storage/labs/83144cbf132ca4afb71f3f843cb4fa617738967e.png',
+    writeup:  '/blue-team/labs/breach/',
+    proof:    'https://blueteamlabs.online/achievement/share/144656/229',
+    type:     'None',
+  },
+
 ];
