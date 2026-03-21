@@ -431,6 +431,7 @@ html { scroll-behavior: smooth; zoom: 1.2; }
 </style>
 </head>
 <body>
+<script src="/assets/js/btlo-stats.js"></script>
 <div class="scanline"></div>
 
 <nav>
@@ -482,10 +483,15 @@ html { scroll-behavior: smooth; zoom: 1.2; }
       <a href="https://cyberdefenders.org/p/inksec" target="_blank">
         <script src="https://cyberdefenders.org/p/inksec/badge"></script>
       </a>
-      <a href="{{ site.data.btlo.profile_url }}"
+      <!-- BTLO Stats Card -->
+      <!-- 1. Add <script src="/assets/js/btlo-stats.js"></script> before </body> -->
+      <!-- 2. Paste this block inside the // live platform stats div -->
+
+      <a href="https://blueteamlabs.online/home/user/32e88e341c0c66519ed676"
         target="_blank"
+        id="btlo-card-link"
         style="text-decoration:none;display:block;width:400px;max-width:100%;">
-        <div style="
+        <div id="btlo-card" style="
           background: var(--panel);
           border: 1px solid var(--muted);
           padding: 14px 18px;
@@ -496,89 +502,96 @@ html { scroll-behavior: smooth; zoom: 1.2; }
         "
         onmouseover="this.style.borderColor='rgba(255,102,196,0.4)';this.style.boxShadow='0 0 24px rgba(255,102,196,0.07)'"
         onmouseout="this.style.borderColor='var(--muted)';this.style.boxShadow='none'">
-      
+
           <!-- top accent bar -->
-          <div style="
-            position:absolute; top:0; left:0; right:0; height:2px;
-            background: linear-gradient(90deg, var(--pink), var(--cyan));
-            opacity: 0.6;
-          "></div>
-      
+          <div style="position:absolute;top:0;left:0;right:0;height:2px;
+                      background:linear-gradient(90deg,var(--pink),var(--cyan));opacity:0.6;"></div>
+
           <!-- header row -->
-          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
             <div>
-              <div style="font-size:9px; letter-spacing:0.3em; text-transform:uppercase; color:var(--subtle); margin-bottom:4px;">
+              <div style="font-size:9px;letter-spacing:0.3em;text-transform:uppercase;color:var(--subtle);margin-bottom:4px;">
                 // blue team labs online
               </div>
-              <div style="font-family:'Syne Mono',monospace; font-size:14px; color:var(--text); letter-spacing:0.04em;">
-                {{ site.data.btlo.username }}
+              <div style="font-family:'Syne Mono',monospace;font-size:14px;color:var(--text);letter-spacing:0.04em;">
+                <span id="btlo-username">inksec</span>
               </div>
             </div>
-            <div style="
-              font-size:8px; letter-spacing:0.2em; text-transform:uppercase;
-              border: 1px solid var(--gold-dim);
-              color: var(--gold);
-              padding: 3px 10px;
-              background: rgba(255,209,102,0.07);
-            ">
-              {{ site.data.btlo.rank }}
+            <div id="btlo-rank" style="font-size:8px;letter-spacing:0.2em;text-transform:uppercase;
+                                        border:1px solid var(--gold-dim);color:var(--gold);
+                                        padding:3px 10px;background:rgba(255,209,102,0.07);">
+              Junior Defender
             </div>
           </div>
-      
+
           <!-- stats row -->
-          <div style="display:flex; gap:1px; background:var(--muted);">
-      
-            <div style="flex:1; background:var(--deep); padding:10px 8px; text-align:center;">
-              <div style="font-family:'Syne Mono',monospace; font-size:18px; color:var(--pink);
-                          text-shadow:0 0 16px rgba(255,102,196,0.4); margin-bottom:3px;">
-                {{ site.data.btlo.points }}
-              </div>
-              <div style="font-size:7px; letter-spacing:0.2em; text-transform:uppercase; color:var(--subtle);">Points</div>
+          <div style="display:flex;gap:1px;background:var(--muted);">
+
+            <div style="flex:1;background:var(--deep);padding:10px 8px;text-align:center;">
+              <div id="btlo-points" style="font-family:'Syne Mono',monospace;font-size:18px;color:var(--pink);
+                                          text-shadow:0 0 16px rgba(255,102,196,0.4);margin-bottom:3px;">—</div>
+              <div style="font-size:7px;letter-spacing:0.2em;text-transform:uppercase;color:var(--subtle);">Points</div>
             </div>
-      
-            <div style="flex:1; background:var(--deep); padding:10px 8px; text-align:center;">
-              <div style="font-family:'Syne Mono',monospace; font-size:18px; color:var(--cyan);
-                          text-shadow:0 0 16px rgba(0,245,212,0.4); margin-bottom:3px;">
-                #{{ site.data.btlo.global_position }}
-              </div>
-              <div style="font-size:7px; letter-spacing:0.2em; text-transform:uppercase; color:var(--subtle);">Global</div>
+
+            <div style="flex:1;background:var(--deep);padding:10px 8px;text-align:center;">
+              <div id="btlo-global" style="font-family:'Syne Mono',monospace;font-size:18px;color:var(--cyan);
+                                          text-shadow:0 0 16px rgba(0,245,212,0.4);margin-bottom:3px;">—</div>
+              <div style="font-size:7px;letter-spacing:0.2em;text-transform:uppercase;color:var(--subtle);">Global</div>
             </div>
-      
-            <div style="flex:1; background:var(--deep); padding:10px 8px; text-align:center;">
-              <div style="font-family:'Syne Mono',monospace; font-size:18px; color:var(--cyan);
-                          text-shadow:0 0 16px rgba(0,245,212,0.4); margin-bottom:3px;">
-                #{{ site.data.btlo.country_position }}
-              </div>
-              <div style="font-size:7px; letter-spacing:0.2em; text-transform:uppercase; color:var(--subtle);">AU Rank</div>
+
+            <div style="flex:1;background:var(--deep);padding:10px 8px;text-align:center;">
+              <div id="btlo-country" style="font-family:'Syne Mono',monospace;font-size:18px;color:var(--cyan);
+                                            text-shadow:0 0 16px rgba(0,245,212,0.4);margin-bottom:3px;">—</div>
+              <div style="font-size:7px;letter-spacing:0.2em;text-transform:uppercase;color:var(--subtle);">AU Rank</div>
             </div>
-      
-            <div style="flex:1; background:var(--deep); padding:10px 8px; text-align:center;">
-              <div style="font-family:'Syne Mono',monospace; font-size:18px; color:var(--text);
-                          margin-bottom:3px;">
-                {{ site.data.btlo.investigations }}
-              </div>
-              <div style="font-size:7px; letter-spacing:0.2em; text-transform:uppercase; color:var(--subtle);">Labs</div>
+
+            <div style="flex:1;background:var(--deep);padding:10px 8px;text-align:center;">
+              <div id="btlo-investigations" style="font-family:'Syne Mono',monospace;font-size:18px;
+                                                  color:var(--text);margin-bottom:3px;">—</div>
+              <div style="font-size:7px;letter-spacing:0.2em;text-transform:uppercase;color:var(--subtle);">Labs</div>
             </div>
-      
-            <div style="flex:1; background:var(--deep); padding:10px 8px; text-align:center;">
-              <div style="font-family:'Syne Mono',monospace; font-size:18px; color:var(--text);
-                          margin-bottom:3px;">
-                {{ site.data.btlo.challenges }}
-              </div>
-              <div style="font-size:7px; letter-spacing:0.2em; text-transform:uppercase; color:var(--subtle);">Challenges</div>
+
+            <div style="flex:1;background:var(--deep);padding:10px 8px;text-align:center;">
+              <div id="btlo-challenges" style="font-family:'Syne Mono',monospace;font-size:18px;
+                                              color:var(--text);margin-bottom:3px;">—</div>
+              <div style="font-size:7px;letter-spacing:0.2em;text-transform:uppercase;color:var(--subtle);">Challenges</div>
             </div>
-      
+
           </div>
-      
+
           <!-- footer -->
-          <div style="margin-top:8px; font-size:8px; letter-spacing:0.15em; color:var(--subtle);
-                      display:flex; justify-content:space-between; align-items:center;">
+          <div style="margin-top:8px;font-size:8px;letter-spacing:0.15em;color:var(--subtle);
+                      display:flex;justify-content:space-between;align-items:center;">
             <span>blueteamlabs.online</span>
             <span style="color:rgba(255,102,196,0.4);">updated nightly ›</span>
           </div>
-      
+
         </div>
       </a>
+
+      <script>
+      (function() {
+        function injectBTLO() {
+          if (typeof BTLO_STATS === 'undefined') return;
+          var s = BTLO_STATS;
+          var set = function(id, val) { var el = document.getElementById(id); if (el) el.textContent = val; };
+          set('btlo-username',       s.username);
+          set('btlo-rank',           s.rank);
+          set('btlo-points',         s.points);
+          set('btlo-global',         '#' + s.globalPosition);
+          set('btlo-country',        '#' + s.countryPosition);
+          set('btlo-investigations',  s.investigations);
+          set('btlo-challenges',     s.challenges);
+          var link = document.getElementById('btlo-card-link');
+          if (link && s.profileUrl) link.href = s.profileUrl;
+        }
+        if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', injectBTLO);
+        } else {
+          injectBTLO();
+        }
+      })();
+      </script>
     </div>
   </div>
 
