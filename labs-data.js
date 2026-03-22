@@ -1274,4 +1274,19 @@ const LABS = [
     type:     'None',
   },
 
+  {
+    name:     'Backstage',
+    skill:    'Incident Response',
+    platform: 'BTLO',
+    diff:     'Medium',
+    cats:     ['Incident Response', 'Wireshark', 'Execution', 'Credential Access', 'T1102', 'T1090.001', 'T1078'],
+    status:   'done',
+    score:    null,
+    summary:  'We were notified of some unusual activity in our network from one of our newly set up servers. Not taking any chances, we immediately took the system down and decided to investigate. You are provided with access to the system and the network packet capture file. Find out what is going on! ',
+    art:      'https://blueteamlabs.online/storage/labs/5b6bfff3aee77b4a168d9f984480196fa6c76201.png',
+    writeup:  '/blue-team/labs/backstage/',
+    proof:    'https://blueteamlabs.online/achievement/share/144656/98',
+    type:     'None',
+  },
+
 ];
