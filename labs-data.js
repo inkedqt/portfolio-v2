@@ -1289,4 +1289,19 @@ const LABS = [
     type:     'None',
   },
 
+  {
+    name:     'toolate',
+    skill:    'Incident Response',
+    platform: 'BTLO',
+    diff:     'Medium',
+    cats:     ['Incident Response', 'Wireshark', 'T1571', 'T1055', 'T1548.002', 'T1027.010', 'T1059.001', 'T1113', 'T1115', 'T1036.005', 'T1027'],
+    status:   'done',
+    score:    null,
+    summary:  'The company was compromised by an adversary. The server was taken offline as soon as the suspicious activities were identified. As a defender, you are required to perform analysis on the post-compromise actions taken on the server. ',
+    art:      'https://blueteamlabs.online/storage/labs/c95ff7e4d2914ca9dc08996c8b29001cc5287647.png',
+    writeup:  '/blue-team/labs/toolate/',
+    proof:    'https://blueteamlabs.online/achievement/share/144656/78',
+    type:     'None',
+  },
+
 ];
