@@ -1304,4 +1304,19 @@ const LABS = [
     type:     'None',
   },
 
+  {
+    name:     'steam',
+    skill:    'Endpoint Forensics',
+    platform: 'BTLO',
+    diff:     'Medium',
+    cats:     ['Endpoint Forensics', 'FTK Imager', 'OSINT', 'T1564.002'],
+    status:   'done',
+    score:    null,
+    summary:  'Gday Defenders, looks like one of our new content developers is having some trouble. He suspects one of his dogs is playing games on his computer.',
+    art:      'https://blueteamlabs.online/storage/labs/ba20a8add71c5268086c91dd93c554943cb67336.png',
+    writeup:  '/blue-team/labs/steam/',
+    proof:    'https://blueteamlabs.online/achievement/share/144656/151',
+    type:     'None',
+  },
+
 ];

@@ -769,12 +769,20 @@ const COMMANDS_DATA = [
     "lab_url": "/blue-team/labs/veriarty/",
     "desc": "Import a PGP private key into GPG keyring and decrypt a GPG-encrypted email to plaintext",
     "tags": "shell"
+  },
+  {
+    "command": "Get-FileHash .\\76561199466436896.png -Algorithm MD5",
+    "tool": "powershell",
+    "lab": "steam",
+    "lab_url": "/blue-team/labs/steam/",
+    "desc": "",
+    "tags": "powershell"
   }
 ];
 
 const COMMANDS_META = {
-  "total": 96,
-  "labs": 35,
+  "total": 97,
+  "labs": 36,
   "tools": [
     "kql",
     "powershell",
