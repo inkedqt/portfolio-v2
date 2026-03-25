@@ -1319,4 +1319,19 @@ const LABS = [
     type:     'None',
   },
 
+  {
+    name:     'Insider Brett',
+    skill:    'Incident Response',
+    platform: 'BTLO',
+    diff:     'Easy',
+    cats:     ['Incident Response', 'Wireshark', 'T1110.001', 'T1021.002', 'T1059', 'T1486'],
+    status:   'done',
+    score:    null,
+    summary:  ' We have identified that one of our IT contractors was the likely culprit of a recent incident. ',
+    art:      'https://blueteamlabs.online/storage/labs/cf06c0784c54fbab677471382c6aba9f09eeaf19.png',
+    writeup:  '/blue-team/labs/insiderbrett/',
+    proof:    'https://blueteamlabs.online/achievement/share/144656/214',
+    type:     'None',
+  },
+
 ];
