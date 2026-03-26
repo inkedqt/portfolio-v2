@@ -366,6 +366,110 @@ section:last-child { border-bottom:none; }
 }
 .featured-cta:hover { background:var(--cyan); }
 
+/* ── SHOWCASE GRID ── */
+.showcase-section { padding:52px 0; border-bottom:1px solid var(--muted); }
+.showcase-eyebrow { font-size:9px; letter-spacing:0.35em; text-transform:uppercase; color:var(--subtle); margin-bottom:20px; }
+.showcase-title { font-family:'Syne Mono',monospace; font-size:clamp(15px,2.2vw,20px); color:var(--text); margin-bottom:8px; }
+.showcase-title .pk { color:var(--pink); }
+.showcase-desc { font-size:11px; color:var(--text-dim); line-height:1.7; letter-spacing:0.04em; margin-bottom:32px; max-width:640px; }
+
+.showcase-row { margin-bottom:32px; }
+.showcase-row-label {
+  display:flex; align-items:center; gap:12px;
+  font-size:8px; letter-spacing:0.3em; text-transform:uppercase;
+  color:var(--subtle); margin-bottom:12px;
+  padding-bottom:8px; border-bottom:1px solid var(--muted);
+}
+.showcase-row-label .row-accent {
+  display:inline-block; width:20px; height:1px;
+}
+
+.showcase-grid {
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:10px;
+}
+
+.showcase-card {
+  background:var(--panel);
+  border:1px solid var(--muted);
+  display:flex; flex-direction:column;
+  overflow:hidden;
+  transition:border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+  position:relative;
+}
+.showcase-card::before {
+  content:''; position:absolute; top:0; left:0; right:0; height:2px;
+  background:linear-gradient(90deg, var(--sc-accent, var(--pink)), transparent);
+  opacity:0.7;
+}
+.showcase-card:hover {
+  border-color:var(--sc-accent, var(--pink-dim));
+  box-shadow:0 0 28px rgba(var(--sc-accent-rgb, 255,102,196), 0.08);
+  transform:translateY(-2px);
+}
+
+.sc-art {
+  position:relative; aspect-ratio:16/9; overflow:hidden; background:var(--deep); flex-shrink:0;
+}
+.sc-art img {
+  width:100%; height:100%; object-fit:cover;
+  filter:brightness(0.8) saturate(1.1);
+  transition:transform 0.4s ease, filter 0.3s;
+}
+.showcase-card:hover .sc-art img { transform:scale(1.04); filter:brightness(0.92) saturate(1.2); }
+
+.sc-platform-badge {
+  position:absolute; top:8px; left:8px;
+  font-size:7px; letter-spacing:0.2em; text-transform:uppercase;
+  padding:3px 8px; border:1px solid; backdrop-filter:blur(4px);
+  font-family:'Share Tech Mono',monospace;
+}
+.sc-diff-badge {
+  position:absolute; top:8px; right:8px;
+  font-size:7px; letter-spacing:0.18em; text-transform:uppercase;
+  padding:3px 8px; backdrop-filter:blur(4px);
+  border:1px solid; font-family:'Share Tech Mono',monospace;
+  font-weight:700;
+}
+.sc-status-bar {
+  position:absolute; bottom:0; left:0; right:0; height:3px;
+  background:linear-gradient(90deg, var(--sc-accent, var(--pink)), transparent);
+}
+
+.sc-body { padding:14px 16px; display:flex; flex-direction:column; gap:8px; flex:1; }
+.sc-name { font-family:'Syne Mono',monospace; font-size:14px; color:var(--text); letter-spacing:0.02em; line-height:1.2; }
+.sc-skill {
+  font-size:7px; letter-spacing:0.18em; text-transform:uppercase;
+  color:var(--sc-accent, var(--pink)); opacity:0.85;
+}
+.sc-summary {
+  font-size:10.5px; color:var(--text-dim); line-height:1.6;
+  letter-spacing:0.03em;
+  display:-webkit-box; -webkit-line-clamp:3; -webkit-box-orient:vertical; overflow:hidden;
+  flex:1;
+}
+.sc-footer {
+  display:flex; justify-content:flex-end; align-items:center;
+  padding-top:8px; border-top:1px solid rgba(255,255,255,0.04);
+  margin-top:auto;
+}
+.sc-link {
+  font-size:8px; letter-spacing:0.15em; text-transform:uppercase;
+  color:var(--sc-accent, var(--pink)); text-decoration:none;
+  border:1px solid var(--sc-accent, var(--pink-dim)); padding:3px 10px;
+  transition:all 0.15s;
+  font-family:'Share Tech Mono',monospace;
+}
+.sc-link:hover { background:rgba(255,102,196,0.08); }
+
+@media(max-width:900px) {
+  .showcase-grid { grid-template-columns:repeat(2,1fr); }
+}
+@media(max-width:600px) {
+  .showcase-grid { grid-template-columns:1fr; }
+}
+
 /* ── BTL1 PROGRESS ── */
 .btl1-progress { margin-bottom:28px; }
 .progress-track {
@@ -742,6 +846,40 @@ html { scroll-behavior: smooth; zoom: 1.2; }
     <a class="featured-cta" href="/blue-team/heatmap/" style="display:inline-block;">explore full att&ck matrix →</a>
   </section>
 
+  <!-- FEATURED SHOWCASE -->
+  <section id="showcase" class="showcase-section">
+    <div class="showcase-eyebrow">// selected investigations</div>
+    <div class="showcase-title">featured <span class="pk">writeups</span></div>
+    <p class="showcase-desc">Nine investigations selected across core blue team disciplines. Hard-rated labs, real artefacts, documented methodology.</p>
+
+    <!-- ROW 1: INCIDENT RESPONSE -->
+    <div class="showcase-row">
+      <div class="showcase-row-label">
+        <span class="row-accent" style="background:linear-gradient(90deg,#ff8c00,transparent);"></span>
+        incident response
+      </div>
+      <div class="showcase-grid" id="showcase-grid-ir"></div>
+    </div>
+
+    <!-- ROW 2: DIGITAL FORENSICS + RE -->
+    <div class="showcase-row">
+      <div class="showcase-row-label">
+        <span class="row-accent" style="background:linear-gradient(90deg,var(--cyan),transparent);"></span>
+        digital forensics &amp; reverse engineering
+      </div>
+      <div class="showcase-grid" id="showcase-grid-df"></div>
+    </div>
+
+    <!-- ROW 3: SOC + THREAT INTEL -->
+    <div class="showcase-row">
+      <div class="showcase-row-label">
+        <span class="row-accent" style="background:linear-gradient(90deg,var(--pink),transparent);"></span>
+        soc operations &amp; threat intelligence
+      </div>
+      <div class="showcase-grid" id="showcase-grid-soc"></div>
+    </div>
+  </section>
+
   <!-- ALL LABS -->
   <section id="labs">
     <div class="sec-eyebrow">// all completed labs</div>
@@ -1045,7 +1183,67 @@ document.querySelectorAll('.fbtn[data-diff]').forEach(btn => {
 // search
 document.getElementById('lab-search').addEventListener('input', applyFilter);
 
+// ── SHOWCASE ────────────────────────────────────────────────────────
+// Add featured: true  +  showcase_row: 'ir' | 'df' | 'soc'  to labs-data.js entries
+// accent colours per row
+const SHOWCASE_ACCENT = {
+  ir:  { color:'#ff8c00', rgb:'255,140,0',   border:'rgba(255,140,0,0.4)'  },
+  df:  { color:'#00f5d4', rgb:'0,245,212',   border:'rgba(0,245,212,0.4)'  },
+  soc: { color:'#ff66c4', rgb:'255,102,196', border:'rgba(255,102,196,0.4)'},
+};
+
+function renderShowcaseCard(lab, row) {
+  const acc = SHOWCASE_ACCENT[row] || SHOWCASE_ACCENT.soc;
+  const artFallback = `background:linear-gradient(135deg,#0c0c18,#1a1a2e);display:flex;align-items:center;justify-content:center;`;
+  const artEl = lab.art
+    ? `<img src="${lab.art}" alt="${lab.name}" onerror="this.parentElement.style.cssText='${artFallback}';this.remove();">`
+    : `<div style="${artFallback}width:100%;height:100%;"></div>`;
+
+  const skillLabel = Array.isArray(lab.skill) ? lab.skill[0] : lab.skill;
+
+  return `
+    <div class="showcase-card" style="--sc-accent:${acc.color};--sc-accent-rgb:${acc.rgb};">
+      <div class="sc-art">
+        ${artEl}
+        <span class="sc-platform-badge ${platformBadgeClass(lab.platform)}">${lab.platform}</span>
+        <span class="sc-diff-badge ${diffClass(lab.diff)}">${lab.diff}</span>
+        <div class="sc-status-bar"></div>
+      </div>
+      <div class="sc-body">
+        <div class="sc-skill">${skillLabel}</div>
+        <div class="sc-name">${lab.name}</div>
+        <div class="sc-summary">${lab.summary}</div>
+        <div class="sc-footer">
+          ${lab.writeup ? `<a class="sc-link" href="${lab.writeup}" target="${lab.writeup.startsWith('http')?'_blank':'_self'}">read writeup →</a>` : ''}
+        </div>
+      </div>
+    </div>
+  `;
+}
+
+function renderShowcase() {
+  const rows = ['ir','df','soc'];
+  rows.forEach(row => {
+    const grid = document.getElementById(`showcase-grid-${row}`);
+    if (!grid) return;
+    const labs = LABS.filter(l => l.featured && l.showcase_row === row);
+    if (labs.length === 0) {
+      grid.closest('.showcase-row').style.display = 'none';
+      return;
+    }
+    grid.innerHTML = labs.slice(0,3).map(l => renderShowcaseCard(l, row)).join('');
+  });
+
+  // hide entire showcase section if no featured labs at all
+  const total = LABS.filter(l => l.featured).length;
+  if (total === 0) {
+    const sec = document.getElementById('showcase');
+    if (sec) sec.style.display = 'none';
+  }
+}
+
 // ── INIT ────────────────────────────────────────────────────────────
+renderShowcase();
 renderAll();
 </script>
 

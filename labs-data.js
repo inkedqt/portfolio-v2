@@ -31,6 +31,7 @@ const LABS = [
   },
   {
     name:     'Middle Mayhem',
+    featured: true,  showcase_row: 'soc',
     skill:    'Incident Response',
     platform: 'BTLO',
     diff:     'Easy',
@@ -95,6 +96,7 @@ const LABS = [
   },
   {
     name:     'Spider',
+    featured: true,  showcase_row: 'soc',
     skill:    'Threat Intelligence',
     platform: 'BTLO',
     diff:     'Easy',
@@ -158,6 +160,7 @@ const LABS = [
   },
   {
     name:     'Exxtensity',
+    featured: true,  showcase_row: 'df',
     skill:    'Endpoint Forensics',
     platform: 'BTLO',
     diff:     'Easy',
@@ -236,6 +239,7 @@ const LABS = [
   },
   {
     name:     'Amadey - APT-C-36',
+    featured: true,  showcase_row: 'df',
     skill:    'Malware Analysis',
     platform: 'CyberDefenders',
     diff:     'Easy',
@@ -569,6 +573,7 @@ const LABS = [
   },
   {
     name:     'XWorm',
+    featured: true,  showcase_row: 'df',
     skill:    'Malware Analysis',
     platform: 'CyberDefenders',
     diff:     'Easy',
@@ -584,6 +589,7 @@ const LABS = [
   },
   {
     name:     'RaaS Unfold RansomHub',
+    featured: true,  showcase_row: 'soc',
     skill:    'Threat Intelligence',
     platform: 'CyberDefenders',
     diff:     'Medium',
@@ -1276,6 +1282,7 @@ const LABS = [
 
   {
     name:     'Backstage',
+    featured: true,  showcase_row: 'ir',
     skill:    'Incident Response',
     platform: 'BTLO',
     diff:     'Medium',
@@ -1291,6 +1298,7 @@ const LABS = [
 
   {
     name:     'toolate',
+    featured: true,  showcase_row: 'ir',
     skill:    'Incident Response',
     platform: 'BTLO',
     diff:     'Medium',
@@ -1381,6 +1389,7 @@ const LABS = [
 
   {
     name:     'You\'re Hired!',
+    featured: true,  showcase_row: 'ir',
     skill:    'Incident Response',
     platform: 'BTLO',
     diff:     'Hard',

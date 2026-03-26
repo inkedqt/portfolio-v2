@@ -24,7 +24,7 @@
   --muted:      #2a2a45;
   --subtle:     #4a4a6a;
   --text:       #c8c8e8;
-  --text-dim:   #7a7a9a;
+  --text-dim:   #b0b0cc;
   --green:      #00ff88;
   --green-dim:  rgba(0,255,136,0.3);
 }
@@ -199,14 +199,25 @@ section:last-child { border-bottom:none; }
 .fbtn:hover { color:var(--text); border-color:var(--subtle); }
 .fbtn.active { border-color:var(--pink-dim); color:var(--pink); background:var(--pink-faint); }
 
+/* skill filter base colours (always visible) */
+.fbtn[data-skill="Network Forensics"]     { color:var(--cyan); }
+.fbtn[data-skill="Endpoint Forensics"]    { color:var(--gold); }
+.fbtn[data-skill="Malware Analysis"]      { color:var(--pink); }
+.fbtn[data-skill="Threat Intelligence"]   { color:#00b4ff; }
+.fbtn[data-skill="Threat Hunting"]        { color:var(--green); }
+.fbtn[data-skill="Detection Engineering"] { color:#b482ff; }
+.fbtn[data-skill="Incident Response"]     { color:#ff8c00; }
+.fbtn[data-skill="Cloud Forensics"]       { color:#00d4ff; }
+
 /* platform filter colours */
-.fbtn[data-platform="BTL1"].active       { border-color:rgba(0,245,212,0.4); color:var(--cyan); background:var(--cyan-faint); }
-.fbtn[data-platform="BTLO"].active       { border-color:rgba(255,209,102,0.4); color:var(--gold); background:rgba(255,209,102,0.07); }
-.fbtn[data-platform="CyberDefenders"].active { border-color:rgba(0,180,255,0.4); color:#00b4ff; background:rgba(0,180,255,0.07); }
-.fbtn[data-platform="LetsDefend"].active { border-color:var(--pink-dim); color:var(--pink); background:var(--pink-faint); }
-.fbtn[data-platform="TryHackMe"].active  { border-color:rgba(0,255,136,0.3); color:var(--green); background:rgba(0,255,136,0.05); }
-.fbtn[data-platform="Splunk"].active     { border-color:rgba(255,140,0,0.4); color:#ff8c00; background:rgba(255,140,0,0.07); }
-.fbtn[data-platform="HackSmarter"].active{ border-color:rgba(180,130,255,0.4); color:#b482ff; background:rgba(180,130,255,0.07); }
+.fbtn[data-skill="Network Forensics"].active     { border-color:rgba(0,245,212,0.4); color:var(--cyan); background:var(--cyan-faint); }
+.fbtn[data-skill="Endpoint Forensics"].active    { border-color:rgba(255,209,102,0.4); color:var(--gold); background:rgba(255,209,102,0.07); }
+.fbtn[data-skill="Malware Analysis"].active      { border-color:rgba(255,102,196,0.4); color:var(--pink); background:var(--pink-faint); }
+.fbtn[data-skill="Threat Intelligence"].active   { border-color:rgba(0,180,255,0.4); color:#00b4ff; background:rgba(0,180,255,0.07); }
+.fbtn[data-skill="Threat Hunting"].active        { border-color:rgba(0,255,136,0.3); color:var(--green); background:var(--green-dim); }
+.fbtn[data-skill="Detection Engineering"].active { border-color:rgba(180,130,255,0.4); color:#b482ff; background:rgba(180,130,255,0.07); }
+.fbtn[data-skill="Incident Response"].active     { border-color:rgba(255,140,0,0.4); color:#ff8c00; background:rgba(255,140,0,0.07); }
+.fbtn[data-skill="Cloud Forensics"].active       { border-color:rgba(0,212,255,0.4); color:#00d4ff; background:rgba(0,212,255,0.07); }
 
 /* diff colours */
 .fbtn[data-diff="Easy"].active   { border-color:var(--cyan-dim); color:var(--cyan); background:var(--cyan-faint); }
@@ -420,6 +431,7 @@ html { scroll-behavior: smooth; zoom: 1.2; }
 </style>
 </head>
 <body>
+<script src="/assets/js/btlo-stats.js"></script>
 <div class="scanline"></div>
 
 <nav>
@@ -429,6 +441,7 @@ html { scroll-behavior: smooth; zoom: 1.2; }
     <li><a href="#labs">Labs</a></li>
     <li><a href="#environments">Lab Envs</a></li>
     <li><a href="/resume/">Resume</a></li>
+    <li><a href="/bookmarks/">Bookmarks</a></li>
   </ul>
   <a class="nav-back" href="/">← home</a>
 </nav>
@@ -467,6 +480,118 @@ html { scroll-behavior: smooth; zoom: 1.2; }
               style="border:none;width:400px;height:120px;border-radius:4px;"
               title="TryHackMe Stats">
       </iframe>
+      <a href="https://cyberdefenders.org/p/inksec" target="_blank">
+        <script src="https://cyberdefenders.org/p/inksec/badge"></script>
+      </a>
+      <!-- BTLO Stats Card -->
+      <!-- 1. Add <script src="/assets/js/btlo-stats.js"></script> before </body> -->
+      <!-- 2. Paste this block inside the // live platform stats div -->
+
+      <a href="https://blueteamlabs.online/home/user/32e88e341c0c66519ed676"
+        target="_blank"
+        id="btlo-card-link"
+        style="text-decoration:none;display:block;width:400px;max-width:100%;">
+        <div id="btlo-card" style="
+          background: var(--panel);
+          border: 1px solid var(--muted);
+          padding: 14px 18px;
+          font-family: 'Share Tech Mono', monospace;
+          transition: border-color 0.2s, box-shadow 0.2s;
+          position: relative;
+          overflow: hidden;
+        "
+        onmouseover="this.style.borderColor='rgba(255,102,196,0.4)';this.style.boxShadow='0 0 24px rgba(255,102,196,0.07)'"
+        onmouseout="this.style.borderColor='var(--muted)';this.style.boxShadow='none'">
+
+          <!-- top accent bar -->
+          <div style="position:absolute;top:0;left:0;right:0;height:2px;
+                      background:linear-gradient(90deg,var(--pink),var(--cyan));opacity:0.6;"></div>
+
+          <!-- header row -->
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
+            <div>
+              <div style="font-size:9px;letter-spacing:0.3em;text-transform:uppercase;color:var(--subtle);margin-bottom:4px;">
+                // blue team labs online
+              </div>
+              <div style="font-family:'Syne Mono',monospace;font-size:14px;color:var(--text);letter-spacing:0.04em;">
+                <span id="btlo-username">inksec</span>
+              </div>
+            </div>
+            <div id="btlo-rank" style="font-size:8px;letter-spacing:0.2em;text-transform:uppercase;
+                                        border:1px solid var(--gold-dim);color:var(--gold);
+                                        padding:3px 10px;background:rgba(255,209,102,0.07);">
+              Junior Defender
+            </div>
+          </div>
+
+          <!-- stats row -->
+          <div style="display:flex;gap:1px;background:var(--muted);">
+
+            <div style="flex:1;background:var(--deep);padding:10px 8px;text-align:center;">
+              <div id="btlo-points" style="font-family:'Syne Mono',monospace;font-size:18px;color:var(--pink);
+                                          text-shadow:0 0 16px rgba(255,102,196,0.4);margin-bottom:3px;">—</div>
+              <div style="font-size:7px;letter-spacing:0.2em;text-transform:uppercase;color:var(--subtle);">Points</div>
+            </div>
+
+            <div style="flex:1;background:var(--deep);padding:10px 8px;text-align:center;">
+              <div id="btlo-global" style="font-family:'Syne Mono',monospace;font-size:18px;color:var(--cyan);
+                                          text-shadow:0 0 16px rgba(0,245,212,0.4);margin-bottom:3px;">—</div>
+              <div style="font-size:7px;letter-spacing:0.2em;text-transform:uppercase;color:var(--subtle);">Global</div>
+            </div>
+
+            <div style="flex:1;background:var(--deep);padding:10px 8px;text-align:center;">
+              <div id="btlo-country" style="font-family:'Syne Mono',monospace;font-size:18px;color:var(--cyan);
+                                            text-shadow:0 0 16px rgba(0,245,212,0.4);margin-bottom:3px;">—</div>
+              <div style="font-size:7px;letter-spacing:0.2em;text-transform:uppercase;color:var(--subtle);">AU Rank</div>
+            </div>
+
+            <div style="flex:1;background:var(--deep);padding:10px 8px;text-align:center;">
+              <div id="btlo-investigations" style="font-family:'Syne Mono',monospace;font-size:18px;
+                                                  color:var(--text);margin-bottom:3px;">—</div>
+              <div style="font-size:7px;letter-spacing:0.2em;text-transform:uppercase;color:var(--subtle);">Labs</div>
+            </div>
+
+            <div style="flex:1;background:var(--deep);padding:10px 8px;text-align:center;">
+              <div id="btlo-challenges" style="font-family:'Syne Mono',monospace;font-size:18px;
+                                              color:var(--text);margin-bottom:3px;">—</div>
+              <div style="font-size:7px;letter-spacing:0.2em;text-transform:uppercase;color:var(--subtle);">Challenges</div>
+            </div>
+
+          </div>
+
+          <!-- footer -->
+          <div style="margin-top:8px;font-size:8px;letter-spacing:0.15em;color:var(--subtle);
+                      display:flex;justify-content:space-between;align-items:center;">
+            <span>blueteamlabs.online</span>
+            <span style="color:rgba(255,102,196,0.4);">updated nightly ›</span>
+          </div>
+
+        </div>
+      </a>
+
+      <script>
+      (function() {
+        function injectBTLO() {
+          if (typeof BTLO_STATS === 'undefined') return;
+          var s = BTLO_STATS;
+          var set = function(id, val) { var el = document.getElementById(id); if (el) el.textContent = val; };
+          set('btlo-username',       s.username);
+          set('btlo-rank',           s.rank);
+          set('btlo-points',         s.points);
+          set('btlo-global',         '#' + s.globalPosition);
+          set('btlo-country',        '#' + s.countryPosition);
+          set('btlo-investigations',  s.investigations);
+          set('btlo-challenges',     s.challenges);
+          var link = document.getElementById('btlo-card-link');
+          if (link && s.profileUrl) link.href = s.profileUrl;
+        }
+        if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', injectBTLO);
+        } else {
+          injectBTLO();
+        }
+      })();
+      </script>
     </div>
   </div>
 
@@ -595,6 +720,28 @@ html { scroll-behavior: smooth; zoom: 1.2; }
     <a class="featured-cta" href="/blue-team/alerts/" style="display:inline-block;">view full investigation log →</a>
   </section>
 
+  <!-- HEATMAP -->
+  <section id="heatmap">
+    <div class="sec-eyebrow">// mitre att&ck enterprise · technique coverage</div>
+    <div class="sec-title">att&ck <span class="pk">heatmap</span></div>
+    <p class="sec-desc">Every technique observed across labs and investigations mapped to MITRE ATT&CK Enterprise. Generated live from documented writeups — no manual curation.</p>
+
+    <div class="hero-stats" style="margin-bottom:28px;">
+      <div class="hstat"><div class="hstat-val pk" id="hm-obs">—</div><div class="hstat-label">Observations</div></div>
+      <div class="hstat"><div class="hstat-val cx" id="hm-unique">—</div><div class="hstat-label">Unique Techniques</div></div>
+      <div class="hstat"><div class="hstat-val go" id="hm-tactics">14</div><div class="hstat-label">Tactics Covered</div></div>
+      <div class="hstat"><div class="hstat-val pk" id="hm-top">—</div><div class="hstat-label">Most Observed</div></div>
+    </div>
+
+    <div id="hm-mini" style="
+      display:flex; gap:3px; flex-wrap:nowrap;
+      overflow-x:auto; margin-bottom:28px;
+      padding-bottom:6px;
+    "></div>
+
+    <a class="featured-cta" href="/blue-team/heatmap/" style="display:inline-block;">explore full att&ck matrix →</a>
+  </section>
+
   <!-- ALL LABS -->
   <section id="labs">
     <div class="sec-eyebrow">// all completed labs</div>
@@ -604,14 +751,16 @@ html { scroll-behavior: smooth; zoom: 1.2; }
     <div class="filter-bar">
       <input class="filter-search" type="text" placeholder="> search labs, tools, techniques..." id="lab-search">
       <div class="filter-group">
-        <span class="filter-label">platform</span>
-        <button class="fbtn active" data-platform="all">All</button>
-        <button class="fbtn" data-platform="BTL1">BTL1</button>
-        <button class="fbtn" data-platform="BTLO">BTLO</button>
-        <button class="fbtn" data-platform="CyberDefenders">CyberDefenders</button>
-	<button class="fbtn" data-platform="LetsDefend">LetsDefend</button>
-        <button class="fbtn" data-platform="TryHackMe">TryHackMe</button>
-        <button class="fbtn" data-platform="HackSmarter">HackSmarter</button>
+        <span class="filter-label">skill</span>
+        <button class="fbtn active" data-skill="all">All</button>
+        <button class="fbtn" data-skill="Network Forensics">Network Forensics</button>
+        <button class="fbtn" data-skill="Endpoint Forensics">Endpoint Forensics</button>
+        <button class="fbtn" data-skill="Malware Analysis">Malware Analysis</button>
+        <button class="fbtn" data-skill="Threat Intelligence">Threat Intel</button>
+        <button class="fbtn" data-skill="Threat Hunting">Threat Hunting</button>
+        <button class="fbtn" data-skill="Detection Engineering">Detection Eng</button>
+        <button class="fbtn" data-skill="Incident Response">Incident Response</button>
+        <button class="fbtn" data-skill="Cloud Forensics">Cloud Forensics</button>
       </div>
       <div class="filter-group">
         <span class="filter-label">diff</span>
@@ -624,6 +773,17 @@ html { scroll-behavior: smooth; zoom: 1.2; }
     <div class="result-count" id="result-count">showing <span id="result-num">0</span> labs</div>
     <div class="lab-grid" id="lab-grid"></div>
     <div class="no-results" id="no-results">no labs match that filter.</div>
+
+    <!-- CHALLENGES -->
+    <div style="margin-top:60px; padding-top:40px; border-top:1px solid var(--muted);">
+      <div style="font-family:'Share Tech Mono',monospace; font-size:9px; letter-spacing:0.3em; color:var(--subtle); text-transform:uppercase; margin-bottom:8px;">// challenges</div>
+      <div style="font-family:'Syne Mono',monospace; font-size:clamp(20px,3vw,28px); margin-bottom:6px;">
+        <span style="color:var(--text);">challenge</span> <span style="color:var(--pink);">log</span>
+      </div>
+      <p style="font-size:11px; color:var(--subtle); margin-bottom:20px; letter-spacing:0.05em;">Shorter CTF-style challenges. Same platforms, less depth.</p>
+      <div class="lab-grid" id="challenge-grid"></div>
+    </div>
+
   </section>
 
   <!-- LAB ENVIRONMENTS -->
@@ -725,6 +885,7 @@ html { scroll-behavior: smooth; zoom: 1.2; }
   </div>
 </footer>
 
+<script src="/labs-data.js"></script>
 <script>
 // ── COLOUR MAPS ──────────────────────────────────────────────────────
 const PLATFORM_COLOURS = {
@@ -737,397 +898,10 @@ const PLATFORM_COLOURS = {
 };
 
 // ── LAB DATA ─────────────────────────────────────────────────────────
-// To add a new lab: copy one entry and fill in the fields.
+// To add a new lab, edit /labs-data.js — copy an entry and fill in the fields.
 // art: use the lab's official artwork URL or a local asset path.
 // writeup: link to your writeup page / GitHub / YouTube timestamp.
 // proof: link to proof image on GitHub.
-
-const LABS = [
-
-  // ── BTL1 ──
-  {
-    name:     'Piggy',
-    platform: 'BTLO',
-    diff:     'Easy',
-    cats:     ['PCAP Analysis','Wireshark','OSINT','MITRE ATT&CK'],
-    status:   'done',
-    score:    '27/27',
-    summary:  'Multi-PCAP investigation — SSH data exfiltration identification, malware infrastructure discovery, ASN attribution, MITRE ATT&CK mapping across four capture files.',
-    art:      '/assets/images/labs/btl1/piggy-hero.png',
-    writeup:  '/blue-team/labs/piggy/',
-    proof:    'https://blueteamlabs.online/achievement/share/144656/66',
-  },
-
-  // ── BTLO (examples — add yours as you complete them) ──
-  {
-    name:     'Bec-Ky',
-    platform: 'BTLO',
-    diff:     'Easy',
-    cats:     ['Incident Response','BEC','Email Forensics'],
-    status:   'done',
-    score:    null,
-    summary:  'Business Email Compromise investigation — suspected cyber incident involving unauthorised bank transfers from company pension fund. Trace the attacker\'s methodology.',
-    art:      '/assets/images/labs/btl1/becky.png',
-    writeup:  '/blue-team/labs/bec-ky/',
-    proof:    'https://blueteamlabs.online/achievement/share/144656/267',
-  },
-
-  // ── CyberDefenders ──
-  {
-    name:     'WebStrike',
-    platform: 'CyberDefenders',
-    diff:     'Easy',
-    cats:     ['Network Forensics','PCAP Analysis','Wireshark','Web Shell'],
-    status:   'done',
-    score:    null,
-    summary:  'Suspicious file identified on a company web server. PCAP analysis revealed a double-extension bypass (image.jpg.php) used to upload a PHP webshell, reverse shell attempt via netcat on port 8080, and /etc/passwd exfiltration attempt. Attacker attributed to Tianjin, China via IP2Location.',
-    art:      'https://cyberdefenders.org/media/terraform/WebStrike/WebStrike.webp',
-    writeup:  '/blue-team/labs/webstrike/',
-    proof:    'https://cyberdefenders.org/blueteam-ctf-challenges/achievements/inksec/webstrike/',
-  },
-  {
-    name:     'Oski',
-    platform: 'CyberDefenders',
-    diff:     'Easy',
-    cats:     ['Threat Intelligence','Malware Analysis','Sandbox Analysis','Credential Access','PCAP Analysis'],
-    status:   'done',
-    score:    null,
-    summary:  'Analyzed a Stealc malware sample using VirusTotal and Any.Run to extract configuration details, identify command and control infrastructure, recover RC4 encryption keys, and map observed behaviour to MITRE ATT&CK techniques.',
-    art:      'https://cyberdefenders.org/media/terraform/Oski/Oski.webp',
-    writeup:  '/blue-team/labs/oski/',
-    proof:    'https://cyberdefenders.org/blueteam-ctf-challenges/achievements/inksec/oski/',
-  },
-  {
-    name:     'PoisonedCredentials',
-    platform: 'CyberDefenders',
-    diff:     'Easy',   
-    cats:     ['Network Forensics','PCAP Analysis','Wireshark'],
-    status:   'done',   
-    score:    null,
-    summary:  'Analyzed PCAP data to detect LLMNR poisoning, identify the rogue responder, extract NTLM credentials, and confirm unauthorized SMB access to the targeted host.',
-    art:      'https://cyberdefenders.org/media/terraform/PoisonedCredentials/PoisonedCredentials.webp',
-    writeup:  '/blue-team/labs/poisonedcredentials/',
-    proof:    'https://cyberdefenders.org/blueteam-ctf-challenges/achievements/inksec/poisonedcredentials/',
-  },
-  {
-    name:     'Yellow Rat',
-    platform: 'CyberDefenders',
-    diff:     'Easy',
-    cats:     ['Threat Intel', 'VirusTotal', 'Red Canary', 'Execution', 'Persistence', 'Defense Evasion', 'Command and Control', 'Exfiltration'],
-    status:   'done',
-    score:    null,
-    summary:  'Analyzed Yellow Cockatoo RAT DLL using VirusTotal and ANY.RUN, identifying C2 infrastructure, persistence via .lnk startup files, and solarmarker.dat drop.',
-    art:      'https://cyberdefenders.org/media/terraform/Yellow%20RAT/Yellow_RAT.webp',
-    writeup:  '/blue-team/labs/yellowrat/',
-    proof:    'https://cyberdefenders.org/blueteam-ctf-challenges/achievements/inksec/yellow-rat/',
-  },
-  {
-    name:     'Amadey - APT-C-36',
-    platform: 'CyberDefenders',
-    diff:     'Easy',
-    cats:     ['Endpoint Forensics', 'Memory Analysis', 'Volatility 3', 'Execution', 'Persistence', 'Privilege Escalation', 'Defense Evasion', 'Command and Control', 'Exfiltration'],
-    status:   'done',
-    score:    null,
-    summary:  'Reconstruct Amadey Trojan behavior by analyzing memory dumps with Volatility3 to identify malicious processes, C2 communications, payload delivery, and persistence mechanisms.',
-    art:      'https://cyberdefenders.org/media/terraform/Amadey/Amadey.webp',
-    writeup:  '/blue-team/labs/amadey/',
-    proof:    'https://cyberdefenders.org/blueteam-ctf-challenges/achievements/inksec/amadey-apt-c-36/',
-  },
-  {
-    name:     'Lespion',
-    platform: 'CyberDefenders',
-    diff:     'Easy',
-    cats:     ['Threat Intel', 'Wireshark', 'Google Maps', 'Google Image search', 'Sherlock'],
-    status:   'done',
-    score:    null,
-    summary:  'Investigated an insider breach using GitHub analysis and OSINT pivoting to uncover exposed credentials, crypto-mining activity, and geolocation evidence.',
-    art:      'https://cyberdefenders.org/media/terraform/Lespion/Lespion.webp',
-    writeup:  '/blue-team/labs/lespion/',
-    proof:    'https://cyberdefenders.org/blueteam-ctf-challenges/achievements/inksec/lespion/',
-  },
-  {
-    name:     'The Crime',
-    platform: 'CyberDefenders',
-    diff:     'Easy',
-    cats:     ['Endpoint Forensics', 'ALEAPP', 'DB Browser for SQLite'],
-    status:   'done',
-    score:    null,
-    summary:  "Utilize ALEAPP to analyze Android device artifacts, reconstructing a victim's financial details, movements, and communication patterns.",
-    art:      'https://cyberdefenders.org/media/terraform/The%20Crime/The_Crime.webp',
-    writeup:  '/blue-team/labs/thecrime/',
-    proof:    'https://cyberdefenders.org/blueteam-ctf-challenges/achievements/inksec/the-crime/',
-  },
-  {
-    name:     'PSEXEC Hunt',
-    platform: 'CyberDefenders',
-    diff:     'Easy',
-    cats:     ['Network Forensics', 'Wireshark', 'Execution', 'Defense Evasion', 'Discovery', 'Lateral Movement'],
-    status:   'done',
-    score:    null,
-    summary:  "Analyze SMB traffic in a PCAP file using Wireshark to identify PsExec lateral movement, compromised systems, user credentials, and administrative shares.",
-    art:      'https://cyberdefenders.org/media/terraform/PsExec%20Hunt/PsExec_Hunt.webp',
-    writeup:  '/blue-team/labs/psexechunt/',
-    proof:    'https://cyberdefenders.org/blueteam-ctf-challenges/achievements/inksec/psexec-hunt/',
-  },
-  {
-    name:     'Red Stealer',
-    platform: 'CyberDefenders',
-    diff:     'Easy',
-    cats:     ['Threat Intel', 'Whois', 'VirusTotal', 'MalwareBazaar', 'ThreatFox', 'ANY.RUN', 'Execution', 'Persistence', 'Privilege Escalation', 'Defense Evasion', 'Discovery', 'Collection', 'Impact'],
-    status:   'done',
-    score:    null,
-    summary:  "Analyze a suspicious executable using VirusTotal and MalwareBazaar to extract IOCs, identify C2 infrastructure, MITRE ATT&CK techniques, and privilege escalation mechanisms.",
-    art:      'https://cyberdefenders.org/media/terraform/Red%20Stealer/Red_Stealer.webp',
-    writeup:  '/blue-team/labs/redstealer/',
-    proof:    'https://cyberdefenders.org/blueteam-ctf-challenges/achievements/inksec/red-stealer/',
-  },
-  {
-    name:     '3cx Supply Chain',
-    platform: 'CyberDefenders',
-    diff:     'Easy',
-    cats:     ['Threat Intel', 'VirusTotal', 'Persistence', 'Privilege Escalation', 'Defense Evasion', 'Discovery'],
-    status:   'done',
-    score:    null,
-    summary:  "Reconstruct the 3CX supply chain attack by analyzing compromised MSI and DLL artifacts to identify TTPs and attribute the incident to a threat actor.",
-    art:      'https://cyberdefenders.org/media/terraform/3CX%20Supply%20Chain/3cx_supply_chain_720.webp',
-    writeup:  '/blue-team/labs/3cxsupplychain/',
-    proof:    'https://cyberdefenders.org/blueteam-ctf-challenges/achievements/inksec/3cx-supply-chain/',
-  },
-  {
-    name:     'DanaBot',
-    platform: 'CyberDefenders',
-    diff:     'Easy',
-    cats:     ['Network Forensics', 'Wireshark', 'VirusTotal', 'ANY.RUN', 'Network Miner', 'Execution', 'Command and Control'],
-    status:   'done',
-    score:    null,
-    summary:  "Analyze network traffic using Wireshark to identify DanaBot initial access, deobfuscate malicious JavaScript, and extract IOCs like IPs, file hashes, and execution processes.",
-    art:      'https://cyberdefenders.org/media/terraform/DanaBot/DanaBot.webp',
-    writeup:  '/blue-team/labs/danabot/',
-    proof:    'https://cyberdefenders.org/blueteam-ctf-challenges/achievements/inksec/danabot/',
-  },
-  {
-    name:     'Volatility Traces',
-    platform: 'CyberDefenders',
-    diff:     'Easy',
-    cats:     ['Endpoint Forensics', 'Volatility 3', 'Execution', 'Persistence'],
-    status:   'done',
-    score:    null,
-    summary:  "Analyze a memory dump using Volatility to identify malicious processes, persistence mechanisms, defense evasion techniques, and map them to MITRE ATT&CK.",
-    art:      'https://cyberdefenders.org/media/terraform/Volatility%20Traces/Volatility_Traces_A7cz9FH.webp',
-    writeup:  '/blue-team/labs/volatilitytraces/',
-    proof:    'https://cyberdefenders.org/blueteam-ctf-challenges/achievements/inksec/volatility-traces/',
-  },
-  {
-    name:     'Insider',
-    platform: 'CyberDefenders',
-    diff:     'Easy',
-    cats:     ['Endpoint Forensics', 'FTK Imager', 'Execution', 'Credential Access'],
-    status:   'done',
-    score:    null,
-    summary:  "Analyze Linux disk image artifacts, including logs and Bash history, using FTK Imager to investigate insider threat activities and reconstruct user actions.",
-    art:      'https://cyberdefenders.org/media/terraform/Insider/Insider_MIaRqal.webp',
-    writeup:  '/blue-team/labs/insider/',
-    proof:    'https://cyberdefenders.org/blueteam-ctf-challenges/achievements/inksec/insider/',
-  },
-  {
-    name:     'NerisBot',
-    platform: 'CyberDefenders',
-    diff:     'Easy',
-    cats:     ['Threat Hunting', 'Splunk', 'Command and Control'],
-    status:   'done',
-    score:    null,
-    summary:  'Reconstruct the attack timeline by correlating Suricata and Zeek logs in Splunk to identify malicious IPs, C2 domains, targeted hosts, and file hashes.',
-    art:      'https://cyberdefenders.org/media/terraform/NerisBot/NerisBot_uISG1hp.webp',
-    writeup:  '/blue-team/labs/nerisbot/',
-    proof:    'https://cyberdefenders.org/blueteam-ctf-challenges/achievements/inksec/nerisbot/',
-  },
-  {
-    name:     'Ramnit',
-    platform: 'CyberDefenders',
-    diff:     'Easy',
-    cats:     ['Endpoint Forensics', 'Volatility 3', 'VirusTotal', 'Execution', 'Defense Evasion', 'Command and Control'],
-    status:   'done',
-    score:    null,
-    summary:  "Analyze a memory dump using Volatility to identify a malicious process, extract network IOCs, file hash, and compilation timestamp, correlating with external threat intelligence.",
-    art:      'https://cyberdefenders.org/media/terraform/Ramnit/Ramnit.webp',
-    writeup:  '/blue-team/labs/ramnit/',
-    proof:    'https://cyberdefenders.org/blueteam-ctf-challenges/achievements/inksec/ramnit/',
-  },
-  {
-    name:     'GrabThePhisher',
-    platform: 'CyberDefenders',
-    diff:     'Easy',
-    cats:     ['Threat Intel', 'Text Editor', 'Initial Access', 'Exfiltration'],
-    status:   'done',
-    score:    null,
-    summary:  'Analyze a cryptocurrency phishing kit to identify exfiltration methods, extract critical IOCs, and gather threat actor intelligence using local logs and Telegram APIs.',
-    art:      'https://cyberdefenders.org/media/terraform/GrabThePhisher/GrabThePhisher.webp',
-    writeup:  '/blue-team/labs/grabthephisher/',
-    proof:    'https://cyberdefenders.org/blueteam-ctf-challenges/achievements/inksec/grabthephisher/',
-  },
-  {
-    name:     'PacketDetective',
-    platform: 'CyberDefenders',
-    diff:     'Easy',
-    cats:     ['Network Forensics', 'Wireshark', 'Execution', 'Defense Evasion', 'Command and Control'],
-    status:   'done',
-    score:    null,
-    summary:  "Analyze network traffic in PCAP files using Wireshark to extract IOCs and reconstruct attacker tactics like authentication and remote execution.",
-    art:      'https://cyberdefenders.org/media/terraform/PacketDetective/Packet_Detective.webp',
-    writeup:  '/blue-team/labs/packetdetective/',
-    proof:    'https://cyberdefenders.org/blueteam-ctf-challenges/achievements/inksec/packetdetective/',
-  },
-  {
-    name:     'jetbrains',
-    platform: 'CyberDefenders',
-    diff:     'Easy',
-    cats:     ['Network Forensics', 'Wireshark', 'NetworkMiner', 'Brim', 'Initial Access', 'Execution', 'Command and Control'],
-    status:   'done',
-    score:    null,
-    summary:  'Analyze network traffic using Wireshark to identify web server exploitation, extract attacker IOCs and persistence mechanisms, and map attack techniques to MITRE ATT&CK.',
-    art:      'https://cyberdefenders.org/media/terraform/JetBrains/JetBrains_w96gGwO.webp',
-    writeup:  '/blue-team/labs/jetbrains/',
-    proof:    'https://cyberdefenders.org/blueteam-ctf-challenges/achievements/inksec/jetbrains/',
-  },
-  {
-    name:     'RetailBreach',
-    platform: 'CyberDefenders',
-    diff:     'Easy',
-    cats:     ['Network Forensics', 'Wireshark', 'Reconnaissance', 'Initial Access', 'Execution', 'Defense Evasion', 'Credential Access', 'Discovery', 'Lateral Movement'],
-    status:   'done',
-    score:    null,
-    summary:  "Investigate network traffic with Wireshark to identify attacker TTPs, extract XSS payloads and session tokens, and determine exploited web application vulnerabilities.",
-    art:      'https://cyberdefenders.org/media/terraform/RetailBreach/RetailBreach_S9g8WLI.webp',
-    writeup:  '/blue-team/labs/retailbreach/',
-    proof:    'https://cyberdefenders.org/blueteam-ctf-challenges/achievements/inksec/retailbreach/',
-  },
-  {
-    name:     'Openfire',
-    platform: 'CyberDefenders',
-    diff:     'Easy',
-    cats:     ['Network Forensics', 'Wireshark', 'Initial Access', 'Execution', 'Persistence', 'Discovery', 'Command and Control'],
-    status:   'done',
-    score:    null,
-    summary:  "Reconstruct an Openfire server attack timeline by analyzing PCAP files with Wireshark to identify login attempts, plugin uploads, command execution, and the exploited CVE-2023-32315 vulnerability.",
-    art:      'https://cyberdefenders.org/media/terraform/Openfire/Openfire_rYHqdgk.webp',
-    writeup:  '/blue-team/labs/openfire/',
-    proof:    'https://cyberdefenders.org/blueteam-ctf-challenges/achievements/inksec/openfire/',
-  },
-  {
-    name:     'XLMRat',
-    platform: 'CyberDefenders',
-    diff:     'Easy',
-    cats:     ['Network Forensics', 'CyberChef', 'Wireshark', 'VirusTotal', 'Python3', 'PowerShell', 'Execution', 'Defense Evasion'],
-    status:   'done',
-    score:    null,
-    summary:  'Analyze network traffic to identify malware delivery, deobfuscate scripts, and map attacker techniques using MITRE ATT&CK, focusing on stealthy execution and reflective code loading.',
-    art:      'https://cyberdefenders.org/media/terraform/XLMRat/terraform/XLMRat/xlmrat.webp',
-    writeup:  '/blue-team/labs/CHANGE-ME/',
-    proof:    'https://cyberdefenders.org/blueteam-ctf-challenges/achievements/inksec/xlmrat/',
-  },
-  {
-    name:     'Lockdown',
-    platform: 'CyberDefenders',
-    diff:     'Easy',
-    cats:     ['Network Forensics', 'CyberChef', 'Wireshark', 'VirusTotal', 'Volatility', 'Execution', 'Persistence', 'Privilege Escalation', 'Defense Evasion', 'Discovery', 'Lateral Movement', 'Command and Control'],
-    status:   'done',
-    score:    null,
-    summary:  "Reconstruct a multi-stage intrusion by analyzing network traffic, memory, and malware artifacts using Wireshark, Volatility, and VirusTotal, mapping findings to MITRE ATT&CK.",
-    art:      'https://cyberdefenders.org/media/terraform/Lockdown/terraform/Lockdown/lockdown.webp',
-    writeup:  '/blue-team/labs/lockdown/',
-    proof:    'https://cyberdefenders.org/blueteam-ctf-challenges/achievements/inksec/lockdown/',
-  },
-  {
-    name:     'Maranhao',
-    platform: 'CyberDefenders',
-    diff:     'Easy',
-    cats:     ['Endpoint Forensics', 'FTK Imager', 'Initial Access', 'Execution', 'Persistence', 'Privilege Escalation', 'Defense Evasion', 'Credential Access', 'Collection'],
-    status:   'done',
-    score:    null,
-    summary:  "Investigate a trojanized game installer by analyzing browser history, logs, registry hives, and filesystem artifacts to map the full attack chain and extract IOCs.",
-    art:      'https://cyberdefenders.org/media/terraform/Maranh%C3%A3o/terraform/Maranh%C3%A3o/maranhao.webp',
-    writeup:  '/blue-team/labs/maranhao/',
-    proof:    'https://cyberdefenders.org/blueteam-ctf-challenges/achievements/inksec/maranhao/',
-  },
-  {
-    name:     'ContainerBreak - Rootkit Trail',
-    platform: 'CyberDefenders',
-    diff:     'Easy',
-    cats:     ['Endpoint Forensics', 'Linux Command Line Tools', 'Execution', 'Persistence', 'Privilege Escalation', 'Defense Evasion', 'Command and Control'],
-    status:   'done',
-    score:    null,
-    summary:  "Investigated a post-container-escape Linux compromise involving rootkit installation, hidden processes, and persistence mechanisms identified through live forensic collection.",
-    art:      'https://cyberdefenders.org/media/terraform/DuskUnfold0x2/terraform/DuskUnfold0x2/duskunfold0x2_ic6Ej2s.webp',
-    writeup:  '/blue-team/labs/containerbreak/',
-    proof:    'https://cyberdefenders.org/blueteam-ctf-challenges/achievements/inksec/containerbreak-rootkit-trail/',
-  },
-  {
-    name:     'SigmaPredator',
-    platform: 'CyberDefenders',
-    diff:     'Easy',
-    cats:     ['Detection Engineering', 'VsCode', 'Sigma', 'Chainsaw', 'Defense Evasion'],
-    status:   'done',
-    score:    null,
-    summary:  "Design and validate Sigma rules to detect event log clearing techniques across CLI, WMI, and PowerShell execution artifacts.",
-    art:      'https://cyberdefenders.org/media/terraform/SigmaPredator/SigmaPredator.webp',
-    writeup:  '/blue-team/labs/sigmapredator/',
-    proof:    'https://cyberdefenders.org/blueteam-ctf-challenges/achievements/inksec/sigmapredator/',
-  },
-  // ── LetsDefend ──
-  {
-    name:     'SOC Analyst Path',
-    platform: 'LetsDefend',
-    diff:     'Medium',
-    cats:     ['Alert Triage','SIEM','Malware','Phishing','Network'],
-    status:   'done',
-    score:    '97%',
-    summary:  '34 real-world SIEM alert investigations — phishing, malware beaconing, brute force, lateral movement, data exfiltration. Structured triage methodology documented across all cases.',
-    art:      '/assets/images/labs/letsdefend/letsdefend.png',
-    writeup:  'https://app.letsdefend.io/user/inkedqt',
-    proof:    null,
-  },
-
-  // ── TryHackMe ──
-  {
-    name:     'Advent of Cyber 2025 (SOC-mas)',
-    platform: 'TryHackMe',
-    diff:     'Easy',
-    cats:     ['SOC','Splunk','DFIR','Phishing','Network Forensics'],
-    status:   'done',
-    score:    null,
-    summary:  '24 daily blue team challenges — phishing analysis, Splunk detections, alert triage, host forensics, network traffic analysis, and malware basics. Certified completion.',
-    art:      'https://raw.githubusercontent.com/inkedqt/ctf-writeups/main/HTB/proofs/thm_advent2025.png',
-    writeup:  'https://tryhackme-certificates.s3-eu-west-1.amazonaws.com/THM-2H6JFCWHKX.pdf',
-    proof:    null,
-  },
-  {
-    name:     'Night Shift CTF',
-    platform: 'TryHackMe',
-    diff:     'Medium',
-    cats:     ['SOC Simulation','Alert Triage','Log Correlation','IR'],
-    status:   'done',
-    score:    null,
-    summary:  'Week-long SOC analyst simulation — 9 realistic enterprise scenarios covering alert triage, severity assessment, multi-source log correlation, and incident response.',
-    art:      'https://raw.githubusercontent.com/inkedqt/ctf-writeups/main/HTB/proofs/THM_first_shift.png',
-    writeup:  'https://tryhackme.com/inkedqt',
-    proof:    null,
-  },
-
-  // ── HackSmarter ──
-  {
-    name:     'Source Leak Investigation',
-    platform: 'HackSmarter',
-    diff:     'Easy',
-    cats:     ['Incident Response','DFIR','Digital Forensics'],
-    status:   'done',
-    score:    null,
-    summary:  'First IR investigation: source code breach at indie game studio. Evidence collection, timeline analysis, root cause identification, and report writing.',
-    art:      'https://raw.githubusercontent.com/inkedqt/ctf-writeups/main/assets/images/labs/hacksmarter-source-leak.png',
-    writeup:  'https://www.hacksmarter.org/courses/b0ecedbe-d142-48bf-9b6d-f58ccdbd4b44',
-    proof:    null,
-  },
-
-];
 
 // ── RENDER ─────────────────────────────────────────────────────────
 
@@ -1151,7 +925,7 @@ function renderCard(lab) {
 
   return `
     <div class="lab-card"
-         data-platform="${lab.platform}"
+         data-skill="${Array.isArray(lab.skill) ? lab.skill.join(',') : lab.skill}"
          data-diff="${lab.diff}"
          data-name="${lab.name.toLowerCase()}"
          data-cats="${lab.cats.join(' ').toLowerCase()}"
@@ -1176,9 +950,19 @@ function renderCard(lab) {
 }
 
 function renderAll() {
-  // skip featured from grid (it's shown above)
-  const gridLabs = LABS.filter(l => !l.featured);
+  // skip featured and challenges from main grid
+  const gridLabs = LABS.filter(l => !l.featured && l.type !== 'challenge');
   document.getElementById('lab-grid').innerHTML = gridLabs.map(renderCard).join('');
+
+  // render challenges separately
+  const challenges = LABS.filter(l => l.type === 'challenge');
+  const cGrid = document.getElementById('challenge-grid');
+  if (cGrid) {
+    cGrid.innerHTML = challenges.length
+      ? challenges.map(renderCard).join('')
+      : '<p style="color:var(--subtle);font-size:11px;">no challenges yet.</p>';
+  }
+
   document.getElementById('stat-total').textContent = LABS.length;
   updateResultCount();
   renderPlatformCounts();
@@ -1209,7 +993,7 @@ function updateBTL1Progress() {
 
 // ── FILTER ─────────────────────────────────────────────────────────
 
-let activePlatform = 'all';
+let activeSkill = 'all';
 let activeDiff     = null;
 
 function applyFilter() {
@@ -1217,7 +1001,8 @@ function applyFilter() {
   const cards = document.querySelectorAll('#lab-grid .lab-card');
   let visible = 0;
   cards.forEach(card => {
-    const pMatch = activePlatform === 'all' || card.dataset.platform === activePlatform;
+    const skillList = (card.dataset.skill || '').split(',');
+    const pMatch = activeSkill === 'all' || skillList.includes(activeSkill);
     const dMatch = !activeDiff || card.dataset.diff === activeDiff;
     const qMatch = !query ||
       card.dataset.name.includes(query) ||
@@ -1237,11 +1022,11 @@ function updateResultCount() {
 }
 
 // platform buttons
-document.querySelectorAll('.fbtn[data-platform]').forEach(btn => {
+document.querySelectorAll('.fbtn[data-skill]').forEach(btn => {
   btn.addEventListener('click', () => {
-    document.querySelectorAll('.fbtn[data-platform]').forEach(b=>b.classList.remove('active'));
+    document.querySelectorAll('.fbtn[data-skill]').forEach(b=>b.classList.remove('active'));
     btn.classList.add('active');
-    activePlatform = btn.dataset.platform;
+    activeSkill = btn.dataset.skill;
     applyFilter();
   });
 });
@@ -1296,6 +1081,108 @@ renderAll();
       ? latest.id + ' — ' + latest.title.slice(0,35) + (latest.title.length>35?'…':'')
       : '—';
   }
+
+// ── HEATMAP SECTION ────────────────────────────────────────────────
+(function() {
+  const TACTICS = [
+    { id:'TA0043', short:'RECON',    alias:['Reconnaissance'] },
+    { id:'TA0042', short:'RES DEV',  alias:['Resource Development'] },
+    { id:'TA0001', short:'INIT ACC', alias:['Initial Access'] },
+    { id:'TA0002', short:'EXEC',     alias:['Execution'] },
+    { id:'TA0003', short:'PERSIST',  alias:['Persistence'] },
+    { id:'TA0004', short:'PRIV ESC', alias:['Privilege Escalation'] },
+    { id:'TA0005', short:'DEF EVA',  alias:['Defense Evasion'] },
+    { id:'TA0006', short:'CRED ACC', alias:['Credential Access'] },
+    { id:'TA0007', short:'DISCOV',   alias:['Discovery'] },
+    { id:'TA0008', short:'LAT MOVE', alias:['Lateral Movement'] },
+    { id:'TA0009', short:'COLLECT',  alias:['Collection'] },
+    { id:'TA0011', short:'C2',       alias:['Command and Control','Command & Control','C2'] },
+    { id:'TA0010', short:'EXFIL',    alias:['Exfiltration'] },
+    { id:'TA0040', short:'IMPACT',   alias:['Impact'] },
+  ];
+
+  const tacticAlias = {};
+  TACTICS.forEach(t => t.alias.forEach(a => { tacticAlias[a.toLowerCase()] = t.id; }));
+
+  const techFreq   = {};
+  const tacticFreq = {};
+
+  function hitTech(id) {
+    id = id.trim();
+    if (!/^T\d{4}/.test(id)) return;
+    techFreq[id] = (techFreq[id] || 0) + 1;
+  }
+  function hitTactic(id) {
+    tacticFreq[id] = (tacticFreq[id] || 0) + 1;
+  }
+
+  if (typeof ALERTS !== 'undefined') {
+    ALERTS.forEach(a => {
+      (a.mitre || []).forEach(id => hitTech(id));
+      (a.tags  || []).forEach(t  => { if (/^T\d{4}/.test(t)) hitTech(t); });
+    });
+  }
+  if (typeof LABS !== 'undefined') {
+    LABS.forEach(lab => {
+      (lab.cats || []).forEach(cat => {
+        cat = cat.trim();
+        if (/^T\d{4}/.test(cat)) hitTech(cat);
+        else { const ta = tacticAlias[cat.toLowerCase()]; if (ta) hitTactic(ta); }
+      });
+    });
+  }
+
+  const uniqueTechs = Object.keys(techFreq).length;
+  const totalObs    = Object.values(techFreq).reduce((s,v) => s + v, 0);
+
+  let topTech = '—', topCount = 0;
+  Object.entries(techFreq).forEach(([id, n]) => { if (n > topCount) { topCount = n; topTech = id; } });
+
+  const el = id => document.getElementById(id);
+  if (el('hm-obs'))    el('hm-obs').textContent    = totalObs    || '—';
+  if (el('hm-unique')) el('hm-unique').textContent  = uniqueTechs || '—';
+  if (el('hm-top'))    el('hm-top').textContent     = topTech;
+
+  // Mini matrix bar
+  const miniWrap = document.getElementById('hm-mini');
+  if (!miniWrap) return;
+
+  const maxVal = Math.max(...TACTICS.map(t => tacticFreq[t.id] || 0), 1);
+
+  const bgs     = ['var(--panel)','rgba(255,102,196,0.10)','rgba(255,102,196,0.20)','rgba(255,102,196,0.32)','rgba(255,102,196,0.48)','rgba(255,102,196,0.65)'];
+  const borders = ['var(--muted)','rgba(255,102,196,0.2)','rgba(255,102,196,0.35)','rgba(255,102,196,0.5)','rgba(255,102,196,0.65)','var(--pink)'];
+
+  TACTICS.forEach(tactic => {
+    const count   = tacticFreq[tactic.id] || 0;
+    const fillPct = Math.min(100, Math.round((count / maxVal) * 100));
+    const level   = count === 0 ? 0 : count <= 2 ? 1 : count <= 5 ? 2 : count <= 10 ? 3 : count <= 20 ? 4 : 5;
+
+    const col = document.createElement('a');
+    col.href  = '/blue-team/heatmap/';
+    col.title = `${tactic.alias[0]}: ${count} hits — click to explore`;
+    col.style.cssText = `display:flex;flex-direction:column;justify-content:flex-end;width:66px;flex-shrink:0;background:${bgs[level]};border:1px solid ${borders[level]};padding:8px 6px 6px;text-decoration:none;position:relative;overflow:hidden;transition:border-color 0.2s,background 0.2s;cursor:pointer;`;
+
+    const fill = document.createElement('div');
+    fill.style.cssText = `position:absolute;bottom:0;left:0;right:0;height:${fillPct}%;background:linear-gradient(0deg,rgba(255,102,196,0.15),transparent);pointer-events:none;`;
+
+    const label = document.createElement('div');
+    label.style.cssText = `font-family:'Share Tech Mono',monospace;font-size:7px;letter-spacing:0.15em;text-transform:uppercase;color:${count > 0 ? 'rgba(255,102,196,0.8)' : 'var(--subtle)'};line-height:1.2;margin-bottom:4px;position:relative;z-index:1;`;
+    label.textContent = tactic.short;
+
+    const num = document.createElement('div');
+    num.style.cssText = `font-family:'Syne Mono',monospace;font-size:${count > 9 ? '14px' : '16px'};color:${count > 0 ? 'var(--pink)' : 'var(--subtle)'};${count > 0 ? 'text-shadow:0 0 12px rgba(255,102,196,0.4);' : ''}line-height:1;position:relative;z-index:1;`;
+    num.textContent = count > 0 ? count : '·';
+
+    col.appendChild(fill);
+    col.appendChild(label);
+    col.appendChild(num);
+
+    col.addEventListener('mouseenter', () => { col.style.borderColor='var(--pink)'; col.style.background='rgba(255,102,196,0.12)'; });
+    col.addEventListener('mouseleave', () => { col.style.borderColor=borders[level]; col.style.background=bgs[level]; });
+
+    miniWrap.appendChild(col);
+  });
+})();
 </script>
 </body>
 </html>
