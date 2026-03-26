@@ -558,6 +558,7 @@ const LABS = [
   },
   {
     name:     'AWSRaid',
+    featured: true,  showcase_row: 'cloud',
     skill:    'Cloud Forensics',
     platform: 'CyberDefenders',
     diff:     'Easy',

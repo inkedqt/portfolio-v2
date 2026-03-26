@@ -878,6 +878,15 @@ html { scroll-behavior: smooth; zoom: 1.2; }
       </div>
       <div class="showcase-grid" id="showcase-grid-soc"></div>
     </div>
+
+    <!-- ROW 4: CLOUD FORENSICS -->
+    <div class="showcase-row">
+      <div class="showcase-row-label">
+        <span class="row-accent" style="background:linear-gradient(90deg,#00d4ff,transparent);"></span>
+        cloud forensics &amp; investigation
+      </div>
+      <div class="showcase-grid" id="showcase-grid-cloud"></div>
+    </div>
   </section>
 
   <!-- ALL LABS -->
@@ -1187,9 +1196,10 @@ document.getElementById('lab-search').addEventListener('input', applyFilter);
 // Add featured: true  +  showcase_row: 'ir' | 'df' | 'soc'  to labs-data.js entries
 // accent colours per row
 const SHOWCASE_ACCENT = {
-  ir:  { color:'#ff8c00', rgb:'255,140,0',   border:'rgba(255,140,0,0.4)'  },
-  df:  { color:'#00f5d4', rgb:'0,245,212',   border:'rgba(0,245,212,0.4)'  },
-  soc: { color:'#ff66c4', rgb:'255,102,196', border:'rgba(255,102,196,0.4)'},
+  ir:    { color:'#ff8c00', rgb:'255,140,0',   border:'rgba(255,140,0,0.4)'  },
+  df:    { color:'#00f5d4', rgb:'0,245,212',   border:'rgba(0,245,212,0.4)'  },
+  soc:   { color:'#ff66c4', rgb:'255,102,196', border:'rgba(255,102,196,0.4)'},
+  cloud: { color:'#00d4ff', rgb:'0,212,255',   border:'rgba(0,212,255,0.4)'  },
 };
 
 function renderShowcaseCard(lab, row) {
@@ -1222,7 +1232,7 @@ function renderShowcaseCard(lab, row) {
 }
 
 function renderShowcase() {
-  const rows = ['ir','df','soc'];
+  const rows = ['ir','df','soc','cloud'];
   rows.forEach(row => {
     const grid = document.getElementById(`showcase-grid-${row}`);
     if (!grid) return;
