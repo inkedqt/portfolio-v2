@@ -1364,4 +1364,19 @@ const LABS = [
     type:     'challenge',
   },
 
+  {
+    name:     'Fingerprint',
+    skill:    'Incident Response',
+    platform: 'BTLO',
+    diff:     'Easy',
+    cats:     ['Incident Response', 'Wireshark', 'T1046', 'T1608.001', 'T1059', 'T1041', 'T1190', 'T1059.004', 'T1071.001', 'T1105', 'T1505.003'],
+    status:   'done',
+    score:    null,
+    summary:  'Analyze the network traffic to identify the C2 communication and fingerprint it using ja3. ',
+    art:      'https://blueteamlabs.online/storage/labs/6ef56d61c3cf88413203ba06e9dc2da99877ee7f.png',
+    writeup:  '/blue-team/labs/fingerprint/',
+    proof:    'https://blueteamlabs.online/achievement/share/144656/103',
+    type:     'None',
+  },
+
 ];

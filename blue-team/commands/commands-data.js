@@ -785,15 +785,24 @@ const COMMANDS_DATA = [
     "lab_url": "/blue-team/labs/crack/",
     "desc": "Search a JSON log file for successful authentication events and display the 2 lines following each match. The -A flag (after) provides surrounding context to reveal associated fields like username and timestamp.",
     "tags": "shell"
+  },
+  {
+    "command": "python ja3.py ~/Desktop/fingerprint.pcap",
+    "tool": "python",
+    "lab": "fingerprint",
+    "lab_url": "/blue-team/labs/fingerprint/",
+    "desc": "Run ja3.py against a PCAP to extract TLS ClientHello fingerprints. Outputs destination IP, source IP, port, full JA3 string, and MD5 digest ja3_digest for each TLS connection. The digest can be used for threat hunting across intelligence platforms like VirusTotal and abuse.ch.",
+    "tags": "python"
   }
 ];
 
 const COMMANDS_META = {
-  "total": 98,
-  "labs": 37,
+  "total": 99,
+  "labs": 38,
   "tools": [
     "kql",
     "powershell",
+    "python",
     "shell",
     "splunk",
     "volatility",
