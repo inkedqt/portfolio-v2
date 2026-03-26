@@ -1379,4 +1379,19 @@ const LABS = [
     type:     'None',
   },
 
+  {
+    name:     'You\'re Hired!',
+    skill:    'Incident Response',
+    platform: 'BTLO',
+    diff:     'Hard',
+    cats:     ['Incident Response', 'ILSPY', 'CyberChef', 'PEStudio', 'Event Viewer', 'Log Parser 2.2', 'T1041', 'T1566.001', 'T1204.002', 'T1059.001', 'T1055', 'T1071.001', 'T1082', 'T1069.002', 'T1482'],
+    status:   'done',
+    score:    null,
+    summary:  'While performing proactive hunting at one of our corporate customers, the threat hunting team escalated some cyclic, beaconing-like, network activity originating from one of their endpoints. ',
+    art:      'https://blueteamlabs.online/storage/labs/581f4b9ff304e0d42be5191234c1d3b01f53bc0b.png',
+    writeup:  '/blue-team/labs/yourehired/',
+    proof:    'https://blueteamlabs.online/achievement/share/144656/131',
+    type:     'None',
+  },
+
 ];
