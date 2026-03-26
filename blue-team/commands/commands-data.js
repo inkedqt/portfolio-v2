@@ -775,14 +775,22 @@ const COMMANDS_DATA = [
     "tool": "powershell",
     "lab": "steam",
     "lab_url": "/blue-team/labs/steam/",
-    "desc": "",
+    "desc": "Generate the MD5 hash of a file using PowerShell. Useful for verifying file integrity or matching against known hashes during forensic analysis.",
     "tags": "powershell"
+  },
+  {
+    "command": "cat application-logs.json | grep -i '\"success\"' -A 2",
+    "tool": "shell",
+    "lab": "crack",
+    "lab_url": "/blue-team/labs/crack/",
+    "desc": "Search a JSON log file for successful authentication events and display the 2 lines following each match. The -A flag (after) provides surrounding context to reveal associated fields like username and timestamp.",
+    "tags": "shell"
   }
 ];
 
 const COMMANDS_META = {
-  "total": 97,
-  "labs": 36,
+  "total": 98,
+  "labs": 37,
   "tools": [
     "kql",
     "powershell",

@@ -1334,4 +1334,19 @@ const LABS = [
     type:     'None',
   },
 
+  {
+    name:     'Crack',
+    skill:    'Incident Response',
+    platform: 'BTLO',
+    diff:     'Easy',
+    cats:     ['Incident Response', 'JSON Crack', 'T1078.003', 'T1133'],
+    status:   'done',
+    score:    null,
+    summary:  'Use JSON Crack to investigate failed login attempts to a website.',
+    art:      'https://blueteamlabs.online/storage/labs/4cceaf428a5ad5129e4e813b58fe3610ac5cd976.png',
+    writeup:  '/blue-team/labs/crack/',
+    proof:    'https://blueteamlabs.online/achievement/share/144656/145',
+    type:     'None',
+  },
+
 ];
