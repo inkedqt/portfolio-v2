@@ -33,7 +33,7 @@ from datetime import datetime, timezone
 from urllib.parse import unquote
 
 PROFILE_URL = "https://blueteamlabs.online/home/user/32e88e341c0c66519ed676"
-OUTPUT_PATH = Path("assets/js/btlo-stats.js")
+OUTPUT_PATH = Path.home() / "portfolio-v2/assets/js/btlo-stats.js"
 
 HEADERS = {
     "User-Agent": (
