@@ -1,3 +1,12 @@
+// ── FEATURED SHOWCASE ────────────────────────────────────────────────
+// To feature a lab in the showcase section above the main grid, add:
+//   featured: true        — removes lab from main grid, adds to showcase
+//   showcase_row: 'ir'    — Incident Response row        (orange accent)
+//   showcase_row: 'df'    — Digital Forensics & RE row   (cyan accent)
+//   showcase_row: 'soc'   — SOC Ops & Threat Intel row   (pink accent)
+//   showcase_row: 'cloud' — Cloud Forensics row          (light blue accent)
+// Max 3 cards per row. Row auto-hides if no labs assigned to it.
+// ─────────────────────────────────────────────────────────────────────
 const LABS = [
 
   // ── BTL1 ──

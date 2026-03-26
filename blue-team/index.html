@@ -366,6 +366,12 @@ section:last-child { border-bottom:none; }
 }
 .featured-cta:hover { background:var(--cyan); }
 
+<!-- FEATURED SHOWCASE
+     Populated from labs-data.js entries with featured: true
+     showcase_row: 'ir' | 'df' | 'soc' | 'cloud'
+     Max 3 per row. Rows auto-hide when empty.
+     renderShowcase() in script below handles rendering.
+-->
 /* ── SHOWCASE GRID ── */
 .showcase-section { padding:52px 0; border-bottom:1px solid var(--muted); }
 .showcase-eyebrow { font-size:9px; letter-spacing:0.35em; text-transform:uppercase; color:var(--subtle); margin-bottom:20px; }
