@@ -1349,4 +1349,19 @@ const LABS = [
     type:     'None',
   },
 
+  {
+    name:     'Malware Analysis Ransomware Script',
+    skill:    'Endpoint Forensics',
+    platform: 'BTLO',
+    diff:     'Easy',
+    cats:     ['Endpoint Forensics', 'linux-cli', 'T1486', 'T1059.004', 'T1070.002', 'T1105', 'T1491.001', 'T1102'],
+    status:   'done',
+    score:    null,
+    summary:  'investigate suspicious script file',
+    art:      'https://d2ghw05x0obr70.cloudfront.net/thumbnails/8bcf14d029fcef2ec5aa5ea2512670141b4c0d34.png',
+    writeup:  '/blue-team/labs/malware_ransomwarescript/',
+    proof:    'https://blueteamlabs.online/achievement/share/challenge/144656/23',
+    type:     'challenge',
+  },
+
 ];
