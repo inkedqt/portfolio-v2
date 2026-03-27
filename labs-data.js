@@ -1429,4 +1429,19 @@ const LABS = [
     type:     'None',
   },
 
+  {
+    name:     'DomainNance',
+    skill:    'Incident Response',
+    platform: 'BTLO',
+    diff:     'Medium',
+    cats:     ['Incident Response', 'Wireshark', 'Splunk', 'T1190', 'T1059.007', 'T1046', 'T1078', 'T1059.001', 'T1105', 'T1550.003', 'T1558.001'],
+    status:   'done',
+    score:    null,
+    summary:  'A recently formed company working on mid scale workforce claimed to have a secure environment. Taking this as a challenge, a 13 year old kid tried to get into their environment and got succeded. ',
+    art:      'https://blueteamlabs.online/storage/labs/06cf9f8ae6ce817db7859616ed74bbc12ebc842b.png',
+    writeup:  '/blue-team/labs/domainnance/',
+    proof:    'https://blueteamlabs.online/achievement/share/144656/215',
+    type:     'None',
+  },
+
 ];
