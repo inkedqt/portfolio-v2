@@ -793,12 +793,68 @@ const COMMANDS_DATA = [
     "lab_url": "/blue-team/labs/fingerprint/",
     "desc": "Run ja3.py against a PCAP to extract TLS ClientHello fingerprints. Outputs destination IP, source IP, port, full JA3 string, and MD5 digest ja3_digest for each TLS connection. The digest can be used for threat hunting across intelligence platforms like VirusTotal and abuse.ch.",
     "tags": "python"
+  },
+  {
+    "command": "source.geo.country_name : \"Germany\" and event.action : \"Sign-in activity\"",
+    "tool": "kql",
+    "lab": "azurehunt",
+    "lab_url": "/blue-team/labs/azurehunt/",
+    "desc": "Filter Azure sign-in activity to a specific source country — used to isolate authentication attempts from anomalous geographic origins",
+    "tags": "kql"
+  },
+  {
+    "command": "azure.eventhub.category: \"StorageRead\" and azure.eventhub.operationName: \"GetBlob\"",
+    "tool": "kql",
+    "lab": "azurehunt",
+    "lab_url": "/blue-team/labs/azurehunt/",
+    "desc": "Identify blob object reads in Azure Storage diagnostic logs — surfaces files accessed by an attacker post-compromise",
+    "tags": "kql"
+  },
+  {
+    "command": "source.geo.country_name.keyword : \"Germany\" AND event.action : \"Sign-in activity\"",
+    "tool": "kql",
+    "lab": "azurehunt",
+    "lab_url": "/blue-team/labs/azurehunt/",
+    "desc": "Keyword-field variant of the Germany sign-in filter — use when the standard field returns no results due to index mapping differences",
+    "tags": "kql"
+  },
+  {
+    "command": "event.action.keyword: \"MICROSOFT.COMPUTE/VIRTUALMACHINES/START/ACTION\"",
+    "tool": "kql",
+    "lab": "azurehunt",
+    "lab_url": "/blue-team/labs/azurehunt/",
+    "desc": "Detect VM start actions in Azure activity logs — identifies attacker-initiated compute resource activation",
+    "tags": "kql"
+  },
+  {
+    "command": "event.action: \"MICROSOFT.SQL/SERVERS/DATABASES/EXPORT/ACTION\"",
+    "tool": "kql",
+    "lab": "azurehunt",
+    "lab_url": "/blue-team/labs/azurehunt/",
+    "desc": "Hunt for Azure SQL database export events — a BACPAC export is a direct indicator of bulk data exfiltration",
+    "tags": "kql"
+  },
+  {
+    "command": "event.action: \"Add user\"",
+    "tool": "kql",
+    "lab": "azurehunt",
+    "lab_url": "/blue-team/labs/azurehunt/",
+    "desc": "Detect new Azure AD account creation events — used to identify attacker-created backdoor accounts for persistence",
+    "tags": "kql"
+  },
+  {
+    "command": "event.action: \"MICROSOFT.AUTHORIZATION/ROLEASSIGNMENTS/WRITE\"",
+    "tool": "kql",
+    "lab": "azurehunt",
+    "lab_url": "/blue-team/labs/azurehunt/",
+    "desc": "Hunt for RBAC role assignment writes in Azure activity logs — high-fidelity indicator of privilege escalation or persistence via role grant",
+    "tags": "kql"
   }
 ];
 
 const COMMANDS_META = {
-  "total": 99,
-  "labs": 38,
+  "total": 106,
+  "labs": 39,
   "tools": [
     "kql",
     "powershell",

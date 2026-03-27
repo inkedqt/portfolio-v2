@@ -1413,4 +1413,20 @@ const LABS = [
     type:     'None',
   },
 
+  {
+    name:     'Azure Hunt',
+    featured: true, showcase_row: 'cloud',
+    skill:    'Cloud Forensics',
+    platform: 'CyberDefenders',
+    diff:     'Easy',
+    cats:     ['Cloud Forensics', 'ELK', 'Kibana', 'Persistence', 'Privilege Escalation', 'Collection', 'T1078.004', 'T1530', 'T1537', 'T1136.003', 'T1098.003'],
+    status:   'done',
+    score:    null,
+    summary: 'Investigate Azure audit and sign-in logs via Kibana to trace a multi-stage cloud compromise — from initial credential access through blob storage enumeration, lateral movement to a privileged account, VM start, database exfiltration, and persistence via a backdoor account with Owner-level RBAC.',
+    art:      'https://cyberdefenders.org/media/terraform/AzureHunt/AzureHunt.webp',
+    writeup:  '/blue-team/labs/azurehunt/',
+    proof:    'https://cyberdefenders.org/blueteam-ctf-challenges/achievements/inksec/azurehunt/',
+    type:     'None',
+  },
+
 ];
