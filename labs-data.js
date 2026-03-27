@@ -169,7 +169,6 @@ const LABS = [
   },
   {
     name:     'Exxtensity',
-    featured: true,  showcase_row: 'df',
     skill:    'Endpoint Forensics',
     platform: 'BTLO',
     diff:     'Easy',
@@ -1441,6 +1440,22 @@ const LABS = [
     art:      'https://blueteamlabs.online/storage/labs/06cf9f8ae6ce817db7859616ed74bbc12ebc842b.png',
     writeup:  '/blue-team/labs/domainnance/',
     proof:    'https://blueteamlabs.online/achievement/share/144656/215',
+    type:     'None',
+  },
+
+  {
+    name:     'Latent',
+    featured: true,  showcase_row: 'df',
+    skill:    'Endpoint Forensics',
+    platform: 'BTLO',
+    diff:     'Medium',
+    cats:     ['Endpoint Forensics', 'Wireshark', 'Volatility3', 'PeStudio', 'Strings', 'T1406.002', 'T1059', 'T1190', 'T1505.003', 'T1046', 'T1021.002', 'T1059.001', 'T1547.001', 'T1027.002', 'T1071.001'],
+    status:   'done',
+    score:    null,
+    summary:  'A financial services company experiences strange delays in its system, seek it out. ',
+    art:      'https://blueteamlabs.online/storage/labs/8d4c4293240ca67c11553564517b4668f70bc158.png',
+    writeup:  '/blue-team/labs/latent/',
+    proof:    'https://blueteamlabs.online/achievement/share/144656/245',
     type:     'None',
   },
 

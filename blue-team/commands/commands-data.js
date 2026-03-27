@@ -799,7 +799,7 @@ const COMMANDS_DATA = [
     "tool": "kql",
     "lab": "azurehunt",
     "lab_url": "/blue-team/labs/azurehunt/",
-    "desc": "Filter Azure sign-in activity to a specific source country — used to isolate authentication attempts from anomalous geographic origins",
+    "desc": "Filter Azure sign-in activity to a specific source country \u2014 used to isolate authentication attempts from anomalous geographic origins",
     "tags": "kql"
   },
   {
@@ -807,7 +807,7 @@ const COMMANDS_DATA = [
     "tool": "kql",
     "lab": "azurehunt",
     "lab_url": "/blue-team/labs/azurehunt/",
-    "desc": "Identify blob object reads in Azure Storage diagnostic logs — surfaces files accessed by an attacker post-compromise",
+    "desc": "Identify blob object reads in Azure Storage diagnostic logs \u2014 surfaces files accessed by an attacker post-compromise",
     "tags": "kql"
   },
   {
@@ -815,7 +815,7 @@ const COMMANDS_DATA = [
     "tool": "kql",
     "lab": "azurehunt",
     "lab_url": "/blue-team/labs/azurehunt/",
-    "desc": "Keyword-field variant of the Germany sign-in filter — use when the standard field returns no results due to index mapping differences",
+    "desc": "Keyword-field variant of the Germany sign-in filter \u2014 use when the standard field returns no results due to index mapping differences",
     "tags": "kql"
   },
   {
@@ -823,7 +823,7 @@ const COMMANDS_DATA = [
     "tool": "kql",
     "lab": "azurehunt",
     "lab_url": "/blue-team/labs/azurehunt/",
-    "desc": "Detect VM start actions in Azure activity logs — identifies attacker-initiated compute resource activation",
+    "desc": "Detect VM start actions in Azure activity logs \u2014 identifies attacker-initiated compute resource activation",
     "tags": "kql"
   },
   {
@@ -831,7 +831,7 @@ const COMMANDS_DATA = [
     "tool": "kql",
     "lab": "azurehunt",
     "lab_url": "/blue-team/labs/azurehunt/",
-    "desc": "Hunt for Azure SQL database export events — a BACPAC export is a direct indicator of bulk data exfiltration",
+    "desc": "Hunt for Azure SQL database export events \u2014 a BACPAC export is a direct indicator of bulk data exfiltration",
     "tags": "kql"
   },
   {
@@ -839,7 +839,7 @@ const COMMANDS_DATA = [
     "tool": "kql",
     "lab": "azurehunt",
     "lab_url": "/blue-team/labs/azurehunt/",
-    "desc": "Detect new Azure AD account creation events — used to identify attacker-created backdoor accounts for persistence",
+    "desc": "Detect new Azure AD account creation events \u2014 used to identify attacker-created backdoor accounts for persistence",
     "tags": "kql"
   },
   {
@@ -847,14 +847,38 @@ const COMMANDS_DATA = [
     "tool": "kql",
     "lab": "azurehunt",
     "lab_url": "/blue-team/labs/azurehunt/",
-    "desc": "Hunt for RBAC role assignment writes in Azure activity logs — high-fidelity indicator of privilege escalation or persistence via role grant",
+    "desc": "Hunt for RBAC role assignment writes in Azure activity logs \u2014 high-fidelity indicator of privilege escalation or persistence via role grant",
     "tags": "kql"
+  },
+  {
+    "command": "python vol.py -f memdump.mem windows.cmdline",
+    "tool": "volatility",
+    "lab": "latent",
+    "lab_url": "/blue-team/labs/latent/",
+    "desc": ""desc": "Enumerate all running processes and their full command line arguments from a memory dump. Reveals process names, PIDs, and execution paths — key for identifying malicious processes and how they were launched.",
+    "tags": "volatility"
+  },
+  {
+    "command": "python vol.py -f memdump.mem windows.psscan",
+    "tool": "volatility",
+    "lab": "latent",
+    "lab_url": "/blue-team/labs/latent/",
+    "desc": "Scan physical memory for POOL_HEADER structures to find all process objects including hidden and terminated processes. More thorough than pslist as it detects processes attempting to evade detection by unlinking from the process list.",
+    "tags": "volatility"
+  },
+  {
+    "command": "python .\\vol.py -f ..\\..\\..\\Investigation\\memdump.mem -r json windows.filescan > filescan.txt",
+    "tool": "volatility",
+    "lab": "latent",
+    "lab_url": "/blue-team/labs/latent/",
+    "desc": "Scan memory for all file objects and output as JSON for easier searching. Reveals open file handles including malware on disk — use the Offset field with psscan to cross-reference virtual addresses of specific files.",
+    "tags": "volatility"
   }
 ];
 
 const COMMANDS_META = {
-  "total": 106,
-  "labs": 39,
+  "total": 109,
+  "labs": 40,
   "tools": [
     "kql",
     "powershell",
