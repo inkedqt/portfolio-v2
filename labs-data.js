@@ -1459,4 +1459,19 @@ const LABS = [
     type:     'None',
   },
 
+  {
+    name:     'First Week',
+    skill:    'Endpoint Forensics',
+    platform: 'BTLO',
+    diff:     'Hard',
+    cats:     ['Endpoint Forensics', 'John', 'YARA', 'CyberChef', 'DiE', 'PEStudio', 'Text Editor', 'OSINT', 'dnSpy', 'T1486', 'T1547.001', 'T1036.005', 'T1562.001', 'T1490', 'T1027', 'T1083', 'T1057'],
+    status:   'done',
+    score:    null,
+    summary:  'Crack a password-protected ransomware builder, hunt a hidden malware sample using a custom YARA rule, decompile a .NET ransomware binary to extract encryption logic and persistence mechanisms, and investigate attacker-planted Defender-disabling persistence on a compromised endpoint.',
+    art:      'https://blueteamlabs.online/storage/labs/83eda4d211c1562d1c7faf0d9ae85f57ef24e53c.png',
+    writeup:  '/blue-team/labs/firstweek/',
+    proof:    'https://blueteamlabs.online/achievement/share/144656/107',
+    type:     'None',
+  },
+
 ];

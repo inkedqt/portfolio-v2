@@ -855,7 +855,7 @@ const COMMANDS_DATA = [
     "tool": "volatility",
     "lab": "latent",
     "lab_url": "/blue-team/labs/latent/",
-    "desc": ""desc": "Enumerate all running processes and their full command line arguments from a memory dump. Reveals process names, PIDs, and execution paths — key for identifying malicious processes and how they were launched.",
+    "desc": "Enumerate all running processes and their full command line arguments from a memory dump. Reveals process names, PIDs, and execution paths \u2014 key for identifying malicious processes and how they were launched.",
     "tags": "volatility"
   },
   {
@@ -871,14 +871,22 @@ const COMMANDS_DATA = [
     "tool": "volatility",
     "lab": "latent",
     "lab_url": "/blue-team/labs/latent/",
-    "desc": "Scan memory for all file objects and output as JSON for easier searching. Reveals open file handles including malware on disk — use the Offset field with psscan to cross-reference virtual addresses of specific files.",
+    "desc": "Scan memory for all file objects and output as JSON for easier searching. Reveals open file handles including malware on disk \u2014 use the Offset field with psscan to cross-reference virtual addresses of specific files.",
     "tags": "volatility"
+  },
+  {
+    "command": "zip2john builder.zip > builder.hash john builder.hash --wordlist=/usr/share/wordlists/rockyou.txt",
+    "tool": "shell",
+    "lab": "firstweek",
+    "lab_url": "/blue-team/labs/firstweek/",
+    "desc": "Extract a hash from a password-protected zip archive and crack it with a wordlist. zip2john converts the zip encryption into a John-compatible hash format; john then brute-forces it against rockyou.txt to recover the plaintext password.",
+    "tags": "shell"
   }
 ];
 
 const COMMANDS_META = {
-  "total": 109,
-  "labs": 40,
+  "total": 110,
+  "labs": 41,
   "tools": [
     "kql",
     "powershell",
