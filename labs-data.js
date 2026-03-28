@@ -1474,4 +1474,19 @@ const LABS = [
     type:     'None',
   },
 
+  {
+    name:     'HUNT3R',
+    skill:    'Incident Response',
+    platform: 'BTLO',
+    diff:     'Medium',
+    cats:     ['Incident Response', 'Linux CLI', 'Sublime Text 2', 'OSINT', 'Gnumeric', 'CyberChef', 'T1584.006', 'T1595.003', 'T1190', 'T1083'],
+    status:   'done',
+    score:    null,
+    summary:  'Analyse an IIS web server log dump to identify anomalous traffic, attribute the source IP via OSINT, and characterise a directory traversal/enumeration attack that successfully exfiltrated a configuration archive in under 20 seconds.',
+    art:      'https://d2ghw05x0obr70.cloudfront.net/thumbnails/a7ab8e94a27d6e20040a2041a13a5a8ef096be3d.png',
+    writeup:  '/blue-team/labs/hunt3r/',
+    proof:    'https://blueteamlabs.online/achievement/share/144656/127',
+    type:     'None',
+  },
+
 ];

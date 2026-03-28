@@ -881,13 +881,38 @@ const COMMANDS_DATA = [
     "lab_url": "/blue-team/labs/firstweek/",
     "desc": "Extract a hash from a password-protected zip archive and crack it with a wordlist. zip2john converts the zip encryption into a John-compatible hash format; john then brute-forces it against rockyou.txt to recover the plaintext password.",
     "tags": "shell"
+  },
+  {
+    "command": "grep -v \"^#\" iis-log-dump.log | awk '{print $9}' | sort | uniq -c | sort -rn",
+    "tool": "grep",
+    "lab": "hunt3r",
+    "lab_url": "/blue-team/labs/hunt3r/",
+    "desc": "Strip IIS comment lines then extract the client IP field, rank all source IPs by request count in descending order. Anomalous volumes from a single IP surface immediately against the baseline of normal traffic distribution.",
+    "tags": "grep"
+  },
+  {
+    "command": "grep \"200.10.209.169\" iis-log-dump.log | awk '{print $1, $2}' | sort | sed -n '1p;$p'",
+    "tool": "grep",
+    "lab": "hunt3r",
+    "lab_url": "/blue-team/labs/hunt3r/",
+    "desc": "Extract timestamps for all requests from a target IP, sort chronologically, and print only the first and last entries. Gives the exact start and end of the attack window for duration calculation.",
+    "tags": "grep"
+  },
+  {
+    "command": "grep -v \"^#\" iis-log-dump.log | awk '{print $9}' | sort -u | wc -l",
+    "tool": "grep",
+    "lab": "hunt3r",
+    "lab_url": "/blue-team/labs/hunt3r/",
+    "desc": "Strip comment lines, extract the client IP field, deduplicate, and count. Returns the total number of distinct source IPs in the log file including the malicious one.",
+    "tags": "grep"
   }
 ];
 
 const COMMANDS_META = {
-  "total": 110,
-  "labs": 41,
+  "total": 113,
+  "labs": 42,
   "tools": [
+    "grep",
     "kql",
     "powershell",
     "python",
