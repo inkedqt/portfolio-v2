@@ -1534,4 +1534,19 @@ const LABS = [
     type:     'None',
   },
 
+  {
+    name:     'Marksman',
+    skill:    'Incident Response',
+    platform: 'BTLO',
+    diff:     'Medium',
+    cats:     ['Incident Response', 'PersistenceSniper', 'PowerShell', 'Event Viewer', 'T1110.001 T1546.012 T1053 T1136.001 T1098', 'T1053.005', 'T1562.001'],
+    status:   'done',
+    score:    null,
+    summary:  'Investigate a brute-forced Windows endpoint using PersistenceSniper and manual IR techniques to uncover IFEO abuse, a Meterpreter payload delivered over RDP drive redirection, Defender exclusion tampering, a broken scheduled task, and an attacker-created local administrator account.',
+    art:      'https://blueteamlabs.online/storage/labs/4a4f1e78b767fd861651bddfaaff4914eee54dbc.png',
+    writeup:  '/blue-team/labs/marksman/',
+    proof:    'https://blueteamlabs.online/achievement/share/144656/122',
+    type:     'None',
+  },
+
 ];

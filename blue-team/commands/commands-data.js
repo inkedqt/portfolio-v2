@@ -905,12 +905,20 @@ const COMMANDS_DATA = [
     "lab_url": "/blue-team/labs/hunt3r/",
     "desc": "Strip comment lines, extract the client IP field, deduplicate, and count. Returns the total number of distinct source IPs in the log file including the malicious one.",
     "tags": "grep"
+  },
+  {
+    "command": "Import-Module PersistenceSniper Find-AllPersistence | Format-List",
+    "tool": "powershell",
+    "lab": "marksman",
+    "lab_url": "/blue-team/labs/marksman/",
+    "desc": "Load the PersistenceSniper module and enumerate all persistence mechanisms on the local system. Checks registry Run keys, scheduled tasks, startup folders, IFEO debugger entries, and other common persistence locations, outputting each finding with technique name, ATT&CK classification, path, value, and access level gained.",
+    "tags": "powershell"
   }
 ];
 
 const COMMANDS_META = {
-  "total": 113,
-  "labs": 42,
+  "total": 114,
+  "labs": 43,
   "tools": [
     "grep",
     "kql",
