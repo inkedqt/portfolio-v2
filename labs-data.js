@@ -1489,4 +1489,19 @@ const LABS = [
     type:     'None',
   },
 
+  {
+    name:     'Crypto',
+    skill:    'Incident Response',
+    platform: 'BTLO',
+    diff:     'Medium',
+    cats:     ['Incident Response', 'Wireshark', 'PowerShell Analysis', 'Volatility', 'Grep', 'T1059.004 T1059.001', 'T1053.005', 'T1547.001', 'T1562.004', 'T1496', 'T1036.005', 'T1105'],
+    status:   'done',
+    score:    null,
+    summary:  'Analyse a malicious PowerShell dropper, extract XMRig from a PCAP, and confirm active cryptomining execution via Volatility memory forensics across a multi-server compromise.',
+    art:      'https://blueteamlabs.online/storage/labs/5b259479daa706b70bbc9debe66c2a0255ffdfdd.png',
+    writeup:  '/blue-team/labs/crypto/',
+    proof:    'https://blueteamlabs.online/achievement/share/144656/99',
+    type:     'None',
+  },
+
 ];
