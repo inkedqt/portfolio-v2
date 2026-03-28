@@ -1519,4 +1519,19 @@ const LABS = [
     type:     'None',
   },
 
+  {
+    name:     'Parse-Zilla',
+    skill:    'Incident Response',
+    platform: 'BTLO',
+    diff:     'Medium',
+    cats:     ['Incident Response', 'Linux CLI', 'jq', 'T1016', 'T1649', 'T1039', 'T1595.002', 'T1190', 'T1083', 'T1005'],
+    status:   'done',
+    score:    null,
+    summary:  'Analyse JSON-format Traefik access logs using jq to identify an internal attacker who ran Nikto, attempted Shellshock exploitation via User-Agent injection, then manually exfiltrated a confidential acquisitions document from an exposed FTP directory.',
+    art:      'https://d2ghw05x0obr70.cloudfront.net/thumbnails/e0564b1b43102be4e45c45e253096092edfbf147.png',
+    writeup:  '/blue-team/labs/parse-zilla/',
+    proof:    'https://blueteamlabs.online/achievement/share/144656/128',
+    type:     'None',
+  },
+
 ];
