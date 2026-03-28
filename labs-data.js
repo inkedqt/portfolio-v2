@@ -1504,4 +1504,19 @@ const LABS = [
     type:     'None',
   },
 
+  {
+    name:     'Waf-o-calypse',
+    skill:    'Incident Response',
+    platform: 'BTLO',
+    diff:     'Medium',
+    cats:     ['Incident Response', 'Linux CLI', 'jq', 'goaccess', 'T1567', 'T1596', 'T1190', 'T1059.003'],
+    status:   'done',
+    score:    null,
+    summary:  'Investigate a WAF bypass and UNION-based SQL injection attack against Cloth45.shop by correlating Traefik access logs with ModSecurity audit logs to identify the attacker, reconstruct the successful payload, and determine the exfiltrated table and column.',
+    art:      'https://d2ghw05x0obr70.cloudfront.net/thumbnails/59caaae5557d2e8ea36dd867b8480e375eab6c23.png',
+    writeup:  '/blue-team/labs/waf-o-calypse/',
+    proof:    'https://blueteamlabs.online/achievement/share/144656/130',
+    type:     'None',
+  },
+
 ];
