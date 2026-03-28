@@ -582,7 +582,6 @@ const LABS = [
   },
   {
     name:     'XWorm',
-    featured: true,  showcase_row: 'df',
     skill:    'Malware Analysis',
     platform: 'CyberDefenders',
     diff:     'Easy',
@@ -1461,6 +1460,7 @@ const LABS = [
 
   {
     name:     'First Week',
+    featured: true,  showcase_row: 'df',
     skill:    'Endpoint Forensics',
     platform: 'BTLO',
     diff:     'Hard',
