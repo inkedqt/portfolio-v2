@@ -913,12 +913,28 @@ const COMMANDS_DATA = [
     "lab_url": "/blue-team/labs/marksman/",
     "desc": "Load the PersistenceSniper module and enumerate all persistence mechanisms on the local system. Checks registry Run keys, scheduled tasks, startup folders, IFEO debugger entries, and other common persistence locations, outputting each finding with technique name, ATT&CK classification, path, value, and access level gained.",
     "tags": "powershell"
+  },
+  {
+    "command": "zgrep -i \"cat.nanobotninjas\" dns* | grep \"TXT\" | awk '{print $3}' | sort -u",
+    "tool": "shell",
+    "lab": "nano",
+    "lab_url": "/blue-team/labs/nano/",
+    "desc": "Search compressed Zeek DNS logs for queries to a suspicious domain, filter for TXT record type only, extract the source IP field, and deduplicate. Identifies which internal host is responsible for DNS tunnelling TXT record queries.",
+    "tags": "shell"
+  },
+  {
+    "command": "zgrep -i \"cat.nanobotninjas\" dns* | head -20",
+    "tool": "shell",
+    "lab": "nano",
+    "lab_url": "/blue-team/labs/nano/",
+    "desc": "Search compressed Zeek DNS logs for queries to a suspicious domain and print the first 20 results. Reveals the raw query structure including hex-prefixed subdomains used for cache-busting in DNS tunnelling activity.",
+    "tags": "shell"
   }
 ];
 
 const COMMANDS_META = {
-  "total": 114,
-  "labs": 43,
+  "total": 116,
+  "labs": 44,
   "tools": [
     "grep",
     "kql",

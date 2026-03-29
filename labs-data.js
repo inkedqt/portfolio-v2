@@ -1549,4 +1549,19 @@ const LABS = [
     type:     'None',
   },
 
+  {
+    name:     'Nano',
+    skill:    'Incident Response',
+    platform: 'BTLO',
+    diff:     'Easy',
+    cats:     ['Incident Response', 'RITA', 'Zeek', 'Zgrep', 'T1071.004', 'T1571', 'T1102'],
+    status:   'done',
+    score:    null,
+    summary:  'Use RITA to identify C2 beaconing from a DigitalOcean-hosted server, then pivot to Zeek DNS logs to uncover a dnscat2 DNS tunnelling channel exfiltrating data via hex-encoded TXT record queries to cat.nanobotninjas.com.',
+    art:      'https://blueteamlabs.online/storage/labs/551f2c3321fbdf92b9b3ade074634dd3f24dd0c5.png',
+    writeup:  '/blue-team/labs/nano/',
+    proof:    'https://blueteamlabs.online/achievement/share/144656/236',
+    type:     'None',
+  },
+
 ];
