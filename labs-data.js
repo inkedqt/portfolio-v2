@@ -1564,4 +1564,19 @@ const LABS = [
     type:     'None',
   },
 
+  {
+    name:     'Vault',
+    skill:    'Incident Response',
+    platform: 'BTLO',
+    diff:     'Easy',
+    cats:     ['Incident Response', 'Timeline Explorer', 'T1528', 'T1530', 'T1552.001'],
+    status:   'done',
+    score:    null,
+    summary:  'Investigate a Defender for Cloud Key Vault alert by correlating Azure Sign-In logs with Key Vault diagnostic logs in Timeline Explorer to identify a compromised account, enumerate accessed vaults, and attribute tooling used to exfiltrate cryptographic keys and secrets.',
+    art:      'https://blueteamlabs.online/storage/labs/e785f6ac0cbd3f29cf3d6953ef8e6f36f8d0f505.png',
+    writeup:  '/blue-team/labs/vault/',
+    proof:    'https://blueteamlabs.online/achievement/share/144656/199',
+    type:     'None',
+  },
+
 ];
