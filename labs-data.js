@@ -1639,4 +1639,19 @@ const LABS = [
     type:     'None',
   },
 
+  {
+    name:     'Key Key',
+    skill:    'Endpoint Forensics',
+    platform: 'BTLO',
+    diff:     'Easy',
+    cats:     ['Endpoint Forensics', 'Wireshark', 'IDA', 'T1056.001', 'T1041', 'T1027'],
+    status:   'done',
+    score:    null,
+    summary:  'Analyse a Linux keylogger binary in IDA to identify the input device hook, log file path, and XOR encryption routine, then decrypt POST data from a Wireshark capture to recover an exfiltrated password and secret project name.',
+    art:      'https://blueteamlabs.online/storage/labs/0f70d864fe58559271d90a14f289cfad0219f273.png',
+    writeup:  '/blue-team/labs/keykey/',
+    proof:    'https://blueteamlabs.online/achievement/share/144656/258',
+    type:     'None',
+  },
+
 ];
