@@ -1579,4 +1579,19 @@ const LABS = [
     type:     'None',
   },
 
+  {
+    name:     'Suspended',
+    skill:    'Incident Response',
+    platform: 'BTLO',
+    diff:     'Easy',
+    cats:     ['Incident Response', 'Sublime Text 2', 'Thunderbird Browser', 'OSINT', 'T1566', 'T1566.001', 'T1566.002'],
+    status:   'done',
+    score:    null,
+    summary:  'Triage a phishing email impersonating Amazon by extracting headers, decoding a Base64 PDF attachment in CyberChef, and tracing a multi-hop redirect chain through Google Drawings to a malicious credential harvesting domain.',
+    art:      'https://d2ghw05x0obr70.cloudfront.net/thumbnails/d04554bd20be4c7b5a4ce0f6a25b5fad5222c68f.png',
+    writeup:  '/blue-team/labs/suspended/',
+    proof:    'https://blueteamlabs.online/achievement/share/144656/126',
+    type:     'None',
+  },
+
 ];
