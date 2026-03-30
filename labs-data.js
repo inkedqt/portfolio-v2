@@ -1594,4 +1594,19 @@ const LABS = [
     type:     'None',
   },
 
+  {
+    name:     'marionette',
+    skill:    'Endpoint Forensics',
+    platform: 'BTLO',
+    diff:     'Medium',
+    cats:     ['Endpoint Forensics', 'Text editor', 'CLI', 'T1070.006', 'T1036.003', 'T1003.001', 'T1059.001', 'T1083'],
+    status:   'done',
+    score:    null,
+    summary:  'Analyse an MFT CSV export from a suspected compromised macOS endpoint to identify timestomping anti-forensics, uncover masqueraded payloads, and attribute a post-exploitation toolkit including mimikatz, PowerView, and a PS1 lure disguised as a PDF invoice.',
+    art:      'https://blueteamlabs.online/storage/labs/04fe1c9a84cea13687ebdab35bb561bc55d8c319.png',
+    writeup:  '/blue-team/labs/marionette/',
+    proof:    'https://blueteamlabs.online/achievement/share/144656/147',
+    type:     'None',
+  },
+
 ];
