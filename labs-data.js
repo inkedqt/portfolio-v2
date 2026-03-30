@@ -105,7 +105,6 @@ const LABS = [
   },
   {
     name:     'Spider',
-    featured: true,  showcase_row: 'soc',
     skill:    'Threat Intelligence',
     platform: 'BTLO',
     diff:     'Easy',
@@ -1611,6 +1610,7 @@ const LABS = [
 
   {
     name:     'qbot',
+    featured: true,  showcase_row: 'soc',
     skill:    'Endpoint Forensics',
     platform: 'BTLO',
     diff:     'Medium',
