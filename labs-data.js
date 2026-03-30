@@ -1609,4 +1609,19 @@ const LABS = [
     type:     'None',
   },
 
+  {
+    name:     'qbot',
+    skill:    'Endpoint Forensics',
+    platform: 'BTLO',
+    diff:     'Medium',
+    cats:     ['Endpoint Forensics', 'CyberChef', 'Notepad++', 'Defense Evasion', 'Execution', 'T1566.001', 'T1027.006', 'T1059.001', 'T1059.003', 'T1112', 'T1105', 'T1027', 'T1059.007', 'T1547.001', 'T1140', 'T1218.011'],
+    status:   'done',
+    score:    null,
+    summary:  'Dissect a Qbot HTML smuggling campaign that chains Office 365 impersonation, a password-protected IMG file, LNK execution, CMD variable obfuscation, registry-stored Base64 PowerShell, and a JScript WSF loader to deliver Fishlines.dll from a remote C2.',
+    art:      'https://blueteamlabs.online/storage/labs/7d258d3acf37b224adebad374334fa95d8e9d418.png',
+    writeup:  '/blue-team/labs/qbot/',
+    proof:    'https://blueteamlabs.online/achievement/share/144656/153',
+    type:     'None',
+  },
+
 ];
