@@ -929,12 +929,36 @@ const COMMANDS_DATA = [
     "lab_url": "/blue-team/labs/nano/",
     "desc": "Search compressed Zeek DNS logs for queries to a suspicious domain and print the first 20 results. Reveals the raw query structure including hex-prefixed subdomains used for cache-busting in DNS tunnelling activity.",
     "tags": "shell"
-  }
+  },
+  {
+    "command": "C:\\xampp\\mysql\\bin\\mysql.exe -u root -p",
+    "tool": "sql",
+    "lab": "brute",
+    "lab_url": "/blue-team/labs/brute/",
+    "desc": "Connect to the local MariaDB instance as root via the XAMPP bundled MySQL client. Prompts for password on entry. Use when investigating XAMPP-based web applications",
+    "tags": "sql"
+  },
+  {
+    "command": "SHOW DATABASES; USE supercoolapp; SHOW TABLES;",
+    "tool": "sql",
+    "lab": "brute",
+    "lab_url": "/blue-team/labs/brute/",
+    "desc": "List all databases on the server, switch into the target application database, then list all tables. Standard first-step enumeration when investigating an unknown database schema during IR.",
+    "tags": "sql"
+  },
+  {
+    "command": "SELECT * FROM zz_app_admins;",
+    "tool": "sql",
+    "lab": "brute",
+    "lab_url": "/blue-team/labs/brute/",
+    "desc": "Retrieve all rows from the application admin table. Used to enumerate user accounts, email addresses, password hashes, and account status fields during database forensics.",
+    "tags": "sql"
+  },
 ];
 
 const COMMANDS_META = {
-  "total": 116,
-  "labs": 44,
+  "total": 120,
+  "labs": 45,
   "tools": [
     "grep",
     "kql",
@@ -942,6 +966,7 @@ const COMMANDS_META = {
     "python",
     "shell",
     "splunk",
+    "sql",
     "volatility",
     "wireshark"
   ]

@@ -1624,4 +1624,19 @@ const LABS = [
     type:     'None',
   },
 
+  {
+    name:     'Brute',
+    skill:    'Incident Response',
+    platform: 'BTLO',
+    diff:     'Medium',
+    cats:     ['Incident Response', 'Notepad++', 'MySQL', 'T1595.003', 'T1110.003', 'T1136.001', 'T1021.001', 'T1505.003', 'T1565.001'],
+    status:   'done',
+    score:    null,
+    summary:  'Investigate a compromised XAMPP web server by tracing an attack chain from feroxbuster directory scanning through FTP credential theft, brute force login, web shell deployment, website defacement, backdoor account creation, and database manipulation.',
+    art:      'https://blueteamlabs.online/storage/labs/2c3bf7e47d1d2af727b659fe258e5efdc06dfd44.png',
+    writeup:  '/blue-team/labs/brute/',
+    proof:    'https://blueteamlabs.online/achievement/share/144656/190',
+    type:     'None',
+  },
+
 ];
