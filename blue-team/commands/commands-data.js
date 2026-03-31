@@ -961,12 +961,36 @@ const COMMANDS_DATA = [
     "lab_url": "/blue-team/labs/rdp/",
     "desc": "Extract RDP bitmap cache tiles from Cache0000.bin into the current directory as individual PNG files. Each tile is a 64x64px fragment of the remote desktop session. Feed the output folder into RdpCacheStitcher for visual reconstruction.",
     "tags": "powershell"
+  },
+  {
+    "command": "exiftool totamtoWithShell.jpg",
+    "tool": "shell",
+    "lab": "photograph",
+    "lab_url": "/blue-team/labs/photograph/",
+    "desc": "Dump all EXIF and XMP metadata from a JPEG. For malicious samples, check XP Comment, Description, and custom fields — attackers embed payload URLs, PHP stagers, and C2 addresses directly in metadata fields that most security controls never inspect.",
+    "tags": "shell"
+  },
+  {
+    "command": "python3 jpegdump.py -E md5 malware.jpg",
+    "tool": "python",
+    "lab": "photograph",
+    "lab_url": "/blue-team/labs/photograph/",
+    "desc": "Parse a JPEG's segment structure and display MD5 hashes for each segment. Used to detect polyglot files — multiple SOI/EOI markers indicate concatenated JPEGs, and non-zero delta (d=) values between segments reveal hidden data inserted between image boundaries.",
+    "tags": "python"
+  },
+  {
+    "command": "python3 jpegdump.py malware.jpg -s 29d -d > malware.crt",
+    "tool": "python",
+    "lab": "photograph",
+    "lab_url": "/blue-team/labs/photograph/",
+    "desc": "Extract the raw bytes between two JPEG segments using the delta selector (-s 29d). Used to recover data hidden in the gap between concatenated JPEG boundaries — in this lab extracts a fake PEM certificate block concealing a base64-encoded PE.",
+    "tags": "python"
   }
 ];
 
 const COMMANDS_META = {
-  "total": 120,
-  "labs": 46,
+  "total": 123,
+  "labs": 47,
   "tools": [
     "grep",
     "kql",

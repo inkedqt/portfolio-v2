@@ -1669,4 +1669,19 @@ const LABS = [
     type:     'None',
   },
 
+  {
+    name:     'Photo',
+    skill:    'Incident Response',
+    platform: 'BTLO',
+    diff:     'Easy',
+    cats:     ['Incident Response', 'Linux CLI', 'jpegdump.py', 'cyberchef', 'T1505', 'T1505.003', 'T1027', 'T1001'],
+    status:   'done',
+    score:    null,
+    summary:  'Analyse two malicious JPEG samples — one hiding a PHP webshell in EXIF metadata, one concealing a .NET IRC RAT inside a fake PEM certificate between concatenated JPEG boundaries.',
+    art:      'https://blueteamlabs.online/storage/labs/53462de5acf98d92c8b7c64eec7fd7f1991b967c.png',
+    writeup:  '/blue-team/labs/photograph/',
+    proof:    'https://blueteamlabs.online/achievement/share/144656/119',
+    type:     'btlo',
+  },
+
 ];
