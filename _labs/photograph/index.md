@@ -85,6 +85,8 @@ Three SOI (`FFD8`) and EOI (`FFD9`) markers are present. Critically, the `d=` va
 
 #### Payload Extraction
 
+ref: https://isc.sans.edu/diary/James+Webb+JPEG+With+Malware/29010
+
 The hidden data between the first EOI and second SOI is extracted:
 
 ```bash
