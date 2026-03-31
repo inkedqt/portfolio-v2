@@ -954,11 +954,19 @@ const COMMANDS_DATA = [
     "desc": "Retrieve all rows from the application admin table. Used to enumerate user accounts, email addresses, password hashes, and account status fields during database forensics.",
     "tags": "sql"
   },
+  {
+    "command": ".\\bmc-tools.py -s ..\\..\\Cache0000.bin -d .",
+    "tool": "powershell",
+    "lab": "rdp",
+    "lab_url": "/blue-team/labs/rdp/",
+    "desc": "Extract RDP bitmap cache tiles from Cache0000.bin into the current directory as individual PNG files. Each tile is a 64x64px fragment of the remote desktop session. Feed the output folder into RdpCacheStitcher for visual reconstruction.",
+    "tags": "powershell"
+  }
 ];
 
 const COMMANDS_META = {
   "total": 120,
-  "labs": 45,
+  "labs": 46,
   "tools": [
     "grep",
     "kql",

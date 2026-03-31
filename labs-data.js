@@ -1654,4 +1654,19 @@ const LABS = [
     type:     'None',
   },
 
+  {
+    name:     'RDP',
+    skill:    'Incident Response',
+    platform: 'BTLO',
+    diff:     'Easy',
+    cats:     ['Incident Response', 'FTK Imager', 'RdpCacheStitcher', 'bmc-tools', 'T1021.001', 'T1005'],
+    status:   'done',
+    score:    null,
+    summary:  'Analyse a forensic disk image to recover RDP cache tiles, reconstruct remote desktop session fragments, and extract trade secrets.',
+    art:      'https://blueteamlabs.online/storage/labs/a850ade2d12e671c2bcb33e336745a404cda5fc6.png',
+    writeup:  '/blue-team/labs/rdp/',
+    proof:    'https://blueteamlabs.online/achievement/share/144656/97',
+    type:     'None',
+  },
+
 ];
