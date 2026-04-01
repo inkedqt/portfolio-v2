@@ -967,7 +967,7 @@ const COMMANDS_DATA = [
     "tool": "shell",
     "lab": "photograph",
     "lab_url": "/blue-team/labs/photograph/",
-    "desc": "Dump all EXIF and XMP metadata from a JPEG. For malicious samples, check XP Comment, Description, and custom fields — attackers embed payload URLs, PHP stagers, and C2 addresses directly in metadata fields that most security controls never inspect.",
+    "desc": "Dump all EXIF and XMP metadata from a JPEG. For malicious samples, check XP Comment, Description, and custom fields \u2014 attackers embed payload URLs, PHP stagers, and C2 addresses directly in metadata fields that most security controls never inspect.",
     "tags": "shell"
   },
   {
@@ -975,7 +975,7 @@ const COMMANDS_DATA = [
     "tool": "python",
     "lab": "photograph",
     "lab_url": "/blue-team/labs/photograph/",
-    "desc": "Parse a JPEG's segment structure and display MD5 hashes for each segment. Used to detect polyglot files — multiple SOI/EOI markers indicate concatenated JPEGs, and non-zero delta (d=) values between segments reveal hidden data inserted between image boundaries.",
+    "desc": "Parse a JPEG's segment structure and display MD5 hashes for each segment. Used to detect polyglot files \u2014 multiple SOI/EOI markers indicate concatenated JPEGs, and non-zero delta (d=) values between segments reveal hidden data inserted between image boundaries.",
     "tags": "python"
   },
   {
@@ -983,14 +983,30 @@ const COMMANDS_DATA = [
     "tool": "python",
     "lab": "photograph",
     "lab_url": "/blue-team/labs/photograph/",
-    "desc": "Extract the raw bytes between two JPEG segments using the delta selector (-s 29d). Used to recover data hidden in the gap between concatenated JPEG boundaries — in this lab extracts a fake PEM certificate block concealing a base64-encoded PE.",
+    "desc": "Extract the raw bytes between two JPEG segments using the delta selector (-s 29d). Used to recover data hidden in the gap between concatenated JPEG boundaries \u2014 in this lab extracts a fake PEM certificate block concealing a base64-encoded PE.",
     "tags": "python"
+  },
+  {
+    "command": "volatility_standalone.exe -f ..\\..\\memdump.mem --profile=Win7SP1x86 hivelist",
+    "tool": "volatility",
+    "lab": "insider-threat",
+    "lab_url": "/blue-team/labs/insider-threat/",
+    "desc": "List all registry hives loaded in memory with their virtual and physical offsets. Use to locate SYSTEM, SAM, SOFTWARE, and user NTUSER.DAT hives before dumping — offsets from this output are required for dumpregistry.",
+    "tags": "volatility"
+  },
+  {
+    "command": "volatility_standalone.exe -f ..\\..\\memdump.mem --profile=Win7SP1x86 dumpregistry -o 0x8d818270 --dump-dir .",
+    "tool": "volatility",
+    "lab": "insider-threat",
+    "lab_url": "/blue-team/labs/insider-threat/",
+    "desc": "Dump a specific registry hive from memory to disk using its virtual offset from hivelist. Load the output .reg file in MiTec Windows Registry Recovery for offline analysis — used here to extract the SYSTEM hive for USB device enumeration via USBSTOR.",
+    "tags": "volatility"
   }
 ];
 
 const COMMANDS_META = {
-  "total": 123,
-  "labs": 47,
+  "total": 125,
+  "labs": 48,
   "tools": [
     "grep",
     "kql",

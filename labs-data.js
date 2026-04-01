@@ -1289,7 +1289,6 @@ const LABS = [
 
   {
     name:     'Backstage',
-    featured: true,  showcase_row: 'ir',
     skill:    'Incident Response',
     platform: 'BTLO',
     diff:     'Medium',
@@ -1682,6 +1681,22 @@ const LABS = [
     writeup:  '/blue-team/labs/photograph/',
     proof:    'https://blueteamlabs.online/achievement/share/144656/119',
     type:     'btlo',
+  },
+
+  {
+    name:     'Insider Threat',
+    featured: true,  showcase_row: 'ir',
+    skill:    'Incident Response',
+    platform: 'BTLO',
+    diff:     'Hard',
+    cats:     ['Incident Response', 'Evtxtract', 'Volatility2', 'MiTec Windows Registry Recovery', 'Notepad++', 'T1098', 'T1039', 'T1052.001', 'T1560.001', 'T1078'],
+    status:   'done',
+    score:    null,
+    summary:  'Investigate a terminated employee\'s final session using memory forensics, file server security logs, and a registry hive to reconstruct data exfiltration to a USB device.',
+    art:      'https://blueteamlabs.online/storage/labs/a126c99e7192a1425ea569fdd7427636a13801d3.png',
+    writeup:  '/blue-team/labs/insider-threat/',
+    proof:    'https://blueteamlabs.online/achievement/share/144656/136',
+    type:     'None',
   },
 
 ];
