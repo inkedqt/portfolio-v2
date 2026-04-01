@@ -239,7 +239,7 @@ challenge_url: {url}
 permalink: /blue-team/labs/{labname}/
 summary: {summary}
 art: {art}
-type: btlo
+type:
 points:
 youtube:
 locked: tate

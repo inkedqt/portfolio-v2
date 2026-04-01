@@ -1699,4 +1699,19 @@ const LABS = [
     type:     'None',
   },
 
+  {
+    name:     'Defender',
+    skill:    'Incident Response',
+    platform: 'BTLO',
+    diff:     'Medium',
+    cats:     ['Incident Response', 'Event Viewer', 'Command Prompt', 'Registry Editor', 'T1562.001', 'T1112', 'T1059.001'],
+    status:   'done',
+    score:    null,
+    summary:  'Analyse Windows Defender Antivirus event logs and registry to identify tamper activity — exclusions added, protections disabled, and MAPS reporting silenced.',
+    art:      'https://blueteamlabs.online/storage/labs/6b5c2e90325434f6ae338ad86c65240dba832b2e.png',
+    writeup:  '/blue-team/labs/defender/',
+    proof:    'https://blueteamlabs.online/achievement/share/144656/68',
+    type:     'None',
+  },
+
 ];
