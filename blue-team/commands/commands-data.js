@@ -991,7 +991,7 @@ const COMMANDS_DATA = [
     "tool": "volatility",
     "lab": "insider-threat",
     "lab_url": "/blue-team/labs/insider-threat/",
-    "desc": "List all registry hives loaded in memory with their virtual and physical offsets. Use to locate SYSTEM, SAM, SOFTWARE, and user NTUSER.DAT hives before dumping — offsets from this output are required for dumpregistry.",
+    "desc": "List all registry hives loaded in memory with their virtual and physical offsets. Use to locate SYSTEM, SAM, SOFTWARE, and user NTUSER.DAT hives before dumping \u2014 offsets from this output are required for dumpregistry.",
     "tags": "volatility"
   },
   {
@@ -999,14 +999,30 @@ const COMMANDS_DATA = [
     "tool": "volatility",
     "lab": "insider-threat",
     "lab_url": "/blue-team/labs/insider-threat/",
-    "desc": "Dump a specific registry hive from memory to disk using its virtual offset from hivelist. Load the output .reg file in MiTec Windows Registry Recovery for offline analysis — used here to extract the SYSTEM hive for USB device enumeration via USBSTOR.",
+    "desc": "Dump a specific registry hive from memory to disk using its virtual offset from hivelist. Load the output .reg file in MiTec Windows Registry Recovery for offline analysis \u2014 used here to extract the SYSTEM hive for USB device enumeration via USBSTOR.",
+    "tags": "volatility"
+  },
+  {
+    "command": "vol -f 192-Reveal.dmp windows.pstree",
+    "tool": "volatility",
+    "lab": "reveal",
+    "lab_url": "/blue-team/labs/reveal/",
+    "desc": "Render full process tree to identify anomalous parent-child relationships — wordpad.exe spawning powershell.exe flagged as malicious.",
+    "tags": "volatility"
+  },
+  {
+    "command": "vol -f 192-Reveal.dmp windows.getsids | grep \"4120\"",
+    "tool": "volatility",
+    "lab": "reveal",
+    "lab_url": "/blue-team/labs/reveal/",
+    "desc": "Resolve SIDs for a specific PID to identify the user account context under which the malicious process was running",
     "tags": "volatility"
   }
 ];
 
 const COMMANDS_META = {
-  "total": 125,
-  "labs": 48,
+  "total": 127,
+  "labs": 49,
   "tools": [
     "grep",
     "kql",

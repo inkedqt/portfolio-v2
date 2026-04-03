@@ -1744,4 +1744,19 @@ const LABS = [
     type:     'None',
   },
 
+  {
+    name:     'Reveal',
+    skill:    'Endpoint Forensics',
+    platform: 'CyberDefenders',
+    diff:     'Easy',
+    cats:     ['Endpoint Forensics', 'Volatility 3', 'Defense Evasion', 'Discovery', 'T1566.001', 'T1059.001', 'T1218.011', 'T1071.001'],
+    status:   'done',
+    score:    null,
+    summary:  'Analyse a Windows memory dump to identify a STRELASTEALER infection chain — malicious document opens in wordpad, spawns a hidden PowerShell process that mounts a WebDAV share and executes a remote DLL via rundll32.',
+    art:      'https://cyberdefenders.org/media/terraform/Reveal/Reveal.webp',
+    writeup:  '/blue-team/labs/reveal/',
+    proof:    'https://cyberdefenders.org/blueteam-ctf-challenges/achievements/inksec/reveal/',
+    type:     'None',
+  },
+
 ];
