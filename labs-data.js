@@ -1729,4 +1729,19 @@ const LABS = [
     type:     'None',
   },
 
+  {
+    name:     'Web Investigation',
+    skill:    'Network Forensics',
+    platform: 'CyberDefenders',
+    diff:     'Easy',
+    cats:     ['Network Forensics', 'Wireshark', 'Network Miner', 'Initial Access', 'Persistence', 'Command and Control', 'T1190', 'T1046', 'T1110.001', 'T1505.003', 'T1059.004'],
+    status:   'done',
+    score:    null,
+    summary:  'Analyse a web server PCAP to trace a full attack chain — SQLi enumeration against a PHP search endpoint, gobuster directory brute force, admin panel credential stuffing, and web shell upload for RCE.',
+    art:      'https://cyberdefenders.org/media/terraform/Web%20Investigation/terraform/Web%20Investigation/terraform/Web%20Investigation/Web_2gUE9o9.webp',
+    writeup:  '/blue-team/labs/web-investigation/',
+    proof:    'https://cyberdefenders.org/blueteam-ctf-challenges/achievements/inksec/web-investigation/',
+    type:     'None',
+  },
+
 ];
