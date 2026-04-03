@@ -1714,4 +1714,19 @@ const LABS = [
     type:     'None',
   },
 
+  {
+    name:     'NPM Supply Chain Attacks',
+    skill:    'Threat Intelligence',
+    platform: 'HackSmarter',
+    diff:     'Easy',
+    cats:     ['Incident Response', 'netstat', 'ps', 'crontab', 'Credential Access', 'Collection', 'T1195.002', 'T1059.007', 'T1053.003', 'T1071.001', 'T1105', 'T1070.003', 'T1036'],
+    status:   'done',
+    score:    null,
+    summary:  'NPM supply chain attack walkthrough — compromised Axios maintainer credentials used to publish a poisoned dependency that drops a Python RAT via postinstall, establishes cron persistence, and beacons to C2 over HTTPS.',
+    art:      'https://images.coursestack.com/16f4dfd6-7b60-4ba3-a050-d232d452da48/1f60e3fc-d540-4c5c-a647-d45be71a1cfd?w=600',
+    writeup:  '/blue-team/labs/npm_supply_chain_attack/',
+    proof:    'https://www.hacksmarter.org/completion/aaacfd8e7a4cbaac',
+    type:     'None',
+  },
+
 ];
