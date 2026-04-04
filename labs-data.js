@@ -1774,4 +1774,19 @@ const LABS = [
     type:     'None',
   },
 
+  {
+    name:     'XMRig',
+    skill:    'Endpoint Forensics',
+    platform: 'CyberDefenders',
+    diff:     'Medium',
+    cats:     ['Endpoint Forensics', 'Linux Command Line Tools', 'TestDisk', 'Strings', 'PhotoRec', 'Initial Access', 'Execution', 'Persistence', 'Privilege Escalation', 'Defense Evasion', 'Lateral Movement', 'Collection', 'Command and Control', 'Exfiltration', 'T1110.001', 'T1136.001', 'T1548.003', 'T1053.003', 'T1105', 'T1070.002', 'T1070.003', 'T1496'],
+    status:   'done',
+    score:    null,
+    summary:  'Linux disk image forensics — mount via losetup, recover deleted auth.log with PhotoRec, reconstruct SSH brute force and XMRig cryptominer deployment chain including cron persistence, sudoers manipulation, and attacker cleanup attempts.',
+    art:      'https://cyberdefenders.org/media/terraform/XMRig/XMRig.webp',
+    writeup:  '/blue-team/labs/xmrig/',
+    proof:    'https://cyberdefenders.org/blueteam-ctf-challenges/achievements/inksec/xmrig/',
+    type:     'None',
+  },
+
 ];
