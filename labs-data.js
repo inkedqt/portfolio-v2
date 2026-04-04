@@ -1759,4 +1759,19 @@ const LABS = [
     type:     'None',
   },
 
+  {
+    name:     'Andromeda Bot - UNC4210',
+    skill:    'Endpoint Forensics',
+    platform: 'CyberDefenders',
+    diff:     'Medium',
+    cats:     ['Endpoint Forensics', 'MemProcFS', 'VirusTotal', 'Evtxcmd', 'Timeline Explorer', 'Initial Access', 'Persistence', 'Privilege Escalation', 'Defense Evasion', 'Lateral Movement', 'Command and Control', 'T1091', 'T1059.001', 'T1562.001', 'T1036.005', 'T1071.001', 'T1105', 'T1055'],
+    status:   'done',
+    score:    null,
+    summary:  'Investigate a memory dump from a USB-propagated malware campaign — mount with MemProcFS, parse event logs in Timeline Explorer, and correlate Sysmon artefacts with Turla/UNC4210 threat intelligence to attribute the Andromeda bot reactivation.',
+    art:      'https://cyberdefenders.org/media/terraform/Andromeda%20Bot/Andromeda_Bot_.webp',
+    writeup:  '/blue-team/labs/andromeda-bot-unc4210/',
+    proof:    'https://cyberdefenders.org/blueteam-ctf-challenges/achievements/inksec/andromeda-bot-unc4210/',
+    type:     'None',
+  },
+
 ];
