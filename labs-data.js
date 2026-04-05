@@ -1789,4 +1789,19 @@ const LABS = [
     type:     'None',
   },
 
+  {
+    name:     'AndroidBreach',
+    skill:    'Endpoint Forensics',
+    platform: 'CyberDefenders',
+    diff:     'Medium',
+    cats:     ['Endpoint Forensics', 'ALEAPP', 'JADX', 'DB Browser for SQLite', 'CyberChef', 'Initial Access', 'Persistence', 'Privilege Escalation', 'Defense Evasion', 'Discovery', 'Collection', 'Exfiltration', 'Impact', 'T1476', 'T1417.001', 'T1532', 'T1041', 'T1573.001'],
+    status:   'done',
+    score:    null,
+    summary:  'Analyse an Android dump to investigate a credential breach — ALEAPP triage surfaces a malicious APK download, JADX reverse engineering reveals a keylogger exfiltrating data via SMTP to mailtrap.io and encrypting device images with AES.',
+    art:      'https://cyberdefenders.org/media/terraform/AndroidBreach/AndroidBreach_CXIGCGN.webp',
+    writeup:  '/blue-team/labs/androidbreach/',
+    proof:    'https://cyberdefenders.org/blueteam-ctf-challenges/achievements/inksec/androidbreach/',
+    type:     'None',
+  },
+
 ];
