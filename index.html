@@ -696,6 +696,78 @@ footer {
 .footer-0x span { color: var(--pink); font-family: 'Syne Mono', monospace; }
 .footer-0x .cx  { color: var(--cyan); }
 
+/* ── FEATURED CERTS ── */
+.cert-featured {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin-bottom: 14px;
+}
+.cert-card {
+  background: var(--panel);
+  border: 1px solid var(--muted);
+  padding: 24px;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  text-decoration: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  position: relative;
+  overflow: hidden;
+}
+.cert-card.cdsa {
+  border-color: var(--cyan-dim);
+  box-shadow: 0 0 30px var(--cyan-faint);
+}
+.cert-card.btl1 {
+  border-color: var(--pink-dim);
+  box-shadow: 0 0 30px var(--pink-faint);
+}
+.cert-card:hover.cdsa { box-shadow: 0 0 48px rgba(0,245,212,0.15); }
+.cert-card:hover.btl1 { box-shadow: 0 0 48px rgba(255,102,196,0.15); }
+.cert-card-badge {
+  width: 72px;
+  height: 72px;
+  flex-shrink: 0;
+  object-fit: contain;
+  filter: drop-shadow(0 0 12px rgba(0,0,0,0.6));
+}
+.cert-card-info {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.cert-card-tag {
+  font-size: 8px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+}
+.cdsa .cert-card-tag { color: var(--cyan); }
+.btl1 .cert-card-tag { color: var(--pink); }
+.cert-card-title {
+  font-family: 'Syne Mono', monospace;
+  font-size: 15px;
+  color: var(--text);
+}
+.cert-card-sub {
+  font-size: 9px;
+  letter-spacing: 0.12em;
+  color: var(--subtle);
+  line-height: 1.5;
+}
+.cert-card-verify {
+  font-size: 8px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  margin-top: 4px;
+}
+.cdsa .cert-card-verify { color: var(--cyan); }
+.btl1 .cert-card-verify { color: var(--pink); }
+@media (max-width: 700px) {
+  .cert-featured { grid-template-columns: 1fr; }
+  .cert-scroll { grid-template-columns: repeat(2, 1fr); }
+}
+
 /* ── RESPONSIVE ── */
 @media (max-width: 700px) {
   .hero { grid-template-columns: 1fr; text-align: center; }
@@ -778,10 +850,10 @@ html { scroll-behavior: smooth; zoom: 1.2; }
         </div>
         <div class="t-stat pk">
           <span>certs</span>
-          <span class="val">7</span>
+          <span class="val">8</span>
         </div>
         <div class="t-stat">
-          <span>BTL1</span>
+          <span>CCD1</span>
           <span class="val" style="color:var(--pink)">in progress</span>
         </div>
       </div>
@@ -793,7 +865,7 @@ html { scroll-behavior: smooth; zoom: 1.2; }
         <span class="t-cmd">cat ~/focus.txt</span>
       </div>
       <div class="t-line" style="padding-left:16px;color:var(--text-dim);font-size:11px;letter-spacing:0.05em;">
-        Cert IV CySec @ TAFE · BTL1 · daily SIEM sims · SOC L1 roles open
+        Cert IV CySec @ TAFE · CCD1 next · daily SIEM sims · SOC L1 roles open
         <span class="t-cursor"></span>
       </div>
     </div>
@@ -859,7 +931,7 @@ html { scroll-behavior: smooth; zoom: 1.2; }
         <ul class="port-bullets">
           <li>SIEM analysis · Splunk & Elastic</li>
           <li>MITRE ATT&CK mapped investigations</li>
-          <li>BTL1 certification labs in progress</li>
+          <li>BTL1 certified · CDSA certified</li>
           <li>Malware analysis · PCAP investigation</li>
           <li>Incident response documentation</li>
         </ul>
@@ -884,16 +956,40 @@ html { scroll-behavior: smooth; zoom: 1.2; }
   <!-- CERT STRIP -->
   <div class="cert-strip" id="certs">
     <div class="section-eyebrow">// certifications</div>
+    <div class="cert-featured">
+      <a class="cert-card cdsa" href="https://www.credly.com/badges/80ca0800-f89e-4be7-86c1-4e104d776233" target="_blank">
+        <img class="cert-card-badge" src="/assets/badges/cdsa.png" alt="CDSA Badge">
+        <div class="cert-card-info">
+          <div class="cert-card-tag">HTB Academy · 2024</div>
+          <div class="cert-card-title">CDSA</div>
+          <div class="cert-card-sub">Certified Defensive<br>Security Analyst</div>
+          <div class="cert-card-verify">verify on credly ↗</div>
+        </div>
+      </a>
+      <a class="cert-card btl1" href="https://www.credly.com/badges/fb58f93a-013b-4452-976b-369ee4a3aaea/public_url" target="_blank">
+        <img class="cert-card-badge" src="/assets/badges/btl1.png" alt="BTL1 Badge">
+        <div class="cert-card-info">
+          <div class="cert-card-tag">Security Blue Team · 2026</div>
+          <div class="cert-card-title">BTL1</div>
+          <div class="cert-card-sub">Blue Team Level 1<br>Certified</div>
+          <div class="cert-card-verify">verify on credly ↗</div>
+        </div>
+      </a>
+    </div>
     <div class="cert-scroll">
       <a class="cert-pill" href="https://www.credly.com/badges/80ca0800-f89e-4be7-86c1-4e104d776233" target="_blank">
         <div class="cert-abbr">CDSA</div>
         <div class="cert-name">Certified Defensive Security Analyst</div>
       </a>
       <div class="cert-pill in-progress">
-        <div class="cert-abbr">BTL1</div>
-        <div class="cert-name">Blue Team Level 1</div>
+        <div class="cert-abbr">CCDL1</div>
+        <div class="cert-name">Cyber Defenders Level 1</div>
         <div class="cert-status">in progress · May 2026</div>
       </div>
+      <a class="cert-pill" href="https://www.credly.com/badges/fb58f93a-013b-4452-976b-369ee4a3aaea/public_url" target="_blank">
+        <div class="cert-abbr">BTL1</div>
+        <div class="cert-name">Blue Team Level 1</div>
+      </a>
       <a class="cert-pill" href="https://www.credly.com/badges/3dff4822-f70f-40c8-a4b4-ee19a43b1d26" target="_blank">
         <div class="cert-abbr">CPTS</div>
         <div class="cert-name">Certified Penetration Testing Specialist</div>
