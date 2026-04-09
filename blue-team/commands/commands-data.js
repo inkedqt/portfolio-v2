@@ -1007,7 +1007,7 @@ const COMMANDS_DATA = [
     "tool": "volatility",
     "lab": "reveal",
     "lab_url": "/blue-team/labs/reveal/",
-    "desc": "Render full process tree to identify anomalous parent-child relationships — wordpad.exe spawning powershell.exe flagged as malicious.",
+    "desc": "Render full process tree to identify anomalous parent-child relationships \u2014 wordpad.exe spawning powershell.exe flagged as malicious.",
     "tags": "volatility"
   },
   {
@@ -1017,12 +1017,44 @@ const COMMANDS_DATA = [
     "lab_url": "/blue-team/labs/reveal/",
     "desc": "Resolve SIDs for a specific PID to identify the user account context under which the malicious process was running",
     "tags": "volatility"
+  },
+  {
+    "command": "Get-AuthenticodeSignature -FilePath \"neuro.msi\" | Select-Object Status",
+    "tool": "powershell",
+    "lab": "mitsu",
+    "lab_url": "/blue-team/labs/mitsu/",
+    "desc": "Checks the digital signature status of neuro.msi — surfaces unsigned or invalidly signed installers that may indicate tampered or malicious packages.",
+    "tags": "powershell"
+  },
+  {
+    "command": "Get-LocalUser | Select-Object Name | Out-File C:\\before.txt Get-LocalUser | Select-Object Name | Out-File C:\\after.txt Compare-Object (Get-Content ..\\before.txt) (Get-Content ..\\after.txt)",
+    "tool": "powershell",
+    "lab": "mitsu",
+    "lab_url": "/blue-team/labs/mitsu/",
+    "desc": "Captures local user accounts before and after executing a suspicious binary, then diffs the two snapshots to reveal any accounts silently created during execution.",
+    "tags": "powershell"
+  },
+  {
+    "command": "Get-LocalGroupMember -Group \"Administrators\"",
+    "tool": "powershell",
+    "lab": "mitsu",
+    "lab_url": "/blue-team/labs/mitsu/",
+    "desc": "Lists all members of the local Administrators group — used to confirm whether a newly created account was granted elevated privileges.",
+    "tags": "powershell"
+  },
+  {
+    "command": "powershell.exe -NoProfile -WindowsStyle Hidden -Command \"Get-Process | Out-File c:\\processes.txt\"",
+    "tool": "powershell",
+    "lab": "mitsu",
+    "lab_url": "/blue-team/labs/mitsu/",
+    "desc": "Attacker-deployed scheduled task command: dumps running processes to disk silently at logon using -WindowStyle Hidden to avoid user visibility.",
+    "tags": "powershell"
   }
 ];
 
 const COMMANDS_META = {
-  "total": 127,
-  "labs": 49,
+  "total": 131,
+  "labs": 50,
   "tools": [
     "grep",
     "kql",

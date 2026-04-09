@@ -1804,4 +1804,19 @@ const LABS = [
     type:     'None',
   },
 
+  {
+    name:     'Mitsu',
+    skill:    'Incident Response',
+    platform: 'BTLO',
+    diff:     'Easy',
+    cats:     ['Incident Response', 'PowerShell', 'T1518', 'T1136.001', 'T1053.005', 'T1547.001', 'T1059.001', 'T1112'],
+    status:   'done',
+    score:    null,
+    summary:  'You\'ve been called to investigate suspicious activity on a computer. Due to an unfortunate accident involving honey, the...',
+    art:      'https://blueteamlabs.online/storage/labs/8a2f6b88287c51bbff0702d0d1263448a43e404c.png',
+    writeup:  '/blue-team/labs/mitsu/',
+    proof:    'https://blueteamlabs.online/achievement/share/144656/221',
+    type:     'None',
+  },
+
 ];
