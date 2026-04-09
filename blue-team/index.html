@@ -366,6 +366,25 @@ section:last-child { border-bottom:none; }
 }
 .featured-cta:hover { background:var(--cyan); }
 
+/* ── FEATURED PAIR ── */
+.featured-pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin-bottom: 28px;
+}
+.featured-pair .featured-lab {
+  margin-bottom: 0;
+  grid-template-columns: 180px 1fr;
+}
+.featured-lab.btl1-card {
+  border-color: var(--cyan-dim);
+  box-shadow: 0 0 40px var(--cyan-faint);
+}
+@media (max-width: 800px) {
+  .featured-pair { grid-template-columns: 1fr; }
+}
+
 <!-- FEATURED SHOWCASE
      Populated from labs-data.js entries with featured: true
      showcase_row: 'ir' | 'df' | 'soc' | 'cloud'
@@ -574,7 +593,7 @@ html { scroll-behavior: smooth; zoom: 1.2; }
       <div class="hstat"><div class="hstat-val pk" id="stat-total">0</div><div class="hstat-label">Total Labs</div></div>
       <div class="hstat"><div class="hstat-val pk">80+</div><div class="hstat-label">Investigations</div></div>
       <div class="hstat"><div class="hstat-val cx">CDSA</div><div class="hstat-label">Certified</div></div>
-      <div class="hstat"><div class="hstat-val go">BTL1</div><div class="hstat-label">In Progress</div></div>
+      <div class="hstat"><div class="hstat-val cx">BTL1</div><div class="hstat-label">Certified</div></div>
     </div>
     <div class="platform-counts" id="platform-counts"></div>
 
@@ -709,8 +728,10 @@ html { scroll-behavior: smooth; zoom: 1.2; }
   <section>
     <div class="sec-eyebrow">// featured achievements</div>
 
-    <!-- LetsDefend Pathway - Featured Full Width -->
-    <div class="featured-lab" style="margin-bottom:20px;">
+    <div class="featured-pair">
+
+    <!-- CDSA -->
+    <div class="featured-lab">
       <div class="featured-art" style="min-height:180px;background:linear-gradient(135deg,#0a0a1a,#1a1a3a);">
         <img src="https://raw.githubusercontent.com/inkedqt/ctf-writeups/main/assets/certs/cdsa.png"
              onerror="this.style.display='none'"
@@ -735,19 +756,35 @@ html { scroll-behavior: smooth; zoom: 1.2; }
       </div>
     </div>
 
-    <div class="achievement-grid">
-      <div class="ach-card">
-        <div class="ach-tag">BTL1 · In Progress</div>
-        <div class="ach-title">Blue Team Labs Level 1</div>
-        <div class="ach-meta">Security Blue Team · Certification</div>
-        <ul class="ach-bullets">
-          <li>Phishing analysis & email header forensics</li>
-          <li>SIEM threat detection & log correlation</li>
-          <li>Network forensics & PCAP analysis</li>
-          <li>Digital forensics & endpoint investigation</li>
-          <li>Malware analysis & IOC identification</li>
-        </ul>
+    <!-- BTL1 -->
+    <div class="featured-lab btl1-card">
+      <div class="featured-art" style="min-height:180px;background:linear-gradient(135deg,#0a0a1a,#0a1a2a);display:flex;align-items:center;justify-content:center;">
+        <img src="/assets/badges/btl1.png"
+             onerror="this.style.display='none'"
+             alt="BTL1 Badge"
+             style="object-fit:contain;padding:32px;width:100%;height:100%;">
       </div>
+      <div class="featured-body">
+        <div class="featured-tag" style="color:var(--cyan);">Security Blue Team · Certification</div>
+        <div class="featured-title">Blue Team Level 1 (BTL1)</div>
+        <div class="featured-meta">Certification Exam · Credly Verified · April 2026</div>
+        <div class="featured-cats">
+          <span class="featured-cat">Phishing Analysis</span>
+          <span class="featured-cat">Digital Forensics</span>
+          <span class="featured-cat">SIEM</span>
+          <span class="featured-cat">Threat Intelligence</span>
+          <span class="featured-cat">Incident Response</span>
+        </div>
+        <p class="featured-summary">Hands-on certification covering five SOC domains — phishing analysis, digital forensics, threat intelligence, SIEM investigation, and incident response. Passed first attempt.</p>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;">
+          <a class="featured-cta" href="https://www.credly.com/badges/fb58f93a-013b-4452-976b-369ee4a3aaea/public_url" target="_blank" style="background:var(--cyan);box-shadow:0 0 16px var(--cyan-dim);color:var(--black);">verify on credly →</a>
+        </div>
+      </div>
+    </div>
+
+    </div><!-- /featured-pair -->
+
+    <div class="achievement-grid">
       <div class="ach-card">
         <div class="ach-tag">LetsDefend · Completed Pathway</div>
         <div class="ach-title">SOC Analyst Learning Path</div>
