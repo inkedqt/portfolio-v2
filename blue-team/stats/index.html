@@ -309,7 +309,7 @@ summary: A data-driven breakdown of 115+ completed cybersecurity labs across BTL
   <!-- Framing callout -->
   <div style="background:rgba(0,229,255,0.04); border:1px solid rgba(0,229,255,0.2); border-left:3px solid var(--cyan); padding:0.9rem 1.25rem; margin-bottom:2rem; font-size:0.74rem; line-height:1.8; color:var(--text);">
     <span style="color:var(--cyan); letter-spacing:0.1em; font-size:0.65rem; text-transform:uppercase;">// About this page</span><br>
-    This is an <strong style="color:#fff;">auto-generated snapshot</strong> from my Obsidian vault — not an exhaustive inventory. It surfaces patterns across <strong style="color:var(--pink);">115 labs</strong> and <strong style="color:var(--pink);">82 SOC alerts</strong>. Every number links back to a documented investigation. Full writeups live at <a href="/blue-team/#labs" style="color:var(--cyan); text-decoration:none;">/blue-team/labs</a> — this page exists so you don't have to read all of them.
+    This is an <strong style="color:#fff;">auto-generated snapshot</strong> from my Obsidian vault — not an exhaustive inventory. It surfaces patterns across <strong style="color:var(--pink);">115 labs</strong>, <strong style="color:var(--pink);">83 SOC alerts</strong>, and a <strong style="color:var(--cyan);">141-page wiki</strong> covering 25 malware families, 13 threat actors, and 76 MITRE techniques. Every number links back to a documented investigation. Full writeups live at <a href="/blue-team/#labs" style="color:var(--cyan); text-decoration:none;">/blue-team/labs</a> — this page exists so you don't have to read all of them.
   </div>
 
   <!-- Hero Numbers -->
@@ -335,7 +335,7 @@ summary: A data-driven breakdown of 115+ completed cybersecurity labs across BTL
       <div class="card-label">MITRE Tactics Hit</div>
     </div>
     <div class="hero-card green">
-      <div class="num">10</div>
+      <div class="num" id="stat-malware-count">25</div>
       <div class="card-label">Malware Families</div>
     </div>
   </div>
@@ -426,39 +426,11 @@ summary: A data-driven breakdown of 115+ completed cybersecurity labs across BTL
       <div class="tactic-pill"><span>Lateral Movement</span><span class="tcount">9</span></div>
     </div>
   </div>
-  <div class="panel">
-    <div class="panel-title">Top Techniques</div>
-    <div class="tag-grid">
-      <span class="tag pink">T1059.001 · PowerShell</span>
-      <span class="tag pink">T1105 · Ingress Tool Transfer</span>
-      <span class="tag pink">T1190 · Exploit Public-Facing App</span>
-      <span class="tag pink">T1566.001 · Spearphishing Link</span>
-      <span class="tag cyan">T1505.003 · Web Shells</span>
-      <span class="tag cyan">T1547.001 · Boot/Logon Autostart</span>
-      <span class="tag cyan">T1027 · Obfuscated Files</span>
-      <span class="tag cyan">T1036.005 · Masquerading</span>
-    </div>
-    <div style="margin-top:0.75rem; font-size:0.65rem; color:var(--text-dim);">
-      Full coverage mapped on the <a href="/blue-team/heatmap/" style="color:var(--cyan); text-decoration:none;">ATT&amp;CK Heatmap →</a>
-    </div>
-  </div>
-
   <!-- Malware Families -->
   <div class="section-title">Malware Families Investigated</div>
   <div class="panel">
-    <div class="panel-title">Confirmed Families — 10 Total</div>
-    <div class="mal-grid">
-      <div class="mal-row"><span class="mal-name">DanaBot</span><span class="mal-type">Banking Trojan</span></div>
-      <div class="mal-row"><span class="mal-name">IcedID</span><span class="mal-type">Banking Trojan</span></div>
-      <div class="mal-row"><span class="mal-name">XWorm</span><span class="mal-type">RAT</span></div>
-      <div class="mal-row"><span class="mal-name">XLMRat</span><span class="mal-type">Macro-based RAT</span></div>
-      <div class="mal-row"><span class="mal-name">NerisBot</span><span class="mal-type">Banking Trojan</span></div>
-      <div class="mal-row"><span class="mal-name">Amadey</span><span class="mal-type">Trojan / Stealer</span></div>
-      <div class="mal-row"><span class="mal-name">Andromeda</span><span class="mal-type">Bot / Loader</span></div>
-      <div class="mal-row"><span class="mal-name">Ramnit</span><span class="mal-type">Banking Worm</span></div>
-      <div class="mal-row"><span class="mal-name">REvil</span><span class="mal-type">Ransomware</span></div>
-      <div class="mal-row"><span class="mal-name">LummaStealer</span><span class="mal-type">Credential Stealer</span></div>
-    </div>
+    <div class="panel-title" id="malware-panel-title">Confirmed Families — 25 Total</div>
+    <div class="mal-grid" id="malware-grid" style="grid-template-columns:1fr 1fr 1fr;"></div>
   </div>
 
   <!-- Specialty Labs -->
@@ -581,34 +553,14 @@ summary: A data-driven breakdown of 115+ completed cybersecurity labs across BTL
 
   <!-- CVEs -->
   <div class="panel" style="margin-top:1rem;">
-    <div class="panel-title">CVEs Investigated — 10 Total</div>
-    <div style="display:grid; grid-template-columns:1fr 1fr; gap:0.4rem;">
-      <div class="mal-row"><span class="mal-name" style="font-size:0.68rem;">CVE-2025-53770 · SharePoint ToolShell</span><span class="mal-type">Critical · TP</span></div>
-      <div class="mal-row"><span class="mal-name" style="font-size:0.68rem;">CVE-2024-3400 · PAN-OS RCE</span><span class="mal-type">Critical · TP</span></div>
-      <div class="mal-row"><span class="mal-name" style="font-size:0.68rem;">CVE-2023-29357 · SharePoint Auth Bypass</span><span class="mal-type">Critical · TP</span></div>
-      <div class="mal-row"><span class="mal-name" style="font-size:0.68rem;">CVE-2025-21298 · Windows OLE RCE</span><span class="mal-type">Medium · TP</span></div>
-      <div class="mal-row"><span class="mal-name" style="font-size:0.68rem;">CVE-2024-49138 · Windows Privesc</span><span class="mal-type">Medium · TP</span></div>
-      <div class="mal-row"><span class="mal-name" style="font-size:0.68rem;">CVE-2024-24919 · Check Point Gateway</span><span class="mal-type">High · TP</span></div>
-      <div class="mal-row"><span class="mal-name" style="font-size:0.68rem;">CVE-2023-46214 · Splunk RCE</span><span class="mal-type">High · TP</span></div>
-      <div class="mal-row"><span class="mal-name" style="font-size:0.68rem;">CVE-2023-22515 · Confluence RCE</span><span class="mal-type">High · TP</span></div>
-      <div class="mal-row"><span class="mal-name" style="font-size:0.68rem;">CVE-2022-41082 · ProxyNotShell</span><span class="mal-type">High · TP</span></div>
-      <div class="mal-row"><span class="mal-name" style="font-size:0.68rem;">CVE-2022-30190 · Follina MSDT</span><span class="mal-type">Medium · TP</span></div>
-    </div>
+    <div class="panel-title" id="cve-panel-title">CVEs Investigated — 12 Total</div>
+    <div id="cve-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:0.4rem;"></div>
   </div>
 
   <!-- Threat Actors -->
   <div class="panel" style="margin-top:1rem;">
-    <div class="panel-title">Notable Threat Actors &amp; Malware</div>
-    <div class="mal-grid">
-      <div class="mal-row"><span class="mal-name">APT35 / Charming Kitten</span><span class="mal-type">Nation-state · HyperScrape</span></div>
-      <div class="mal-row"><span class="mal-name">Emotet</span><span class="mal-type">Banking Trojan / Loader ×4</span></div>
-      <div class="mal-row"><span class="mal-name">Cobalt Strike</span><span class="mal-type">Offensive C2</span></div>
-      <div class="mal-row"><span class="mal-name">Lumma Stealer</span><span class="mal-type">Credential Stealer</span></div>
-      <div class="mal-row"><span class="mal-name">AsyncRAT</span><span class="mal-type">Remote Access Trojan</span></div>
-      <div class="mal-row"><span class="mal-name">Maze</span><span class="mal-type">Ransomware</span></div>
-      <div class="mal-row"><span class="mal-name">Impacket / wmiexec</span><span class="mal-type">Post-exploitation</span></div>
-      <div class="mal-row"><span class="mal-name">JuicyPotato</span><span class="mal-type">Privilege Escalation</span></div>
-    </div>
+    <div class="panel-title" id="actor-panel-title">Threat Actors Tracked — 13 Total</div>
+    <div class="mal-grid" id="actor-grid"></div>
   </div>
 
   <!-- TTP Patterns -->
@@ -633,6 +585,15 @@ summary: A data-driven breakdown of 115+ completed cybersecurity labs across BTL
     </div>
   </div>
 
+  <!-- Threat Actor + MITRE coverage note -->
+  <div class="panel" style="margin-top:1rem;">
+    <div class="panel-title">Top MITRE Techniques — by Source Count</div>
+    <div id="ttp-tags" class="tag-grid"></div>
+    <div style="margin-top:0.75rem; font-size:0.65rem; color:var(--text-dim);">
+      Full coverage mapped on the <a href="/blue-team/heatmap/" style="color:var(--cyan); text-decoration:none;">ATT&amp;CK Heatmap →</a>
+    </div>
+  </div>
+
   <!-- Gap callout -->
   <div class="gap-box">
     <div class="gap-icon">⚡</div>
@@ -641,9 +602,110 @@ summary: A data-driven breakdown of 115+ completed cybersecurity labs across BTL
     </div>
   </div>
 
-  <div class="stats-footer">
+  <div class="stats-footer" id="stats-footer">
     <span>Stats auto-generated from Obsidian vault · updated periodically</span>
     <span><a href="/blue-team/heatmap/">ATT&CK Heatmap</a> &nbsp;·&nbsp; <a href="/blue-team/labs/">All Writeups</a></span>
   </div>
 
 </div>
+
+<script src="/wiki-data.js"></script>
+<script>
+(function () {
+  if (typeof WIKI_DATA === 'undefined') return;
+
+  /* ── helpers ──────────────────────────────────────────── */
+  function actorLabel(tags) {
+    var nation = tags.indexOf('russia') >= 0      ? 'Russian'      :
+                 tags.indexOf('north-korea') >= 0 ? 'North Korean' :
+                 tags.indexOf('china') >= 0       ? 'Chinese'      :
+                 tags.indexOf('iran') >= 0        ? 'Iranian'      :
+                 tags.indexOf('brazil') >= 0      ? 'Brazilian'    : '';
+    var type   = (tags.indexOf('nation-state') >= 0 || tags.indexOf('apt') >= 0)
+                   ? 'Nation-State'
+                   : (tags.indexOf('cybercrime') >= 0 || tags.indexOf('financial') >= 0 || tags.indexOf('fin') >= 0)
+                     ? 'Cybercrime'
+                     : 'Threat Group';
+    return nation ? nation + ' ' + type : type;
+  }
+
+  function shortName(full) {
+    // "APT29 (Cozy Bear / NOBELIUM)" → "APT29"
+    return full.replace(/\s*[\(\[].*/, '').trim();
+  }
+
+  function truncate(str, n) {
+    return str.length > n ? str.slice(0, n - 1) + '…' : str;
+  }
+
+  /* ── hero stat ────────────────────────────────────────── */
+  var malCountEl = document.getElementById('stat-malware-count');
+  if (malCountEl) malCountEl.textContent = WIKI_DATA.malware.length;
+
+  /* ── malware grid ─────────────────────────────────────── */
+  var malGrid = document.getElementById('malware-grid');
+  if (malGrid) {
+    var malHtml = WIKI_DATA.malware.map(function (m) {
+      return '<div class="mal-row">' +
+        '<span class="mal-name">' + shortName(m.name) + '</span>' +
+        '<span class="mal-type">' + m.type + '</span>' +
+        '</div>';
+    }).join('');
+    malGrid.innerHTML = malHtml;
+    var malTitle = document.getElementById('malware-panel-title');
+    if (malTitle) malTitle.textContent = 'Confirmed Families \u2014 ' + WIKI_DATA.malware.length + ' Total';
+  }
+
+  /* ── CVE grid ─────────────────────────────────────────── */
+  var cveGrid = document.getElementById('cve-grid');
+  if (cveGrid) {
+    var cveHtml = WIKI_DATA.cves.map(function (c) {
+      var label = truncate(c.id + ' \u00b7 ' + c.product, 52);
+      return '<div class="mal-row">' +
+        '<span class="mal-name" style="font-size:0.68rem;">' + label + '</span>' +
+        '<span class="mal-type">' + c.severity + '</span>' +
+        '</div>';
+    }).join('');
+    cveGrid.innerHTML = cveHtml;
+    var cveTitle = document.getElementById('cve-panel-title');
+    if (cveTitle) cveTitle.textContent = 'CVEs Investigated \u2014 ' + WIKI_DATA.cves.length + ' Total';
+  }
+
+  /* ── threat actors grid ───────────────────────────────── */
+  var actGrid = document.getElementById('actor-grid');
+  if (actGrid) {
+    var actHtml = WIKI_DATA.actors.map(function (a) {
+      return '<div class="mal-row">' +
+        '<span class="mal-name">' + shortName(a.name) + '</span>' +
+        '<span class="mal-type">' + actorLabel(a.tags) + '</span>' +
+        '</div>';
+    }).join('');
+    actGrid.innerHTML = actHtml;
+    var actTitle = document.getElementById('actor-panel-title');
+    if (actTitle) actTitle.textContent = 'Threat Actors Tracked \u2014 ' + WIKI_DATA.actors.length + ' Total';
+  }
+
+  /* ── top TTP tags ─────────────────────────────────────── */
+  var ttpTags = document.getElementById('ttp-tags');
+  if (ttpTags) {
+    var top = WIKI_DATA.ttps.slice(0, 16);
+    var colors = ['pink', 'pink', 'pink', 'pink', 'cyan', 'cyan', 'cyan', 'cyan',
+                  'pink', 'cyan', 'pink', 'cyan', '', '', '', ''];
+    var tagHtml = top.map(function (t, i) {
+      var cls = 'tag' + (colors[i] ? ' ' + colors[i] : '');
+      // Extract technique ID portion only for display: "T1059.001 — PowerShell" → short
+      var display = t.id + ' \u00b7 ' + t.name.replace(/^T\d[\d.]+\s*[—\-]+\s*/, '').replace(/^[A-Z ]+:\s*/, '');
+      return '<span class="' + cls + '">' + truncate(display, 40) + '</span>';
+    }).join('');
+    ttpTags.innerHTML = tagHtml;
+  }
+
+  /* ── footer timestamp ─────────────────────────────────── */
+  var footer = document.getElementById('stats-footer');
+  if (footer && WIKI_DATA.meta) {
+    var d = WIKI_DATA.meta.generated_at.slice(0, 10);
+    footer.querySelector('span').textContent =
+      'Wiki data generated ' + d + ' \u00b7 ' + WIKI_DATA.meta.total_pages + ' pages \u00b7 ' + WIKI_DATA.meta.total_sources + ' sources';
+  }
+})();
+</script>
