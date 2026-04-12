@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{ page.title }} // inksec.io</title>
+{% if page.summary %}<meta name="description" content="{{ page.summary }}">{% endif %}
+<link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Syne+Mono&family=DM+Mono:wght@300;400;500&family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --black:      #050508;
+  --deep:       #08080f;
+  --panel:      #0c0c18;
+  --pink:       #ff66c4;
+  --pink-bright:#ff90d6;
+  --pink-dim:   rgba(255,102,196,0.4);
+  --pink-faint: rgba(255,102,196,0.07);
+  --cyan:       #00f5d4;
+  --cyan-dim:   rgba(0,245,212,0.4);
+  --cyan-faint: rgba(0,245,212,0.07);
+  --gold:       #ffd166;
+  --gold-dim:   rgba(255,209,102,0.35);
+  --muted:      #2a2a45;
+  --subtle:     #4a4a6a;
+  --text:       #c8c8e8;
+  --text-dim:   #b0b0cc;
+  --green:      #00ff88;
+  --green-dim:  rgba(0,255,136,0.3);
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--black);
+  color: var(--text);
+  font-family: 'Share Tech Mono', monospace;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background:
+    linear-gradient(#1a1a2e 1px, transparent 1px),
+    linear-gradient(90deg, #1a1a2e 1px, transparent 1px);
+  background-size: 36px 36px;
+  opacity: 0.1;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.scanline {
+  position: fixed; top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--pink-dim), transparent);
+  animation: scan 7s linear infinite;
+  opacity: 0.25; z-index: 999; pointer-events: none;
+}
+@keyframes scan { 0%{top:-1px} 100%{top:100%} }
+
+/* ── NAV ── */
+nav {
+  position: sticky; top: 0; z-index: 100;
+  background: rgba(5,5,8,0.94);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--muted);
+  padding: 0 clamp(16px, 5vw, 80px);
+  display: flex; align-items: center;
+  justify-content: space-between; height: 52px;
+}
+.nav-brand { font-family:'Syne Mono',monospace; font-size:15px; color:var(--text); text-decoration:none; }
+.nav-brand .pk { color:var(--pink); text-shadow:0 0 20px var(--pink-dim); }
+.nav-brand .cx { color:var(--cyan); }
+.nav-links { display:flex; gap:clamp(14px,3vw,32px); list-style:none; align-items:center; }
+.nav-links a { font-size:10px; letter-spacing:0.2em; text-transform:uppercase; color:var(--cyan); text-decoration:none; transition:color 0.2s; }
+.nav-links a:hover { color:var(--pink); }
+.nav-back { font-size:10px; letter-spacing:0.15em; color:var(--subtle); text-decoration:none; border:1px solid var(--muted); padding:4px 10px; transition:all 0.2s; }
+.nav-back:hover { color:var(--cyan); border-color:var(--cyan-dim); }
+
+@media(max-width:700px) {
+  nav .nav-links { display:none; }
+}
+</style>
+</head>
+<body>
+<div class="scanline"></div>
+
+<nav>
+  <a class="nav-brand" href="/"><span class="pk">ink</span>sec<span class="cx">.io</span></a>
+  <ul class="nav-links">
+    <li><a href="/blue-team/#alert-log">Investigations</a></li>
+    <li><a href="/blue-team/#labs">Labs</a></li>
+    <li><a href="/blue-team/stats/">Stats</a></li>
+    <li><a href="/blue-team/#environments">Lab Envs</a></li>
+    <li><a href="/resume/">Resume</a></li>
+    <li><a href="/bookmarks/">Bookmarks</a></li>
+  </ul>
+  <a class="nav-back" href="/blue-team/">← blue team</a>
+</nav>
+
+{{ content }}
+
+</body>
+</html>
