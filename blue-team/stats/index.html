@@ -1,0 +1,649 @@
+---
+layout: default
+title: Lab Portfolio Stats
+permalink: /blue-team/stats/
+summary: A data-driven breakdown of 115+ completed cybersecurity labs across BTLO and CyberDefenders — tools, techniques, malware families, and MITRE ATT&CK coverage.
+---
+
+<style>
+  :root {
+    --pink: #ff6eb4;
+    --cyan: #00e5ff;
+    --bg: #0a0a0f;
+    --surface: #0f0f1a;
+    --surface2: #13131f;
+    --border: rgba(255, 110, 180, 0.15);
+    --border-cyan: rgba(0, 229, 255, 0.15);
+    --text: #c8c8d8;
+    --text-dim: #5a5a7a;
+    --green: #39ff14;
+  }
+
+  .stats-wrap {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem 4rem;
+    font-family: 'Courier New', monospace;
+    color: var(--text);
+    background: var(--bg);
+  }
+
+  /* ── Header ── */
+  .stats-header {
+    border-left: 3px solid var(--pink);
+    padding-left: 1.25rem;
+    margin-bottom: 3rem;
+  }
+  .stats-header .label {
+    font-size: 0.7rem;
+    letter-spacing: 0.25em;
+    color: var(--pink);
+    text-transform: uppercase;
+    margin-bottom: 0.4rem;
+  }
+  .stats-header h1 {
+    font-family: 'Orbitron', monospace;
+    font-size: clamp(1.6rem, 4vw, 2.4rem);
+    color: #fff;
+    margin: 0 0 0.5rem;
+    letter-spacing: 0.05em;
+  }
+  .stats-header .meta {
+    font-size: 0.75rem;
+    color: var(--text-dim);
+  }
+  .stats-header .meta span {
+    color: var(--cyan);
+  }
+
+  /* ── Big stat cards ── */
+  .hero-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1rem;
+    margin-bottom: 2.5rem;
+  }
+  .hero-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    padding: 1.25rem 1.5rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: var(--pink);
+  }
+  .hero-card.cyan::before { background: var(--cyan); }
+  .hero-card.green::before { background: var(--green); }
+  .hero-card .num {
+    font-family: 'Orbitron', monospace;
+    font-size: 2.4rem;
+    color: var(--pink);
+    line-height: 1;
+    margin-bottom: 0.3rem;
+  }
+  .hero-card.cyan .num { color: var(--cyan); }
+  .hero-card.green .num { color: var(--green); }
+  .hero-card .card-label {
+    font-size: 0.68rem;
+    letter-spacing: 0.15em;
+    color: var(--text-dim);
+    text-transform: uppercase;
+  }
+
+  /* ── Section headers ── */
+  .section-title {
+    font-size: 0.65rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--pink);
+    margin: 2.5rem 0 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  .section-title::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  /* ── Two col layout ── */
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+  @media (max-width: 680px) {
+    .two-col { grid-template-columns: 1fr; }
+  }
+
+  /* ── Data panels ── */
+  .panel {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    padding: 1.25rem;
+  }
+  .panel-title {
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--cyan);
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--border-cyan);
+  }
+
+  /* ── Bar rows ── */
+  .bar-row {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.65rem;
+  }
+  .bar-label {
+    font-size: 0.72rem;
+    color: var(--text);
+    width: 160px;
+    flex-shrink: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .bar-track {
+    flex: 1;
+    height: 6px;
+    background: rgba(255,255,255,0.05);
+    position: relative;
+  }
+  .bar-fill {
+    height: 100%;
+    background: var(--pink);
+    position: relative;
+  }
+  .bar-fill.cyan { background: var(--cyan); }
+  .bar-fill.green { background: var(--green); }
+  .bar-count {
+    font-size: 0.7rem;
+    color: var(--text-dim);
+    width: 28px;
+    text-align: right;
+    flex-shrink: 0;
+  }
+
+  /* ── Tag clouds ── */
+  .tag-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+  .tag {
+    font-size: 0.65rem;
+    padding: 0.2rem 0.55rem;
+    border: 1px solid var(--border);
+    color: var(--text-dim);
+    letter-spacing: 0.08em;
+    background: var(--surface2);
+  }
+  .tag.pink { border-color: rgba(255,110,180,0.4); color: var(--pink); }
+  .tag.cyan { border-color: rgba(0,229,255,0.3); color: var(--cyan); }
+  .tag.green { border-color: rgba(57,255,20,0.3); color: var(--green); }
+
+  /* ── Malware table ── */
+  .mal-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.4rem;
+  }
+  .mal-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.72rem;
+    padding: 0.35rem 0;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+  }
+  .mal-name { color: var(--pink); }
+  .mal-type { color: var(--text-dim); font-size: 0.62rem; text-align: right; }
+
+  /* ── Specialty labs ── */
+  .specialty-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 0.75rem;
+  }
+  .spec-card {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-left: 2px solid var(--cyan);
+    padding: 0.75rem 1rem;
+  }
+  .spec-theme {
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    color: var(--cyan);
+    text-transform: uppercase;
+    margin-bottom: 0.4rem;
+  }
+  .spec-labs {
+    font-size: 0.68rem;
+    color: var(--text-dim);
+    line-height: 1.6;
+  }
+  .spec-labs code {
+    color: var(--pink);
+    background: none;
+    font-size: 0.66rem;
+  }
+
+  /* ── Gap callout ── */
+  .gap-box {
+    border: 1px solid rgba(255,110,180,0.3);
+    background: rgba(255,110,180,0.04);
+    padding: 1rem 1.25rem;
+    margin-top: 2rem;
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+  .gap-icon {
+    font-size: 1.2rem;
+    flex-shrink: 0;
+    margin-top: 0.1rem;
+  }
+  .gap-text { font-size: 0.75rem; color: var(--text); line-height: 1.7; }
+  .gap-text strong { color: var(--pink); }
+
+  /* ── Footer note ── */
+  .stats-footer {
+    margin-top: 3rem;
+    font-size: 0.65rem;
+    color: var(--text-dim);
+    border-top: 1px solid var(--border);
+    padding-top: 1rem;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .stats-footer a { color: var(--cyan); text-decoration: none; }
+
+  /* ── MITRE tactic pills ── */
+  .tactic-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
+  }
+  .tactic-pill {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.7rem;
+    padding: 0.4rem 0.75rem;
+    background: var(--surface2);
+    border-left: 2px solid var(--pink);
+  }
+  .tactic-pill .tcount {
+    font-family: 'Orbitron', monospace;
+    font-size: 0.75rem;
+    color: var(--pink);
+  }
+</style>
+
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
+
+<div class="stats-wrap">
+
+  <div class="stats-header">
+    <div class="label">// portfolio metrics</div>
+    <h1>Lab Portfolio Stats</h1>
+    <div class="meta">Generated <span>2026-04-12</span> &nbsp;·&nbsp; <span>119</span> files scanned &nbsp;·&nbsp; auto-generated from Obsidian vault</div>
+  </div>
+
+  <!-- Framing callout -->
+  <div style="background:rgba(0,229,255,0.04); border:1px solid rgba(0,229,255,0.2); border-left:3px solid var(--cyan); padding:0.9rem 1.25rem; margin-bottom:2rem; font-size:0.74rem; line-height:1.8; color:var(--text);">
+    <span style="color:var(--cyan); letter-spacing:0.1em; font-size:0.65rem; text-transform:uppercase;">// About this page</span><br>
+    This is an <strong style="color:#fff;">auto-generated snapshot</strong> from my Obsidian vault — not an exhaustive inventory. It surfaces patterns across <strong style="color:var(--pink);">115 labs</strong> and <strong style="color:var(--pink);">82 SOC alerts</strong>. Every number links back to a documented investigation. Full writeups live at <a href="/blue-team/labs/" style="color:var(--cyan); text-decoration:none;">/blue-team/labs</a> — this page exists so you don't have to read all of them.
+  </div>
+
+  <!-- Hero Numbers -->
+  <div class="hero-stats">
+    <div class="hero-card">
+      <div class="num">115</div>
+      <div class="card-label">Labs Completed</div>
+    </div>
+    <div class="hero-card cyan">
+      <div class="num">97.5<span style="font-size:1.2rem">%</span></div>
+      <div class="card-label">Completion Rate</div>
+    </div>
+    <div class="hero-card">
+      <div class="num">71</div>
+      <div class="card-label">BTLO Labs</div>
+    </div>
+    <div class="hero-card cyan">
+      <div class="num">43</div>
+      <div class="card-label">CyberDefenders</div>
+    </div>
+    <div class="hero-card green">
+      <div class="num">32</div>
+      <div class="card-label">MITRE Tactics Hit</div>
+    </div>
+    <div class="hero-card green">
+      <div class="num">10</div>
+      <div class="card-label">Malware Families</div>
+    </div>
+  </div>
+
+  <!-- Platform + Difficulty -->
+  <div class="section-title">Platform &amp; Difficulty</div>
+  <div class="two-col">
+    <div class="panel">
+      <div class="panel-title">Platform Split</div>
+      <div class="bar-row">
+        <div class="bar-label">BTLO</div>
+        <div class="bar-track"><div class="bar-fill" style="width:60%"></div></div>
+        <div class="bar-count">71</div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label">CyberDefenders</div>
+        <div class="bar-track"><div class="bar-fill cyan" style="width:36%"></div></div>
+        <div class="bar-count">43</div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label">Other</div>
+        <div class="bar-track"><div class="bar-fill" style="width:4%;opacity:0.4"></div></div>
+        <div class="bar-count">4</div>
+      </div>
+    </div>
+    <div class="panel">
+      <div class="panel-title">Difficulty Breakdown</div>
+      <div class="bar-row">
+        <div class="bar-label">Easy</div>
+        <div class="bar-track"><div class="bar-fill cyan" style="width:66%"></div></div>
+        <div class="bar-count">78</div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label">Medium</div>
+        <div class="bar-track"><div class="bar-fill" style="width:27%"></div></div>
+        <div class="bar-count">32</div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label">Hard</div>
+        <div class="bar-track"><div class="bar-fill green" style="width:4%"></div></div>
+        <div class="bar-count">5</div>
+      </div>
+      <div style="margin-top:0.75rem; font-size:0.65rem; color:var(--text-dim);">
+        Hard: First Week · Insider Threat · Secure Shell · You're Hired
+      </div>
+    </div>
+  </div>
+
+  <!-- Categories + Tools -->
+  <div class="section-title">Categories &amp; Tools</div>
+  <div class="two-col">
+    <div class="panel">
+      <div class="panel-title">Top Categories</div>
+      <div class="bar-row"><div class="bar-label">Incident Response</div><div class="bar-track"><div class="bar-fill" style="width:100%"></div></div><div class="bar-count">38</div></div>
+      <div class="bar-row"><div class="bar-label">Endpoint Forensics</div><div class="bar-track"><div class="bar-fill" style="width:66%"></div></div><div class="bar-count">25</div></div>
+      <div class="bar-row"><div class="bar-label">Network Forensics</div><div class="bar-track"><div class="bar-fill cyan" style="width:42%"></div></div><div class="bar-count">16</div></div>
+      <div class="bar-row"><div class="bar-label">Threat Intelligence</div><div class="bar-track"><div class="bar-fill cyan" style="width:26%"></div></div><div class="bar-count">10</div></div>
+      <div class="bar-row"><div class="bar-label">Cloud Forensics</div><div class="bar-track"><div class="bar-fill green" style="width:10%"></div></div><div class="bar-count">4</div></div>
+      <div class="bar-row"><div class="bar-label">Malware Analysis</div><div class="bar-track"><div class="bar-fill green" style="width:10%"></div></div><div class="bar-count">4</div></div>
+      <div class="bar-row"><div class="bar-label">Detection Eng.</div><div class="bar-track"><div class="bar-fill" style="width:5%;opacity:0.5"></div></div><div class="bar-count">2</div></div>
+    </div>
+    <div class="panel">
+      <div class="panel-title">Most Used Tools</div>
+      <div class="bar-row"><div class="bar-label">Wireshark</div><div class="bar-track"><div class="bar-fill" style="width:100%"></div></div><div class="bar-count">36</div></div>
+      <div class="bar-row"><div class="bar-label">PowerShell</div><div class="bar-track"><div class="bar-fill" style="width:100%"></div></div><div class="bar-count">36</div></div>
+      <div class="bar-row"><div class="bar-label">VirusTotal</div><div class="bar-track"><div class="bar-fill cyan" style="width:80%"></div></div><div class="bar-count">29</div></div>
+      <div class="bar-row"><div class="bar-label">OSINT techniques</div><div class="bar-track"><div class="bar-fill cyan" style="width:55%"></div></div><div class="bar-count">20</div></div>
+      <div class="bar-row"><div class="bar-label">Sysmon</div><div class="bar-track"><div class="bar-fill" style="width:50%"></div></div><div class="bar-count">18</div></div>
+      <div class="bar-row"><div class="bar-label">CyberChef</div><div class="bar-track"><div class="bar-fill" style="width:44%"></div></div><div class="bar-count">16</div></div>
+      <div class="bar-row"><div class="bar-label">Volatility v2/v3</div><div class="bar-track"><div class="bar-fill cyan" style="width:33%"></div></div><div class="bar-count">12</div></div>
+      <div class="bar-row"><div class="bar-label">Splunk</div><div class="bar-track"><div class="bar-fill green" style="width:28%"></div></div><div class="bar-count">10</div></div>
+    </div>
+  </div>
+
+  <!-- MITRE -->
+  <div class="section-title">MITRE ATT&amp;CK Coverage</div>
+  <div class="panel" style="margin-bottom:1rem;">
+    <div class="panel-title">Tactics by Lab Count</div>
+    <div class="tactic-grid">
+      <div class="tactic-pill"><span>Execution</span><span class="tcount">32</span></div>
+      <div class="tactic-pill"><span>Defense Evasion</span><span class="tcount">30</span></div>
+      <div class="tactic-pill"><span>Persistence</span><span class="tcount">25</span></div>
+      <div class="tactic-pill"><span>Credential Access</span><span class="tcount">21</span></div>
+      <div class="tactic-pill"><span>Command &amp; Control</span><span class="tcount">21</span></div>
+      <div class="tactic-pill"><span>Privilege Escalation</span><span class="tcount">19</span></div>
+      <div class="tactic-pill"><span>Initial Access</span><span class="tcount">16</span></div>
+      <div class="tactic-pill"><span>Exfiltration</span><span class="tcount">10</span></div>
+      <div class="tactic-pill"><span>Lateral Movement</span><span class="tcount">9</span></div>
+    </div>
+  </div>
+  <div class="panel">
+    <div class="panel-title">Top Techniques</div>
+    <div class="tag-grid">
+      <span class="tag pink">T1059.001 · PowerShell</span>
+      <span class="tag pink">T1105 · Ingress Tool Transfer</span>
+      <span class="tag pink">T1190 · Exploit Public-Facing App</span>
+      <span class="tag pink">T1566.001 · Spearphishing Link</span>
+      <span class="tag cyan">T1505.003 · Web Shells</span>
+      <span class="tag cyan">T1547.001 · Boot/Logon Autostart</span>
+      <span class="tag cyan">T1027 · Obfuscated Files</span>
+      <span class="tag cyan">T1036.005 · Masquerading</span>
+    </div>
+    <div style="margin-top:0.75rem; font-size:0.65rem; color:var(--text-dim);">
+      Full coverage mapped on the <a href="/blue-team/heatmap/" style="color:var(--cyan); text-decoration:none;">ATT&amp;CK Heatmap →</a>
+    </div>
+  </div>
+
+  <!-- Malware Families -->
+  <div class="section-title">Malware Families Investigated</div>
+  <div class="panel">
+    <div class="panel-title">Confirmed Families — 10 Total</div>
+    <div class="mal-grid">
+      <div class="mal-row"><span class="mal-name">DanaBot</span><span class="mal-type">Banking Trojan</span></div>
+      <div class="mal-row"><span class="mal-name">IcedID</span><span class="mal-type">Banking Trojan</span></div>
+      <div class="mal-row"><span class="mal-name">XWorm</span><span class="mal-type">RAT</span></div>
+      <div class="mal-row"><span class="mal-name">XLMRat</span><span class="mal-type">Macro-based RAT</span></div>
+      <div class="mal-row"><span class="mal-name">NerisBot</span><span class="mal-type">Banking Trojan</span></div>
+      <div class="mal-row"><span class="mal-name">Amadey</span><span class="mal-type">Trojan / Stealer</span></div>
+      <div class="mal-row"><span class="mal-name">Andromeda</span><span class="mal-type">Bot / Loader</span></div>
+      <div class="mal-row"><span class="mal-name">Ramnit</span><span class="mal-type">Banking Worm</span></div>
+      <div class="mal-row"><span class="mal-name">REvil</span><span class="mal-type">Ransomware</span></div>
+      <div class="mal-row"><span class="mal-name">LummaStealer</span><span class="mal-type">Credential Stealer</span></div>
+    </div>
+  </div>
+
+  <!-- Specialty Labs -->
+  <div class="section-title">Notable Specialty Labs</div>
+  <div class="specialty-grid">
+    <div class="spec-card">
+      <div class="spec-theme">APT / Nation-State</div>
+      <div class="spec-labs">Gothic Panda series · <code>andromeda-bot-unc4210</code> · <code>revil_gold</code></div>
+    </div>
+    <div class="spec-card">
+      <div class="spec-theme">Cloud Forensics</div>
+      <div class="spec-labs"><code>awsraid</code> · <code>azurehunt</code> · <code>rogueazure</code> · <code>spilledbucket</code></div>
+    </div>
+    <div class="spec-card">
+      <div class="spec-theme">Supply Chain</div>
+      <div class="spec-labs"><code>3cxsupplychain</code> · <code>npm_supply_chain_attack</code></div>
+    </div>
+    <div class="spec-card">
+      <div class="spec-theme">Memory Forensics</div>
+      <div class="spec-labs"><code>amadey</code> · <code>latent</code> · <code>firstweek</code> · <code>volatilitytraces</code></div>
+    </div>
+    <div class="spec-card">
+      <div class="spec-theme">Ransomware IR</div>
+      <div class="spec-labs"><code>raasunfold</code> · <code>revil_gold</code> · <code>maranhao</code> · <code>ramnit</code></div>
+    </div>
+    <div class="spec-card">
+      <div class="spec-theme">Unique Scenarios</div>
+      <div class="spec-labs"><code>containerbreak</code> (escape) · <code>androidbreach</code> (mobile)</div>
+    </div>
+  </div>
+
+  <!-- Technologies -->
+  <div class="section-title">Technologies Covered</div>
+  <div class="panel">
+    <div class="panel-title">Platforms</div>
+    <div class="tag-grid" style="margin-bottom:1rem;">
+      <span class="tag pink">Windows</span>
+      <span class="tag pink">Linux</span>
+      <span class="tag">macOS</span>
+      <span class="tag cyan">Android · ALEAPP</span>
+      <span class="tag cyan">Docker / Containers</span>
+    </div>
+    <div class="panel-title">Active Directory — Investigated Attacks</div>
+    <div class="tag-grid" style="margin-bottom:1rem;">
+      <span class="tag pink">Mimikatz / Credential Dumping</span>
+      <span class="tag pink">DCSync</span>
+      <span class="tag pink">Pass-the-Hash</span>
+      <span class="tag">Kerberoasting</span>
+      <span class="tag">LDAP Enumeration</span>
+      <span class="tag">NTLM Relay</span>
+      <span class="tag">Privilege Escalation via AD</span>
+    </div>
+    <div class="panel-title">Cloud &amp; Protocols</div>
+    <div class="tag-grid">
+      <span class="tag cyan">Azure</span>
+      <span class="tag cyan">AWS</span>
+      <span class="tag cyan">Office 365</span>
+      <span class="tag green">HTTP/S</span>
+      <span class="tag green">SSH</span>
+      <span class="tag green">RDP</span>
+      <span class="tag green">FTP</span>
+      <span class="tag green">SMB</span>
+    </div>
+  </div>
+
+  <!-- LetsDefend Section -->
+  <div class="section-title" style="color:var(--cyan);">LetsDefend — SOC Alert Triage</div>
+
+  <div class="hero-stats" style="margin-bottom:1rem;">
+    <div class="hero-card cyan">
+      <div class="num" style="color:var(--cyan);">82</div>
+      <div class="card-label">Alerts Investigated</div>
+    </div>
+    <div class="hero-card green">
+      <div class="num" style="color:var(--green);">82.9<span style="font-size:1.2rem">%</span></div>
+      <div class="card-label">True Positive Rate</div>
+    </div>
+    <div class="hero-card">
+      <div class="num">13</div>
+      <div class="card-label">Critical Severity</div>
+    </div>
+    <div class="hero-card cyan">
+      <div class="num" style="color:var(--cyan);">10</div>
+      <div class="card-label">CVEs Investigated</div>
+    </div>
+    <div class="hero-card green">
+      <div class="num" style="color:var(--green);">54</div>
+      <div class="card-label">MITRE Techniques</div>
+    </div>
+  </div>
+
+  <div class="two-col">
+    <div class="panel">
+      <div class="panel-title">Alert Categories</div>
+      <div class="bar-row"><div class="bar-label">Phishing / Social Eng.</div><div class="bar-track"><div class="bar-fill" style="width:100%"></div></div><div class="bar-count">16</div></div>
+      <div class="bar-row"><div class="bar-label">Web App / CVE Abuse</div><div class="bar-track"><div class="bar-fill cyan" style="width:87%"></div></div><div class="bar-count">14</div></div>
+      <div class="bar-row"><div class="bar-label">Malware Execution</div><div class="bar-track"><div class="bar-fill" style="width:75%"></div></div><div class="bar-count">12</div></div>
+      <div class="bar-row"><div class="bar-label">LOLBin / Binary Abuse</div><div class="bar-track"><div class="bar-fill cyan" style="width:56%"></div></div><div class="bar-count">9</div></div>
+      <div class="bar-row"><div class="bar-label">Proxy / Suspicious URL</div><div class="bar-track"><div class="bar-fill" style="width:37%"></div></div><div class="bar-count">6</div></div>
+      <div class="bar-row"><div class="bar-label">Brute Force / Auth</div><div class="bar-track"><div class="bar-fill green" style="width:31%"></div></div><div class="bar-count">5</div></div>
+      <div class="bar-row"><div class="bar-label">Persistence</div><div class="bar-track"><div class="bar-fill" style="width:25%"></div></div><div class="bar-count">4</div></div>
+      <div class="bar-row"><div class="bar-label">C2 / RAT / Backdoor</div><div class="bar-track"><div class="bar-fill cyan" style="width:19%"></div></div><div class="bar-count">3</div></div>
+      <div class="bar-row"><div class="bar-label">Data Exfiltration</div><div class="bar-track"><div class="bar-fill green" style="width:19%"></div></div><div class="bar-count">3</div></div>
+      <div class="bar-row"><div class="bar-label">Ransomware</div><div class="bar-track"><div class="bar-fill" style="width:12%"></div></div><div class="bar-count">2</div></div>
+    </div>
+    <div class="panel">
+      <div class="panel-title">Severity Split</div>
+      <div class="bar-row"><div class="bar-label">Critical</div><div class="bar-track"><div class="bar-fill" style="width:34%"></div></div><div class="bar-count">13</div></div>
+      <div class="bar-row"><div class="bar-label">High</div><div class="bar-track"><div class="bar-fill cyan" style="width:79%"></div></div><div class="bar-count">30</div></div>
+      <div class="bar-row"><div class="bar-label">Medium</div><div class="bar-track"><div class="bar-fill green" style="width:100%"></div></div><div class="bar-count">38</div></div>
+      <div class="bar-row"><div class="bar-label">Low</div><div class="bar-track"><div class="bar-fill" style="width:3%;opacity:0.4"></div></div><div class="bar-count">1</div></div>
+      <div class="panel-title" style="margin-top:1.25rem;">Outcome</div>
+      <div class="bar-row"><div class="bar-label">True Positive</div><div class="bar-track"><div class="bar-fill green" style="width:83%"></div></div><div class="bar-count">68</div></div>
+      <div class="bar-row"><div class="bar-label">False Positive</div><div class="bar-track"><div class="bar-fill" style="width:17%;opacity:0.5"></div></div><div class="bar-count">14</div></div>
+      <div style="margin-top:0.75rem; font-size:0.63rem; color:var(--text-dim); line-height:1.6;">
+        FP causes: WinRAR/Google Update downloads, authorised pentest activity, legitimate domains flagged by keyword match
+      </div>
+    </div>
+  </div>
+
+  <!-- CVEs -->
+  <div class="panel" style="margin-top:1rem;">
+    <div class="panel-title">CVEs Investigated — 10 Total</div>
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:0.4rem;">
+      <div class="mal-row"><span class="mal-name" style="font-size:0.68rem;">CVE-2025-53770 · SharePoint ToolShell</span><span class="mal-type">Critical · TP</span></div>
+      <div class="mal-row"><span class="mal-name" style="font-size:0.68rem;">CVE-2024-3400 · PAN-OS RCE</span><span class="mal-type">Critical · TP</span></div>
+      <div class="mal-row"><span class="mal-name" style="font-size:0.68rem;">CVE-2023-29357 · SharePoint Auth Bypass</span><span class="mal-type">Critical · TP</span></div>
+      <div class="mal-row"><span class="mal-name" style="font-size:0.68rem;">CVE-2025-21298 · Windows OLE RCE</span><span class="mal-type">Medium · TP</span></div>
+      <div class="mal-row"><span class="mal-name" style="font-size:0.68rem;">CVE-2024-49138 · Windows Privesc</span><span class="mal-type">Medium · TP</span></div>
+      <div class="mal-row"><span class="mal-name" style="font-size:0.68rem;">CVE-2024-24919 · Check Point Gateway</span><span class="mal-type">High · TP</span></div>
+      <div class="mal-row"><span class="mal-name" style="font-size:0.68rem;">CVE-2023-46214 · Splunk RCE</span><span class="mal-type">High · TP</span></div>
+      <div class="mal-row"><span class="mal-name" style="font-size:0.68rem;">CVE-2023-22515 · Confluence RCE</span><span class="mal-type">High · TP</span></div>
+      <div class="mal-row"><span class="mal-name" style="font-size:0.68rem;">CVE-2022-41082 · ProxyNotShell</span><span class="mal-type">High · TP</span></div>
+      <div class="mal-row"><span class="mal-name" style="font-size:0.68rem;">CVE-2022-30190 · Follina MSDT</span><span class="mal-type">Medium · TP</span></div>
+    </div>
+  </div>
+
+  <!-- Threat Actors -->
+  <div class="panel" style="margin-top:1rem;">
+    <div class="panel-title">Notable Threat Actors &amp; Malware</div>
+    <div class="mal-grid">
+      <div class="mal-row"><span class="mal-name">APT35 / Charming Kitten</span><span class="mal-type">Nation-state · HyperScrape</span></div>
+      <div class="mal-row"><span class="mal-name">Emotet</span><span class="mal-type">Banking Trojan / Loader ×4</span></div>
+      <div class="mal-row"><span class="mal-name">Cobalt Strike</span><span class="mal-type">Offensive C2</span></div>
+      <div class="mal-row"><span class="mal-name">Lumma Stealer</span><span class="mal-type">Credential Stealer</span></div>
+      <div class="mal-row"><span class="mal-name">AsyncRAT</span><span class="mal-type">Remote Access Trojan</span></div>
+      <div class="mal-row"><span class="mal-name">Maze</span><span class="mal-type">Ransomware</span></div>
+      <div class="mal-row"><span class="mal-name">Impacket / wmiexec</span><span class="mal-type">Post-exploitation</span></div>
+      <div class="mal-row"><span class="mal-name">JuicyPotato</span><span class="mal-type">Privilege Escalation</span></div>
+    </div>
+  </div>
+
+  <!-- TTP Patterns -->
+  <div class="panel" style="margin-top:1rem;">
+    <div class="panel-title">Recurring Attacker TTP Patterns</div>
+    <div style="display:flex; flex-direction:column; gap:0.5rem;">
+      <div style="font-size:0.71rem; padding:0.5rem 0.75rem; background:var(--surface2); border-left:2px solid var(--pink); color:var(--text); line-height:1.6;">
+        <span style="color:var(--pink);">01 ·</span> Phishing → macro/exploit → PowerShell → payload download <span style="color:var(--text-dim);">(~12 cases — Emotet, Maze, AsyncRAT, LummaStealer)</span>
+      </div>
+      <div style="font-size:0.71rem; padding:0.5rem 0.75rem; background:var(--surface2); border-left:2px solid var(--cyan); color:var(--text); line-height:1.6;">
+        <span style="color:var(--cyan);">02 ·</span> CVE exploitation → web shell → privilege escalation <span style="color:var(--text-dim);">(SharePoint ×2, Confluence, Splunk, PAN-OS)</span>
+      </div>
+      <div style="font-size:0.71rem; padding:0.5rem 0.75rem; background:var(--surface2); border-left:2px solid var(--pink); color:var(--text); line-height:1.6;">
+        <span style="color:var(--pink);">03 ·</span> LOLBin proxy execution to bypass controls <span style="color:var(--text-dim);">(mshta, certutil, rundll32, wscript, regsvr32)</span>
+      </div>
+      <div style="font-size:0.71rem; padding:0.5rem 0.75rem; background:var(--surface2); border-left:2px solid var(--cyan); color:var(--text); line-height:1.6;">
+        <span style="color:var(--cyan);">04 ·</span> Brute force exposed service → valid account → RDP/VPN lateral access
+      </div>
+      <div style="font-size:0.71rem; padding:0.5rem 0.75rem; background:var(--surface2); border-left:2px solid var(--green); color:var(--text); line-height:1.6;">
+        <span style="color:var(--green);">05 ·</span> Living-off-the-land post-compromise <span style="color:var(--text-dim);">(wmiexec, JuicyPotato, LinEnum, certutil, BloodHound)</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Gap callout -->
+  <div class="gap-box">
+    <div class="gap-icon">⚡</div>
+    <div class="gap-text">
+      <strong>Active growth area:</strong> Cloud forensics currently represents 4 of 115 labs. AWS CloudTrail/S3, Azure Sentinel, and Microsoft Defender for Cloud investigations are in active rotation — this number is moving.
+    </div>
+  </div>
+
+  <div class="stats-footer">
+    <span>Stats auto-generated from Obsidian vault · updated periodically</span>
+    <span><a href="/blue-team/heatmap/">ATT&CK Heatmap</a> &nbsp;·&nbsp; <a href="/blue-team/labs/">All Writeups</a></span>
+  </div>
+
+</div>

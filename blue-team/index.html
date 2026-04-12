@@ -568,6 +568,7 @@ html { scroll-behavior: smooth; zoom: 1.2; }
   <ul class="nav-links">
     <li><a href="#investigations">Investigations</a></li>
     <li><a href="#labs">Labs</a></li>
+    <li><a href="/blue-team/stats/">Stats</a></li>
     <li><a href="#environments">Lab Envs</a></li>
     <li><a href="/resume/">Resume</a></li>
     <li><a href="/bookmarks/">Bookmarks</a></li>
@@ -723,7 +724,49 @@ html { scroll-behavior: smooth; zoom: 1.2; }
       </script>
     </div>
   </div>
-
+<!-- STATS CALLOUT BANNER — drop before achievements section -->
+<div style="
+  background:var(--panel);
+  border:1px solid var(--muted);
+  border-left:3px solid var(--pink);
+  padding:16px 20px;
+  margin-bottom:28px;
+">
+  <div style="font-size:8px; letter-spacing:0.3em; text-transform:uppercase; color:var(--subtle); margin-bottom:8px;">// portfolio at a glance</div>
+  <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:12px;">
+    <div style="display:flex; gap:1px; background:var(--muted); flex-wrap:wrap;">
+      <div style="background:var(--deep); padding:10px 18px; text-align:center; min-width:90px;">
+        <div style="font-family:'Syne Mono',monospace; font-size:18px; color:var(--pink); text-shadow:0 0 12px rgba(255,102,196,0.4); margin-bottom:3px;">115</div>
+        <div style="font-size:7px; letter-spacing:0.2em; text-transform:uppercase; color:var(--subtle);">Labs</div>
+      </div>
+      <div style="background:var(--deep); padding:10px 18px; text-align:center; min-width:90px;">
+        <div style="font-family:'Syne Mono',monospace; font-size:18px; color:var(--cyan); text-shadow:0 0 12px rgba(0,245,212,0.4); margin-bottom:3px;">82</div>
+        <div style="font-size:7px; letter-spacing:0.2em; text-transform:uppercase; color:var(--subtle);">SOC Alerts</div>
+      </div>
+      <div style="background:var(--deep); padding:10px 18px; text-align:center; min-width:90px;">
+        <div style="font-family:'Syne Mono',monospace; font-size:18px; color:var(--cyan); text-shadow:0 0 12px rgba(0,245,212,0.4); margin-bottom:3px;">82.9%</div>
+        <div style="font-size:7px; letter-spacing:0.2em; text-transform:uppercase; color:var(--subtle);">TP Rate</div>
+      </div>
+      <div style="background:var(--deep); padding:10px 18px; text-align:center; min-width:90px;">
+        <div style="font-family:'Syne Mono',monospace; font-size:18px; color:var(--pink); text-shadow:0 0 12px rgba(255,102,196,0.4); margin-bottom:3px;">10</div>
+        <div style="font-size:7px; letter-spacing:0.2em; text-transform:uppercase; color:var(--subtle);">CVEs</div>
+      </div>
+    </div>
+    <a href="/blue-team/stats/" style="
+      font-size:9px; letter-spacing:0.2em; text-transform:uppercase;
+      color:var(--pink); text-decoration:none;
+      border:1px solid var(--pink-dim); padding:8px 16px;
+      white-space:nowrap; transition:all 0.2s;
+    "
+    onmouseover="this.style.background='var(--pink-faint)';this.style.borderColor='var(--pink)'"
+    onmouseout="this.style.background='transparent';this.style.borderColor='var(--pink-dim)'">
+      view full breakdown →
+    </a>
+  </div>
+  <div style="margin-top:10px; font-size:9px; color:var(--subtle); letter-spacing:0.06em; line-height:1.6;">
+    Auto-generated from 119 documented investigations — tools used, malware families, MITRE coverage, CVEs, attack patterns. The actual writeups, certs, and daily work are below.
+  </div>
+</div>
   <!-- ACHIEVEMENTS -->
   <section>
     <div class="sec-eyebrow">// featured achievements</div>
