@@ -566,7 +566,7 @@ html { scroll-behavior: smooth; zoom: 1.2; }
 <nav>
   <a class="nav-brand" href="/"><span class="pk">ink</span>sec<span class="cx">.io</span></a>
   <ul class="nav-links">
-    <li><a href="#investigations">Investigations</a></li>
+    <li><a href="#alert-log">Investigations</a></li>
     <li><a href="#labs">Labs</a></li>
     <li><a href="/blue-team/stats/">Stats</a></li>
     <li><a href="#environments">Lab Envs</a></li>
@@ -592,7 +592,7 @@ html { scroll-behavior: smooth; zoom: 1.2; }
     </p>
     <div class="hero-stats" id="hero-stats-bar">
       <div class="hstat"><div class="hstat-val pk" id="stat-total">0</div><div class="hstat-label">Total Labs</div></div>
-      <div class="hstat"><div class="hstat-val pk">80+</div><div class="hstat-label">Investigations</div></div>
+      <div class="hstat"><div class="hstat-val pk" id="hero-inv-total">81</div><div class="hstat-label">Investigations</div></div>
       <div class="hstat"><div class="hstat-val cx">CDSA</div><div class="hstat-label">Certified</div></div>
       <div class="hstat"><div class="hstat-val cx">BTL1</div><div class="hstat-label">Certified</div></div>
     </div>
@@ -931,7 +931,7 @@ html { scroll-behavior: smooth; zoom: 1.2; }
   </section>
 
   <!-- DAILY INVESTIGATIONS -->
-  <section id="investigations">
+  <section id="alert-log">
     <div class="sec-eyebrow">// daily soc practice · live investigation log</div>
     <div class="sec-title">daily <span class="pk">investigations</span></div>
     <p class="sec-desc">Every alert triaged, documented, and mapped to MITRE ATT&CK. Updated daily as part of the <em>Day N of Becoming a SOC Analyst</em> series.</p>
@@ -1016,7 +1016,7 @@ html { scroll-behavior: smooth; zoom: 1.2; }
   <section id="labs">
     <div class="sec-eyebrow">// all completed labs</div>
     <div class="sec-title">lab <span class="pk">grid</span></div>
-    <p class="sec-desc">All platforms, all labs. Filter by platform, difficulty, or category. Adding new labs weekly. BTL1: <span id="btl1-done">1</span> of 9 completed.</p>
+    <p class="sec-desc">All platforms, all labs. Filter by platform, difficulty, or category. Adding new labs weekly.</p>
 
     <div class="filter-bar">
       <input class="filter-search" type="text" placeholder="> search labs, tools, techniques..." id="lab-search">
@@ -1404,6 +1404,8 @@ renderAll();
     const fp     = ALERTS.filter(a => a.outcome?.includes('false')).length;
     const mitre  = new Set(ALERTS.flatMap(a => a.mitre||[])).size;
     const latest = ALERTS.slice().sort((a,b) => b.date.localeCompare(a.date))[0];
+    const heroInv = document.getElementById('hero-inv-total');
+    if (heroInv) heroInv.textContent = ALERTS.length;
     document.getElementById('card-total').textContent  = ALERTS.length;
     document.getElementById('card-tp').textContent     = tp;
     document.getElementById('card-fp').textContent     = fp;
