@@ -846,7 +846,7 @@ html { scroll-behavior: smooth; zoom: 1.2; }
       <div class="t-stats">
         <div class="t-stat cx">
           <span>investigations</span>
-          <span class="val">80+</span>
+          <span class="val" id="hero-inv-count">80+</span>
         </div>
         <div class="t-stat pk">
           <span>certs</span>
@@ -916,7 +916,7 @@ html { scroll-behavior: smooth; zoom: 1.2; }
         <div class="port-title">Blue Team Operations</div>
         <div class="port-stats">
           <div class="pstat">
-            <div class="pstat-val">80+</div>
+            <div class="pstat-val" id="bt-inv-count">80+</div>
             <div class="pstat-key">Investigations</div>
           </div>
           <div class="pstat">
@@ -924,7 +924,7 @@ html { scroll-behavior: smooth; zoom: 1.2; }
             <div class="pstat-key">LetsDefend success</div>
           </div>
           <div class="pstat">
-            <div class="pstat-val">40+</div>
+            <div class="pstat-val" id="bt-yt-count">40+</div>
             <div class="pstat-key">YouTube walkthroughs</div>
           </div>
         </div>
@@ -1054,5 +1054,16 @@ html { scroll-behavior: smooth; zoom: 1.2; }
   </div>
 </footer>
 
+<script src="/labs-data.js"></script>
+<script src="/alerts-data.js"></script>
+<script>
+  if (typeof ALERTS !== 'undefined') {
+    const invCount = ALERTS.length;
+    const ytCount  = ALERTS.filter(a => a.youtube).length;
+    document.getElementById('hero-inv-count').textContent = invCount;
+    document.getElementById('bt-inv-count').textContent   = invCount;
+    document.getElementById('bt-yt-count').textContent    = ytCount;
+  }
+</script>
 </body>
 </html>
