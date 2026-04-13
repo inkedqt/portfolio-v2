@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>inksec.io // writing</title>
+<link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Syne+Mono&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --black:      #050508;
+  --deep:       #08080f;
+  --panel:      #0c0c18;
+  --pink:       #ff66c4;
+  --pink-bright:#ff90d6;
+  --pink-dim:   rgba(255,102,196,0.4);
+  --pink-faint: rgba(255,102,196,0.07);
+  --cyan:       #00f5d4;
+  --cyan-dim:   rgba(0,245,212,0.4);
+  --cyan-faint: rgba(0,245,212,0.07);
+  --gold:       #ffd166;
+  --gold-dim:   rgba(255,209,102,0.35);
+  --muted:      #2a2a45;
+  --subtle:     #4a4a6a;
+  --text:       #c8c8e8;
+  --text-dim:   #7a7a9a;
+  --green:      #00ff88;
+  --green-dim:  rgba(0,255,136,0.3);
+  --red:        #ff4466;
+  --red-dim:    rgba(255,68,102,0.35);
+  --red-faint:  rgba(255,68,102,0.07);
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--black);
+  color: var(--text);
+  font-family: 'Share Tech Mono', monospace;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: '';
+  position: fixed; inset: 0;
+  background:
+    linear-gradient(#1a1a2e 1px, transparent 1px),
+    linear-gradient(90deg, #1a1a2e 1px, transparent 1px);
+  background-size: 36px 36px;
+  opacity: 0.1;
+  pointer-events: none; z-index: 0;
+}
+
+.scanline {
+  position: fixed; top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--pink-dim), transparent);
+  animation: scan 7s linear infinite;
+  opacity: 0.25; z-index: 999; pointer-events: none;
+}
+@keyframes scan { 0%{top:-1px} 100%{top:100%} }
+
+/* ── NAV ── */
+nav {
+  position: sticky; top: 0; z-index: 100;
+  background: rgba(5,5,8,0.94);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--muted);
+  padding: 0 clamp(16px, 5vw, 80px);
+  display: flex; align-items: center;
+  justify-content: space-between; height: 52px;
+}
+.nav-brand { font-family:'Syne Mono',monospace; font-size:15px; color:var(--text); text-decoration:none; }
+.nav-brand .pk { color:var(--pink); text-shadow:0 0 20px var(--pink-dim); }
+.nav-brand .cx { color:var(--cyan); }
+.nav-links { display:flex; gap:clamp(14px,3vw,32px); list-style:none; align-items:center; }
+.nav-links a { font-size:10px; letter-spacing:0.2em; text-transform:uppercase; color:var(--subtle); text-decoration:none; transition:color 0.2s; }
+.nav-links a:hover { color:var(--pink); }
+.nav-links a.active { color:var(--pink); }
+.nav-back { font-size:10px; letter-spacing:0.15em; color:var(--subtle); text-decoration:none; border:1px solid var(--muted); padding:4px 10px; transition:all 0.2s; }
+.nav-back:hover { color:var(--cyan); border-color:var(--cyan-dim); }
+
+/* ── WRAP ── */
+.wrap { position:relative; z-index:1; max-width:1200px; margin:0 auto; padding:0 clamp(16px,5vw,80px); }
+
+/* ── HERO ── */
+.hero { padding:64px 0 52px; border-bottom:1px solid var(--muted); }
+.hero-eyebrow { font-size:9px; letter-spacing:0.35em; text-transform:uppercase; color:var(--subtle); margin-bottom:16px; }
+.hero-title { font-family:'Syne Mono',monospace; font-size:clamp(24px,4vw,44px); line-height:1.05; margin-bottom:16px; }
+.hero-title .pk { color:var(--pink); text-shadow:0 0 40px var(--pink-dim); }
+.hero-title .cx { color:var(--cyan); text-shadow:0 0 40px var(--cyan-dim); }
+.hero-sub { font-family:'DM Mono',monospace; font-weight:300; font-size:clamp(11px,1.5vw,13px); color:var(--text-dim); line-height:1.8; max-width:600px; margin-bottom:40px; letter-spacing:0.04em; }
+.hero-sub em { font-style:normal; color:var(--text); }
+
+/* stat bar */
+.hero-stats { display:flex; gap:1px; background:var(--muted); border:1px solid var(--muted); width:fit-content; flex-wrap:wrap; }
+.hstat { background:var(--deep); padding:14px 22px; text-align:center; min-width:110px; }
+.hstat-val { font-family:'Syne Mono',monospace; font-size:clamp(16px,2.5vw,22px); margin-bottom:4px; }
+.hstat-val.pk { color:var(--pink); text-shadow:0 0 16px var(--pink-dim); }
+.hstat-val.cx { color:var(--cyan); text-shadow:0 0 16px var(--cyan-dim); }
+.hstat-val.go { color:var(--gold); }
+.hstat-label { font-size:8px; letter-spacing:0.22em; text-transform:uppercase; color:var(--subtle); }
+
+/* ── SECTION ── */
+section { padding:52px 0; border-bottom:1px solid var(--muted); }
+section:last-child { border-bottom:none; }
+.sec-eyebrow { font-size:9px; letter-spacing:0.35em; text-transform:uppercase; color:var(--subtle); margin-bottom:20px; }
+.sec-title { font-family:'Syne Mono',monospace; font-size:clamp(15px,2.2vw,20px); color:var(--text); margin-bottom:8px; }
+.sec-title .pk { color:var(--pink); }
+.sec-title .cx { color:var(--cyan); }
+.sec-desc { font-size:11px; color:var(--text-dim); line-height:1.7; letter-spacing:0.04em; margin-bottom:28px; max-width:640px; }
+
+/* ── POST TABLE ── */
+.post-table-wrap { overflow-x:auto; }
+
+.post-table {
+  width:100%; border-collapse:collapse;
+  font-size:11px;
+}
+
+.post-table th {
+  font-size:8px; letter-spacing:0.22em; text-transform:uppercase;
+  color:var(--subtle); text-align:left;
+  padding:8px 12px; border-bottom:1px solid var(--muted);
+  white-space:nowrap;
+}
+
+.post-table td {
+  padding:12px 12px; border-bottom:1px solid rgba(42,42,69,0.5);
+  vertical-align:middle; color:var(--text-dim);
+  transition:background 0.15s;
+}
+.post-table tr:hover td { background:rgba(255,102,196,0.03); }
+
+.post-table .col-date  { color:var(--subtle); white-space:nowrap; font-size:10px; width:110px; }
+.post-table .col-type  { white-space:nowrap; width:120px; }
+.post-table .col-title { color:var(--text); min-width:220px; font-size:12px; }
+.post-table .col-summary { min-width:260px; font-family:'DM Mono',monospace; font-weight:300; font-size:10px; line-height:1.6; letter-spacing:0.03em; }
+.post-table .col-read { width:100px; }
+
+/* type badges */
+.ptype {
+  display:inline-block; font-size:7px; letter-spacing:0.18em;
+  text-transform:uppercase; padding:2px 7px; border:1px solid;
+  white-space:nowrap;
+}
+.ptype-milestone  { color:var(--gold);  border-color:var(--gold-dim);  background:rgba(255,209,102,0.07); }
+.ptype-review     { color:var(--cyan);  border-color:var(--cyan-dim);  background:var(--cyan-faint); }
+.ptype-reflection { color:var(--pink);  border-color:var(--pink-dim);  background:var(--pink-faint); }
+.ptype-walkthrough{ color:var(--green); border-color:var(--green-dim); background:rgba(0,255,136,0.05); }
+
+/* read link */
+.post-read-link {
+  font-size:8px; letter-spacing:0.15em; text-transform:uppercase;
+  color:var(--pink); text-decoration:none;
+  border:1px solid var(--pink-dim); padding:2px 8px;
+  transition:all 0.15s; white-space:nowrap;
+}
+.post-read-link:hover { background:var(--pink-faint); color:var(--cyan); border-color:var(--cyan-dim); }
+
+.post-soon {
+  font-size:8px; letter-spacing:0.15em; text-transform:uppercase;
+  color:var(--muted); border:1px solid var(--muted); padding:2px 8px;
+  white-space:nowrap; cursor:default;
+}
+
+/* footer */
+footer { border-top:1px solid var(--muted); padding:24px 0; }
+
+@media (max-width:700px) {
+  .post-table .col-summary { display:none; }
+  .hstat { min-width:80px; padding:10px 14px; }
+}
+html { scroll-behavior: smooth; zoom: 1.2; }
+</style>
+</head>
+<body>
+<div class="scanline"></div>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-brand" href="/"><span class="pk">ink</span>sec<span class="cx">.io</span></a>
+  <ul class="nav-links">
+    <li><a href="/blue-team/">Blue Team</a></li>
+    <li><a href="/blue-team/alerts/">Alert Log</a></li>
+    <li><a href="/writing/" class="active">Writing</a></li>
+  </ul>
+  <a class="nav-back" href="/">← home</a>
+</nav>
+
+<div class="wrap">
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-eyebrow">// notes · reflections · reviews</div>
+    <h1 class="hero-title"><span class="pk">writing</span></h1>
+    <p class="hero-sub">
+      Things that don't fit neatly elsewhere — <em>exam reviews</em>, milestone reflections,
+      methodology notes, and the occasional opinion. Not a blog. Just writing.
+    </p>
+    <div class="hero-stats">
+      <div class="hstat">
+        <div class="hstat-val pk" id="stat-total">—</div>
+        <div class="hstat-label">Posts</div>
+      </div>
+      <div class="hstat">
+        <div class="hstat-val cx" id="stat-reviews">—</div>
+        <div class="hstat-label">Reviews</div>
+      </div>
+      <div class="hstat">
+        <div class="hstat-val go" id="stat-milestones">—</div>
+        <div class="hstat-label">Milestones</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- POST LIST -->
+  <section id="posts">
+    <div class="sec-eyebrow">// all posts · newest first</div>
+    <div class="sec-title">post <span class="pk">index</span></div>
+
+    <div class="post-table-wrap">
+      <table class="post-table">
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Type</th>
+            <th>Title</th>
+            <th class="col-summary">Summary</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody id="post-tbody"></tbody>
+      </table>
+    </div>
+  </section>
+
+</div><!-- /wrap -->
+
+<footer>
+  <div class="wrap" style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;">
+    <div style="font-family:'Syne Mono',monospace;font-size:13px;">
+      <span style="color:var(--pink);text-shadow:0 0 14px var(--pink-dim);">ink</span><span style="color:var(--text);">sec</span><span style="color:var(--cyan);">.io</span>
+      <span style="color:var(--subtle);font-size:10px;margin-left:12px;letter-spacing:0.12em;">writing · Tate Pannam</span>
+    </div>
+    <a href="https://0x74617465.sh/red-team/" target="_blank"
+       style="font-size:10px;letter-spacing:0.15em;color:var(--subtle);text-decoration:none;transition:color 0.2s;">
+      offensive side → <span style="color:var(--pink);font-family:'Syne Mono',monospace;">0x</span>74617465<span style="color:var(--cyan);">.sh</span>
+    </a>
+  </div>
+</footer>
+
+<script>
+// ── POSTS DATA ────────────────────────────────────────────────────────────────
+// Add new posts here. url: null = "coming soon". Newest first.
+const POSTS = [
+  {
+    date:    '2026-04-13',
+    type:    'milestone',
+    title:   'Day 100: Reflections on Daily SOC Alert Triage',
+    summary: '100 days of daily LetsDefend alert investigations — what changed, what stuck, and what the data actually shows about triage habits.',
+    url:     null,
+  },
+  {
+    date:    '2026-04-XX',
+    type:    'review',
+    title:   'BTL1 Exam Review',
+    summary: 'My experience with the Security Blue Team Level 1 24-hour practical exam — preparation approach, what I wish I knew, and whether it is worth it.',
+    url:     null,
+  },
+];
+
+// ── HELPERS ──────────────────────────────────────────────────────────────────
+function typeBadge(t) {
+  const cls = {
+    milestone:   'ptype-milestone',
+    review:      'ptype-review',
+    reflection:  'ptype-reflection',
+    walkthrough: 'ptype-walkthrough',
+  };
+  return `<span class="ptype ${cls[t] || 'ptype-reflection'}">${t}</span>`;
+}
+
+function fmtDate(d) {
+  if (!d || d.includes('XX')) return d || '—';
+  const [y, m, day] = d.split('-');
+  return `${day}/${m}/${y}`;
+}
+
+// ── RENDER ────────────────────────────────────────────────────────────────────
+function render() {
+  document.getElementById('post-tbody').innerHTML = POSTS.map(p => `
+    <tr>
+      <td class="col-date">${fmtDate(p.date)}</td>
+      <td class="col-type">${typeBadge(p.type)}</td>
+      <td class="col-title">${p.title}</td>
+      <td class="col-summary">${p.summary}</td>
+      <td>${p.url
+        ? `<a class="post-read-link" href="${p.url}">read →</a>`
+        : `<span class="post-soon">soon</span>`
+      }</td>
+    </tr>
+  `).join('');
+
+  document.getElementById('stat-total').textContent     = POSTS.length;
+  document.getElementById('stat-reviews').textContent   = POSTS.filter(p => p.type === 'review').length;
+  document.getElementById('stat-milestones').textContent= POSTS.filter(p => p.type === 'milestone').length;
+}
+
+render();
+</script>
+</body>
+</html>
