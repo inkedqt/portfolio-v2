@@ -10,7 +10,7 @@ tactics:
 mitre: "[T1566.001, T1059.005, T1547.001, T1204.002]"
 proof: https://blueteamlabs.online/achievement/share/challenge/144656/14
 challenge_url: https://blueteamlabs.online/home/challenge/iloveyou-b9b3e99c9b
-permalink: /blue-team/labs/CHANGE-ME/
+permalink: /blue-team/labs/iloveyou/
 summary: '"Static analysis of the infamous ILOVEYOU VBScript worm from 2000 using olevba, examining its email propagation mechanism, file infection routines, registry persistence, IRC spreading, and the embedded Barok password-stealing trojan."'
 art: https://d2ghw05x0obr70.cloudfront.net/thumbnails/776f552527c0c868c9243ebb6cb9ad6230b94eb9.png
 type: challenge

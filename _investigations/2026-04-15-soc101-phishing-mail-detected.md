@@ -39,3 +39,6 @@ Email sent from 173.194.68.27 to james@letsdefend.io. Associated infrastructure 
 
 ### 💡 Why
 The alert was triggered due to detection of a phishing email containing a malicious attachment. Threat intelligence confirms the file is Emotet malware. The email was blocked and no connections to the identified C2 infrastructure were observed, indicating the attachment was not executed. The activity is classified as a true positive phishing attempt with no successful compromise
+
+https://www.virustotal.com/gui/file/3f2d12e27bf3804eb2a416ec9c17b8a4b475d3e5e0e2ebbb9ef8a9eba2a500eb/relations
+https://app.any.run/tasks/c2e1ff60-e58c-4e84-b743-3c098a3c0ee4
