@@ -1023,7 +1023,7 @@ const COMMANDS_DATA = [
     "tool": "powershell",
     "lab": "mitsu",
     "lab_url": "/blue-team/labs/mitsu/",
-    "desc": "Checks the digital signature status of neuro.msi — surfaces unsigned or invalidly signed installers that may indicate tampered or malicious packages.",
+    "desc": "Checks the digital signature status of neuro.msi \u2014 surfaces unsigned or invalidly signed installers that may indicate tampered or malicious packages.",
     "tags": "powershell"
   },
   {
@@ -1039,7 +1039,7 @@ const COMMANDS_DATA = [
     "tool": "powershell",
     "lab": "mitsu",
     "lab_url": "/blue-team/labs/mitsu/",
-    "desc": "Lists all members of the local Administrators group — used to confirm whether a newly created account was granted elevated privileges.",
+    "desc": "Lists all members of the local Administrators group \u2014 used to confirm whether a newly created account was granted elevated privileges.",
     "tags": "powershell"
   },
   {
@@ -1049,12 +1049,20 @@ const COMMANDS_DATA = [
     "lab_url": "/blue-team/labs/mitsu/",
     "desc": "Attacker-deployed scheduled task command: dumps running processes to disk silently at logon using -WindowStyle Hidden to avoid user visibility.",
     "tags": "powershell"
+  },
+  {
+    "command": "powershell -Command \"Add-MpPreference -Force -ExclusionPath 'C:\\ProgramData\\Microsoft\\env\\env.exe'\" powershell -Command \"Add-MpPreference -Force -ExclusionPath 'C:\\ProgramData\\Microsoft\\env\\bcd.bat'\" powershell -Command \"Add-MpPreference -Force -ExclusionPath 'C:\\ProgramData\\Microsoft\\env\\update.bat'\"",
+    "tool": "powershell",
+    "lab": "meteorhit-indra",
+    "lab_url": "/blue-team/labs/meteorhit-indra/",
+    "desc": "Adds Windows Defender exclusion paths for malicious executables and scripts to prevent AV scanning prior to wiper detonation",
+    "tags": "powershell"
   }
 ];
 
 const COMMANDS_META = {
-  "total": 131,
-  "labs": 50,
+  "total": 132,
+  "labs": 51,
   "tools": [
     "grep",
     "kql",

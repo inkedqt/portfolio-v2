@@ -1819,4 +1819,19 @@ const LABS = [
     type:     'None',
   },
 
+  {
+    name:     'MeteorHit - Indra',
+    skill:    'Endpoint Forensics',
+    platform: 'CyberDefenders',
+    diff:     'Medium',
+    cats:     ['Endpoint Forensics', 'Registry Explorer', 'Event Log Explorer', 'NTFS Log Tracker', 'MFTECmd', 'VirusTotal', 'Execution', 'Persistence', 'Privilege Escalation', 'Defense Evasion', 'Discovery', 'Impact', 'T1059.003', 'T1053.005', 'T1562.001', 'T1070.004', 'T1490', 'T1543.003', 'T1113', 'T1036.005'],
+    status:   'done',
+    score:    null,
+    summary:  'Reconstruct a wiper malware attack by analyzing registry, event logs, and USN journal artifacts from a KAPE triage collection.',
+    art:      'https://cyberdefenders.org/media/terraform/MeteorHit/MeteorHit_vbsI053.webp',
+    writeup:  '/blue-team/labs/meteorhit-indra/',
+    proof:    'https://cyberdefenders.org/blueteam-ctf-challenges/achievements/inksec/meteorhit-indra/',
+    type:     'None',
+  },
+
 ];
