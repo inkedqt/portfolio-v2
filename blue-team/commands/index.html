@@ -163,7 +163,8 @@ nav {
 .filter-btn[data-tool="powershell"].active { color: #5bc4f5; border-color: rgba(91,196,245,0.4); background: rgba(91,196,245,0.07); }
 .filter-btn[data-tool="python"].active { color: #4bc8a0; border-color: rgba(75,200,160,0.4); background: rgba(75,200,160,0.07); }
 .filter-btn[data-tool="aws"].active { color: #ff9900; border-color: rgba(255,153,0,0.4); background: rgba(255,153,0,0.07); }
-.filter-btn[data-tool="sql"].active { color: #b482ff; border-color: rgba(180,130,255,0.4); background: rgba(180,130,255,0.07); }
+.filter-btn[data-tool="sql"].active  { color: #b482ff; border-color: rgba(180,130,255,0.4); background: rgba(180,130,255,0.07); }
+.filter-btn[data-tool="wiki"].active { color: var(--cyan); border-color: var(--cyan-dim); background: var(--cyan-faint); }
 
 /* ── RESULTS COUNT ── */
 .results-bar {
@@ -247,7 +248,16 @@ nav {
 .cmd-tool.powershell { color: #5bc4f5; border-color: rgba(91,196,245,0.4); background: rgba(91,196,245,0.07); }
 .cmd-tool.python { color: #4bc8a0; border-color: rgba(75,200,160,0.4); background: rgba(75,200,160,0.07); }
 .cmd-tool.aws { color: #ff9900; border-color: rgba(255,153,0,0.4); background: rgba(255,153,0,0.07); }
-.cmd-tool.sql { color: #b482ff; border-color: rgba(180,130,255,0.4); background: rgba(180,130,255,0.07); }
+.cmd-tool.sql  { color: #b482ff; border-color: rgba(180,130,255,0.4); background: rgba(180,130,255,0.07); }
+
+.cmd-wiki-badge {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 7px; letter-spacing: 0.2em;
+  text-transform: uppercase; padding: 2px 7px;
+  border: 1px solid var(--cyan-dim);
+  color: var(--cyan); background: var(--cyan-faint);
+  opacity: 0.75;
+}
 
 .cmd-lab {
   font-family: 'Share Tech Mono', monospace;
@@ -330,11 +340,11 @@ nav {
       <button class="filter-btn" data-tool="python">python</button>
       <button class="filter-btn" data-tool="aws">aws</button>
       <button class="filter-btn" data-tool="sql">sql</button>
+      <button class="filter-btn" data-tool="wiki">wiki</button>
     </div>
   </div>
 
-  <div class="results-bar">showing <span class="count" id="shown-count">21</span> commands</div>
-  <div class="results-bar">showing <span class="count" id="shown-count">21</span> commands</div>
+  <div class="results-bar">showing <span class="count" id="shown-count">—</span> commands</div>
 
   <div class="commands-grid" id="cmd-grid"></div>
 
@@ -390,18 +400,20 @@ function buildCards() {
   cards = [];
 
   COMMANDS_DATA.forEach((cmd, i) => {
-    const tool = cmd.tool || 'shell';
+    const tool   = cmd.tool || 'shell';
+    const source = cmd.source || 'lab';
     const tc = toolClass[tool] || 'shell';
     const desc = cmd.desc || '<span style="color:var(--subtle);font-style:italic;">no description yet</span>';
-    const labLink = cmd.lab
-      ? `<a class="cmd-lab" href="${cmd.lab_url}">↗ ${cmd.lab.toLowerCase()}</a>`
-      : '';
+    const labLink = source === 'wiki'
+      ? `<span class="cmd-wiki-badge">wiki · ${cmd.lab.toLowerCase()}</span>`
+      : (cmd.lab ? `<a class="cmd-lab" href="${cmd.lab_url}">↗ ${cmd.lab.toLowerCase()}</a>` : '');
 
     const card = document.createElement('div');
     card.className = 'cmd-card';
-    card.dataset.tool = tool;
-    card.dataset.tags = cmd.tags || tool;
-    card.dataset.index = i;
+    card.dataset.tool   = tool;
+    card.dataset.source = source;
+    card.dataset.tags   = cmd.tags || tool;
+    card.dataset.index  = i;
 
     card.innerHTML = `
       <div class="cmd-top">
@@ -441,7 +453,9 @@ function updateDisplay() {
     const desc = card.querySelector('.cmd-desc').textContent.toLowerCase();
     const q = searchQuery.toLowerCase();
 
-    const toolMatch = activeTool === 'all' || tool === activeTool;
+    const source = card.dataset.source || 'lab';
+    const toolMatch = activeTool === 'all'
+      || (activeTool === 'wiki' ? source === 'wiki' : tool === activeTool);
     const searchMatch = !q || code.includes(q) || desc.includes(q) || tags.includes(q);
 
     if (toolMatch && searchMatch) {
@@ -478,8 +492,6 @@ function copyCmd(btn) {
   });
 }
 
-// Init
-// Init
 document.addEventListener('DOMContentLoaded', buildCards);
 </script>
 </body>
